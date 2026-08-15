@@ -15,9 +15,9 @@
     </script>
 
     <!-- Preloads do player CORRETOS (primeiro recurso a carregar) -->
-    <link rel="preload" href="https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a8052b1e8cd64ea01191b23/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a80ae92ce6375b28e9cce27/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/6a805158edc87fe7cad866c9/main.m3u8" as="fetch">
+    <link rel="preload" href="https://cdn.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/6a80adec2aa981ad13c892ee/main.m3u8" as="fetch">
     <link rel="dns-prefetch" href="https://cdn.converteai.net">
     <link rel="dns-prefetch" href="https://scripts.converteai.net">
     <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -591,10 +591,10 @@
 
         <!-- PLAYER -->
         <div>
-            <vturb-smartplayer id="vid-6a8052b1e8cd64ea01191b23" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>
+            <vturb-smartplayer id="vid-6a80ae92ce6375b28e9cce27" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
             <script type="text/javascript">
                 var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a8052b1e8cd64ea01191b23/v4/player.js";
+                s.src = "https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a80ae92ce6375b28e9cce27/v4/player.js";
                 s.async = true;
                 document.head.appendChild(s);
             </script>
@@ -615,8 +615,17 @@
 
         <!-- BLOCO CTA - Aparece no tempo do pitch -->
         <div id="bloco_cta" style="display:none; text-align: center; padding: 16px; margin: 16px 0;">
-            <a href="CHECKOUT_URL_AQUI" style="display: inline-block; background: #27AE60; color: white; padding: 14px 48px; border: none; border-radius: 50px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 6px 12px rgba(0,0,0,0.2); text-decoration: none; transition: all 0.3s ease; font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.background='#229954'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='#27AE60'; this.style.transform='scale(1)';">
-                ✓ Unlock The Secret Key Now
+            <style>
+                @keyframes pulse-btn {
+                    0%, 100% { box-shadow: 0 6px 12px rgba(0,0,0,0.2); transform: scale(1); }
+                    50% { box-shadow: 0 6px 25px rgba(39, 174, 96, 0.5); transform: scale(1.02); }
+                }
+                .cta-pulse {
+                    animation: pulse-btn 2.5s ease-in-out infinite;
+                }
+            </style>
+            <a href="CHECKOUT_URL_AQUI" class="cta-pulse" style="display: inline-block; background: #27AE60; color: white; padding: 14px 48px; border: none; border-radius: 50px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 6px 12px rgba(0,0,0,0.2); text-decoration: none; transition: all 0.3s ease; font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.animation='none'; this.style.background='#229954'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';" onmouseout="this.style.animation='pulse-btn 2.5s ease-in-out infinite'; this.style.background='#27AE60'; this.style.transform='scale(1)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)';">
+                I Want The Secret Key
             </a>
         </div>
 
