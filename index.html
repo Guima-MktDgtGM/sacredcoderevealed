@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>OSA-PV-FR (f1) – Oração Sagrada de Santo Antônio</title>
+
+    <!-- ========== PRIORIDADE MÁXIMA: PLAYER ========== -->
+    <!-- Performance timestamp (Vturb) -->
+    <script>
+        ! function(i, n) {
+            i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now())
+        }(window, performance);
+    </script>
+
+    <!-- Preloads do player CORRETOS (primeiro recurso a carregar) -->
+    <link rel="preload" href="https://scripts.converteai.net/85260c57-f284-4163-b2f6-1b0dedc53875/players/692745dd4cb8a0871409fbb9/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/85260c57-f284-4163-b2f6-1b0dedc53875/692745b9505a0c045f3d2f79/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+    <!-- ========== META PIXEL (async, não bloqueia) ========== -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2514664475598793');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2514664475598793&ev=PageView&noscript=1"
+  /></noscript>
+
+    <!-- UTMify (async/defer, não bloqueia) -->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+    <!-- ========== FONTES DIFERIDAS (carregam após player) ========== -->
+    <!-- Roboto: usada no corpo – carrega com media="print" trick para não bloquear render -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Montserrat: usada APENAS nas notificações (aparecem após 37min) – carrega lazy -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font Awesome: usado APENAS nos ícones (não crítico para player) – carrega lazy -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></noscript>
+    <style>
+        .fa::before,
+        .far::before,
+        .fas::before {
+            font-family: 'Font Awesome 5 Free', FontAwesome !important;
+        }
+    </style>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        /* HEADER */
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            height: 56px;
+            background-color: #fff;
+        }
+
+        .left-section,
+        .center-section,
+        .right-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-section .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+        }
+
+        .left-section .logo {
+            height: 20px;
+        }
+
+        .center-section {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-left: none;
+            background-color: #f8f8f8;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search-bar button img {
+            width: 20px;
+            filter: grayscale(100%);
+            pointer-events: none;
+        }
+
+        .right-section .profile-pic {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-left: 24px;
+        }
+
+        .mobile-search-icon {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .center-section {
+                display: none;
+            }
+            .mobile-search-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background-color: #f0f0f0;
+                cursor: pointer;
+                margin-left: 12px;
+            }
+            .mobile-search-icon img {
+                width: 20px;
+                height: 20px;
+                filter: grayscale(100%);
+                pointer-events: none;
+            }
+        }
+
+        /* CHAT */
+
+        .chat-container {
+            width: 100%;
+            max-height: 600px;
+            min-height: 400px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .chat-header {
+            background: #fff;
+            color: #0f0f0f;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #fff;
+        }
+
+        .message {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .username {
+            font-weight: bold;
+            color: #707070;
+            margin-right: 6px;
+        }
+
+        .text {
+            color: #0f0f0f;
+            word-break: break-word;
+        }
+
+        .chat-input-container {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-top: 1px solid #e5e5e5;
+            background: #fff;
+            justify-content: space-between;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+            background: #f2f2f2;
+            font-size: 14px;
+            color: #0f0f0f;
+            outline: none;
+        }
+
+        .chat-input::placeholder {
+            color: #6b6b6b;
+        }
+
+        .emoji {
+            margin-left: 8px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .emoji-menu {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            right: 10px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .emoji-menu span {
+            font-size: 24px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .emoji-menu span:hover {
+            opacity: 0.7;
+        }
+
+        .emoji-button-container {
+            position: relative;
+        }
+
+        @media (max-width: 767px) {
+            .chat-container {
+                max-height: 400px;
+                min-height: 400px;
+            }
+        }
+
+        /* YOUTUBE LIVE BAR */
+
+        .youtube-live-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .channel-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .channel-icon {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+        }
+
+        .channel-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .channel-name {
+            font-weight: 500;
+            font-size: 16px;
+            color: #0f0f0f;
+        }
+
+        .channel-subs {
+            font-size: 14px;
+            color: #606060;
+        }
+
+        .subscribe-btn {
+            background: #0f0f0f;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            height: 36px;
+        }
+
+        .likes-container {
+            background-color: #f2f2f2;
+            border-radius: 24px;
+            padding: 4px 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            height: 36px;
+        }
+
+        .like-btn,
+        .dislike-btn {
+            display: flex;
+            align-items: center;
+            color: #606060;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .like-btn img,
+        .dislike-btn img {
+            width: 18px;
+            height: 18px;
+            margin-right: 4px;
+        }
+
+        .view-counter-wrapper {
+            background-color: #f2f2f2;
+            border-radius: 24px;
+            padding: 8px 16px;
+            width: fit-content;
+        }
+
+        .view-counter {
+            font-weight: 500;
+            font-size: 14px;
+            color: #0f0f0f;
+            line-height: 1.4;
+        }
+
+        .view-number {
+            display: inline-block;
+            transition: all 0.6s ease;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        .desktop-only {
+            display: block;
+        }
+
+        @media (max-width: 767px) {
+            .top-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .channel-section {
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .subscribe-btn {
+                margin-left: auto;
+            }
+            .mobile-only {
+                display: block;
+            }
+            .desktop-only {
+                display: none;
+            }
+            .view-counter-mobile {
+                background: none;
+                color: #888 !important;
+                padding: 0;
+                font-size: 14px;
+            }
+        }
+
+        /* NOTIFICAÇÃO DE COMPRA */
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.5s ease-in-out;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            z-index: 100;
+        }
+
+        .notification img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .notification {
+                padding: 8px 10px;
+                font-size: 12px;
+                bottom: 80px;
+                left: 10px;
+                max-width: 280px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            }
+            .notification img {
+                width: 28px;
+                height: 28px;
+                flex-shrink: 0;
+            }
+            .notification div {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notification {
+                padding: 6px 8px;
+                font-size: 11px;
+                bottom: 70px;
+                left: 8px;
+                max-width: 240px;
+            }
+            .notification img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+
+
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Sat, 26 Jul 1997 05:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <meta name="robots" content="noindex">
+
+    <meta itemprop="name" content="vaticansecretprayer.com">
+    <meta itemprop="description" content="">
+    <meta name="description" content="">
+
+
+    <meta property="og:title" content="vaticansecretprayer.com" />
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://vaticansecretprayer.com/mca">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="vaticansecretprayer.com">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vaticansecretprayer.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        .fa::before,
+        .far::before,
+        .fas::before {
+            font-family: 'Font Awesome 5 Free', FontAwesome !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="max-width:1200px;margin:0 auto;">
+
+        <!-- AVISO DE SAÍDA DO AR -->
+        <div style="background-color: #fff3cd; border-left: 4px solid #ff6b6b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px;">
+            <div style="display: flex; align-items: center; gap: 12px; font-family: 'Roboto', Arial, sans-serif;">
+                <span style="font-size: 20px;">⚠️</span>
+                <div>
+                    <div style="color: #ff6b6b; font-weight: 700; font-size: 14px;">THIS VIDEO WILL BE REMOVED TODAY</div>
+                    <div id="removal-date" style="color: #666; font-size: 13px; margin-top: 2px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEADER YOUTUBE -->
+        <header class="header">
+            <div class="left-section">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="4" width="24" height="2" rx="1" fill="#606060"/>
+          <rect y="11" width="24" height="2" rx="1" fill="#606060"/>
+          <rect y="18" width="24" height="2" rx="1" fill="#606060"/>
+        </svg>
+                <img decoding="async" src="https://vaticansecretprayer.com/wp-content/uploads/2026/04/logo_youtube.webp" alt="YouTube Logo" class="logo">
+            </div>
+            <div class="center-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <button>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="7" stroke="#606060" stroke-width="2"/>
+              <line x1="16.5" y1="16.5" x2="22" y2="22" stroke="#606060" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="mobile-search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="#606060" stroke-width="2"/>
+            <line x1="16.5" y1="16.5" x2="22" y2="22" stroke="#606060" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+                </div>
+                <svg class="profile-pic" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="16" fill="#aaa"/>
+          <circle cx="16" cy="13" r="5" fill="#fff"/>
+          <ellipse cx="16" cy="28" rx="9" ry="7" fill="#fff"/>
+        </svg>
+            </div>
+        </header>
+
+        <!-- PLAYER -->
+        <div>
+            <vturb-smartplayer id="vid-692745dd4cb8a0871409fbb9" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>
+            <script type="text/javascript">
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/85260c57-f284-4163-b2f6-1b0dedc53875/players/692745dd4cb8a0871409fbb9/v4/player.js";
+                s.async = true;
+                document.head.appendChild(s);
+            </script>
+            <script>
+                var pageStartTime = null;
+                var currentPageTime = 0;
+                document.addEventListener("DOMContentLoaded", function() {
+                    pageStartTime = Date.now();
+
+                    function updatePageTimer() {
+                        currentPageTime = (Date.now() - pageStartTime) / 1000;
+                        requestAnimationFrame(updatePageTimer);
+                    }
+                    updatePageTimer();
+                });
+            </script>
+        </div>
+
+        <!-- TÍTULO -->
+        <div style="padding:8px 16px;">
+            <h2 style="margin:0;font-size:15px;font-weight:700;font-family:'Roboto',Arial,sans-serif;color:#0f0f0f;">
+                CENSORED PRAYER: Why The Vatican Tried To Bury This Ancient Formula The Chosen's Star Just Exposed|
+                <span id="live-timestamp" style="font-size:16px;font-weight:700;">Live at HH:MM, MM/DD/YYYY.</span>
+            </h2>
+        </div>
+
+        <!-- CHAT -->
+        <div style="padding:0 16px;">
+            <div class="chat-container">
+                <div class="chat-header">Live chat</div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input id="chatInput" class="chat-input" type="text" placeholder="Chat...">
+                    <div class="emoji-button-container">
+                        <div id="emojiButton" class="emoji">&#128522;</div>
+                        <div id="emojiMenu" class="emoji-menu">
+                            <span>&#128512;</span><span>&#128513;</span><span>&#128514;</span><span>&#128525;</span>
+                            <span>&#128526;</span><span>&#129300;</span><span>&#128540;</span><span>&#128579;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px;">
+
+        <!-- SUBSCRIBE / LIKES / VIEWS -->
+        <div id="youtube-live-fake" style="font-family:Roboto,Arial,sans-serif;width:100%;max-width:100%;background:#fff;padding:16px;box-sizing:border-box;">
+            <div class="youtube-live-container">
+
+                <div class="view-counter view-counter-mobile mobile-only" id="view-counter-mobile">
+                    <span class="view-number">0</span> Watching now
+                </div>
+
+                <div class="top-row">
+                    <div class="channel-section">
+                        <!-- Channel icon com loading=lazy -->
+                        <img decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/1024px-Fox_News_Channel_logo.svg.png" alt="Fox News" class="channel-icon">
+                        <div class="channel-info">
+                            <div class="channel-name">Fox News</div>
+                            <div class="channel-subs">156K subscribers</div>
+                        </div>
+                        <button id="subscribe-btn" class="subscribe-btn">Subscribe</button>
+                    </div>
+                    <div class="likes-container">
+                        <div id="like-btn" class="like-btn">
+                            <img decoding="async" loading="lazy" src="https://cdn-icons-png.flaticon.com/512/126/126473.png">
+                        </div>
+                        <div id="dislike-btn" class="dislike-btn">
+                            <img decoding="async" loading="lazy" src="https://cdn-icons-png.flaticon.com/512/126/126504.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="view-counter-wrapper desktop-only">
+                    <div class="view-counter" id="view-counter">
+                        <span class="view-number">0</span> Watching now
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /max-width wrapper -->
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            /* ===== TIMESTAMP E DATAS DINÂMICAS ===== */
+            var now = new Date();
+
+            // Data de saída do ar (hoje)
+            var removalDateEl = document.getElementById('removal-date');
+            if (removalDateEl) {
+                var removalMonth = (now.getMonth() + 1).toString().padStart(2, '0');
+                var removalDay = now.getDate().toString().padStart(2, '0');
+                var removalYear = now.getFullYear();
+                removalDateEl.textContent = 'Expires: ' + removalMonth + '/' + removalDay + '/' + removalYear;
+            }
+
+            // Timestamp da live (ontem, mas mostrando hora de hoje)
+            var span = document.getElementById('live-timestamp');
+            if (span) {
+                var hours = now.getHours();
+                var minutes = now.getMinutes().toString().padStart(2, '0');
+                var ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+
+                // Data de ontem para a live
+                var yesterday = new Date(now);
+                yesterday.setDate(yesterday.getDate() - 1);
+                var liveMonth = (yesterday.getMonth() + 1).toString().padStart(2, '0');
+                var liveDay = yesterday.getDate().toString().padStart(2, '0');
+                var liveYear = yesterday.getFullYear();
+
+                span.textContent = 'Aired on ' + liveMonth + '/' + liveDay + '/' + liveYear + ' at ' + hours + ':' + minutes + ' ' + ampm + '.';
+            }
+
+            /* ===== CHAT ===== */
+            var chatMessages = document.getElementById('chatMessages');
+            var chatInput = document.getElementById('chatInput');
+            var emojiButton = document.getElementById('emojiButton');
+            var emojiMenu = document.getElementById('emojiMenu');
+            var defaultAvatar = 'https://oracaosagrada.viveremharmonia.com/wp-content/uploads/2025/05/icone_usuario.webp';
+
+            function uiAvatar(name, bg) {
+                var initials = name.split(' ').map(function(n) {
+                    return n[0];
+                }).slice(0, 2).join('');
+                return 'https://ui-avatars.com/api/?name=' + encodeURIComponent(initials) + '&background=' + (bg || 'random') + '&color=fff&size=64&bold=true';
+            }
+
+            var scheduledMessages = [
+                {time: 2, user: 'Sarah Mitchell', text: 'Wait... Jonathan Rumi is doing a live? This is huge!', avatar: uiAvatar('Sarah Mitchell', '4A90D9')},
+                {time: 4, user: 'David Chen', text: 'I love this actor... he\'s so genuine', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 6, user: 'Maria Santos', text: 'This is the first time I\'m seeing something like this', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 8, user: 'Jesus Lover', text: 'My team told me not to watch but I\'m here anyway', avatar: uiAvatar('Jesus Lover', '27AE60')},
+                {time: 10, user: 'Andrew Lewis', text: 'He\'s risking his career for us... wow', avatar: uiAvatar('Andrew Lewis', '8E44AD')},
+                {time: 12, user: 'Vera Lucy', text: 'This resonates so deeply with what I\'ve been feeling', avatar: uiAvatar('Vera Lucy', 'F39C12')},
+                {time: 14, user: 'Marcus Brown', text: 'The Vatican is REAL powerful... this is dangerous', avatar: uiAvatar('Marcus Brown', '9B59B6')},
+                {time: 16, user: 'Jennifer Rose', text: 'I\'m crying... he understands our pain', avatar: uiAvatar('Jennifer Rose', 'E74C3C')},
+                {time: 18, user: 'Thomas Green', text: 'I\'ve never heard anything like this before', avatar: uiAvatar('Thomas Green', '8E44AD')},
+                {time: 20, user: 'Support Team', text: 'Welcome everyone! Stay tuned for the revelation', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 22, user: 'Carlos Martinez', text: 'The way he explained this... it\'s making sense now', avatar: uiAvatar('Carlos Martinez', '2980B9')},
+                {time: 24, user: 'Patricia Silva', text: 'I felt the same way he did... broke and alone', avatar: uiAvatar('Patricia Silva', '16A085')},
+                {time: 26, user: 'Robert Peterson', text: 'Screenshot this before they take it down', avatar: uiAvatar('Robert Peterson', 'C0392B')},
+                {time: 28, user: 'Maria Santos', text: 'The 20 words... I need to know about these', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 30, user: 'Luciana Parker', text: 'This explains SO MUCH about why I struggle', avatar: uiAvatar('Luciana Parker', 'D97B4A')},
+                {time: 32, user: 'Susan Anderson', text: 'How do we know this is real?', avatar: uiAvatar('Susan Anderson', '27AE60')},
+                {time: 34, user: 'Angela Davis', text: 'Wait wait wait... this makes SO much sense', avatar: uiAvatar('Angela Davis', 'E67E22')},
+                {time: 36, user: 'Support Team', text: 'The evidence is undeniable. Keep listening', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 38, user: 'Kevin Murphy', text: 'This is insane. I\'m listening to every word', avatar: uiAvatar('Kevin Murphy', 'C0392B')},
+                {time: 40, user: 'Laura Costa', text: 'The frequency concept... that\'s quantum physics!', avatar: uiAvatar('Laura Costa', '3498DB')},
+                {time: 42, user: 'James Wilson', text: 'I\'ve been praying wrong my whole life', avatar: uiAvatar('James Wilson', '27AE60')},
+                {time: 44, user: 'Maria Santos', text: 'WHEN does he reveal the 20 words?', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 46, user: 'Christina Hall', text: 'The Vatican suppressing this... it makes sense', avatar: uiAvatar('Christina Hall', 'F39C12')},
+                {time: 48, user: 'Victor Santos', text: 'My debt is suffocating me... I need this', avatar: uiAvatar('Victor Santos', '2980B9')},
+                {time: 50, user: 'Amanda Foster', text: 'This is the most important thing I\'ve ever watched', avatar: uiAvatar('Amanda Foster', '16A085')},
+                {time: 52, user: 'Support Team', text: 'Your transformation is about to begin', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 54, user: 'Gabriel Price', text: 'I\'m getting goosebumps all over. This is REAL', avatar: uiAvatar('Gabriel Price', 'E74C3C')},
+                {time: 56, user: 'Rebecca Jones', text: 'The 100.0 FM vs 99.8 FM explanation... GENIUS', avatar: uiAvatar('Rebecca Jones', '9B59B6')},
+                {time: 58, user: 'Daniel Kim', text: 'So we\'ve been praying WRONG?', avatar: uiAvatar('Daniel Kim', '1ABC9C')},
+                {time: 60, user: 'Sophie Turner', text: 'This is why rich people stay rich', avatar: uiAvatar('Sophie Turner', 'D97B4A')},
+                {time: 62, user: 'David Chen', text: 'I\'m sharing this with my whole family NOW', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 64, user: 'Maria Santos', text: 'Tell us about Carlos, Patricia and Ana!', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 66, user: 'Support Team', text: 'The testimonies are coming... wait for it', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 68, user: 'Elizabeth Brown', text: 'I\'m crying. This is what my soul searched for', avatar: uiAvatar('Elizabeth Brown', 'E91E8C')},
+                {time: 70, user: 'Nathan Scott', text: 'The elite have been hiding this for CENTURIES', avatar: uiAvatar('Nathan Scott', 'C0392B')},
+                {time: 72, user: 'Victoria Green', text: 'Why my prayers never worked... now I get it', avatar: uiAvatar('Victoria Green', '27AE60')},
+                {time: 74, user: 'Marcus Brown', text: 'I need to see that manuscript', avatar: uiAvatar('Marcus Brown', '9B59B6')},
+                {time: 76, user: 'Jennifer Rose', text: 'This man is a HERO for risking everything', avatar: uiAvatar('Jennifer Rose', 'E74C3C')},
+                {time: 78, user: 'Alexander Torres', text: 'My phone is literally shaking right now', avatar: uiAvatar('Alexander Torres', '2980B9')},
+                {time: 80, user: 'Maria Santos', text: 'The old man in the chapel story gave me chills', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 82, user: 'Support Team', text: 'You\'re witnessing HISTORY right here right now', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 84, user: 'Lisa Anderson', text: 'Finally someone is telling the TRUTH', avatar: uiAvatar('Lisa Anderson', 'F39C12')},
+                {time: 86, user: 'Christopher Moore', text: 'The Catholic Church will NOT like this', avatar: uiAvatar('Christopher Moore', '9B59B6')},
+                {time: 88, user: 'Diana Lopez', text: 'I\'m recording this. This is history', avatar: uiAvatar('Diana Lopez', '3498DB')},
+                {time: 90, user: 'Paul Caesar', text: 'That transformation story... that\'s what I need', avatar: uiAvatar('Paul Caesar', '8E44AD')},
+                {time: 92, user: 'Katherine White', text: 'This should be taught in EVERY church', avatar: uiAvatar('Katherine White', '16A085')},
+                {time: 94, user: 'Ryan Hughes', text: 'I\'m getting access before this ends. No matter what', avatar: uiAvatar('Ryan Hughes', 'E74C3C')},
+                {time: 96, user: 'Maria Santos', text: 'Has anyone else felt that energy?', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 98, user: 'Support Team', text: 'The power is in the frequency. Feel it now', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 100, user: 'Samantha Bell', text: 'This is the answer to my prayers', avatar: uiAvatar('Samantha Bell', 'E91E8C')},
+                {time: 102, user: 'Justin Clark', text: 'They can\'t suppress this. Too many watching', avatar: uiAvatar('Justin Clark', 'C0392B')},
+                {time: 104, user: 'Olivia Martin', text: 'Jonathan Rumi is my favorite actor forever now', avatar: uiAvatar('Olivia Martin', 'D97B4A')},
+                {time: 106, user: 'Ethan Richards', text: 'The frequency concept explains EVERYTHING', avatar: uiAvatar('Ethan Richards', '2980B9')},
+                {time: 108, user: 'Natasha Ivanov', text: 'This man is literally Jesus', avatar: uiAvatar('Natasha Ivanov', '27AE60')},
+                {time: 110, user: 'Carlos Martinez', text: 'My heart is racing. Is this real?', avatar: uiAvatar('Carlos Martinez', '2980B9')},
+                {time: 112, user: 'Support Team', text: 'Everything he says is backed by ancient texts', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 114, user: 'Maria Santos', text: 'I\'m visualizing my transformation already', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 116, user: 'Brandon Hayes', text: 'My worldview just changed in minutes', avatar: uiAvatar('Brandon Hayes', '9B59B6')},
+                {time: 118, user: 'Alexis Morgan', text: 'Most powerful message I\'ve ever heard', avatar: uiAvatar('Alexis Morgan', 'F39C12')},
+                {time: 120, user: 'Jordan Bell', text: 'The manuscript... does it still exist?', avatar: uiAvatar('Jordan Bell', '3498DB')},
+                {time: 122, user: 'Felix Rodriguez', text: 'This is EXACTLY what I came for', avatar: uiAvatar('Felix Rodriguez', 'E74C3C')},
+                {time: 124, user: 'Support Team', text: 'You\'re about to access everything', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 126, user: 'Maria Santos', text: 'I need those 20 words NOW', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 128, user: 'Rachel Foster', text: 'Spiritual awakening happening in real time', avatar: uiAvatar('Rachel Foster', '16A085')},
+                {time: 130, user: 'Lucas Silva', text: 'I\'m buying the moment he shows the button', avatar: uiAvatar('Lucas Silva', '2C3E50')},
+                {time: 132, user: 'Sophia Hill', text: 'The protection codes for my family', avatar: uiAvatar('Sophia Hill', 'E91E8C')},
+                {time: 134, user: 'Support Team', text: 'You\'re getting family protection codes FREE', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 136, user: 'David Chen', text: 'Most important investment of my life', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 138, user: 'Margaret Davis', text: 'My debts are about to disappear', avatar: uiAvatar('Margaret Davis', 'C0392B')},
+                {time: 140, user: 'Isaac Norton', text: 'I can feel my energy changing right now', avatar: uiAvatar('Isaac Norton', '27AE60')},
+                {time: 142, user: 'Maria Santos', text: 'I don\'t care about the price. I NEED this', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 144, user: 'Support Team', text: 'The price is incredibly affordable', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 146, user: 'Noah Wilson', text: 'This stream could disappear. I can feel it', avatar: uiAvatar('Noah Wilson', '9B59B6')},
+                {time: 148, user: 'Evelyn King', text: '60-day guarantee means ZERO risk', avatar: uiAvatar('Evelyn King', 'F39C12')},
+                {time: 150, user: 'Jackson Moore', text: 'Clicking that green button immediately', avatar: uiAvatar('Jackson Moore', 'E74C3C')},
+                {time: 152, user: 'Maria Santos', text: 'This is life-changing. I feel it', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 154, user: 'Support Team', text: 'The button appears in moments', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 156, user: 'Sarah Mitchell', text: 'I can\'t believe what I\'m hearing', avatar: uiAvatar('Sarah Mitchell', '4A90D9')},
+                {time: 158, user: 'David Chen', text: 'This changes EVERYTHING', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 160, user: 'Maria Santos', text: 'My family needs to know about this', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 162, user: 'Joshua King', text: 'Why is nobody talking about this?', avatar: uiAvatar('Joshua King', '2980B9')},
+                {time: 164, user: 'Support Team', text: 'Because the elites are trying to hide it', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 166, user: 'Monica Green', text: 'I\'m sending this to everyone I know', avatar: uiAvatar('Monica Green', 'E91E8C')},
+                {time: 168, user: 'David Chen', text: 'My prayers are about to work differently', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 170, user: 'Maria Santos', text: 'The frequency... it\'s real', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 172, user: 'Support Team', text: 'More real than anything you know', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 174, user: 'Benjamin Fox', text: 'This is the secret the rich don\'t want shared', avatar: uiAvatar('Benjamin Fox', 'C0392B')},
+                {time: 176, user: 'Maria Santos', text: 'I feel different just listening', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 178, user: 'Support Team', text: 'Your vibration is already shifting', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 180, user: 'Natalie Hart', text: 'Jonathan Rumi is a legend', avatar: uiAvatar('Natalie Hart', 'F39C12')},
+                {time: 182, user: 'Maria Santos', text: 'WHEN IS THE BUTTON APPEARING?', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 184, user: 'Support Team', text: 'Very soon. Be ready', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 186, user: 'David Chen', text: 'I\'m ready for transformation', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 188, user: 'Maria Santos', text: 'This is my sign from God', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 190, user: 'Support Team', text: 'It is. Don\'t let it pass you by', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 192, user: 'Eric Stone', text: 'Before this ends I\'m in', avatar: uiAvatar('Eric Stone', '1ABC9C')},
+                {time: 194, user: 'Maria Santos', text: 'Me too. No hesitation', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 196, user: 'Support Team', text: 'Wise decision. Your life starts changing TODAY', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 198, user: 'David Chen', text: 'The button. WHERE IS IT', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 200, user: 'Maria Santos', text: 'It\'s coming. Any second now', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 202, user: 'Support Team', text: 'Final call. Get ready', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 204, user: 'Jasmine White', text: 'This is the moment everything changes', avatar: uiAvatar('Jasmine White', 'E74C3C')},
+                {time: 206, user: 'Maria Santos', text: 'I\'m not missing this opportunity', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 208, user: 'Support Team', text: 'Neither should anyone here', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 210, user: 'David Chen', text: 'My family\'s future depends on this', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 212, user: 'Maria Santos', text: 'The button is seconds away', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 214, user: 'Support Team', text: 'Click it. Change your life', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 216, user: 'Michael Ray', text: 'This is the most important click of my life', avatar: uiAvatar('Michael Ray', '2980B9')},
+                {time: 218, user: 'Maria Santos', text: 'DO NOT let fear stop you', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 220, user: 'Support Team', text: 'Your 60-day guarantee is waiting', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 222, user: 'David Chen', text: 'I\'m clicking RIGHT NOW', avatar: uiAvatar('David Chen', 'D97B4A')},
+                {time: 224, user: 'Maria Santos', text: 'See you on the other side!', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 226, user: 'Support Team', text: 'Welcome to your new life', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 228, user: 'Everyone watching', text: 'THIS IS YOUR MOMENT', avatar: uiAvatar('Everyone watching', 'C0392B')},
+                {time: 230, user: 'Maria Santos', text: 'My life just changed FOREVER', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+                {time: 232, user: 'Support Team', text: 'Welcome to the family', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 120, user: 'Henry Davis', text: 'Is anyone else experiencing delay? The video is lagging', avatar: uiAvatar('Henry Davis', '9B59B6')},
+                {time: 145, user: 'Nicole Brown', text: 'Yeah the stream is buffering for me too', avatar: uiAvatar('Nicole Brown', 'E91E8C')},
+                {time: 160, user: 'Support Team', text: 'We\'re experiencing heavy traffic. Over 500K people watching right now. Please be patient', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 175, user: 'Robert Khan', text: 'So many people trying to access... this is crazy', avatar: uiAvatar('Robert Khan', '3498DB')},
+                {time: 185, user: 'Lisa Chen', text: 'The delay is real but it\'s worth the wait. This is HUGE', avatar: uiAvatar('Lisa Chen', 'F39C12')},
+                {time: 200, user: 'Support Team', text: 'Delay is due to overwhelming number of simultaneous connections. We\'re upgrading servers in real time', avatar: uiAvatar('Support Team', '1A6B3A')},
+                {time: 250, user: 'Marcus Jefferson', text: 'Half a million people... this is insane', avatar: uiAvatar('Marcus Jefferson', 'E67E22')},
+                {time: 270, user: 'Support Team', text: 'Thank you for your patience. The demand for this revelation is unprecedented', avatar: uiAvatar('Support Team', '1A6B3A')},
+            ];
+
+            function addMessage(user, text, avatar) {
+                avatar = avatar || defaultAvatar;
+                var messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                var avatarImg = document.createElement('img');
+                avatarImg.classList.add('avatar');
+                avatarImg.src = avatar;
+                avatarImg.loading = 'lazy';
+                var contentDiv = document.createElement('div');
+                var usernameSpan = document.createElement('span');
+                usernameSpan.classList.add('username');
+                usernameSpan.textContent = user;
+                var textSpan = document.createElement('span');
+                textSpan.classList.add('text');
+                textSpan.textContent = text;
+                contentDiv.appendChild(usernameSpan);
+                contentDiv.appendChild(textSpan);
+                messageDiv.appendChild(avatarImg);
+                messageDiv.appendChild(contentDiv);
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function checkScheduledMessages() {
+                var elapsed = Math.floor(currentPageTime);
+                scheduledMessages.forEach(function(msg) {
+                    if (elapsed >= msg.time && !msg.sent) {
+                        addMessage(msg.user, msg.text, msg.avatar);
+                        msg.sent = true;
+                    }
+                });
+                requestAnimationFrame(checkScheduledMessages);
+            }
+            requestAnimationFrame(checkScheduledMessages);
+
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+                    addMessage('You', chatInput.value.trim());
+                    chatInput.value = '';
+                }
+            });
+
+            emojiButton.addEventListener('click', function() {
+                emojiMenu.style.display = (emojiMenu.style.display === 'block') ? 'none' : 'block';
+            });
+
+            emojiMenu.addEventListener('click', function(e) {
+                if (e.target.tagName === 'SPAN') {
+                    chatInput.value += e.target.textContent;
+                    chatInput.focus();
+                    emojiMenu.style.display = 'none';
+                }
+            });
+
+            /* ===== SUBSCRIBE / LIKES / VIEWS ===== */
+            var subscribeBtn = document.getElementById('subscribe-btn');
+            var viewCounterDesktop = document.getElementById('view-counter');
+            var viewCounterMobile = document.getElementById('view-counter-mobile');
+            var likeBtn = document.getElementById('like-btn');
+            var dislikeBtn = document.getElementById('dislike-btn');
+            var subscribed = false;
+
+            subscribeBtn.addEventListener('click', function() {
+                subscribed = !subscribed;
+                subscribeBtn.innerText = subscribed ? 'Subscribed' : 'Subscribe';
+                subscribeBtn.style.background = subscribed ? '#e5e5e5' : '#0f0f0f';
+                subscribeBtn.style.color = subscribed ? '#0f0f0f' : '#ffffff';
+            });
+
+            var currentViewers = 55000;
+
+            function updateViewers() {
+                var change = Math.floor(Math.random() * 30) + 1;
+                var dir = Math.random() < 0.6 ? 1 : -1;
+                currentViewers = Math.min(60000, Math.max(50000, currentViewers + change * dir));
+                var formatted = currentViewers.toLocaleString('pt-BR') + ' ';
+                if (viewCounterDesktop) viewCounterDesktop.querySelector('.view-number').innerText = formatted;
+                if (viewCounterMobile) viewCounterMobile.querySelector('.view-number').innerText = formatted;
+            }
+            updateViewers();
+            setInterval(updateViewers, 3000);
+
+            likeBtn.addEventListener('click', function() {
+                likeBtn.querySelector('img').style.filter = 'invert(0%)';
+                dislikeBtn.querySelector('img').style.filter = 'invert(60%)';
+            });
+            dislikeBtn.addEventListener('click', function() {
+                dislikeBtn.querySelector('img').style.filter = 'invert(0%)';
+                likeBtn.querySelector('img').style.filter = 'invert(60%)';
+            });
+
+        });
+
+        /* ===== PURCHASE NOTIFICATIONS ===== */
+        var notifications = [
+            {name: "Juan", message: "unlocked The Secret Key just now!", img: "https://ui-avatars.com/api/?name=JU&background=4A90D9&color=fff&size=64&bold=true"},
+            {name: "Sarah Mitchell", message: "accessed the 20 Words just now!", img: "https://ui-avatars.com/api/?name=SM&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Carlos", message: "got access right now!", img: "https://ui-avatars.com/api/?name=CA&background=27AE60&color=fff&size=64&bold=true"},
+            {name: "David Chen", message: "joined moments ago!", img: "https://ui-avatars.com/api/?name=DC&background=D97B4A&color=fff&size=64&bold=true"},
+            {name: "Marco", message: "unlocked the Manuscript just now!", img: "https://ui-avatars.com/api/?name=MA&background=8E44AD&color=fff&size=64&bold=true"},
+            {name: "Patricia Silva", message: "activated moments ago!", img: "https://ui-avatars.com/api/?name=PS&background=F39C12&color=fff&size=64&bold=true"},
+            {name: "Iracema", message: "got The Secret Key right now!", img: "https://ui-avatars.com/api/?name=IR&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Fernando", message: "entered the Digital Ark just now!", img: "https://ui-avatars.com/api/?name=FE&background=D97B4A&color=fff&size=64&bold=true"},
+            {name: "Sofia Andrade", message: "received access moments ago!", img: "https://ui-avatars.com/api/?name=SA&background=3498DB&color=fff&size=64&bold=true"},
+            {name: "Jose Silva", message: "unlocked just now!", img: "https://ui-avatars.com/api/?name=JS&background=1ABC9C&color=fff&size=64&bold=true"},
+            {name: "Camila", message: "activated The Secret Key moments ago!", img: "https://ui-avatars.com/api/?name=CM&background=C0392B&color=fff&size=64&bold=true"},
+            {name: "Thiago", message: "got access right now!", img: "https://ui-avatars.com/api/?name=TH&background=2C3E50&color=fff&size=64&bold=true"},
+            {name: "Carla Fernandez", message: "unlocked this very moment!", img: "https://ui-avatars.com/api/?name=CF&background=E74C3C&color=fff&size=64&bold=true"},
+            {name: "Gustavo", message: "got it just now!", img: "https://ui-avatars.com/api/?name=GU&background=1A6B3A&color=fff&size=64&bold=true"},
+            {name: "Veronica", message: "received access moments ago!", img: "https://ui-avatars.com/api/?name=VE&background=9B59B6&color=fff&size=64&bold=true"},
+            {name: "Rafael", message: "unlocked The Manuscript right now!", img: "https://ui-avatars.com/api/?name=RA&background=E67E22&color=fff&size=64&bold=true"},
+            {name: "Pedro", message: "joined just now!", img: "https://ui-avatars.com/api/?name=PE&background=2980B9&color=fff&size=64&bold=true"},
+            {name: "Lucas", message: "got access moments ago!", img: "https://ui-avatars.com/api/?name=LU&background=16A085&color=fff&size=64&bold=true"},
+            {name: "Victor", message: "activated right now!", img: "https://ui-avatars.com/api/?name=VI&background=7F8C8D&color=fff&size=64&bold=true"},
+            {name: "Juana Lima", message: "unlocked just now!", img: "https://ui-avatars.com/api/?name=JL&background=F39C12&color=fff&size=64&bold=true"},
+            {name: "Eduardo", message: "got The Secret Key moments ago!", img: "https://ui-avatars.com/api/?name=ED&background=6C3483&color=fff&size=64&bold=true"},
+            {name: "Bruno", message: "received access right now!", img: "https://ui-avatars.com/api/?name=BR&background=1F618D&color=fff&size=64&bold=true"},
+            {name: "Ana", message: "unlocked just now!", img: "https://ui-avatars.com/api/?name=AN&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Maria Rita", message: "got it moments ago!", img: "https://ui-avatars.com/api/?name=MR&background=D97B4A&color=fff&size=64&bold=true"},
+            {name: "Jennifer Rose", message: "activated right now!", img: "https://ui-avatars.com/api/?name=JR&background=E74C3C&color=fff&size=64&bold=true"},
+            {name: "Robert Peterson", message: "unlocked just now!", img: "https://ui-avatars.com/api/?name=RP&background=2C3E50&color=fff&size=64&bold=true"},
+            {name: "Maria Santos", message: "got The Secret Key moments ago!", img: "https://ui-avatars.com/api/?name=MS&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Marcus Brown", message: "received access right now!", img: "https://ui-avatars.com/api/?name=MB&background=9B59B6&color=fff&size=64&bold=true"},
+            {name: "Rachel White", message: "unlocked this moment!", img: "https://ui-avatars.com/api/?name=RW&background=3498DB&color=fff&size=64&bold=true"},
+            {name: "James Wilson", message: "activated just now!", img: "https://ui-avatars.com/api/?name=JW&background=27AE60&color=fff&size=64&bold=true"},
+            {name: "Angela Davis", message: "got access moments ago!", img: "https://ui-avatars.com/api/?name=AD&background=E67E22&color=fff&size=64&bold=true"},
+            {name: "Michael Torres", message: "unlocked The Secret Key right now!", img: "https://ui-avatars.com/api/?name=MT&background=3498DB&color=fff&size=64&bold=true"},
+            {name: "Lisa Anderson", message: "received access just now!", img: "https://ui-avatars.com/api/?name=LA&background=F39C12&color=fff&size=64&bold=true"},
+            {name: "Kevin Murphy", message: "activated moments ago!", img: "https://ui-avatars.com/api/?name=KM&background=C0392B&color=fff&size=64&bold=true"},
+            {name: "Jessica Lee", message: "unlocked right now!", img: "https://ui-avatars.com/api/?name=JL&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Christopher Moore", message: "got The Secret Key just now!", img: "https://ui-avatars.com/api/?name=CM&background=9B59B6&color=fff&size=64&bold=true"},
+            {name: "Diana Lopez", message: "joined moments ago!", img: "https://ui-avatars.com/api/?name=DL&background=1ABC9C&color=fff&size=64&bold=true"},
+            {name: "Daniel Kim", message: "received access right now!", img: "https://ui-avatars.com/api/?name=DK&background=2980B9&color=fff&size=64&bold=true"},
+            {name: "Sophia Hill", message: "activated The Secret Key just now!", img: "https://ui-avatars.com/api/?name=SH&background=E74C3C&color=fff&size=64&bold=true"},
+            {name: "Thomas Green", message: "unlocked moments ago!", img: "https://ui-avatars.com/api/?name=TG&background=27AE60&color=fff&size=64&bold=true"},
+            {name: "Victoria Green", message: "got access right now!", img: "https://ui-avatars.com/api/?name=VG&background=16A085&color=fff&size=64&bold=true"},
+            {name: "Nathan Scott", message: "received access just now!", img: "https://ui-avatars.com/api/?name=NS&background=D97B4A&color=fff&size=64&bold=true"},
+            {name: "Olivia Martin", message: "unlocked The Manuscript moments ago!", img: "https://ui-avatars.com/api/?name=OM&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Ryan Hughes", message: "activated right now!", img: "https://ui-avatars.com/api/?name=RH&background=F39C12&color=fff&size=64&bold=true"},
+            {name: "Samantha Bell", message: "got The Secret Key just now!", img: "https://ui-avatars.com/api/?name=SB&background=3498DB&color=fff&size=64&bold=true"},
+            {name: "Brandon Hayes", message: "joined moments ago!", img: "https://ui-avatars.com/api/?name=BH&background=9B59B6&color=fff&size=64&bold=true"},
+            {name: "Alexis Morgan", message: "received access right now!", img: "https://ui-avatars.com/api/?name=AM&background=E67E22&color=fff&size=64&bold=true"},
+            {name: "Jordan Bell", message: "unlocked just now!", img: "https://ui-avatars.com/api/?name=JB&background=2C3E50&color=fff&size=64&bold=true"},
+            {name: "Felix Rodriguez", message: "activated moments ago!", img: "https://ui-avatars.com/api/?name=FR&background=1ABC9C&color=fff&size=64&bold=true"},
+            {name: "Rachel Foster", message: "got access right now!", img: "https://ui-avatars.com/api/?name=RF&background=16A085&color=fff&size=64&bold=true"},
+            {name: "Lucas Silva", message: "unlocked The Secret Key just now!", img: "https://ui-avatars.com/api/?name=LS&background=C0392B&color=fff&size=64&bold=true"},
+            {name: "Margaret Davis", message: "received access moments ago!", img: "https://ui-avatars.com/api/?name=MD&background=E74C3C&color=fff&size=64&bold=true"},
+            {name: "Isaac Norton", message: "activated right now!", img: "https://ui-avatars.com/api/?name=IN&background=27AE60&color=fff&size=64&bold=true"},
+            {name: "Noah Wilson", message: "got it just now!", img: "https://ui-avatars.com/api/?name=NW&background=2980B9&color=fff&size=64&bold=true"},
+            {name: "Evelyn King", message: "unlocked moments ago!", img: "https://ui-avatars.com/api/?name=EK&background=D97B4A&color=fff&size=64&bold=true"},
+            {name: "Jackson Moore", message: "received access right now!", img: "https://ui-avatars.com/api/?name=JM&background=F39C12&color=fff&size=64&bold=true"},
+            {name: "Christina Hall", message: "activated The Secret Key just now!", img: "https://ui-avatars.com/api/?name=CH&background=E91E8C&color=fff&size=64&bold=true"},
+            {name: "Benjamin Fox", message: "joined moments ago!", img: "https://ui-avatars.com/api/?name=BF&background=9B59B6&color=fff&size=64&bold=true"},
+            {name: "Natalie Hart", message: "got access right now!", img: "https://ui-avatars.com/api/?name=NH&background=1ABC9C&color=fff&size=64&bold=true"}
+        ];
+
+        function showNotification(index) {
+            if (index >= notifications.length) return;
+            var data = notifications[index];
+            var el = document.createElement("div");
+            el.classList.add("notification");
+            el.innerHTML = '<img decoding="async" loading="lazy" src="' + data.img + '" alt=""><div><strong>' + data.name + '</strong><br>' + data.message + '</div>';
+            document.body.appendChild(el);
+            setTimeout(function() {
+                el.style.opacity = "1";
+                el.style.transform = "translateX(0)";
+            }, 100);
+            setTimeout(function() {
+                el.style.opacity = "0";
+                el.style.transform = "translateX(-100%)";
+                setTimeout(function() {
+                    el.remove();
+                }, 500);
+            }, 8000);
+        }
+
+        setTimeout(function() {
+            for (var i = 0; i < notifications.length; i++) {
+                (function(idx) {
+                    setTimeout(function() {
+                        showNotification(idx);
+                    }, idx * 5000);
+                })(i);
+            }
+        }, 1170000);
+    </script>
+
+
+
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"e10b657d09ff431ab7e0a63a79e4761c","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
