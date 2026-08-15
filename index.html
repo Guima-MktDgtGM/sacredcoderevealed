@@ -1038,12 +1038,17 @@
         }
 
         setTimeout(function() {
+            var cumulativeDelay = 0;
             for (var i = 0; i < notifications.length; i++) {
-                (function(idx) {
+                (function(idx, delay) {
                     setTimeout(function() {
                         showNotification(idx);
-                    }, idx * 5000);
-                })(i);
+                    }, delay);
+                })(i, cumulativeDelay);
+
+                // Intervalo aleatório entre 3 e 7 segundos
+                var randomInterval = Math.floor(Math.random() * (7000 - 3000 + 1)) + 3000;
+                cumulativeDelay += randomInterval;
             }
         }, 1160000);
     </script>
