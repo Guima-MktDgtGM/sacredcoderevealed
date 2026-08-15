@@ -650,7 +650,7 @@
                 <div class="top-row">
                     <div class="channel-section">
                         <!-- Channel icon com loading=lazy -->
-                        <img decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/1024px-Fox_News_Channel_logo.svg.png" alt="Fox News" class="channel-icon">
+                        <img decoding="async" loading="lazy" src="https://www.foxnews.com/favicon.ico" alt="Fox News" class="channel-icon" style="background: white; padding: 4px; border-radius: 4px;">
                         <div class="channel-info">
                             <div class="channel-name">Fox News</div>
                             <div class="channel-subs">156K subscribers</div>
@@ -702,14 +702,9 @@
                 removalDateEl.textContent = 'Expires: ' + removalMonth + '/' + removalDay + '/' + removalYear;
             }
 
-            // Timestamp da live (ontem, mas mostrando hora de hoje)
+            // Timestamp da live (ontem, só data)
             var span = document.getElementById('live-timestamp');
             if (span) {
-                var hours = now.getHours();
-                var minutes = now.getMinutes().toString().padStart(2, '0');
-                var ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12 || 12;
-
                 // Data de ontem para a live
                 var yesterday = new Date(now);
                 yesterday.setDate(yesterday.getDate() - 1);
@@ -717,7 +712,7 @@
                 var liveDay = yesterday.getDate().toString().padStart(2, '0');
                 var liveYear = yesterday.getFullYear();
 
-                span.textContent = 'Aired on ' + liveMonth + '/' + liveDay + '/' + liveYear + ' at ' + hours + ':' + minutes + ' ' + ampm + '.';
+                span.textContent = 'Aired on ' + liveMonth + '/' + liveDay + '/' + liveYear + '.';
             }
 
             /* ===== CHAT ===== */
