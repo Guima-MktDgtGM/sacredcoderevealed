@@ -317,7 +317,22 @@
             color: #666;
             margin-bottom: 12px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .value-item-image {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .value-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .value-item strong {
@@ -529,8 +544,8 @@
         <div class="benefits-box">
             <h2>Why It's A No Brainer To Confirm The Accelerator Upgrade</h2>
 
-            <div class="product-image">
-                <img src="https://i.imgur.com/dbPhto8.jpeg" alt="Accelerator">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="https://i.imgur.com/ZWoDjl8.jpeg" alt="Capa" style="max-width: 150px; max-height: 150px; border-radius: 8px;">
             </div>
 
             <div class="benefits-list">
@@ -582,30 +597,39 @@
 
             <div class="value-list">
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/2eM9Qp3.jpeg" alt="1"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Quantum Abundance Activation Meditation - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/R866mhd.jpeg" alt="2"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Divine Manifestation Blueprint - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/gsy7iEf.jpeg" alt="3"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Sacred Frequency Resonance Audio - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/1jnRiio.jpeg" alt="4"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Subconscious Reprogramming Session - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/dbPhto8.jpeg" alt="5"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Chakra Alignment Accelerator - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/ZWHtCje.jpeg" alt="6"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> 7-Day Rapid Manifestation Protocol - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/2PpGk2m.jpeg" alt="7"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Prosperity Breakthrough Session - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/XpEojg2.jpeg" alt="8"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Advanced Manifestation Mastery Training - <strong>$297 Value</strong></span>
                 </div>
                 <div class="value-item">
+                    <div class="value-item-image"><img src="https://i.imgur.com/2cSNjmc.jpeg" alt="9"></div>
                     <span>✓ <strong>CUSTOM Designed:</strong> Complete Abundance Transformation Program - <strong>$297 Value</strong></span>
                 </div>
             </div>
@@ -625,7 +649,7 @@
         <!-- CTA Section -->
         <div class="cta-section">
             <div class="cta-text">Click The Button Below To Confirm This Upgrade</div>
-            <button type="button" class="kashpay-button" onclick="acceptUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')">YES! ADD TO MY ORDER ➜</button>
+            <button type="button" onclick="acceptUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')" style="font-family: 'Georgia'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">Yes! Accelerate My Results Now</button>
             <div class="no-thanks">
                 <a onclick="declineUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')">No thanks, I understand I'll never see this offer again</a>
             </div>
