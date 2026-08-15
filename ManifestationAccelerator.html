@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://app.kashpay.com.br/scripts/upsell-processor.js"></script>
+    <link rel="icon" href="https://i.imgur.com/ZWoDjl8.jpeg" type="image/jpeg">
 
     <style>
         * {
@@ -630,7 +631,14 @@
         <!-- CTA Section -->
         <div class="cta-section">
             <div class="cta-text">Click The Button Below To Confirm This Upgrade</div>
-            <button type="button" onclick="acceptUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')" style="font-family: 'Georgia'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">Yes! Accelerate My Results Now</button>
+            <div id="button-lock-container" style="text-align: center;">
+                <div id="lock-message" style="margin-bottom: 15px; font-size: 14px; color: #666; font-weight: 600;">
+                    🔒 <strong>Unlocking VIP Access...</strong><br>
+                    Configuring your personalized manifestation plan.<br>
+                    Exclusive access granted in: <span id="timer" style="color: #057932; font-weight: 700;">04:30</span>
+                </div>
+                <button type="button" id="cta-button" onclick="acceptUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')" style="font-family: 'Georgia'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #999; border: none; border-radius: 10px; padding: 13px 7%; cursor: not-allowed; text-align: center; display: block; margin: auto; opacity: 0.6;" disabled>Yes! Accelerate My Results Now</button>
+            </div>
 
             <!-- Image Below Button -->
             <div style="text-align: center; margin-top: 30px;">
@@ -651,6 +659,37 @@
             <p style="margin-top: 10px;">© 2025 The Sacred Code Revealed - All Rights Reserved</p>
         </div>
     </div>
+
+    <!-- Button Lock Timer Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let timeRemaining = 270; // 4:30 in seconds
+            const timerElement = document.getElementById('timer');
+            const ctaButton = document.getElementById('cta-button');
+            const lockMessage = document.getElementById('lock-message');
+
+            function updateTimer() {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                const display = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                timerElement.textContent = display;
+
+                if (timeRemaining <= 0) {
+                    // Unlock button
+                    ctaButton.disabled = false;
+                    ctaButton.style.backgroundColor = '#057932';
+                    ctaButton.style.cursor = 'pointer';
+                    ctaButton.style.opacity = '1';
+                    lockMessage.style.display = 'none';
+                } else {
+                    timeRemaining--;
+                    setTimeout(updateTimer, 1000);
+                }
+            }
+
+            updateTimer();
+        });
+    </script>
 
     <!-- Back Prevention Script -->
     <script>
