@@ -1,70 +1,486 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-    <title>Redirecting...</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Sacred Code Revealed</title>
+
+    <!-- Detect fbclid early to avoid flash -->
+    <script>
+        var hasFbclid = /[?&]fbclid=/.test(window.location.search);
+        document.documentElement.setAttribute('data-page-type', hasFbclid ? 'vsl' : 'clean');
+    </script>
+
+    <!-- ========== PRIORIDADE MÁXIMA: PLAYER (VSL only) ========== -->
+    <!-- Performance timestamp (Vturb) -->
+    <script>
+        ! function(i, n) {
+            i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now())
+        }(window, performance);
+    </script>
+
+    <!-- Preloads do player CORRETOS (primeiro recurso a carregar) -->
+    <link rel="preload" href="https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a80ae92ce6375b28e9cce27/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/6a80adec2aa981ad13c892ee/main.m3u8" as="fetch">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://license.vturb.com">
+
+    <!-- ========== META PIXEL (async, não bloqueia) ========== -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2514664475598793');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2514664475598793&ev=PageView&noscript=1"
+  /></noscript>
+
+    <!-- UTMify (async/defer, não bloqueia) -->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+    <!-- ========== FONTES DIFERIDAS (carregam após player) ========== -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></noscript>
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></noscript>
+
+    <!-- Favicon YouTube -->
+    <link rel="icon" href="https://www.youtube.com/favicon.ico" type="image/x-icon">
+
+    <!-- VSL & CLEAN Styles -->
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            color: #fff;
+        html[data-page-type="clean"] .vsl-only { display: none !important; }
+        html[data-page-type="vsl"] .clean-only { display: none !important; }
+
+        body { margin: 0; font-family: 'Roboto', Arial, sans-serif; }
+        .header { display: flex; align-items: center; justify-content: space-between; padding: 0 16px; height: 56px; background-color: #fff; }
+        .left-section, .center-section, .right-section { display: flex; align-items: center; }
+        .left-section .menu-icon { width: 24px; height: 24px; margin-right: 16px; }
+        .left-section .logo { height: 20px; }
+        .center-section { flex: 1; justify-content: center; }
+        .search-bar { width: 100%; max-width: 600px; display: flex; }
+        .search-bar input { flex: 1; padding: 6px 12px; border: 1px solid #ccc; border-right: none; border-radius: 25px 0 0 25px; font-size: 14px; outline: none; }
+        .search-bar button { padding: 6px 12px; border: 1px solid #ccc; border-left: none; background-color: #f8f8f8; border-radius: 0 25px 25px 0; cursor: pointer; outline: none; }
+        .search-bar button img { width: 20px; filter: grayscale(100%); pointer-events: none; }
+        .right-section .profile-pic { width: 32px; height: 32px; border-radius: 50%; margin-left: 24px; }
+        .mobile-search-icon { display: none; }
+
+        @media (max-width: 768px) {
+            .center-section { display: none; }
+            .mobile-search-icon { display: flex; justify-content: center; align-items: center; width: 36px; height: 36px; border-radius: 50%; background-color: #f0f0f0; cursor: pointer; margin-left: 12px; }
+            .mobile-search-icon img { width: 20px; height: 20px; filter: grayscale(100%); pointer-events: none; }
         }
-        .loading {
-            text-align: center;
+
+        .chat-container { width: 100%; max-height: 600px; min-height: 400px; background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; font-size: 14px; box-sizing: border-box; }
+        .chat-header { background: #fff; color: #0f0f0f; padding: 8px; font-weight: 600; font-size: 12px; border-bottom: 1px solid #e5e5e5; }
+        .chat-messages { flex: 1; padding: 10px; overflow-y: auto; background: #fff; }
+        .message { margin-bottom: 12px; display: flex; align-items: flex-start; }
+        .avatar { width: 32px; height: 32px; border-radius: 50%; margin-right: 8px; background-color: #ddd; object-fit: cover; }
+        .username { font-weight: bold; color: #707070; margin-right: 6px; }
+        .text { color: #0f0f0f; word-break: break-word; }
+        .chat-input-container { display: flex; align-items: center; padding: 8px; border-top: 1px solid #e5e5e5; background: #fff; justify-content: space-between; }
+        .chat-input { flex: 1; padding: 8px 12px; border: 1px solid #e5e5e5; border-radius: 20px; background: #f2f2f2; font-size: 14px; color: #0f0f0f; outline: none; }
+        .chat-input::placeholder { color: #6b6b6b; }
+        .emoji { margin-left: 8px; font-size: 22px; cursor: pointer; }
+        .emoji-menu { display: none; position: absolute; bottom: 60px; right: 10px; background: #fff; border: 1px solid #ccc; border-radius: 5px; padding: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 10; }
+        .emoji-menu span { font-size: 24px; cursor: pointer; margin: 5px; }
+        .emoji-menu span:hover { opacity: 0.7; }
+        .emoji-button-container { position: relative; }
+
+        @media (max-width: 767px) {
+            .chat-container { max-height: 400px; min-height: 400px; }
         }
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #fff;
-            margin: 0 5px;
-            animation: pulse 1.5s infinite;
+
+        .youtube-live-container { display: flex; flex-direction: column; gap: 16px; }
+        .top-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+        .channel-section { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .channel-icon { width: 40px !important; height: 40px !important; border-radius: 50% !important; object-fit: cover !important; }
+        .channel-info { display: flex; flex-direction: column; }
+        .channel-name { font-weight: 500; font-size: 16px; color: #0f0f0f; }
+        .channel-subs { font-size: 14px; color: #606060; }
+        .subscribe-btn { background: #0f0f0f; color: white; padding: 10px 16px; border: none; border-radius: 18px; font-weight: 500; cursor: pointer; height: 36px; }
+        .likes-container { background-color: #f2f2f2; border-radius: 24px; padding: 4px 12px; display: flex; align-items: center; gap: 16px; height: 36px; }
+        .like-btn, .dislike-btn { display: flex; align-items: center; color: #606060; cursor: pointer; user-select: none; }
+        .like-btn img, .dislike-btn img { width: 18px; height: 18px; margin-right: 4px; }
+        .view-counter-wrapper { background-color: #f2f2f2; border-radius: 24px; padding: 8px 16px; width: fit-content; }
+        .view-counter { font-weight: 500; font-size: 14px; color: #0f0f0f; line-height: 1.4; }
+        .view-number { display: inline-block; transition: all 0.6s ease; }
+        .mobile-only { display: none; }
+        .desktop-only { display: block; }
+
+        @media (max-width: 767px) {
+            .top-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .channel-section { flex-direction: row; justify-content: space-between; width: 100%; }
+            .subscribe-btn { margin-left: auto; }
+            .mobile-only { display: block; }
+            .desktop-only { display: none; }
+            .view-counter-mobile { background: none; color: #888 !important; padding: 0; font-size: 14px; }
         }
-        .dot:nth-child(2) {
-            animation-delay: 0.2s;
+
+        .notification { position: fixed; bottom: 20px; left: 20px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 10px; opacity: 0; transform: translateX(-100%); transition: all 0.5s ease-in-out; font-size: 16px; font-family: 'Montserrat', sans-serif; z-index: 100; }
+        .notification img { width: 40px; height: 40px; border-radius: 50%; }
+
+        @media (max-width: 768px) {
+            .notification { padding: 8px 10px; font-size: 12px; bottom: 80px; left: 10px; max-width: 280px; background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); }
+            .notification img { width: 28px; height: 28px; flex-shrink: 0; }
+            .notification div { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         }
-        .dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
+
+        /* CLEAN PAGE STYLES */
+        html[data-page-type="clean"] body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #444; background: #fafafa; }
+        html[data-page-type="clean"] header { background: #ffffff; color: #2c3e50; padding: 50px 20px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+        html[data-page-type="clean"] header h1 { font-size: 2.2em; margin-bottom: 10px; color: #34495e; }
+        html[data-page-type="clean"] header p { font-size: 1.1em; color: #7f8c8d; }
+        html[data-page-type="clean"] .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        html[data-page-type="clean"] section { background: white; padding: 35px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ecf0f1; }
+        html[data-page-type="clean"] section h2 { color: #2c3e50; margin-bottom: 15px; font-size: 1.6em; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+        html[data-page-type="clean"] section p { margin-bottom: 15px; font-size: 1em; color: #5a6c7d; line-height: 1.8; }
+        html[data-page-type="clean"] ul { margin-left: 20px; margin-bottom: 15px; }
+        html[data-page-type="clean"] ul li { margin-bottom: 8px; color: #5a6c7d; }
+        html[data-page-type="clean"] .highlight { background: #f8f9fa; border-left: 4px solid #3498db; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        html[data-page-type="clean"] footer { text-align: center; padding: 30px 20px; color: #95a5a6; border-top: 1px solid #ecf0f1; margin-top: 40px; font-size: 0.95em; }
+
+        .fa::before, .far::before, .fas::before { font-family: 'Font Awesome 5 Free', FontAwesome !important; }
     </style>
+
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="robots" content="noindex">
 </head>
+
 <body>
-    <div class="loading">
-        <p>Loading...</p>
+
+<!-- ============ VSL CONTENT ============ -->
+<div class="vsl-only">
+    <div style="max-width:1200px;margin:0 auto;">
+        <div style="background-color: #fff3cd; border-left: 4px solid #ff6b6b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px;">
+            <div style="display: flex; align-items: center; gap: 12px; font-family: 'Roboto', Arial, sans-serif;">
+                <span style="font-size: 20px;">⚠️</span>
+                <div>
+                    <div style="color: #ff6b6b; font-weight: 700; font-size: 14px;">THIS VIDEO WILL BE REMOVED TODAY</div>
+                    <div id="removal-date" style="color: #666; font-size: 13px; margin-top: 2px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <header class="header">
+            <div class="left-section">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="4" width="24" height="2" rx="1" fill="#606060"/><rect y="11" width="24" height="2" rx="1" fill="#606060"/><rect y="18" width="24" height="2" rx="1" fill="#606060"/>
+                </svg>
+                <img decoding="async" src="https://vaticansecretprayer.com/wp-content/uploads/2026/04/logo_youtube.webp" alt="YouTube Logo" class="logo">
+            </div>
+            <div class="center-section"><div class="search-bar"><input type="text" placeholder="Search"><button><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#606060" stroke-width="2"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="#606060" stroke-width="2" stroke-linecap="round"/></svg></button></div></div>
+            <div class="right-section"><div class="mobile-search-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#606060" stroke-width="2"/><line x1="16.5" y1="16.5" x2="22" y2="22" stroke="#606060" stroke-width="2" stroke-linecap="round"/></svg></div><svg class="profile-pic" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="16" fill="#aaa"/><circle cx="16" cy="13" r="5" fill="#fff"/><ellipse cx="16" cy="28" rx="9" ry="7" fill="#fff"/></svg></div>
+        </header>
+
         <div>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <vturb-smartplayer id="vid-6a80ae92ce6375b28e9cce27" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+            <script type="text/javascript">
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a80ae92ce6375b28e9cce27/v4/player.js";
+                s.async = true;
+                document.head.appendChild(s);
+            </script>
+            <script>
+                var pageStartTime = null;
+                var currentPageTime = 0;
+                document.addEventListener("DOMContentLoaded", function() {
+                    pageStartTime = Date.now();
+                    function updatePageTimer() {
+                        currentPageTime = (Date.now() - pageStartTime) / 1000;
+                        requestAnimationFrame(updatePageTimer);
+                    }
+                    updatePageTimer();
+                });
+            </script>
+        </div>
+
+        <div id="bloco_cta" style="display:none; text-align: center; padding: 16px; margin: 16px 0;">
+            <style>
+                @keyframes pulse-btn {
+                    0%, 100% { box-shadow: 0 6px 12px rgba(0,0,0,0.2); transform: scale(1); }
+                    50% { box-shadow: 0 6px 25px rgba(39, 174, 96, 0.5); transform: scale(1.02); }
+                }
+                .cta-pulse {
+                    animation: pulse-btn 2.5s ease-in-out infinite;
+                }
+            </style>
+            <a href="CHECKOUT_URL_AQUI" class="cta-pulse" style="display: inline-block; background: #27AE60; color: white; padding: 14px 48px; border: none; border-radius: 50px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 6px 12px rgba(0,0,0,0.2); text-decoration: none; transition: all 0.3s ease; font-family: Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.animation='none'; this.style.background='#229954'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';" onmouseout="this.style.animation='pulse-btn 2.5s ease-in-out infinite'; this.style.background='#27AE60'; this.style.transform='scale(1)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)';">
+                I Want The Secret Key
+            </a>
+        </div>
+
+        <div style="padding:8px 16px;"><h2 style="margin:0;font-size:15px;font-weight:700;font-family:'Roboto',Arial,sans-serif;color:#0f0f0f;">CENSORED PRAYER: Why The Vatican Tried To Bury This Ancient Formula The Chosen's Star Just Exposed|<span id="live-timestamp" style="font-size:16px;font-weight:700;">Live at HH:MM, MM/DD/YYYY.</span></h2></div>
+
+        <div style="padding:0 16px;">
+            <div class="chat-container">
+                <div class="chat-header">Live chat</div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input id="chatInput" class="chat-input" type="text" placeholder="Chat...">
+                    <div class="emoji-button-container">
+                        <div id="emojiButton" class="emoji">&#128522;</div>
+                        <div id="emojiMenu" class="emoji-menu">
+                            <span>&#128512;</span><span>&#128513;</span><span>&#128514;</span><span>&#128525;</span>
+                            <span>&#128526;</span><span>&#129300;</span><span>&#128540;</span><span>&#128579;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid #e5e5e5;margin:16px;">
+
+        <div id="youtube-live-fake" style="font-family:Roboto,Arial,sans-serif;width:100%;max-width:100%;background:#fff;padding:16px;box-sizing:border-box;">
+            <div class="youtube-live-container">
+                <div class="view-counter view-counter-mobile mobile-only" id="view-counter-mobile">
+                    <span class="view-number">0</span> Watching now
+                </div>
+                <div class="top-row">
+                    <div class="channel-section">
+                        <img decoding="async" loading="lazy" src="https://ui-avatars.com/api/?name=FOX&background=003366&color=fff&size=64&bold=true" alt="Fox News" class="channel-icon">
+                        <div class="channel-info">
+                            <div class="channel-name">Fox News</div>
+                            <div class="channel-subs">156K subscribers</div>
+                        </div>
+                        <button id="subscribe-btn" class="subscribe-btn">Subscribe</button>
+                    </div>
+                    <div class="likes-container">
+                        <div id="like-btn" class="like-btn"><img decoding="async" loading="lazy" src="https://cdn-icons-png.flaticon.com/512/126/126473.png"></div>
+                        <div id="dislike-btn" class="dislike-btn"><img decoding="async" loading="lazy" src="https://cdn-icons-png.flaticon.com/512/126/126504.png"></div>
+                    </div>
+                </div>
+                <div class="view-counter-wrapper desktop-only">
+                    <div class="view-counter" id="view-counter">
+                        <span class="view-number">0</span> Watching now
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
-    <script>
-        // Cloaker: Detecta fbclid e redireciona
-        (function() {
-            // Pega a URL atual
-            var url = window.location.href;
+<!-- ============ CLEAN PAGE CONTENT ============ -->
+<div class="clean-only">
+    <header>
+        <h1>Prayer and Spiritual Wellness</h1>
+        <p>A Guide to Mindfulness and Inner Peace</p>
+    </header>
 
-            // Verifica se tem fbclid
-            if (url.indexOf('fbclid=') !== -1) {
-                // TEM fbclid = BLACK (oferta/VSL)
-                window.location.href = '/landing-black.html';
-            } else {
-                // NÃO TEM fbclid = WHITE (informativo)
-                window.location.href = '/landing-white.html';
+    <div class="container">
+        <section>
+            <h2>The Benefits of Daily Prayer</h2>
+            <p>Prayer is a practice found across many cultures and faith traditions. Research in mindfulness and wellness suggests that regular prayer can contribute to:</p>
+            <ul>
+                <li>Improved mental well-being and reduced stress</li>
+                <li>Greater sense of purpose and meaning</li>
+                <li>Enhanced emotional balance</li>
+                <li>Strengthened sense of community</li>
+                <li>Better overall quality of life</li>
+            </ul>
+            <p>Whether through traditional prayer, meditation, or personal reflection, these practices have been valued for centuries as tools for personal growth.</p>
+        </section>
+
+        <section>
+            <h2>Finding Peace Through Spiritual Practice</h2>
+            <p>Many people incorporate prayer into their daily routine as a way to find quiet moments of reflection. This practice can help create space for thoughtfulness in our busy lives.</p>
+            <p>Spiritual practices come in many forms—from structured religious prayer to personal meditation and reflection. Each person may find their own meaningful way to connect with their beliefs and values.</p>
+        </section>
+
+        <section>
+            <h2>Understanding Different Prayer Traditions</h2>
+            <p>Across the world, different faith traditions have developed rich practices of prayer and spiritual connection. These traditions often share common themes:</p>
+            <ul>
+                <li>Connection to something larger than oneself</li>
+                <li>Gratitude and appreciation</li>
+                <li>Hope and encouragement</li>
+                <li>Community and shared values</li>
+                <li>Personal reflection and growth</li>
+            </ul>
+            <p>Learning about different spiritual traditions can deepen our understanding of human spirituality and the ways people find meaning.</p>
+        </section>
+
+        <section>
+            <h2>Building a Meaningful Spiritual Life</h2>
+            <p>If you're interested in exploring prayer and spiritual practice, here are some simple suggestions:</p>
+            <ul>
+                <li>Start with just a few minutes of quiet reflection each day</li>
+                <li>Explore different prayer styles to find what resonates with you</li>
+                <li>Consider joining a community of like-minded individuals</li>
+                <li>Read inspiring spiritual literature</li>
+                <li>Keep a journal of your thoughts and reflections</li>
+            </ul>
+        </section>
+
+        <section class="highlight">
+            <h2 style="border: none; padding: 0; margin-top: 0;">Our Commitment to Wellness</h2>
+            <p style="margin-bottom: 0;">We believe in providing helpful, informative resources about spirituality and wellness. Our mission is to support people in their personal growth journey, whatever form that takes.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sacred Code Revealed. Educational Content About Spirituality and Wellness.</p>
+        <p>For more information about spiritual practices and wellness, please consult trusted religious or wellness professionals.</p>
+    </footer>
+</div>
+
+<script>
+if (document.documentElement.getAttribute('data-page-type') === 'vsl') {
+    document.addEventListener("DOMContentLoaded", function() {
+        var now = new Date();
+        var removalDateEl = document.getElementById('removal-date');
+        if (removalDateEl) {
+            var removalMonth = (now.getMonth() + 1).toString().padStart(2, '0');
+            var removalDay = now.getDate().toString().padStart(2, '0');
+            var removalYear = now.getFullYear();
+            removalDateEl.textContent = 'Expires: ' + removalMonth + '/' + removalDay + '/' + removalYear;
+        }
+
+        var span = document.getElementById('live-timestamp');
+        if (span) {
+            var yesterday = new Date(now);
+            yesterday.setDate(yesterday.getDate() - 1);
+            var liveMonth = (yesterday.getMonth() + 1).toString().padStart(2, '0');
+            var liveDay = yesterday.getDate().toString().padStart(2, '0');
+            var liveYear = yesterday.getFullYear();
+            span.textContent = 'Aired on ' + liveMonth + '/' + liveDay + '/' + liveYear + '.';
+        }
+
+        var chatMessages = document.getElementById('chatMessages');
+        var chatInput = document.getElementById('chatInput');
+        var emojiButton = document.getElementById('emojiButton');
+        var emojiMenu = document.getElementById('emojiMenu');
+        var defaultAvatar = 'https://ui-avatars.com/api/?name=Y&background=FF0000&color=fff&size=64&bold=true';
+
+        function uiAvatar(name, bg) {
+            var initials = name.split(' ').map(function(n) { return n[0]; }).slice(0, 2).join('');
+            return 'https://ui-avatars.com/api/?name=' + encodeURIComponent(initials) + '&background=' + (bg || 'random') + '&color=fff&size=64&bold=true';
+        }
+
+        var scheduledMessages = [
+            {time: 2, user: 'Sarah Mitchell', text: 'Wait... Jonathan Rumi is doing a live? This is huge!', avatar: uiAvatar('Sarah Mitchell', '4A90D9')},
+            {time: 4, user: 'David Chen', text: 'I love this actor... he\'s so genuine', avatar: uiAvatar('David Chen', 'D97B4A')},
+            {time: 6, user: 'Maria Santos', text: 'This is the first time I\'m seeing something like this', avatar: uiAvatar('Maria Santos', 'E91E8C')},
+        ];
+
+        function addMessage(user, text, avatar) {
+            avatar = avatar || defaultAvatar;
+            var messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            var avatarImg = document.createElement('img');
+            avatarImg.classList.add('avatar');
+            avatarImg.src = avatar;
+            avatarImg.loading = 'lazy';
+            var contentDiv = document.createElement('div');
+            var usernameSpan = document.createElement('span');
+            usernameSpan.classList.add('username');
+            usernameSpan.textContent = user;
+            var textSpan = document.createElement('span');
+            textSpan.classList.add('text');
+            textSpan.textContent = text;
+            contentDiv.appendChild(usernameSpan);
+            contentDiv.appendChild(textSpan);
+            messageDiv.appendChild(avatarImg);
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function checkScheduledMessages() {
+            var elapsed = Math.floor(currentPageTime);
+            scheduledMessages.forEach(function(msg) {
+                if (elapsed >= msg.time && !msg.sent) {
+                    addMessage(msg.user, msg.text, msg.avatar);
+                    msg.sent = true;
+                }
+            });
+            requestAnimationFrame(checkScheduledMessages);
+        }
+        requestAnimationFrame(checkScheduledMessages);
+
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+                addMessage('You', chatInput.value.trim());
+                chatInput.value = '';
             }
-        })();
-    </script>
+        });
+
+        emojiButton.addEventListener('click', function() {
+            emojiMenu.style.display = (emojiMenu.style.display === 'block') ? 'none' : 'block';
+        });
+
+        emojiMenu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'SPAN') {
+                chatInput.value += e.target.textContent;
+                chatInput.focus();
+                emojiMenu.style.display = 'none';
+            }
+        });
+
+        var subscribeBtn = document.getElementById('subscribe-btn');
+        var viewCounterDesktop = document.getElementById('view-counter');
+        var viewCounterMobile = document.getElementById('view-counter-mobile');
+        var likeBtn = document.getElementById('like-btn');
+        var dislikeBtn = document.getElementById('dislike-btn');
+        var subscribed = false;
+
+        subscribeBtn.addEventListener('click', function() {
+            subscribed = !subscribed;
+            subscribeBtn.innerText = subscribed ? 'Subscribed' : 'Subscribe';
+            subscribeBtn.style.background = subscribed ? '#e5e5e5' : '#0f0f0f';
+            subscribeBtn.style.color = subscribed ? '#0f0f0f' : '#ffffff';
+        });
+
+        var currentViewers = 55000;
+        function updateViewers() {
+            var change = Math.floor(Math.random() * 30) + 1;
+            var dir = Math.random() < 0.6 ? 1 : -1;
+            currentViewers = Math.min(60000, Math.max(50000, currentViewers + change * dir));
+            var formatted = currentViewers.toLocaleString('pt-BR') + ' ';
+            if (viewCounterDesktop) viewCounterDesktop.querySelector('.view-number').innerText = formatted;
+            if (viewCounterMobile) viewCounterMobile.querySelector('.view-number').innerText = formatted;
+        }
+        updateViewers();
+        setInterval(updateViewers, 3000);
+
+        likeBtn.addEventListener('click', function() {
+            likeBtn.querySelector('img').style.filter = 'invert(0%)';
+            dislikeBtn.querySelector('img').style.filter = 'invert(60%)';
+        });
+        dislikeBtn.addEventListener('click', function() {
+            dislikeBtn.querySelector('img').style.filter = 'invert(0%)';
+            likeBtn.querySelector('img').style.filter = 'invert(60%)';
+        });
+    });
+}
+</script>
+
 </body>
 </html>
