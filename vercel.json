@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "public": false,
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/ManifestationAccelerator$",
+      "dest": "/ManifestationAccelerator.html"
+    },
+    {
+      "src": "/landing-black$",
+      "dest": "/landing-black.html"
+    },
+    {
+      "src": "/landing-white$",
+      "dest": "/landing-white.html"
+    },
+    {
+      "src": "/cloaker$",
+      "dest": "/cloaker.html"
+    },
+    {
+      "src": "/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1.html"
+    }
+  ]
+}
