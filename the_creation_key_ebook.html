@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creation Key - Official Ebook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #091322;
+            --gold: #c5a880;
+            --gold-light: #e3d5c1;
+            --charcoal: #2d3142;
+            --cream: #faf8f5;
+            --accent-red: #991b1b;
+            --accent-red-bg: #fef2f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background-color: #f0f0f2;
+            line-height: 1.6;
+        }
+
+        /* Pagina do Ebook */
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            padding: 25mm 20mm;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            page-break-after: always;
+        }
+
+        /* Capa */
+        .cover {
+            background-color: var(--navy);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 40mm 20mm;
+            border: 2px solid var(--gold);
+        }
+
+        .cover-border {
+            border: 1px solid var(--gold);
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cover h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-top: 40px;
+            text-transform: uppercase;
+        }
+
+        .cover h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--gold-light);
+            margin-bottom: 50px;
+        }
+
+        .cover-divider {
+            width: 80px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 20px auto;
+        }
+
+        .cover-footer {
+            font-size: 11px;
+            letter-spacing: 1px;
+            color: #8fa0b5;
+            text-transform: uppercase;
+        }
+
+        /* Estilo Geral de Pagina Interna */
+        .header-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--navy);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: var(--navy);
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 18px;
+            color: var(--charcoal);
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background-color: var(--cream);
+            border-left: 3px solid var(--gold);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        /* Caixa de Alerta - Anti-Chargeback */
+        .alert-box {
+            background-color: var(--accent-red-bg);
+            border: 1px dashed var(--accent-red);
+            border-left: 4px solid var(--accent-red);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .alert-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .alert-box p {
+            font-size: 13.5px;
+            color: #7f1d1d;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .alert-box strong {
+            color: var(--navy);
+        }
+
+        /* Tabela do Codigo */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background-color: var(--navy);
+            color: white;
+            text-align: left;
+            padding: 10px;
+            font-weight: 600;
+            border: 1px solid var(--navy);
+        }
+
+        td {
+            padding: 8px 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+
+        /* Dias do Devocional */
+        .day-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #fdfdfd;
+        }
+
+        .day-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .day-title span {
+            color: var(--gold);
+        }
+
+        .day-meta {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .day-prayer {
+            font-style: italic;
+            font-size: 13px;
+            background: #f7fafc;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            border-left: 2px solid var(--navy);
+        }
+
+        /* Rodape */
+        .footer-page {
+            position: absolute;
+            bottom: 15mm;
+            left: 20mm;
+            right: 20mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #a0aec0;
+            border-top: 1px solid #edf2f7;
+            padding-top: 8px;
+        }
+
+        /* CSS para Impressao do PDF */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                page-break-after: always;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGINA 1: CAPA -->
+    <div class="page cover">
+        <div class="cover-border">
+            <div>
+                <div class="cover-divider" style="margin-top: 20px;"></div>
+            </div>
+            <div>
+                <h1>The Creation Key</h1>
+                <div class="cover-divider"></div>
+                <h2>Daily Devotional & Scriptural Studies Guide</h2>
+            </div>
+            <div class="cover-footer">
+                The 7-Day Abundance Protocol
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGINA 2: AVISO CRITICO DO APP (ANTI-CHARGEBACK) -->
+    <div class="page">
+        <div class="header-title">Important System Notice</div>
+        
+        <div class="alert-box">
+            <div class="alert-title">⚠️ Temporary Mobile Application Downtime</div>
+            <p>Due to the highly sensitive nature of the biblical revelations uncovered in this program, major mainstream mobile app stores have temporarily suspended our application interface for a policy review.</p>
+            <p>Our dedicated development team is currently migrating the system to a secure, decentralized private server. <strong>Full access to the mobile application will be restored and emailed to you within the next 7 days.</strong></p>
+            <p>In the meantime, <strong>we are providing you with this complete Scriptural Studies Guide and Activation Protocol so you can begin your journey immediately.</strong> Do not wait to start praying and practicing the 20-word key today.</p>
+            <p>If you experience any issues, need assistance, or want to verify your account status, please contact our support team directly at: <br><strong style="font-size: 14px; color: #7f1d1d;">gabriel.luz@noticiasdafe.com.br</strong></p>
+            <p><em>Note: We guarantee a response to all email inquiries within 24 hours. Please contact us directly before raising any dispute, as this ensures your student account remains active for the upcoming application access.</em></p>
+        </div>
+
+        <h3>How to Use This Transition Guide</h3>
+        <p>This guide contains the exact text of the 7-day challenge, the full 20-word Hebrew sequence, and phonetic translations. You do not need to wait for the mobile application to start experiencing the powerful effects of these daily scripts. Print this document or read it daily from your device.</p>
+        
+        <div class="footer-page">
+            <span>The Creation Key &copy; All Rights Reserved</span>
+            <span>Page 2</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 3: INTRODUCAO EXPANDIDA (INCREMENTADA) -->
+    <div class="page">
+        <div class="header-title">The Power of the Original Sound</div>
+        <p>Welcome to <strong>The Creation Key</strong>. You are holding a recovery of ancient scriptural truth. For centuries, the true depth of biblical prayer has been obscured by translations.</p>
+        <p>In ancient Hebrew, words were not just symbols; they were vessels of frequency and creation. When God spoke the universe into existence, he used specific energetic sequences. The Hebrew alphabet is phonetic and vibratory; the sounds themselves carry creative weight.</p>
+        
+        <h3>The Frequency of Creation</h3>
+        <p>Linguists and theologians have long noted that the structure of Genesis 1:1-3 contains unique mathematical ratios. By reciting these words in their original tongue, you are bypasssing modern translations that dilute the spiritual intention of the scriptures.</p>
+        <p>This guide combines the <strong>Words of Creation (Genesis 1)</strong> and the <strong>Priestly Blessing of Abundance (Numbers 6)</strong> into a unified 20-Word Sequence.</p>
+        
+        <div class="highlight-box">
+            "For where two or three gather in my name, there am I with them. And when you speak with the tongue of the prophets, the heavens listen."
+        </div>
+        <p>Practiced daily for the next 7 days, this sequence is designed to align your mind, heart, and spirit with divine provision, clearing the "static noise" of debt, scarcity, and doubt from your life.</p>
+        
+        <div class="footer-page">
+            <span>The Creation Key &copy; All Rights Reserved</span>
+            <span>Page 3</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 4: TABELA DO CODIGO -->
+    <div class="page">
+        <div class="header-title">The 20-Word Sacred Sequence</div>
+        <p>Read the Hebrew, practice the phonetic pronunciation aloud, and meditate on the English meaning. Take time to sit with each word.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Hebrew</th>
+                    <th>Pronunciation</th>
+                    <th>English Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td><strong>בְּרֵאשִׁית</strong></td><td>Be-re-sheet</td><td>In the beginning</td></tr>
+                <tr><td>2</td><td><strong>בָּרָא</strong></td><td>Ba-ra</td><td>Created (out of nothing)</td></tr>
+                <tr><td>3</td><td><strong>אֱלֹהִيم</strong></td><td>El-o-heem</td><td>God (Creator / Judge)</td></tr>
+                <tr><td>4</td><td><strong>אֵת</strong></td><td>Et</td><td>(Object Marker - Alpha to Omega)</td></tr>
+                <tr><td>5</td><td><strong>הַשָּׁמַיִם</strong></td><td>Ha-sha-ma-yeem</td><td>The heavens (spiritual realm)</td></tr>
+                <tr><td>6</td><td><strong>וְאֵת</strong></td><td>Ve-et</td><td>And</td></tr>
+                <tr><td>7</td><td><strong>הָאָרֶץ</strong></td><td>Ha-a-retz</td><td>The earth (physical realm)</td></tr>
+                <tr><td>8</td><td><strong>יְהִי</strong></td><td>Ye-hee</td><td>Let there be / Manifest</td></tr>
+                <tr><td>9</td><td><strong>אוֹר</strong></td><td>Or</td><td>Light / Clear energy</td></tr>
+                <tr><td>10</td><td><strong>יְבָרֶכְךָ</strong></td><td>Ye-ba-rek-e-ka</td><td>Bless you (fully supply)</td></tr>
+                <tr><td>11</td><td><strong>יְהוָה</strong></td><td>Ad-o-nai</td><td>The Lord (Covenant God)</td></tr>
+                <tr><td>12</td><td><strong>וְיִשְׁמְרֶךָ</strong></td><td>Ve-yish-me-re-ka</td><td>And keep/protect you</td></tr>
+                <tr><td>13</td><td><strong>יָאֵר</strong></td><td>Ya-er</td><td>Make shine / Illuminate</td></tr>
+                <tr><td>14</td><td><strong>פָּנָיו</strong></td><td>Pa-nav</td><td>His face / Divine presence</td></tr>
+                <tr><td>15</td><td><strong>אֵלֶיךָ</strong></td><td>E-le-ka</td><td>Upon you</td></tr>
+                <tr><td>16</td><td><strong>וִיחֻนֶּךָּ</strong></td><td>Ve-ye-hoo-ne-ka</td><td>Be gracious/merciful to you</td></tr>
+                <tr><td>17</td><td><strong>יִשָּׂא</strong></td><td>Yee-sa</td><td>Lift up / Exalt</td></tr>
+                <tr><td>18</td><td><strong>שָׁלוֹם</strong></td><td>Sha-lom</td><td>Peace / Wholeness / Safety</td></tr>
+                <tr><td>19</td><td><strong>אָมֵן</strong></td><td>Ah-men</td><td>Amen (So be it)</td></tr>
+                <tr><td>20</td><td><strong>סֶלָה</strong></td><td>Se-lah</td><td>Pause, breathe, and reflect</td></tr>
+            </tbody>
+        </table>
+        <div class="footer-page">
+            <span>The Creation Key &copy; All Rights Reserved</span>
+            <span>Page 4</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 5: DEVOCIONAIS (DIAS 1 A 3) -->
+    <div class="page">
+        <div class="header-title">The 7-Day Protocol: Days 1 - 3</div>
+        
+        <div class="day-box">
+            <div class="day-title">Day 1: Unlocking the Light <span>Bereshit / Or</span></div>
+            <div class="day-meta">Scripture: Genesis 1:3 | Focus: Releasing Scarcity</div>
+            <p>In Hebrew, the word <em>Bara</em> means creating something out of absolutely nothing. Today, we call forth light. Scarcity is just darkness. Speak the light into your bank accounts, your family struggles, and your deepest doubts.</p>
+            <div class="day-prayer">"Lord, let Your divine light pierce the darkness of my financial struggles. Reset my path today."</div>
+        </div>
+
+        <div class="day-box">
+            <div class="day-title">Day 2: Reclaiming the Foundation <span>Hashamayim / Ha-aretz</span></div>
+            <div class="day-meta">Scripture: Psalm 24:1 | Focus: Divine Ownership</div>
+            <p>God owns the heavens (spiritual ideas, pathways, portals) and the earth (physical currency, assets, houses). You do not have to struggle on the earth when you are aligned with the owner of the foundation. Trust His provision.</p>
+            <div class="day-prayer">"Father, I align my physical needs with Your heavenly storehouse. I claim Your foundation of stability."</div>
+        </div>
+
+        <div class="day-box">
+            <div class="day-title">Day 3: Activating the Promise <span>Yebarekeka Adonai</span></div>
+            <div class="day-meta">Scripture: Proverbs 10:22 | Focus: Effortless Flow</div>
+            <p>The word <em>Yebarekeka</em> implies a complete, overflowing packaging of divine resources. True blessing is effortless alignment. It is not about working yourself to exhaustion; it is about positioning your heart to receive.</p>
+            <div class="day-prayer">"Adonai, release the blessing that bypasses hard labor and opens unexpected doors of supply."</div>
+        </div>
+
+        <div class="footer-page">
+            <span>The Creation Key &copy; All Rights Reserved</span>
+            <span>Page 5</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 6: DEVOCIONAIS (DIAS 4 A 6) -->
+    <div class="page">
+        <div class="header-title">The 7-Day Protocol: Days 4 - 6</div>
+
+        <div class="day-box">
+            <div class="day-title">Day 4: Shield of Protection <span>Veyishmereka</span></div>
+            <div class="day-meta">Scripture: Psalm 91:11 | Focus: Secure Resources</div>
+            <p>Protection is financial as well as physical. The Hebrew root of <em>Veyishmereka</em> refers to building a thorny hedge around something to keep predators out. God protects your resources from unexpected expenses and leaks.</p>
+            <div class="day-prayer">"Lord, shield my household, my job, and my finances from the devourer. Keep my gates secure."</div>
+        </div>
+
+        <div class="day-box">
+            <div class="day-title">Day 5: Walking in Favor <span>Ya-er Panav</span></div>
+            <div class="day-meta">Scripture: Psalm 5:12 | Focus: Divine Favor</div>
+            <p>When God's face (<em>Panav</em>) shines upon you, doors open without human effort. Opportunities locate you, and people are compelled to support your vision. This is the activation of divine favor in the marketplace.</p>
+            <div class="day-prayer">"Let Your face shine upon my daily activities. May I find favor with everyone I meet today."</div>
+        </div>
+
+        <div class="day-box">
+            <div class="day-title">Day 6: Unleashing Grace <span>Veyehuneka</span></div>
+            <div class="day-meta">Scripture: 1 Corinthians 15:10 | Focus: Debt Forgiveness</div>
+            <p>Grace (<em>Chen</em> in Hebrew) is unmerited favor—receiving what you did not work for. It is the spiritual key that unlocks sudden debt cancellation, breakthroughs, and resources you did not expect.</p>
+            <div class="day-prayer">"Lord, let Your grace flow over my debts and financial past. Lift me up from the pit of struggle."</div>
+        </div>
+
+        <div class="footer-page">
+            <span>The Creation Key &copy; All Rights Reserved</span>
+            <span>Page 6</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 7: DEVOCIONAIS (DIA 7) & CONCLUSAO -->
+    <div class="page">
+        <div class="header-title">The 7-Day Protocol: Day 7</div>
+
+        <div class="day-box">
+            <div class="day-title">Day 7: The Rest of Peace <span>Shalom</span></div>
+            <div class="day-meta">Scripture: Philippians 4:7 | Focus: Complete Wholeness</div>
+            <p>You have completed the sequence. True peace (<em>Shalom</em>) is not just quietness. In Hebrew, it means nothing broken, nothing missing, complete wholeness, health, and prosperity. Rest in this active shield of protection.</p>
+            <div class="day-prayer">"I receive Your Shalom. My battle is won. My path is open. Amen."</div>
+        </div>
+
+        <div class="header-title" style="margin-top: 40px; font-size: 22px;">Next Steps & Daily Integration</div>
+        <p>Keep these 20 words close to your heart. Practice speaking them whenever you feel scarcity creeping into your thoughts. The vibration of creation is now active in your life. Speak them every morning upon waking.</p>
+        <p>Remember, your digital access to the active mobile portal will be sent directly to your email in less than 7 days. Focus on this workbook until then.</p>
+        
+        <div class="footer-page">
+            <span>The Creation Key &copy; All Rights Reserved</span>
+            <span>Page 7</span>
+        </div>
+    </div>
+
+</body>
+</html>

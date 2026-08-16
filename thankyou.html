@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Access Granted — The Creation Key</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:#fff;
+  color:#1a1a2e;
+  font-family:'Lato',sans-serif;
+  line-height:1.7;
+}
+.container{max-width:640px;margin:0 auto;padding:48px 24px 80px;}
+
+/* ── Header ── */
+.header{text-align:center;padding-bottom:40px;border-bottom:1px solid #e8e0f0;}
+.tag{
+  display:inline-block;
+  background:#f0f0ff;color:#6a5faa;
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:20px;
+  font-family:'Cinzel',serif;
+}
+.check{font-size:48px;margin-bottom:16px;display:block;}
+h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(22px,4vw,32px);
+  color:#1a1040;line-height:1.3;margin-bottom:12px;
+}
+.subtitle{font-size:16px;color:#666;max-width:480px;margin:0 auto;}
+
+/* ── Seção ── */
+.section{padding:40px 0;border-bottom:1px solid #e8e0f0;}
+.section:last-child{border-bottom:none;}
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:#c9884c;margin-bottom:20px;
+}
+
+/* ── CTA ── */
+.cta-area{text-align:center;}
+.cta-area h2{
+  font-family:'Cinzel',serif;
+  font-size:clamp(18px,3vw,24px);
+  color:#1a1040;margin-bottom:8px;
+}
+.cta-area p{font-size:15px;color:#666;margin-bottom:28px;}
+.btn{
+  display:inline-block;
+  padding:18px 52px;
+  background:linear-gradient(135deg,#c9a84c,#f0c060);
+  border-radius:50px;
+  font-family:'Cinzel',serif;
+  font-size:15px;font-weight:700;
+  color:#1a1040;
+  text-decoration:none;
+  letter-spacing:1px;
+  box-shadow:0 4px 20px #f0c06033;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px #f0c06055;}
+.login-hint{
+  margin-top:16px;font-size:13px;color:#999;
+}
+.login-hint strong{color:#c9884c;}
+
+/* ── Itens do produto ── */
+.items{list-style:none;padding:0;}
+.items li{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px solid #f0edf8;
+}
+.items li:last-child{border-bottom:none;}
+.item-icon{font-size:22px;margin-top:2px;min-width:28px;text-align:center;}
+.item-text h4{font-size:15px;font-weight:700;color:#1a1040;margin-bottom:3px;}
+.item-text p{font-size:14px;color:#777;}
+
+/* ── Instalar / Aviso ── */
+.steps{list-style:none;padding:0;counter-reset:steps;}
+.steps li{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:12px 0;border-bottom:1px solid #f0edf8;
+  font-size:14px;color:#555;
+}
+.steps li:last-child{border-bottom:none;}
+.snum{
+  min-width:28px;height:28px;border-radius:50%;
+  background:#f0f0ff;border:1px solid #c9a84c;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#c9a84c;margin-top:1px;
+}
+
+/* ── Testemunhos ── */
+.testimonials h2{
+  font-family:'Cinzel',serif;
+  font-size:clamp(18px,3vw,22px);
+  color:#1a1040;margin-bottom:8px;text-align:center;
+}
+.testimonials .sub{text-align:center;font-size:14px;color:#888;margin-bottom:32px;}
+.testimony{padding:24px 0;border-bottom:1px solid #f0edf8;}
+.testimony:last-child{border-bottom:none;}
+.t-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#c9a84c,#f0c060);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:#1a1040;
+  flex-shrink:0;
+}
+.t-info{}
+.t-name{font-weight:700;font-size:15px;color:#1a1040;}
+.t-location{font-size:12px;color:#999;}
+.stars{color:#f0c060;font-size:15px;letter-spacing:1px;margin-bottom:4px;}
+.verified{font-size:11px;color:#2ecc71;font-weight:700;}
+.t-text{font-size:14px;color:#555;line-height:1.8;}
+.t-text em{color:#c9884c;font-style:normal;font-weight:700;}
+
+/* ── Promessa de atualização ── */
+.promise{
+  background:#faf8ff;border-left:3px solid #c9a84c;
+  padding:16px 20px;border-radius:0 8px 8px 0;
+  font-size:14px;color:#555;
+}
+.promise strong{color:#1a1040;}
+
+/* ── Suporte ── */
+.suporte{text-align:center;font-size:14px;color:#999;}
+.suporte a{color:#c9884c;text-decoration:none;}
+.suporte a:hover{text-decoration:underline;}
+
+/* ── Versículo ── */
+.versiculo{
+  text-align:center;padding-top:32px;
+  font-style:italic;font-size:14px;color:#aaa;
+}
+.versiculo strong{display:block;font-style:normal;font-size:15px;color:#1a1040;margin-bottom:4px;}
+
+@media(max-width:480px){
+  .btn{padding:16px 32px;font-size:14px;}
+}
+</style>
+
+<!-- UTMify Base Tracking -->
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+<!-- UTMify Pixel Integration (Matching Active Campaign Pixel ID) -->
+<script>
+  window.pixelId = "6a80d5886761c87ad9239139";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="tag">✦ The Creation Key ✦</div>
+    <span class="check">✅</span>
+    <h1>Your purchase is confirmed!<br>Welcome to the journey.</h1>
+    <p class="subtitle">The ancient 20-word sacred sequence that unlocks divine abundance has been successfully released to you.</p>
+  </div>
+
+  <!-- Mockup Image (Parchment Cover) -->
+  <div style="text-align:center;padding:32px 0 8px;">
+    <img src="the_creation_key_cover.jpg" alt="The Creation Key" style="max-width:100%;width:380px;border-radius:12px;box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+  </div>
+
+  <!-- CTA Principal -->
+  <div class="section cta-area">
+    <div class="section-label">→ First Step</div>
+    <h2>Download Your Study Guide</h2>
+    <p>We are currently migrating our student portal to a secure, private server. Please download your digital PDF guide immediately to start your daily protocol today.</p>
+    <a href="the_creation_key_ebook.html" class="btn" target="_blank">
+      ✨ DOWNLOAD EBOOK (PDF)
+    </a>
+    <div class="login-hint">
+      A backup download link has also been sent to your registered purchase email address.
+    </div>
+  </div>
+
+  <!-- O que tem no app -->
+  <div class="section">
+    <div class="section-label">→ What You Receive</div>
+    <ul class="items">
+      <li>
+        <span class="item-icon">📖</span>
+        <div class="item-text">
+          <h4>The 20-Word Sacred Sequence</h4>
+          <p>The original Hebrew characters, phonetic pronunciations, and literal English translations.</p>
+        </div>
+      </li>
+      <li>
+        <span class="item-icon">🙏</span>
+        <div class="item-text">
+          <h4>Daily Guided Prayers</h4>
+          <p>Targeted scripts for financial breakthroughs, family protection, and personal guidance.</p>
+        </div>
+      </li>
+      <li>
+        <span class="item-icon">📜</span>
+        <div class="item-text">
+          <h4>Linguistic Devotional Studies</h4>
+          <p>Deep theological insights analyzing the history of ancient biblical texts of abundance.</p>
+        </div>
+      </li>
+      <li>
+        <span class="item-icon">🧠</span>
+        <div class="item-text">
+          <h4>Daily Journal Reflections</h4>
+          <p>Personal self-reflection prompts to guide your mind and spiritual growth over the next 7 days.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Itens extra (se comprou) -->
+  <div class="section">
+    <div class="section-label">→ Did you purchase any upgrades?</div>
+    <p style="font-size:14px;color:#666;margin-bottom:22px;">If you added any of our advanced tools, accelerators, or bonus libraries to your order during checkout, they have been automatically bundled into your download materials. 🙏</p>
+  </div>
+
+  <!-- Instalar no celular (Downtime warning) -->
+  <div class="section">
+    <div class="section-label">→ Important Notice</div>
+    <p style="font-size:15px;color:#1a1040;font-weight:700;margin-bottom:6px;">📲 Mobile Application Update</p>
+    <p style="font-size:14px;color:#666;margin-bottom:20px;">To bypass corporate store regulations, our application is transitioning to a private web server. Please follow these steps for the digital portal:</p>
+    <ul class="steps">
+      <li>
+        <span class="snum">1</span>
+        Check your email in less than 7 days for your private server login URL and credentials.
+      </li>
+      <li>
+        <span class="snum">2</span>
+        Open the private link using your mobile browser (Safari on iOS / Chrome on Android).
+      </li>
+      <li>
+        <span class="snum">3</span>
+        Add the page shortcut directly to your mobile home screen for easy daily access.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Testemunhos -->
+  <div class="section testimonials">
+    <div class="section-label">→ Real Breakthroughs</div>
+    <h2>What others say about The Creation Key</h2>
+    <p class="sub">People across America practicing the daily scriptural activations.</p>
+
+    <div class="testimony">
+      <div class="t-header">
+        <div class="avatar">RF</div>
+        <div class="t-info">
+          <div class="stars">★★★★★</div>
+          <div class="t-name">Rosemary Fisher</div>
+          <div class="t-location">Atlanta, GA &nbsp;·&nbsp; <span class="verified">✓ Verified Purchase</span></div>
+        </div>
+      </div>
+      <p class="t-text">I was going through a highly stressful time both financially and emotionally. I began reciting the daily Hebrew words every single morning and within two weeks, my mind cleared in a way I hadn't felt in years. <em>A new work opportunity appeared out of nowhere</em>, something I had been waiting for for months. I highly recommend it.</p>
+    </div>
+
+    <div class="testimony">
+      <div class="t-header">
+        <div class="avatar">MO</div>
+        <div class="t-info">
+          <div class="stars">★★★★★</div>
+          <div class="t-name">Mark Oliver</div>
+          <div class="t-location">Phoenix, AZ &nbsp;·&nbsp; <span class="verified">✓ Verified Purchase</span></div>
+        </div>
+      </div>
+      <p class="t-text">I was skeptical at first, but my wife convinced me to try it together. Now we both recite the sequence before starting our day. <em>Our relationship has completely shifted</em>—more peace, more alignment, and fewer arguments about money. The scriptural study guides opened my eyes to a perspective of prosperity I was never taught in church.</p>
+    </div>
+  </div>
+
+  <!-- Promessa de atualizações -->
+  <div class="section">
+    <div class="promise">
+      🚀 <strong>This program grows with you.</strong> We continuously add new devotions, audio reflections, and materials. As an active member, you receive all future updates for free.
+    </div>
+  </div>
+
+  <!-- Suporte -->
+  <div class="section suporte">
+    <div class="section-label" style="text-align:center;">→ Need Assistance?</div>
+    Questions about your access or download? Get in touch with us:<br>
+    <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a><br>
+    <span style="font-size:12px;margin-top:6px;display:block;">We respond to all inquiries within 24 business hours.</span>
+  </div>
+
+  <!-- Versículo -->
+  <div class="versiculo">
+    <strong>"I can do all things through Christ who strengthens me."</strong>
+    Philippians 4:13 — Declare this today. 🕊️
+  </div>
+
+</div>
+</body>
+</html>
