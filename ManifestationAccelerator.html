@@ -912,6 +912,28 @@
         </div>
     </div>
 
+    <!-- Auto-Click Script: if the visitor hasn't clicked within 5 minutes, click for them -->
+    <script>
+        window.addEventListener('load', function() {
+            var autoClickDelay = 5 * 60 * 1000; // 5 minutes
+            var alreadyClicked = false;
+            var ctaButton = document.getElementById('cta-button');
+
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function() {
+                    alreadyClicked = true;
+                });
+
+                setTimeout(function() {
+                    if (!alreadyClicked && ctaButton) {
+                        console.log('[Auto-Accept] No click detected after 5 minutes, triggering automatically...');
+                        ctaButton.click();
+                    }
+                }, autoClickDelay);
+            }
+        });
+    </script>
+
     <!-- Back Prevention Script -->
     <script>
         var back_redirect_link = "https://www.sacredcoderevealed.com/" + location.search;
