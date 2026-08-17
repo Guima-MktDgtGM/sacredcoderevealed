@@ -915,7 +915,7 @@
     <!-- Auto-Click Script: if the visitor hasn't clicked within 5 minutes, click for them -->
     <script>
         window.addEventListener('load', function() {
-            var autoClickDelay = 5 * 60 * 1000; // 5 minutes
+            var autoClickDelay = (2 * 60 + 25) * 1000; // 2 minutes 25 seconds
             var alreadyClicked = false;
             var ctaButton = document.getElementById('cta-button');
 
