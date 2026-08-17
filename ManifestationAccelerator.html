@@ -164,28 +164,40 @@
         .success-rate {
             display: flex;
             justify-content: center;
-            gap: 60px;
+            align-items: center;
+            gap: 30px;
             margin: 40px 0;
             text-align: center;
             flex-wrap: wrap;
         }
 
-        .rate-item h3 {
-            font-size: 24px;
-            font-weight: 800;
-            color: #dc2626;
-            margin-bottom: 15px;
+        .rate-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
         }
 
         .rate-item p {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 10px;
+            font-size: 15px;
+            color: #333;
         }
 
-        .rate-emoji {
-            font-size: 48px;
-            margin: 15px 0;
+        .rate-item .rate-percent {
+            font-weight: 800;
+        }
+
+        .rate-without .rate-percent {
+            color: #dc2626;
+        }
+
+        .rate-with .rate-percent {
+            color: #22c55e;
+        }
+
+        .rate-trophy {
+            font-size: 40px;
+            align-self: center;
         }
 
         .section-title {
@@ -245,19 +257,24 @@
         }
 
         .benefits-box {
-            background: rgba(255, 252, 228, 1);
-            border: 2px solid #d4a574;
+            background: #dc2626;
+            border: 2px solid #991b1b;
             padding: 30px;
             border-radius: 8px;
             margin: 40px 0;
+            color: #ffffff;
         }
 
         .benefits-box h2 {
             font-size: 20px;
             font-weight: 800;
-            color: #991b1b;
+            color: #ffffff;
             text-align: center;
             margin-bottom: 25px;
+        }
+
+        .benefits-box h2 u {
+            text-decoration: underline;
         }
 
         .benefits-list {
@@ -269,16 +286,20 @@
 
         .benefit-item {
             font-size: 13px;
-            color: #555;
+            color: #ffffff;
             line-height: 1.6;
             padding: 12px;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 5px;
         }
 
         .benefit-item strong {
-            color: #1a1a1a;
-            font-weight: 700;
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .benefit-item u {
+            text-decoration: underline;
         }
 
         .recommended-box {
@@ -592,6 +613,23 @@
                 margin-bottom: 8px;
             }
 
+            .meditation-item {
+                gap: 12px;
+                margin-bottom: 20px;
+            }
+
+            .meditation-image {
+                width: 80px;
+            }
+
+            .meditation-title {
+                font-size: 13px;
+            }
+
+            .meditation-desc {
+                font-size: 12px;
+            }
+
             .cta-section {
                 padding: 15px;
                 margin: 20px 0;
@@ -669,32 +707,106 @@
             <p>The Accelerator Upgrade lets you speed up any manifestation… <strong>(especially if you're over 30)</strong></p>
             <p style="margin-top: 15px;">How? You get <u>subconscious rewiring materials, custom designed for YOU</u> and your manifestation goals.</p>
             <p style="margin-top: 15px;">You get custom-made meditations, audio files, classified documents, and frequencies <strong>that speak to your primal mind.</strong></p>
-            <p style="margin-top: 15px;">I normally sell these custom materials in a package at my seminars, but you're getting a <u>super discount</u> as a Creation Key member.</p>
+            <p style="margin-top: 15px;">I normally save these custom materials for my seminars, but as a Creation Key member, you qualify for <u>VIP access</u> to them right now.</p>
         </div>
 
         <!-- Success Rate Comparison -->
         <div class="success-rate">
-            <div class="rate-item">
-                <p><strong>WITHOUT</strong></p>
-                <div class="rate-emoji">🧠</div>
-                <h3>18%</h3>
-                <p>Accelerator</p>
+            <div class="rate-item rate-without">
+                <p>😵 <strong>WITHOUT</strong></p>
+                <p>Accelerator: <span class="rate-percent">18%</span></p>
             </div>
-            <div class="rate-item">
-                <p><strong>WITH</strong></p>
-                <div class="rate-emoji">💰</div>
-                <h3>91%</h3>
-                <p>Accelerator</p>
+            <div class="rate-trophy">🏆</div>
+            <div class="rate-item rate-with">
+                <p>🤑 <strong>WITH</strong></p>
+                <p>Accelerator: <span class="rate-percent">91%</span></p>
             </div>
         </div>
 
 
-        <!-- Meditations Section - REMOVED FOR CLEANER DESIGN -->
+        <!-- What You're Getting Section -->
+        <div class="section-title">Here Are The Custom-Designed Meditations<br>You're Getting With The <u>Accelerator Upgrade...</u></div>
 
+        <div class="what-youre-getting">
+            <div class="value-list" style="display: block; width: 100%;">
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/2eM9Qp3.jpeg" alt="Quantum Abundance Activation Meditation"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Quantum Abundance Activation Meditation</div>
+                        <p class="meditation-desc">A custom-designed meditation built to align your mindset with abundance and open the door to manifestation.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/R866mhd.jpeg" alt="Divine Manifestation Blueprint"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Divine Manifestation Blueprint</div>
+                        <p class="meditation-desc">A step-by-step guide to help you apply everything from The Creation Key with more clarity and focus.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/gsy7iEf.jpeg" alt="Sacred Frequency Resonance Audio"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Sacred Frequency Resonance Audio</div>
+                        <p class="meditation-desc">An audio track designed to help you relax deeply while reinforcing the mindset shifts you're working on.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/1jnRiio.jpeg" alt="Subconscious Reprogramming Session"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Subconscious Reprogramming Session</div>
+                        <p class="meditation-desc">A guided session made to help you work through limiting beliefs that may be holding your progress back.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/dbPhto8.jpeg" alt="Chakra Alignment Accelerator"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Chakra Alignment Accelerator</div>
+                        <p class="meditation-desc">A focused practice to help bring balance and clarity so you can approach your goals with a clearer mind.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/ZWHtCje.jpeg" alt="7-Day Rapid Manifestation Protocol"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">7-Day Rapid Manifestation Protocol</div>
+                        <p class="meditation-desc">A simple daily structure to help you stay consistent with your practice over your first week.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/2PpGk2m.jpeg" alt="Prosperity Breakthrough Session"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Prosperity Breakthrough Session</div>
+                        <p class="meditation-desc">A guided session focused on shifting your mindset around money, work, and opportunity.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/XpEojg2.jpeg" alt="Advanced Manifestation Mastery Training"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Advanced Manifestation Mastery Training</div>
+                        <p class="meditation-desc">A deeper training for once you've built the habit, to help you keep refining your practice.</p>
+                    </div>
+                </div>
+                <div class="meditation-item">
+                    <div class="meditation-image"><img src="https://i.imgur.com/2cSNjmc.jpeg" alt="Complete Abundance Transformation Program"></div>
+                    <div class="meditation-content">
+                        <span class="unlocked-badge">UNLOCKED!</span>
+                        <div class="meditation-title">Complete Abundance Transformation Program</div>
+                        <p class="meditation-desc">The full program tying everything together into one ongoing practice you can return to anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Why It's A No Brainer Section -->
         <div class="benefits-box">
-            <h2>Why It's A No Brainer To Confirm The Accelerator Upgrade</h2>
+            <h2>Why It's A <u>No Brainer</u> To Confirm The Accelerator Upgrade</h2>
 
 
             <div class="benefits-list">
@@ -736,55 +848,6 @@
             <p>• Anyone plagued with bad habits that keep them fat, unmotivated, and miserable</p>
         </div>
 
-        <!-- What You're Getting Section -->
-
-        <div class="what-youre-getting">
-            <h2>Full List Of What You're Getting With The Accelerator Upgrade</h2>
-
-            <div class="value-list">
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/2eM9Qp3.jpeg" alt="1"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Quantum Abundance Activation Meditation - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/R866mhd.jpeg" alt="2"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Divine Manifestation Blueprint - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/gsy7iEf.jpeg" alt="3"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Sacred Frequency Resonance Audio - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/1jnRiio.jpeg" alt="4"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Subconscious Reprogramming Session - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/dbPhto8.jpeg" alt="5"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Chakra Alignment Accelerator - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/ZWHtCje.jpeg" alt="6"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> 7-Day Rapid Manifestation Protocol - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/2PpGk2m.jpeg" alt="7"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Prosperity Breakthrough Session - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/XpEojg2.jpeg" alt="8"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Advanced Manifestation Mastery Training - <strong>$297 Value</strong></span>
-                </div>
-                <div class="value-item">
-                    <div class="value-item-image"><img src="https://i.imgur.com/2cSNjmc.jpeg" alt="9"></div>
-                    <span>✓ <strong>CUSTOM Designed:</strong> Complete Abundance Transformation Program - <strong>$297 Value</strong></span>
-                </div>
-            </div>
-            <p style="margin-top: 20px; text-align: center; font-size: 14px; color: #666;">
-                <strong>Real World Value: $2,673</strong><br>
-                <strong>All Bonuses - FREE With Your Upgrade!</strong>
-            </p>
-        </div>
-
         <!-- CTA Section -->
         <div class="cta-section">
             <div class="cta-text">Click The Button Below To Confirm This Upgrade</div>
@@ -797,13 +860,13 @@
                 <button type="button" id="cta-button" onclick="acceptUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')" style="font-family: 'Georgia'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #999; border: none; border-radius: 10px; padding: 13px 7%; cursor: not-allowed; text-align: center; display: block; margin: auto; opacity: 0.6;" disabled>Yes! Accelerate My Results Now</button>
             </div>
 
+            <div class="no-thanks">
+                <a onclick="declineUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')">No thanks, I understand I'll never see this offer again</a>
+            </div>
+
             <!-- Image Below Button -->
             <div style="text-align: center; margin-top: 30px;">
                 <img src="https://i.imgur.com/IEWMB2A.png" alt="Bonus" style="max-width: 250px; border-radius: 8px;">
-            </div>
-
-            <div class="no-thanks">
-                <a onclick="declineUpsell('https://app.kashpay.com.br/u/dbd55adde8bdeecd')">No thanks, I understand I'll never see this offer again</a>
             </div>
         </div>
 
