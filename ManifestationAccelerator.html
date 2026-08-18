@@ -14,6 +14,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Manifestation Accelerator — The Creation Key</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 
     <!-- ConverteAI / VTurb Velocity Optimization -->
     <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
@@ -145,7 +146,8 @@
     <p style="font-family:'Cinzel',serif;font-size:32px;color:#241f38;margin:2px 0;">$57.00</p>
   </div>
 
-  <a href="https://checkout.kashpay.com.br/checkout/checkout-1786818726816" style="display:inline-block;background:#c9a84c;color:#fff;font-weight:bold;padding:16px 34px;border-radius:8px;text-decoration:none;font-size:17px;">⚡ GET THE ACCELERATOR NOW</a>
+  <!-- HOTMART - Sales Funnel Widget -->
+  <div id="hotmart-sales-funnel-clean"></div>
   <p style="font-size:13.5px;color:#9a8f7a;margin-top:12px;">🔒 Safe and immediate digital delivery.</p>
 </div>
 
@@ -361,12 +363,9 @@
                 <p style="max-width:480px;margin:0 auto 10px;font-size:14.5px;color:#453f5c;line-height:1.5;">Access is unlocked **immediately** inside your digital app space. No waiting required.</p>
                 <p style="max-width:480px;margin:0 auto 18px;font-size:14px;color:#1c8a4f;font-weight:700;line-height:1.5;">✈️ By confirming, you are automatically registered for the Italy trip giveaway (Drawing on <span class="drawing-date">08/19</span>).</p>
 
-                <!-- CHECKOUT BUTTON (Supports manual checkout or Hotmart placeholder) -->
                 <div id="painel-oneclick" style="max-width:480px;margin:0 auto;">
-                    <!-- HOTMART ONE CLICK / MANUAL BUTTON PLACEHOLDER -->
-                    <a href="https://checkout.kashpay.com.br/checkout/checkout-1786818726816" class="cta-button" id="cta-button" style="display:block; text-decoration:none; width:100%; padding:23px 24px; background:linear-gradient(135deg,#0f7865,#0a5c4d); border:none; border-radius:50px; font-family:'Cinzel',serif; font-size:clamp(16px,3.1vw,20px); font-weight:800; color:#fff; cursor:pointer; box-shadow:0 8px 28px rgba(15,120,101,.35); transition:transform .2s; animation:glow 2.5s infinite; text-align:center;">
-                        ⚡ YES! ACCELERATE MY RESULTS
-                    </a>
+                    <!-- HOTMART - Sales Funnel Widget -->
+                    <div id="hotmart-sales-funnel-real"></div>
                     
                     <div class="no-thanks" style="margin-top:20px;">
                         <a href="https://www.sacredcoderevealed.com/thankyou" style="background:none; border:none; color:#9a8f7a; text-decoration:underline; font-size:13.5px; cursor:pointer; font-family:'Lato',sans-serif; line-height:1.5;">No thanks, I prefer to wait longer</a>
@@ -478,5 +477,18 @@
   }
 </script>
 
+<!-- Hotmart Sales Funnel Widget Initialization -->
+<script>
+  window.addEventListener('load', function() {
+    try {
+      if (typeof checkoutElements !== 'undefined') {
+        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel-clean');
+        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel-real');
+      }
+    } catch(e) {
+      console.error("Hotmart Funnel Widget failed to mount:", e);
+    }
+  });
+</script>
 </body>
 </html>
