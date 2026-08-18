@@ -9,6 +9,9 @@
     <script>
         var hasFbclid = /[?&]fbclid=/.test(window.location.search);
         document.documentElement.setAttribute('data-page-type', hasFbclid ? 'vsl' : 'clean');
+        try {
+            localStorage.setItem('vsl_visited', 'true');
+        } catch(e) {}
     </script>
 
     <!-- ========== PRIORIDADE MÁXIMA: PLAYER (VSL only) ========== -->
