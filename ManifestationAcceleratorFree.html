@@ -161,7 +161,7 @@ h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,3.8v
 
     <div class="cta-area">
       <!-- HOTMART SALES FUNNEL WIDGET CONTAINER -->
-      <div id="hotmart-sales-funnel-downsell"></div>
+      <div id="hotmart-sales-funnel"></div>
       <div class="cta-note">🔒 Immediate Access · Free Accelerator + Divine Frequencies · Triple Money-Back Guarantee</div>
 
       <br>
@@ -187,7 +187,7 @@ h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(20px,3.8v
   window.addEventListener('load', function() {
     try {
       if (typeof checkoutElements !== 'undefined') {
-        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel-downsell');
+        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
       }
     } catch(e) {
       console.error("Hotmart Funnel Widget failed to mount:", e);

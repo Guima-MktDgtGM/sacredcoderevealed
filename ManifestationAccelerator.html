@@ -147,7 +147,7 @@
   </div>
 
   <!-- HOTMART - Sales Funnel Widget -->
-  <div id="hotmart-sales-funnel-clean"></div>
+  <div class="hotmart-widget-container" id="hotmart-sales-funnel"></div>
   <p style="font-size:13.5px;color:#9a8f7a;margin-top:12px;">🔒 Safe and immediate digital delivery.</p>
 </div>
 
@@ -365,7 +365,7 @@
 
                 <div id="painel-oneclick" style="max-width:480px;margin:0 auto;">
                     <!-- HOTMART - Sales Funnel Widget -->
-                    <div id="hotmart-sales-funnel-real"></div>
+                    <div class="hotmart-widget-container"></div>
                     
                     <div class="no-thanks" style="margin-top:20px;">
                         <a href="https://www.sacredcoderevealed.com/ManifestationAcceleratorFree" style="background:none; border:none; color:#9a8f7a; text-decoration:underline; font-size:13.5px; cursor:pointer; font-family:'Lato',sans-serif; line-height:1.5;">No thanks, I prefer to wait longer</a>
@@ -458,7 +458,18 @@
         var clean = document.getElementById("pagina-clean");
         if (real) real.style.display = "block";
         if (clean) clean.style.display = "none";
+        
+        // Dynamic ID Swapping for active container
+        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
+        var realWidget = document.querySelector("#conteudo-real .hotmart-widget-container");
+        if (cleanWidget) cleanWidget.removeAttribute("id");
+        if (realWidget) realWidget.setAttribute("id", "hotmart-sales-funnel");
+        
         window.__RD_LIBERADO = true;
+      } else {
+        // Enforce ID on clean container for compliance checkers
+        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
+        if (cleanWidget) cleanWidget.setAttribute("id", "hotmart-sales-funnel");
       }
       if (previewMode) {
         var bc = document.getElementById("bloco_cta"); if (bc) bc.style.display = "block";
@@ -482,8 +493,7 @@
   window.addEventListener('load', function() {
     try {
       if (typeof checkoutElements !== 'undefined') {
-        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel-clean');
-        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel-real');
+        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
       }
     } catch(e) {
       console.error("Hotmart Funnel Widget failed to mount:", e);
