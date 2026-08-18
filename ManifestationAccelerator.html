@@ -124,35 +124,7 @@
 </head>
 <body>
 
-<!-- ── COMPLIANT WHITE-HAT PAGE (Shown to direct reviewers/robots) ── -->
-<div id="pagina-clean" style="max-width:600px;margin:0 auto;padding:60px 24px;text-align:center;font-family:'Lato',sans-serif;color:#2e2a3f;">
-  <div style="font-size:46px;margin-bottom:6px;">⚡🙏</div>
-  <h1 style="font-family:'Cinzel',serif;font-size:27px;color:#241f38;margin-bottom:14px;">Manifestation Accelerator</h1>
-  <p style="font-size:17px;color:#5f5876;line-height:1.7;margin-bottom:22px;">The Accelerator is a comprehensive step-by-step workbook designed to maximize the study of **The Creation Key** scriptures. It integrates structured study plans with mindset exercise tracks to support focus, daily peace, and devotional discipline. ✨</p>
 
-  <div style="background:#fbf7ec;border:1px solid #e8dcc4;border-radius:14px;padding:20px 22px;margin:0 auto 22px;max-width:460px;text-align:left;">
-    <p style="font-family:'Cinzel',serif;font-size:16px;color:#a5741a;margin:0 0 10px;text-align:center;">What is included:</p>
-    <div style="display:flex;gap:10px;padding:7px 0;color:#453f5c;font-size:15.5px;">✅ 7-Day Scriptural Study Guide</div>
-    <div style="display:flex;gap:10px;padding:7px 0;color:#453f5c;font-size:15.5px;">✅ Auditory study reflection audios</div>
-    <div style="display:flex;gap:10px;padding:7px 0;color:#453f5c;font-size:15.5px;">✅ Digital access on any desktop or mobile device</div>
-  </div>
-
-  <div style="background:#f0f9f2;border:1px solid #b8e6c8;border-radius:14px;padding:18px 22px;margin:0 auto 24px;max-width:460px;">
-    <p style="margin:0;color:#1c8a4f;font-size:15.5px;line-height:1.7;">🎁 <strong>Satisfaction guarantee:</strong> If you are not fully satisfied with your study guide, you can contact us at any time for support or returns. 🙏</p>
-  </div>
-
-  <div style="margin-bottom:16px;">
-    <p style="font-size:15px;color:#9a8f7a;margin:0;">One-time payment</p>
-    <p style="font-family:'Cinzel',serif;font-size:32px;color:#241f38;margin:2px 0;">$57.00</p>
-  </div>
-
-  <!-- HOTMART - Sales Funnel Widget -->
-  <div class="hotmart-widget-container" id="hotmart-sales-funnel"></div>
-  <p style="font-size:13.5px;color:#9a8f7a;margin-top:12px;">🔒 Safe and immediate digital delivery.</p>
-</div>
-
-<!-- ── CONTEUDO REAL (Shown exclusively to funnel buyers) ── -->
-<div id="conteudo-real" style="display:none;">
 
     <!-- Progress Steps Bar -->
     <div class="steps-bar">
@@ -365,7 +337,7 @@
 
                 <div id="painel-oneclick" style="max-width:480px;margin:0 auto;">
                     <!-- HOTMART - Sales Funnel Widget -->
-                    <div class="hotmart-widget-container"></div>
+                    <div class="hotmart-widget-container" id="hotmart-sales-funnel"></div>
                     
                     <div class="no-thanks" style="margin-top:20px;">
                         <a href="https://www.sacredcoderevealed.com/ManifestationAcceleratorFree" style="background:none; border:none; color:#9a8f7a; text-decoration:underline; font-size:13.5px; cursor:pointer; font-family:'Lato',sans-serif; line-height:1.5;">No thanks, I prefer to wait longer</a>
@@ -391,7 +363,7 @@
 
     </div>
 
-</div><!-- /conteudo-real -->
+
 
 <!-- Dynamic Drawing Date Calculation Script (Two days from today) -->
 <script>
@@ -446,36 +418,14 @@
   })();
 </script>
 
-<!-- CLOAKER FOR COMPLIANCE (Only funneled visits see real content and load VSL) -->
+<!-- Preview Bypass Script (Allows showing CTA block instantly when ?bypass=gl2026 is used) -->
 <script>
   (function(){
     try {
-      var visitedVSL = localStorage.getItem("vsl_visited") === "true";
       var previewMode = (new URLSearchParams(location.search).get("bypass") === "gl2026");
-      
-      var ref = (document.referrer || "").toLowerCase();
-      var cameFromFunnel = ref.indexOf("hotmart.com") !== -1 || ref.indexOf("kashpay.com.br") !== -1 || ref.indexOf("sacredcoderevealed.com") !== -1;
-
-      if (visitedVSL || cameFromFunnel || previewMode) {
-        var real = document.getElementById("conteudo-real");
-        var clean = document.getElementById("pagina-clean");
-        if (real) real.style.display = "block";
-        if (clean) clean.style.display = "none";
-        
-        // Dynamic ID Swapping for active container
-        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
-        var realWidget = document.querySelector("#conteudo-real .hotmart-widget-container");
-        if (cleanWidget) cleanWidget.removeAttribute("id");
-        if (realWidget) realWidget.setAttribute("id", "hotmart-sales-funnel");
-        
-        window.__RD_LIBERADO = true;
-      } else {
-        // Enforce ID on clean container for compliance checkers
-        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
-        if (cleanWidget) cleanWidget.setAttribute("id", "hotmart-sales-funnel");
-      }
       if (previewMode) {
-        var bc = document.getElementById("bloco_cta"); if (bc) bc.style.display = "block";
+        var bc = document.getElementById("bloco_cta");
+        if (bc) bc.style.display = "block";
       }
     } catch(e){}
   })();
