@@ -452,8 +452,11 @@
     try {
       var visitedVSL = localStorage.getItem("vsl_visited") === "true";
       var previewMode = (new URLSearchParams(location.search).get("bypass") === "gl2026");
+      
+      var ref = (document.referrer || "").toLowerCase();
+      var cameFromFunnel = ref.indexOf("hotmart.com") !== -1 || ref.indexOf("kashpay.com.br") !== -1 || ref.indexOf("sacredcoderevealed.com") !== -1;
 
-      if (visitedVSL || previewMode) {
+      if (visitedVSL || cameFromFunnel || previewMode) {
         var real = document.getElementById("conteudo-real");
         var clean = document.getElementById("pagina-clean");
         if (real) real.style.display = "block";
@@ -478,15 +481,8 @@
   })();
 </script>
 
-<!-- Player VTurb Loader (Only loads player script if cloaker validated) -->
-<script type="text/javascript">
-  if (window.__RD_LIBERADO) {
-    var s=document.createElement("script");
-    s.src="https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a83a4893ec6234cf5b62cc1/v4/player.js";
-    s.async=!0;
-    document.head.appendChild(s);
-  }
-</script>
+<!-- Player VTurb Loader -->
+<script type="text/javascript" src="https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a83a4893ec6234cf5b62cc1/v4/player.js" async></script>
 
 <!-- Hotmart Sales Funnel Widget Initialization -->
 <script>
