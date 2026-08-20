@@ -265,9 +265,48 @@
                 print-color-adjust: exact !important;
             }
         }
+
+        /* Print Button Styles */
+        .print-btn-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto 0 auto;
+            max-width: 210mm;
+            padding: 0 10px;
+        }
+        .print-btn {
+            background-color: var(--navy);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .print-btn:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <div class="print-btn-container no-print">
+        <button onclick="window.print()" class="print-btn">
+            ✨ Click Here to Save as PDF / Print Ebook
+        </button>
+    </div>
 
     <!-- PAGINA 1: CAPA -->
     <div class="page cover">
