@@ -196,11 +196,11 @@
                     <div class="hotmart-widget-container"></div>
 
                     <!-- Masks matching the page background, covering everything but the button.
-                         The widget iframe is 300px tall on desktop, so top + bottom must stay
-                         under that or the button itself gets covered. Tune these two heights
-                         after checking the page on desktop and mobile. -->
-                    <div id="cover-box-top" style="position:absolute;top:0;left:0;width:100%;height:100px;background:#fff;z-index:9999;pointer-events:none;"></div>
-                    <div id="cover-box-bottom" style="position:absolute;bottom:0;left:0;width:100%;height:100px;background:#fff;z-index:9999;pointer-events:none;"></div>
+                         Heights calibrated against the fully rendered widget (only loads when a
+                         purchase is in progress); without one the iframe falls back to a short
+                         error box and these will look off. -->
+                    <div id="cover-box-top" style="position:absolute;top:0;left:0;width:100%;height:190px;background:#fff;z-index:9999;pointer-events:none;"></div>
+                    <div id="cover-box-bottom" style="position:absolute;bottom:0;left:0;width:100%;height:200px;background:#fff;z-index:9999;pointer-events:none;"></div>
                   </div>
 
                   <div class="no-thanks" style="margin-top:20px;">
