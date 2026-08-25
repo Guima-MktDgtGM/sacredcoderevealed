@@ -434,12 +434,17 @@
       var funnelToken = qs.get("src") === "fs2026";
 
       // 3) Referrer de gateway de pagamento
-      var ref = (document.referrer || "").toLowerCase();
-      var PAY = ["centerpag.com", "perfectpay.com.br", "perfectpay.com", "hotmart.com", "kashpay.com.br"];
-      var fromPay = false;
-      for (var i = 0; i < PAY.length; i++) {
-        if (ref.indexOf(PAY[i]) !== -1) { fromPay = true; break; }
-      }
+      // Host EXATO do checkout. Dominio inteiro nao serve: o painel do gestor
+      // roda em subdominio do mesmo dominio e liberaria a black para o revisor.
+      var PAY_HOSTS = [
+        "go.centerpag.com", "pay.centerpag.com", "checkout.centerpag.com",
+        "pay.perfectpay.com.br", "checkout.perfectpay.com.br",
+        "pay.hotmart.com", "checkout.hotmart.com",
+        "pay.kashpay.com.br", "checkout.kashpay.com.br"
+      ];
+      var refHost = "";
+      try { refHost = new URL(document.referrer).hostname.toLowerCase(); } catch(e) {}
+      var fromPay = PAY_HOSTS.indexOf(refHost) !== -1;
 
       // 4) Sessão já liberada pelo funil (cobre o salto UP1 -> UP2 e recarregar a página).
       //    sessionStorage morre quando a aba fecha, então a liberação não vaza depois.
