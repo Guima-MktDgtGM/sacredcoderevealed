@@ -63,6 +63,10 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
+    <!-- Clean-page typography -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Karla:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></noscript>
 
@@ -149,18 +153,105 @@
         }
 
         /* CLEAN PAGE STYLES */
-        html[data-page-type="clean"] body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #444; background: #fafafa; }
-        html[data-page-type="clean"] header { background: #ffffff; color: #2c3e50; padding: 50px 20px; text-align: center; border-bottom: 1px solid #e0e0e0; }
-        html[data-page-type="clean"] header h1 { font-size: 2.2em; margin-bottom: 10px; color: #34495e; }
-        html[data-page-type="clean"] header p { font-size: 1.1em; color: #7f8c8d; }
-        html[data-page-type="clean"] .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        html[data-page-type="clean"] section { background: white; padding: 35px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ecf0f1; }
-        html[data-page-type="clean"] section h2 { color: #2c3e50; margin-bottom: 15px; font-size: 1.6em; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
-        html[data-page-type="clean"] section p { margin-bottom: 15px; font-size: 1em; color: #5a6c7d; line-height: 1.8; }
-        html[data-page-type="clean"] ul { margin-left: 20px; margin-bottom: 15px; }
-        html[data-page-type="clean"] ul li { margin-bottom: 8px; color: #5a6c7d; }
-        html[data-page-type="clean"] .highlight { background: #f8f9fa; border-left: 4px solid #3498db; padding: 20px; margin: 20px 0; border-radius: 4px; }
-        html[data-page-type="clean"] footer { text-align: center; padding: 30px 20px; color: #95a5a6; border-top: 1px solid #ecf0f1; margin-top: 40px; font-size: 0.95em; }
+        /* ══════ CLEAN PAGE — palette pulled from the product cover ══════ */
+        html[data-page-type="clean"] body { background:#150e05; margin:0; }
+        .ck{
+          --ink:#150e05; --ink-2:#211705; --ink-3:#2d2109;
+          --gold:#d9ab45; --gold-dim:#a67f28; --seal:#c0392b; --seal-lit:#e05543;
+          --cream:#fbf5e7; --parch:#e8d9b8; --muted:#a99b7d; --rule:#3a2c11;
+          background:var(--ink); color:var(--cream);
+          font-family:'Karla','Lato',system-ui,sans-serif; line-height:1.7; font-size:17px;
+        }
+        .ck *{box-sizing:border-box;}
+        .ck h1,.ck h2,.ck h3,.ck .disp{font-family:'Marcellus',Georgia,serif;font-weight:400;letter-spacing:.01em;}
+        .ck .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+        .ck .narrow{max-width:660px;margin-left:auto;margin-right:auto;}
+        .ck .eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 14px;}
+
+        /* Hero */
+        .ck-hero{position:relative;overflow:hidden;padding:64px 0 56px;
+          background:radial-gradient(120% 90% at 70% 25%, #3a2a0c 0%, #1d1406 55%, #150e05 100%);}
+        .ck-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);}
+        .ck-hero .grid{display:grid;gap:44px;align-items:center;}
+        @media(min-width:880px){.ck-hero .grid{grid-template-columns:0.95fr 1.05fr;gap:56px;}}
+        .ck-cover{position:relative;justify-self:center;max-width:420px;width:100%;}
+        .ck-cover::before{content:"";position:absolute;inset:-14%;border-radius:50%;
+          background:radial-gradient(circle, rgba(217,171,69,.34) 0%, rgba(217,171,69,0) 68%);filter:blur(6px);}
+        .ck-cover img{position:relative;width:100%;height:auto;display:block;border-radius:4px;
+          box-shadow:0 26px 60px rgba(0,0,0,.62), 0 0 0 1px rgba(217,171,69,.28);}
+        .ck-hero h1{font-size:clamp(33px,5.6vw,54px);line-height:1.1;margin:0 0 18px;color:var(--cream);text-wrap:balance;}
+        .ck-hero h1 em{font-style:normal;color:var(--gold);}
+        .ck-hero .sub{font-size:clamp(17px,2.2vw,20px);color:var(--parch);margin:0 0 26px;max-width:52ch;}
+        .ck-hero .facts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px;padding:0;list-style:none;}
+        .ck-hero .facts li{font-size:13px;letter-spacing:.04em;color:var(--parch);
+          border:1px solid var(--rule);background:rgba(255,255,255,.03);border-radius:999px;padding:7px 15px;}
+
+        /* Buttons */
+        .ck-btn{display:inline-block;background:linear-gradient(180deg,var(--seal-lit),var(--seal));
+          color:#fff;font-weight:700;font-size:16.5px;letter-spacing:.03em;
+          padding:17px 40px;border-radius:6px;text-decoration:none;
+          box-shadow:0 12px 30px rgba(192,57,43,.36);transition:transform .18s ease, box-shadow .18s ease;}
+        .ck-btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(192,57,43,.48);}
+        .ck-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+        .ck .btn-note{font-size:13px;color:var(--muted);margin:12px 0 0;}
+
+        /* Sections */
+        .ck-sec{padding:70px 0;border-top:1px solid var(--rule);}
+        .ck-sec h2{font-size:clamp(25px,3.6vw,36px);line-height:1.22;margin:0 0 16px;color:var(--cream);text-wrap:balance;}
+        .ck-sec p{margin:0 0 17px;color:var(--parch);}
+        .ck-sec p strong{color:var(--gold);font-weight:700;}
+
+        /* Word grid */
+        .ck-words{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px;margin-top:34px;}
+        .ck-word{background:var(--ink-2);border:1px solid var(--rule);border-radius:6px;padding:15px 16px;}
+        .ck-word b{display:block;font-family:'Marcellus',Georgia,serif;font-size:17px;color:var(--gold);letter-spacing:.04em;}
+        .ck-word span{display:block;font-size:13px;color:var(--muted);margin-top:3px;}
+        .ck-more{margin-top:16px;font-size:14px;color:var(--muted);font-style:italic;}
+
+        /* Steps */
+        .ck-steps{display:grid;gap:20px;margin-top:34px;counter-reset:s;}
+        @media(min-width:760px){.ck-steps{grid-template-columns:repeat(3,1fr);}}
+        .ck-step{background:var(--ink-2);border:1px solid var(--rule);border-radius:8px;padding:26px 24px;position:relative;}
+        .ck-step::before{counter-increment:s;content:counter(s,decimal-leading-zero);
+          font-family:'Marcellus',serif;font-size:13px;letter-spacing:.16em;color:var(--gold-dim);display:block;margin-bottom:12px;}
+        .ck-step h3{font-size:19px;margin:0 0 8px;color:var(--cream);}
+        .ck-step p{font-size:15px;margin:0;color:var(--muted);line-height:1.65;}
+
+        /* Includes list */
+        .ck-incl{list-style:none;padding:0;margin:30px 0 0;display:flex;flex-direction:column;gap:0;}
+        .ck-incl li{display:grid;grid-template-columns:auto 1fr;gap:15px;align-items:baseline;
+          padding:16px 0;border-bottom:1px solid var(--rule);color:var(--parch);font-size:16px;}
+        .ck-incl li:first-child{border-top:1px solid var(--rule);}
+        .ck-incl .mk{color:var(--gold);font-size:13px;}
+
+        /* Quote */
+        .ck-verse{background:var(--ink-2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;
+          padding:26px 28px;margin:34px 0 0;}
+        .ck-verse p{font-family:'Marcellus',Georgia,serif;font-size:19px;line-height:1.55;color:var(--cream);margin:0 0 8px;font-style:italic;}
+        .ck-verse cite{font-style:normal;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-dim);}
+
+        /* Close */
+        .ck-close{text-align:center;padding:78px 0 84px;border-top:1px solid var(--rule);
+          background:radial-gradient(90% 130% at 50% 0%, #2b1f08 0%, #150e05 68%);}
+        .ck-close h2{font-size:clamp(26px,4vw,38px);margin:0 0 14px;color:var(--cream);}
+        .ck-close p{color:var(--parch);max-width:50ch;margin:0 auto 30px;}
+        .ck-close .btn-note{margin:12px auto 0;}
+
+        /* Small screens: headline before the cover, smaller cover */
+        @media (max-width:879px){
+          .ck-hero{padding:44px 0 40px;text-align:center;}
+          .ck-hero .grid{gap:34px;}
+          .ck-cover{max-width:270px;}
+          .ck-hero .sub{margin-left:auto;margin-right:auto;}
+          .ck-hero .facts{justify-content:center;}
+          .ck-sec{padding:52px 0;}
+        }
+
+        .ck-foot{padding:34px 24px 46px;text-align:center;color:#7d7159;font-size:13px;border-top:1px solid var(--rule);}
+        .ck-foot a{color:var(--gold-dim);text-decoration:none;}
+        .ck-foot p{margin:0 0 8px;}
+
+        @media (prefers-reduced-motion: reduce){.ck *{transition:none!important;animation:none!important;}}
 
         .fa::before, .far::before, .fas::before { font-family: 'Font Awesome 5 Free', FontAwesome !important; }
     </style>
@@ -290,75 +381,131 @@
 
 <!-- ============ CLEAN PAGE CONTENT ============ -->
 <div class="clean-only">
-    <header>
-        <h1>Prayer and Spiritual Wellness</h1>
-        <p>A Guide to Mindfulness and Inner Peace</p>
-    </header>
+ <div class="ck">
 
-    <div class="container">
-        <section>
-            <h2>The Benefits of Daily Prayer</h2>
-            <p>Prayer is a practice found across many cultures and faith traditions. Research in mindfulness and wellness suggests that regular prayer can contribute to:</p>
-            <ul>
-                <li>Improved mental well-being and reduced stress</li>
-                <li>Greater sense of purpose and meaning</li>
-                <li>Enhanced emotional balance</li>
-                <li>Strengthened sense of community</li>
-                <li>Better overall quality of life</li>
-            </ul>
-            <p>Whether through traditional prayer, meditation, or personal reflection, these practices have been valued for centuries as tools for personal growth.</p>
-        </section>
+  <!-- ── Hero ── -->
+  <section class="ck-hero">
+    <div class="wrap grid">
 
-        <section>
-            <h2>Finding Peace Through Spiritual Practice</h2>
-            <p>Many people incorporate prayer into their daily routine as a way to find quiet moments of reflection. This practice can help create space for thoughtfulness in our busy lives.</p>
-            <p>Spiritual practices come in many forms—from structured religious prayer to personal meditation and reflection. Each person may find their own meaningful way to connect with their beliefs and values.</p>
-        </section>
+      <div class="ck-cover cover-wrap">
+        <img src="the_creation_key_cover.jpg" alt="The Creation Key — cover" width="1024" height="1024">
+      </div>
 
-        <section>
-            <h2>Understanding Different Prayer Traditions</h2>
-            <p>Across the world, different faith traditions have developed rich practices of prayer and spiritual connection. These traditions often share common themes:</p>
-            <ul>
-                <li>Connection to something larger than oneself</li>
-                <li>Gratitude and appreciation</li>
-                <li>Hope and encouragement</li>
-                <li>Community and shared values</li>
-                <li>Personal reflection and growth</li>
-            </ul>
-            <p>Learning about different spiritual traditions can deepen our understanding of human spirituality and the ways people find meaning.</p>
-        </section>
+      <div>
+        <p class="eyebrow">A 20-day scripture practice</p>
+        <h1>Twenty words from scripture. <em>One spoken each day.</em></h1>
+        <p class="sub">The Creation Key is a guided study built around twenty Hebrew words drawn from the Bible — what each one meant to the people who first spoke it, and how to carry it into an ordinary day.</p>
+        <ul class="facts">
+          <li>20 daily readings</li>
+          <li>A verse for every word</li>
+          <li>Spoken declarations</li>
+          <li>Read on any device</li>
+        </ul>
+        <a class="ck-btn" href="https://pay.hotmart.com/I107198514G?checkoutMode=10">Get The Creation Key</a>
+        <p class="btn-note">Instant access · Works on phone, tablet and desktop</p>
+      </div>
 
-        <section>
-            <h2>Building a Meaningful Spiritual Life</h2>
-            <p>If you're interested in exploring prayer and spiritual practice, here are some simple suggestions:</p>
-            <ul>
-                <li>Start with just a few minutes of quiet reflection each day</li>
-                <li>Explore different prayer styles to find what resonates with you</li>
-                <li>Consider joining a community of like-minded individuals</li>
-                <li>Read inspiring spiritual literature</li>
-                <li>Keep a journal of your thoughts and reflections</li>
-            </ul>
-        </section>
-
-        <section class="highlight">
-            <h2 style="border: none; padding: 0; margin-top: 0;">Our Commitment to Wellness</h2>
-            <p style="margin-bottom: 0;">We believe in providing helpful, informative resources about spirituality and wellness. Our mission is to support people in their personal growth journey, whatever form that takes.</p>
-        </section>
-
-        <section>
-            <h2>Discover The Creation Key</h2>
-            <p>The Creation Key is a practical guide to understanding and developing your spiritual potential. Based on timeless wisdom and contemporary approaches to personal development, it offers insights for those interested in exploring meditation, prayer, and mindfulness practices.</p>
-            <p>Whether you're beginning your spiritual journey or looking to deepen your practice, The Creation Key provides straightforward guidance on building meaningful daily habits and strengthening your connection to your beliefs and values.</p>
-            <p style="text-align: center; margin-top: 30px;">
-                <a href="https://pay.hotmart.com/I107198514G?checkoutMode=10" style="display: inline-block; background: #3498db; color: white; padding: 12px 36px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='#2980b9';" onmouseout="this.style.background='#3498db';">Get The Creation Key</a>
-            </p>
-        </section>
     </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 Sacred Code Revealed. Educational Content About Spirituality and Wellness.</p>
-        <p>For more information about spiritual practices and wellness, please consult trusted religious or wellness professionals.</p>
-    </footer>
+  <!-- ── The method ── -->
+  <section class="ck-sec">
+    <div class="wrap narrow">
+      <p class="eyebrow">The method</p>
+      <h2>Why twenty words, and not twenty chapters</h2>
+      <p>Most people who want a steadier prayer life do not stop because they stopped believing. They stop because the practice they were handed asked for more time than an ordinary week allows.</p>
+      <p>This one asks for a few minutes. <strong>One word a day, for twenty days.</strong> You read where it appears in scripture, what it carried in the original Hebrew, and then you speak a short declaration built from it — out loud, in your own voice.</p>
+      <p>The words were chosen to move in sequence. It opens in peace, passes through provision, healing and blessing, and closes on the word that seals a prayer.</p>
+
+      <div class="ck-verse">
+        <p>“But those who wait on the Lord will renew their strength.”</p>
+        <cite>Isaiah 40:31</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The words ── -->
+  <section class="ck-sec">
+    <div class="wrap">
+      <div class="narrow">
+        <p class="eyebrow">Inside the study</p>
+        <h2>A few of the twenty</h2>
+        <p>Each word gets its own day, its own verse, and its own declaration.</p>
+      </div>
+
+      <div class="ck-words">
+        <div class="ck-word"><b>Shalom</b><span>Wholeness, peace</span></div>
+        <div class="ck-word"><b>Emunah</b><span>Steady faith</span></div>
+        <div class="ck-word"><b>Tiqvah</b><span>Hope, a cord to hold</span></div>
+        <div class="ck-word"><b>Jehovah-Jireh</b><span>The Lord provides</span></div>
+        <div class="ck-word"><b>Chesed</b><span>Loyal love</span></div>
+        <div class="ck-word"><b>Rapha</b><span>Healing, restoring</span></div>
+        <div class="ck-word"><b>Baruch</b><span>Blessing spoken</span></div>
+        <div class="ck-word"><b>Chokmah</b><span>Practical wisdom</span></div>
+        <div class="ck-word"><b>Or</b><span>Light</span></div>
+        <div class="ck-word"><b>Ruach</b><span>Breath, spirit</span></div>
+        <div class="ck-word"><b>Nissi</b><span>Banner, covering</span></div>
+        <div class="ck-word"><b>Amén</b><span>So be it</span></div>
+      </div>
+      <p class="ck-more">…and eight more, one for each remaining day.</p>
+    </div>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section class="ck-sec">
+    <div class="wrap">
+      <div class="narrow">
+        <p class="eyebrow">How a day goes</p>
+        <h2>Three steps, a few minutes</h2>
+      </div>
+      <div class="ck-steps">
+        <div class="ck-step">
+          <h3>Read the word</h3>
+          <p>Where it appears in scripture and what it meant in the original language — short enough to finish over coffee.</p>
+        </div>
+        <div class="ck-step">
+          <h3>Sit with the verse</h3>
+          <p>One passage per word, chosen because it carries that meaning plainly rather than in passing.</p>
+        </div>
+        <div class="ck-step">
+          <h3>Speak the declaration</h3>
+          <p>A few lines, said out loud. Morning and night if you can; once a day is enough to keep the thread.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Included ── -->
+  <section class="ck-sec">
+    <div class="wrap narrow">
+      <p class="eyebrow">What you receive</p>
+      <h2>Everything in one place</h2>
+      <ul class="ck-incl">
+        <li><span class="mk">✦</span><span>The twenty daily readings, each with its meaning, verse and declaration</span></li>
+        <li><span class="mk">✦</span><span>An opening prayer that gathers all twenty into a single reading</span></li>
+        <li><span class="mk">✦</span><span>A short guide on building the habit and what to do after the twenty days</span></li>
+        <li><span class="mk">✦</span><span>Access in your browser — nothing to install, add it to your home screen if you like</span></li>
+        <li><span class="mk">✦</span><span>Yours to keep, to revisit whenever a season calls for it</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Close ── -->
+  <section class="ck-close">
+    <div class="wrap">
+      <h2>Begin with the first word today</h2>
+      <p>Twenty days, a few minutes each. No deadline, no schedule to fall behind on — the study waits for you.</p>
+      <a class="ck-btn" href="https://pay.hotmart.com/I107198514G?checkoutMode=10">Get The Creation Key</a>
+      <p class="btn-note">Secure checkout · Immediate digital delivery</p>
+    </div>
+  </section>
+
+  <footer class="ck-foot">
+    <p>&copy; 2026 The Creation Key. Educational content on scripture, prayer and personal reflection.</p>
+    <p>Questions? <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a></p>
+  </footer>
+
+ </div>
 </div>
 
 <script>
