@@ -14,7 +14,6 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Divine Subconscious Frequencies — The Creation Key</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
 
     <style>
         *{box-sizing:border-box;margin:0;padding:0;}
@@ -198,6 +197,32 @@
     .wp-sec{padding:34px 0;}
   }
 </style>
+
+<style>
+  /* ── PerfectPay one-click buttons ── */
+  .pp-cta{
+    display:block;width:100%;max-width:460px;margin:0 auto;
+    background:linear-gradient(180deg,#2fc24d,#1d9636);color:#fff;
+    font-weight:800;font-size:clamp(15px,3.6vw,19px);letter-spacing:.045em;
+    text-transform:uppercase;text-align:center;text-decoration:none;
+    padding:20px 22px;border:0;border-radius:11px;cursor:pointer;line-height:1.3;
+    box-shadow:0 10px 26px rgba(29,150,54,.34);
+    transition:filter .18s ease, transform .18s ease;
+  }
+  .pp-cta:hover{filter:brightness(1.07);}
+  .pp-cta:focus-visible{outline:3px solid #1d9636;outline-offset:3px;}
+  .pp-cta.pulsing{animation:pp-pulse 2.2s ease-in-out infinite;}
+  @keyframes pp-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.035);}}
+  @media(prefers-reduced-motion:reduce){.pp-cta.pulsing{animation:none;}}
+
+  .pp-decline{
+    display:inline-block;margin:18px auto 0;color:#8d8271;
+    font-size:14.5px;text-decoration:underline;text-underline-offset:3px;
+    background:none;border:0;cursor:pointer;font-family:inherit;
+  }
+  .pp-decline:hover{color:#5d5344;}
+  .pp-safe{font-size:13.5px;color:#8d8271;margin:16px 0 0;}
+</style>
 </head>
 <body>
 
@@ -262,9 +287,9 @@
     <div class="wp-buy">
       <p class="wp-price-lbl">One-time payment</p>
       <p class="wp-price">$57.00</p>
-      <!-- HOTMART - Sales Funnel Widget (unmasked on the clean page) -->
-      <div class="hotmart-widget-container" id="hotmart-sales-funnel"></div>
-      <p class="wp-safe">🔒 Secure checkout · Immediate digital delivery</p>
+      <a class="pp-cta" href="https://go.centerpag.com/PPU38CQFKHR?upsell=true">ACTIVATE THE FREQUENCIES</a>
+      <p class="pp-safe">🔒 Secure checkout · Immediate digital delivery</p>
+      <div><a class="pp-decline" href="https://www.sacredcoderevealed.com/thankyou">No thanks, I&rsquo;ll pass on the Frequencies</a></div>
     </div>
   </section>
 
@@ -322,17 +347,7 @@
       <div class="cta-area">
         <div style="max-width:480px;margin:0 auto;">
 
-          <div id="hotmart-sales-funnel-container" style="position:relative;">
-            <!-- HOTMART - Sales Funnel Widget (id assigned by the cloaker) -->
-            <div class="hotmart-widget-container"></div>
-
-            <!-- Masks matching the page background, covering everything but the button.
-                 Heights calibrated against the fully rendered widget (only loads when a
-                 purchase is in progress); without one the iframe falls back to a short
-                 error box and these will look off. -->
-            <div id="cover-box-top" style="position:absolute;top:0;left:0;width:100%;height:190px;background:#fff;z-index:9999;pointer-events:none;"></div>
-            <div id="cover-box-bottom" style="position:absolute;bottom:0;left:0;width:100%;height:200px;background:#fff;z-index:9999;pointer-events:none;"></div>
-          </div>
+          <a class="pp-cta pulsing" href="https://go.centerpag.com/PPU38CQFKHR?upsell=true">ACTIVATE THE FREQUENCIES</a>
         </div>
       </div>
 
@@ -363,7 +378,7 @@
 
       // 3) Referrer de gateway de pagamento
       var ref = (document.referrer || "").toLowerCase();
-      var PAY = ["hotmart.com", "kashpay.com.br", "perfectpay.com.br", "perfectpay.com"];
+      var PAY = ["centerpag.com", "perfectpay.com.br", "perfectpay.com", "hotmart.com", "kashpay.com.br"];
       var fromPay = false;
       for (var i = 0; i < PAY.length; i++) {
         if (ref.indexOf(PAY[i]) !== -1) { fromPay = true; break; }
@@ -385,29 +400,10 @@
         if (real) real.style.display = "block";
         if (clean) clean.style.display = "none";
 
-        // Dynamic ID Swapping for active container
-        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
-        var realWidget = document.querySelector("#conteudo-real .hotmart-widget-container");
-        if (cleanWidget) cleanWidget.removeAttribute("id");
-        if (realWidget) realWidget.setAttribute("id", "hotmart-sales-funnel");
-
         window.__RD_LIBERADO = true;
-      } else {
-        // Enforce ID on clean container for compliance checkers
-        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
-        if (cleanWidget) cleanWidget.setAttribute("id", "hotmart-sales-funnel");
       }
     } catch(e){}
   })();
-</script>
-
-<!-- Hotmart Sales Funnel Widget Initialization -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof checkoutElements !== 'undefined') {
-      checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
-    }
-  });
 </script>
 
 <!-- Back Prevention -->
