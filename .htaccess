@@ -1,0 +1,18 @@
+# Clean URLs — lets /ManifestationAccelerator resolve to ManifestationAccelerator.html
+# The host serves static files without extensionless routing, so the funnel URLs
+# registered in Hotmart (which omit .html) would otherwise 404 right after payment.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Leave real files and directories untouched
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Map an extensionless request to its .html counterpart when one exists.
+  # Query strings ride along automatically, so ?bypass= and ?fbclid= still work.
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
