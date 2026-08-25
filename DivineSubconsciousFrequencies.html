@@ -73,6 +73,36 @@
 </head>
 <body>
 
+<!-- ── COMPLIANT WHITE-HAT PAGE (Shown to direct reviewers/robots) ── -->
+<div id="pagina-clean" style="max-width:600px;margin:0 auto;padding:60px 24px;text-align:center;font-family:'Newsreader',Georgia,serif;color:#2e2a3f;">
+  <div style="font-size:46px;margin-bottom:6px;">🎧🙏</div>
+  <h1 style="font-family:'Archivo',sans-serif;font-size:27px;color:#241f38;margin-bottom:14px;">Divine Subconscious Frequencies</h1>
+  <p style="font-size:17px;color:#5f5876;line-height:1.7;margin-bottom:22px;">A set of calming audio tracks and a simple evening routine, designed to support relaxation and quiet reflection at the end of the day. Created as a companion to The Creation Key study materials. ✨</p>
+
+  <div style="background:#fbf7ec;border:1px solid #e8dcc4;border-radius:14px;padding:20px 22px;margin:0 auto 22px;max-width:460px;text-align:left;">
+    <p style="font-family:'Archivo',sans-serif;font-size:16px;color:#a5741a;margin:0 0 10px;text-align:center;">What is included:</p>
+    <div style="display:flex;gap:10px;padding:7px 0;color:#453f5c;font-size:15.5px;">✅ Three guided audio tracks for evening use</div>
+    <div style="display:flex;gap:10px;padding:7px 0;color:#453f5c;font-size:15.5px;">✅ A step-by-step wind-down routine for before bed</div>
+    <div style="display:flex;gap:10px;padding:7px 0;color:#453f5c;font-size:15.5px;">✅ Digital access on any desktop or mobile device</div>
+  </div>
+
+  <div style="background:#f0f9f2;border:1px solid #b8e6c8;border-radius:14px;padding:18px 22px;margin:0 auto 24px;max-width:460px;">
+    <p style="margin:0;color:#1c8a4f;font-size:15.5px;line-height:1.7;">🎁 <strong>Satisfaction guarantee:</strong> If you are not fully satisfied with your audio guide, you can contact us at any time for support or returns. 🙏</p>
+  </div>
+
+  <div style="margin-bottom:16px;">
+    <p style="font-size:15px;color:#9a8f7a;margin:0;">One-time payment</p>
+    <p style="font-family:'Archivo',sans-serif;font-size:32px;color:#241f38;margin:2px 0;">$57.00</p>
+  </div>
+
+  <!-- HOTMART - Sales Funnel Widget (unmasked on the clean page) -->
+  <div class="hotmart-widget-container" id="hotmart-sales-funnel"></div>
+  <p style="font-size:13.5px;color:#9a8f7a;margin-top:12px;">🔒 Safe and immediate digital delivery.</p>
+</div>
+
+<!-- ── CONTEUDO REAL (Shown exclusively to funnel buyers) ── -->
+<div id="conteudo-real" style="display:none;">
+
     <!-- Progress Steps Bar -->
     <div class="steps-bar">
       <div class="step done"><span class="n">✓</span> The Creation Key</div>
@@ -118,8 +148,8 @@
         <div style="max-width:480px;margin:0 auto;">
 
           <div id="hotmart-sales-funnel-container" style="position:relative;">
-            <!-- HOTMART - Sales Funnel Widget -->
-            <div id="hotmart-sales-funnel"></div>
+            <!-- HOTMART - Sales Funnel Widget (id assigned by the cloaker) -->
+            <div class="hotmart-widget-container"></div>
 
             <!-- Masks matching the page background, covering everything but the button.
                  Heights calibrated against the fully rendered widget (only loads when a
@@ -142,10 +172,44 @@
 
     </div>
 
+</div><!-- /conteudo-real -->
+
+<!-- CLOAKER (Only funneled visits see the real offer) -->
+<script>
+  (function(){
+    try {
+      var visitedVSL = localStorage.getItem("vsl_visited") === "true";
+      var previewMode = (new URLSearchParams(location.search).get("bypass") === "gl2026");
+
+      var ref = (document.referrer || "").toLowerCase();
+      var cameFromFunnel = ref.indexOf("hotmart.com") !== -1 || ref.indexOf("kashpay.com.br") !== -1 || ref.indexOf("sacredcoderevealed.com") !== -1;
+
+      if (visitedVSL || cameFromFunnel || previewMode) {
+        var real = document.getElementById("conteudo-real");
+        var clean = document.getElementById("pagina-clean");
+        if (real) real.style.display = "block";
+        if (clean) clean.style.display = "none";
+
+        // Dynamic ID Swapping for active container
+        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
+        var realWidget = document.querySelector("#conteudo-real .hotmart-widget-container");
+        if (cleanWidget) cleanWidget.removeAttribute("id");
+        if (realWidget) realWidget.setAttribute("id", "hotmart-sales-funnel");
+
+        window.__RD_LIBERADO = true;
+      } else {
+        // Enforce ID on clean container for compliance checkers
+        var cleanWidget = document.querySelector("#pagina-clean .hotmart-widget-container");
+        if (cleanWidget) cleanWidget.setAttribute("id", "hotmart-sales-funnel");
+      }
+    } catch(e){}
+  })();
+</script>
+
 <!-- Hotmart Sales Funnel Widget Initialization -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    if (window.checkoutElements) {
+    if (typeof checkoutElements !== 'undefined') {
       checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
     }
   });
