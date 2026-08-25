@@ -10,7 +10,8 @@
         var hasFbclid = /[?&]fbclid=/.test(window.location.search);
         document.documentElement.setAttribute('data-page-type', hasFbclid ? 'vsl' : 'clean');
         try {
-            localStorage.setItem('vsl_visited', 'true');
+            // Só marca quem realmente veio do anúncio e viu a VSL.
+            if (hasFbclid) localStorage.setItem('vsl_visited', 'true');
         } catch(e) {}
     </script>
 

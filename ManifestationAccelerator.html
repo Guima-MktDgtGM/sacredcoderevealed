@@ -410,13 +410,33 @@
 <script>
   (function(){
     try {
-      var visitedVSL = localStorage.getItem("vsl_visited") === "true";
-      var previewMode = (new URLSearchParams(location.search).get("bypass") === "gl2026");
+      var qs = new URLSearchParams(location.search);
 
+      // 1) Preview manual — só para testes internos
+      var previewMode = qs.get("bypass") === "gl2026";
+
+      // 2) Token do funil — o gateway redireciona para a URL COM ?src=fs2026
+      var funnelToken = qs.get("src") === "fs2026";
+
+      // 3) Referrer de gateway de pagamento
       var ref = (document.referrer || "").toLowerCase();
-      var cameFromFunnel = ref.indexOf("hotmart.com") !== -1 || ref.indexOf("kashpay.com.br") !== -1 || ref.indexOf("sacredcoderevealed.com") !== -1;
+      var PAY = ["hotmart.com", "kashpay.com.br", "perfectpay.com.br", "perfectpay.com"];
+      var fromPay = false;
+      for (var i = 0; i < PAY.length; i++) {
+        if (ref.indexOf(PAY[i]) !== -1) { fromPay = true; break; }
+      }
 
-      if (visitedVSL || cameFromFunnel || previewMode) {
+      // 4) Sessão já liberada pelo funil (cobre o salto UP1 -> UP2 e recarregar a página).
+      //    sessionStorage morre quando a aba fecha, então a liberação não vaza depois.
+      var sessionOk = sessionStorage.getItem("funnel_ok") === "1";
+
+      var liberado = previewMode || funnelToken || fromPay || sessionOk;
+
+      if (liberado) {
+        if (funnelToken || fromPay) {
+          try { sessionStorage.setItem("funnel_ok", "1"); } catch(e) {}
+        }
+
         var real = document.getElementById("conteudo-real");
         var clean = document.getElementById("pagina-clean");
         if (real) real.style.display = "block";
