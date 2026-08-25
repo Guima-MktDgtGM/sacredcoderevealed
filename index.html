@@ -188,10 +188,13 @@
         <div>
             <vturb-smartplayer id="vid-6a80ae92ce6375b28e9cce27" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
             <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a80ae92ce6375b28e9cce27/v4/player.js";
-                s.async = true;
-                document.head.appendChild(s);
+                // Load the player only for VSL traffic — the clean page must stay silent
+                if (document.documentElement.getAttribute('data-page-type') === 'vsl') {
+                    var s = document.createElement("script");
+                    s.src = "https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a80ae92ce6375b28e9cce27/v4/player.js";
+                    s.async = true;
+                    document.head.appendChild(s);
+                }
             </script>
             <script>
                 var pageStartTime = null;
@@ -334,7 +337,7 @@
             <p>The Creation Key is a practical guide to understanding and developing your spiritual potential. Based on timeless wisdom and contemporary approaches to personal development, it offers insights for those interested in exploring meditation, prayer, and mindfulness practices.</p>
             <p>Whether you're beginning your spiritual journey or looking to deepen your practice, The Creation Key provides straightforward guidance on building meaningful daily habits and strengthening your connection to your beliefs and values.</p>
             <p style="text-align: center; margin-top: 30px;">
-                <a href="https://checkout.kashpay.com.br/checkout/checkout-1786816661767" style="display: inline-block; background: #3498db; color: white; padding: 12px 36px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='#2980b9';" onmouseout="this.style.background='#3498db';">Learn More About The Creation Key</a>
+                <a href="https://pay.hotmart.com/I107198514G?checkoutMode=10" style="display: inline-block; background: #3498db; color: white; padding: 12px 36px; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='#2980b9';" onmouseout="this.style.background='#3498db';">Get The Creation Key</a>
             </p>
         </section>
     </div>
