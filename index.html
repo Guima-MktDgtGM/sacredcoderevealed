@@ -941,7 +941,7 @@ if (document.documentElement.getAttribute('data-page-type') === 'vsl') {
             setTimeout(function() {
                 el.remove();
             }, 500);
-        }, 8000);
+        }, 7000);
     }
 
     setTimeout(function() {
@@ -953,7 +953,7 @@ if (document.documentElement.getAttribute('data-page-type') === 'vsl') {
                 }, delay);
             })(i, cumulativeDelay);
 
-            var randomInterval = Math.floor(Math.random() * (7000 - 3000 + 1)) + 3000;
+            var randomInterval = Math.floor(Math.random() * (45000 - 20000 + 1)) + 20000;
             cumulativeDelay += randomInterval;
         }
     }, 1160000);
