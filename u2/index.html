@@ -288,8 +288,9 @@
     ["Paulo C.",   "Angola"]
   ];
 
-  var TEXTO_VAGAS = "Conjuntos completos ainda disponíveis";
-  var RESTANTES   = 0;   // 0 esconde a linha. Preencher so com o numero real.
+  var TEXTO_VAGAS = "conjuntos completos ainda disponíveis";
+  var INICIO      = 9;      // contador comeca aqui
+  var MINIMO      = 2;      // ao chegar aqui, para de notificar
   var PRIMEIRA    = 9000;   // ms ate a primeira notificacao
   var VISIVEL     = 5200;   // ms que cada uma fica na tela
   var INTERVALO   = 26000;  // ms entre uma e outra
@@ -303,7 +304,16 @@
   var elVagas = document.getElementById('nc-vagas');
   var fechar = document.getElementById('nc-fechar');
 
-  if (RESTANTES > 0) { elVagas.textContent = RESTANTES + " " + TEXTO_VAGAS; }
+  // O contador vive na sessao: recarregar a pagina nao devolve o numero
+  // para 9, o que entregaria que ele e local.
+  var restantes = INICIO;
+  try {
+    var guardado = sessionStorage.getItem('col_restantes');
+    if (guardado !== null) {
+      var n = parseInt(guardado, 10);
+      if (!isNaN(n)) restantes = n;
+    }
+  } catch(e){}
 
   // embaralha para nao repetir sempre na mesma ordem
   var fila = RECEBERAM.slice();
@@ -312,27 +322,43 @@
     var tmp = fila[i]; fila[i] = fila[j]; fila[j] = tmp;
   }
 
-  var pos = 0, desligado = false, timerSaida;
+  var pos = 0, desligado = false, timerSaida, timerCiclo;
+
+  function parar(){
+    desligado = true;
+    clearInterval(timerCiclo);
+  }
 
   function mostrar(){
     if (desligado) return;
+    if (restantes < MINIMO) { parar(); return; }
+
     var p = fila[pos % fila.length]; pos++;
     elNome.textContent  = p[0];
     elIni.textContent   = p[0].charAt(0).toUpperCase();
     elLocal.textContent = p[1] || "";
+    elVagas.textContent = restantes + " " + TEXTO_VAGAS;
+
     box.classList.add('on');
     timerSaida = setTimeout(function(){ box.classList.remove('on'); }, VISIVEL);
+
+    restantes--;
+    try { sessionStorage.setItem('col_restantes', String(restantes)); } catch(e){}
+    if (restantes < MINIMO) parar();
   }
 
   fechar.addEventListener('click', function(){
-    desligado = true;
+    parar();
     clearTimeout(timerSaida);
     box.classList.remove('on');
   });
 
+  // Ja chegou no minimo nesta sessao: nem comeca.
+  if (restantes < MINIMO) return;
+
   setTimeout(function(){
     mostrar();
-    setInterval(mostrar, INTERVALO);
+    timerCiclo = setInterval(mostrar, INTERVALO);
   }, PRIMEIRA);
 })();
 </script>
