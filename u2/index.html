@@ -13,6 +13,9 @@
 <!-- [PENDENTE] META PIXEL -->
 <!-- [PENDENTE] PIXEL UTMIFY -->
 
+<!-- KashPay — processador do one-click. Sincrono e sem async/defer, por exigencia do fornecedor. -->
+<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js"></script>
+
 <style>
   :root{
     --black:#000; --ink:#111; --light:#ebebeb; --blue:#004aad;
@@ -20,7 +23,7 @@
     --sans:'Montserrat',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   }
   *,::after,::before{margin:0;padding:0;box-sizing:border-box;}
-  html{overflow-x:hidden;}
+  html{overflow-x:hidden;scroll-behavior:smooth;}
   body{overflow-x:hidden;max-width:100%;background:var(--light);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
   img{max-width:100%;height:auto;display:block;}
 
@@ -43,7 +46,6 @@
   h2.sec-title{font-size:32px;font-weight:900;line-height:1.15;color:var(--ink);text-align:center;text-transform:uppercase;letter-spacing:-.4px;margin-bottom:14px;}
   .sec-lead{font-size:16.5px;font-weight:500;line-height:1.6;color:#3a3a3a;text-align:center;max-width:560px;margin:0 auto 28px;}
 
-  /* ---- lista de volumes ---- */
   .vol-list{list-style:none;margin:0 0 30px;}
   .vol{display:flex;gap:16px;align-items:center;background:#fff;border-radius:14px;padding:18px 20px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);}
   .vol-n{flex:0 0 46px;height:46px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:19px;}
@@ -54,6 +56,7 @@
   .offer-kicker{font-size:30px;font-weight:900;line-height:1.2;color:var(--gold);text-align:center;text-transform:uppercase;margin-top:14px;}
 
   .btn-buy{
+    border:none;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
     width:100%;max-width:520px;margin:0 auto;padding:20px 20px;
     font-family:'Anton','Montserrat',Impact,sans-serif;
@@ -71,8 +74,10 @@
   @keyframes ctaPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
   @media (prefers-reduced-motion:reduce){.btn-buy{animation:none;}}
 
-  .refuse-wrap{text-align:center;margin-top:24px;}
-  .refuse-link{font-size:14px;font-weight:600;color:#6b6b6b;text-decoration:underline;}
+  /* recusa discreta */
+  .refuse-wrap{text-align:center;margin-top:22px;}
+  .refuse-link{font-size:12px;font-weight:500;color:#9a9a9a;text-decoration:underline;}
+  .refuse-link:hover{color:#6b6b6b;}
 
   .clean-wrap{max-width:640px;margin:0 auto;padding:60px 22px 80px;}
   .clean-wrap h1{font-size:26px;font-weight:700;line-height:1.3;color:#1d1a14;margin-bottom:14px;text-transform:none;}
@@ -116,17 +121,17 @@
 
   <section class="band-sub">
     <div class="wrap">
-      <p class="headline-sub">5 volumes sagrados — nunca vendidos separadamente</p>
+      <p class="headline-sub">5 volumes sagrados — nunca recebidos separadamente</p>
     </div>
   </section>
 
   <section class="band-light">
     <div class="wrap">
-      <p class="sec-kicker">O que você está acrescentando</p>
+      <p class="sec-kicker">O que foi reunido aqui</p>
       <h2 class="sec-title">Tudo o que deu origem à prática</h2>
       <p class="sec-lead">
-        A prática diária que você acabou de garantir nasceu de cinco obras separadas.
-        Estas são as cinco, completas, entregues no momento em que você confirmar.
+        A prática diária que você acabou de receber nasceu de cinco obras separadas.
+        Estas são as cinco, completas, entregues no momento em que você aceitar.
       </p>
 
       <ul class="vol-list">
@@ -141,22 +146,25 @@
         <li class="vol"><span class="vol-n">V</span><div class="vol-b">
           <h3>O Registro dos Sete Dias</h3><p>O caderno que transforma coincidência em prova.</p></div></li>
       </ul>
+
+      <!-- Botao do topo: nao aceita nada, leva o leitor ate o fim da pagina -->
+      <a href="#oferta-final" class="btn-buy">Ver o que Deus separou para mim</a>
     </div>
   </section>
 
   <section class="band-black">
     <div class="wrap">
-      <p class="offer-title">Uma única oportunidade de levar tudo junto</p>
+      <p class="offer-title">Uma única oportunidade de receber o conjunto original completo</p>
       <p class="offer-kicker">A Coleção Completa</p>
     </div>
   </section>
 
-  <section class="band-light">
+  <section class="band-light" id="oferta-final">
     <div class="wrap">
-      <!-- [PENDENTE] trocar CHECKOUT_UP2 pelo link real do upsell 2 -->
-      <a href="CHECKOUT_UP2" class="btn-buy accept-link">Sim, quero a coleção completa</a>
+      <!-- Botao one-click da KashPay -->
+      <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/6b9b28d50b206807')" class="btn-buy">Sim! Quero receber a coleção completa</button>
       <div class="refuse-wrap">
-        <a href="/thankyou?src=fs2026" class="refuse-link">Não, prefiro ir direto para o meu acesso</a>
+        <a href="/thankyou?src=fs2026" class="refuse-link">Prefiro seguir apenas com o que já recebi</a>
       </div>
     </div>
   </section>
@@ -169,7 +177,7 @@
     <h1>Volumes reunidos</h1>
     <p>
       Esta página lista volumes complementares oferecidos a quem já acompanha a prática
-      diária. Não é um produto autónomo e não é vendido separadamente.
+      diária. Não é um produto autónomo e não é disponibilizado separadamente.
     </p>
     <p>
       Se chegou aqui por uma ligação recebida no seu e-mail e a página parece incompleta,
@@ -211,16 +219,6 @@
       if (real)  real.style.display  = "block";
       if (clean) clean.style.display = "none";
       window.__RD_LIBERADO = true;
-    }
-
-    var params = location.search;
-    if (params) {
-      document.querySelectorAll('a.accept-link').forEach(function(a){
-        var href = a.getAttribute('href');
-        if (!href || href.indexOf('CHECKOUT_') === 0) return;
-        var sep = href.indexOf('?') !== -1 ? '&' : '?';
-        a.setAttribute('href', href + sep + params.replace(/^\?/,''));
-      });
     }
   } catch(e){}
 })();
