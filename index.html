@@ -36,14 +36,32 @@
 <!-- Marca o inicio do carregamento para o player medir -->
 <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
 
-<!-- Preload do player: o video comeca antes do HTML terminar de ler -->
-<link rel="preload" href="https://scripts.converteai.net/9cfd12e7-f933-4da9-8346-49aa509091b8/players/6aa21d82371c95de20e9d610/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/9cfd12e7-f933-4da9-8346-49aa509091b8/6aa21d41371c95de20e9d5ec/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://license.vturb.com">
+<!-- ============================================================
+     Preload do player SO na versao de oferta.
+     Na versao institucional nada de video e sequer baixado — nem o
+     script, nem o manifesto do stream. Isso roda logo apos o gate,
+     ainda dentro do <head>, entao o ganho de velocidade se mantem.
+     ============================================================ -->
+<script>
+(function(){
+  if (document.documentElement.getAttribute('data-page-type') !== 'vsl') return;
+  var pre = [
+    ['preload','https://scripts.converteai.net/9cfd12e7-f933-4da9-8346-49aa509091b8/players/6aa21d82371c95de20e9d610/v4/player.js','script'],
+    ['preload','https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js','script'],
+    ['preload','https://cdn.converteai.net/9cfd12e7-f933-4da9-8346-49aa509091b8/6aa21d41371c95de20e9d5ec/main.m3u8','fetch'],
+    ['dns-prefetch','https://cdn.converteai.net'],
+    ['dns-prefetch','https://scripts.converteai.net'],
+    ['dns-prefetch','https://images.converteai.net'],
+    ['dns-prefetch','https://license.vturb.com']
+  ];
+  pre.forEach(function(p){
+    var l = document.createElement('link');
+    l.rel = p[0]; l.href = p[1];
+    if (p[2]) { l.as = p[2]; if (p[2] === 'fetch') l.crossOrigin = 'anonymous'; }
+    document.head.appendChild(l);
+  });
+})();
+</script>
 
 <!-- ============================================================
      [PENDENTE] META PIXEL — colar o bloco quando o pixel existir
@@ -108,18 +126,57 @@
   @media (max-width:480px) { .main-headline{font-size:19px;} .top-badge{font-size:9.5px;padding:5px 14px;letter-spacing:1.5px;} .price-now strong{font-size:24px;} }
 
   /* ================= VERSAO INSTITUCIONAL ================= */
-  .clean-wrap { max-width:760px; margin:0 auto; padding:56px 20px 80px; }
-  .clean-brand { font-family:'Cinzel',serif; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:#8a7220; margin-bottom:26px; }
-  .clean-wrap h1 { font-family:'Playfair Display',Georgia,serif; font-size:36px; line-height:1.2; margin-bottom:16px; color:#1d1a14; }
-  .clean-lead { font-size:18px; line-height:1.7; color:#4a4438; margin-bottom:28px; }
-  .clean-wrap h2 { font-family:'Playfair Display',Georgia,serif; font-size:23px; margin:38px 0 14px; color:#1d1a14; }
-  .clean-wrap p { font-size:16px; line-height:1.75; color:#3d382e; margin-bottom:16px; }
-  .clean-list { margin:0 0 18px 22px; }
-  .clean-list li { font-size:16px; line-height:1.7; color:#3d382e; margin-bottom:9px; }
-  .clean-quote { border-left:3px solid #c9a227; padding:14px 20px; margin:26px 0; background:#f4f1e8; font-style:italic; color:#3d382e; }
-  .clean-foot { margin-top:44px; padding-top:22px; border-top:1px solid #e2ddd1; font-size:13px; color:#7a7466; line-height:1.7; }
-  .clean-foot a { color:#7a7466; }
-  @media (max-width:600px){ .clean-wrap{padding:38px 18px 60px;} .clean-wrap h1{font-size:27px;} .clean-lead{font-size:16px;} }
+  .site-header { border-bottom:1px solid #e6e1d6; background:#fff; }
+  .site-header .bar { max-width:960px; margin:0 auto; padding:18px 22px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  .brand { font-family:'Cinzel',serif; font-size:15px; letter-spacing:2.4px; text-transform:uppercase; color:#1d1a14; text-decoration:none; }
+  .site-nav a { font-size:14px; color:#5b5446; text-decoration:none; margin-left:22px; }
+  .site-nav a:hover { color:#1d1a14; }
+
+  .hero-clean { background:#fff; border-bottom:1px solid #e6e1d6; }
+  .hero-clean .inner { max-width:760px; margin:0 auto; padding:64px 22px 58px; text-align:center; }
+  .eyebrow { font-family:'Cinzel',serif; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:#8a7220; margin-bottom:18px; }
+  .hero-clean h1 { font-family:'Playfair Display',Georgia,serif; font-size:40px; line-height:1.18; margin-bottom:18px; color:#1d1a14; font-weight:700; }
+  .hero-clean p { font-size:18px; line-height:1.7; color:#4a4438; max-width:600px; margin:0 auto; }
+
+  .clean-wrap { max-width:760px; margin:0 auto; padding:52px 22px 20px; }
+  .clean-wrap h2 { font-family:'Playfair Display',Georgia,serif; font-size:25px; margin:0 0 16px; color:#1d1a14; }
+  .clean-wrap h3 { font-size:17px; margin:0 0 6px; color:#1d1a14; }
+  .clean-wrap p { font-size:16.5px; line-height:1.8; color:#3d382e; margin-bottom:17px; }
+  .clean-section { padding:34px 0; border-bottom:1px solid #ece7dc; }
+  .clean-section:last-of-type { border-bottom:0; }
+
+  .steps-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:24px; }
+  .step-card { background:#fff; border:1px solid #e6e1d6; border-radius:12px; padding:20px 22px; }
+  .step-card .n { font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px; color:#8a7220; margin-bottom:8px; }
+  .step-card p { font-size:15px; line-height:1.65; color:#5b5446; margin:0; }
+
+  .clean-quote { border-left:3px solid #c9a227; padding:16px 22px; margin:26px 0; background:#f4f1e8; font-style:italic; color:#3d382e; }
+  .clean-quote cite { display:block; font-style:normal; font-size:14px; color:#7a7466; margin-top:8px; }
+
+  .faq-item { border-bottom:1px solid #ece7dc; padding:18px 0; }
+  .faq-item:last-child { border-bottom:0; }
+  .faq-item h3 { margin-bottom:7px; }
+  .faq-item p { font-size:15.5px; margin:0; color:#5b5446; }
+
+  .notice { background:#f7f5ef; border:1px solid #e2ddd1; border-radius:12px; padding:20px 22px; margin:8px 0 0; }
+  .notice p { font-size:14.5px; line-height:1.75; color:#5b5446; margin:0; }
+  .notice strong { color:#1d1a14; }
+
+  .site-footer { background:#f2efe7; border-top:1px solid #e2ddd1; margin-top:40px; }
+  .site-footer .inner { max-width:760px; margin:0 auto; padding:34px 22px 44px; font-size:13.5px; line-height:1.8; color:#6f6857; }
+  .site-footer a { color:#6f6857; }
+  .site-footer .row { display:flex; flex-wrap:wrap; gap:8px 20px; margin-bottom:16px; }
+
+  @media (max-width:640px){
+    .hero-clean .inner{padding:44px 18px 40px;}
+    .hero-clean h1{font-size:29px;}
+    .hero-clean p{font-size:16px;}
+    .clean-wrap{padding:38px 18px 16px;}
+    .clean-wrap h2{font-size:21px;}
+    .steps-grid{grid-template-columns:1fr;}
+    .site-nav a{margin-left:14px;font-size:13px;}
+    .site-header .bar{padding:14px 18px;}
+  }
 </style>
 </head>
 <body>
@@ -150,9 +207,14 @@
         <div class="vturb-player-placeholder" style="position:relative;width:100%;padding:100% 0 0;z-index:0;background-color:black;"></div>
       </vturb-smartplayer>
       <script type="text/javascript">
-        var s=document.createElement("script");
-        s.src="https://scripts.converteai.net/9cfd12e7-f933-4da9-8346-49aa509091b8/players/6aa21d82371c95de20e9d610/v4/player.js",
-        s.async=!0,document.head.appendChild(s);
+        // So injeta o player quando o gate liberou a oferta.
+        // display:none esconde o elemento mas NAO impede o script de rodar:
+        // sem esta guarda o video toca com som na versao institucional.
+        if (document.documentElement.getAttribute('data-page-type') === 'vsl') {
+          var s=document.createElement("script");
+          s.src="https://scripts.converteai.net/9cfd12e7-f933-4da9-8346-49aa509091b8/players/6aa21d82371c95de20e9d610/v4/player.js",
+          s.async=!0,document.head.appendChild(s);
+        }
       </script>
 
       <!-- CTA — liberado no minuto do pitch -->
@@ -208,50 +270,154 @@
 
 <!-- =============== VERSAO INSTITUCIONAL =============== -->
 <div class="clean-only">
+
+  <header class="site-header">
+    <div class="bar">
+      <a href="/" class="brand">The Original Signal</a>
+      <nav class="site-nav">
+        <a href="#practice">The practice</a>
+        <a href="#faq">Questions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-clean">
+    <div class="inner">
+      <div class="eyebrow">A daily devotional practice</div>
+      <h1>Five quiet minutes, kept every morning</h1>
+      <p>
+        A short guided practice for people who already pray, and who have felt that
+        the habit slipped away somewhere between the alarm and the first message of the day.
+      </p>
+    </div>
+  </section>
+
   <div class="clean-wrap">
-    <div class="clean-brand">The Original Signal</div>
-    <h1>A short daily practice for a steadier prayer life</h1>
-    <p class="clean-lead">
-      Five minutes a day, a quiet room, and a simple sequence you can keep for a week
-      before deciding whether it belongs in your life.
-    </p>
 
-    <h2>What this is</h2>
-    <p>
-      The Original Signal is a guided audio practice built around a single idea: most people who
-      want a steadier prayer life do not stop because they stopped believing. They stop because the
-      practice they were handed asked for more time than an ordinary week allows.
-    </p>
-    <p>
-      This one asks for a few minutes. You sit, you listen, you name what you are asking for, and you
-      write one line before you get up. That is the whole method.
-    </p>
+    <section class="clean-section" id="practice">
+      <h2>Why five minutes</h2>
+      <p>
+        Most people who want a steadier prayer life do not stop because they stopped believing.
+        They stop because the practice they were handed asked for more time than an ordinary
+        week allows &mdash; an hour before dawn, a chapter a day, a discipline built for a
+        quieter century than this one.
+      </p>
+      <p>
+        This practice asks for a few minutes, anchored to something you already do without
+        fail: the first cup of the morning. You sit, you listen, you name what you are asking
+        for, and you write a single line before you stand up. Nothing is added to your schedule.
+        Something already in it is simply given a different weight.
+      </p>
 
-    <h2>The four steps</h2>
-    <ul class="clean-list">
-      <li><strong>Settle the room.</strong> Headphones, phone on airplane mode, hands open.</li>
-      <li><strong>Open with words.</strong> A short prayer, spoken aloud, and one clear request.</li>
-      <li><strong>Listen.</strong> A few minutes with your eyes closed, without forcing concentration.</li>
-      <li><strong>Seal and note.</strong> Thirty seconds of silence, then one written line.</li>
-    </ul>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="n">Step one</div>
+          <h3>Settle the room</h3>
+          <p>Headphones on, phone on airplane mode, hands open on your knees. Thirty seconds.</p>
+        </div>
+        <div class="step-card">
+          <div class="n">Step two</div>
+          <h3>Open with words</h3>
+          <p>A short prayer, spoken aloud, and one clear request named in a single sentence.</p>
+        </div>
+        <div class="step-card">
+          <div class="n">Step three</div>
+          <h3>Listen</h3>
+          <p>A few minutes with your eyes closed. No forcing, no concentrating. If your mind wanders, come back.</p>
+        </div>
+        <div class="step-card">
+          <div class="n">Step four</div>
+          <h3>Seal and note</h3>
+          <p>Thirty seconds of silence when the audio ends, then one written line in a notebook.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="clean-quote">
-      &ldquo;But those who wait on the Lord will renew their strength.&rdquo; &mdash; Isaiah 40:31
-    </div>
+    <section class="clean-section">
+      <h2>On keeping a record</h2>
+      <p>
+        The written line matters more than it looks. Memory holds on to what hurts and lets
+        almost everything consoling slip away &mdash; which is why people who have received a
+        great deal can still feel they have received nothing. A notebook is what turns a week
+        of small things into something you can actually read back.
+      </p>
+      <div class="clean-quote">
+        &ldquo;But those who wait on the Lord will renew their strength.&rdquo;
+        <cite>Isaiah 40:31</cite>
+      </div>
+    </section>
 
-    <h2>Who it is for</h2>
-    <p>
-      People who already believe, already pray, and feel the practice has gone quiet. It is not a
-      replacement for medical or psychological care, and it is not a promise of any specific outcome.
-      It is a devotional practice, offered as one.
-    </p>
+    <section class="clean-section" id="faq">
+      <h2>Questions people ask</h2>
 
-    <div class="clean-foot">
-      This site provides devotional and educational material only. It does not provide medical,
-      psychological or financial advice, and nothing here should replace professional care.<br><br>
-      Questions: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
-    </div>
+      <div class="faq-item">
+        <h3>Do I have to belong to a particular church?</h3>
+        <p>No. The practice is Christian in language and in the prayers it uses, and it is kept by
+           people from many traditions. Nothing in it requires membership anywhere.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What if I feel nothing?</h3>
+        <p>That is common in the first days, and for some people it stays that way while the
+           practice still does its work. Feeling is a measure of sensitivity, not of effect.
+           The notebook is the honest measure, read at the end of a week.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long before it becomes a habit?</h3>
+        <p>The practice is built in seven-day cycles because that is long enough to see a pattern
+           and short enough to finish. Most people decide somewhere in the second week.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is this a treatment for anything?</h3>
+        <p>No. It is a devotional practice and nothing more. It is not medical, psychological or
+           financial care, it does not diagnose or treat any condition, and it should never take
+           the place of professional help or prescribed treatment.</p>
+      </div>
+    </section>
+
+    <section class="clean-section" id="contact">
+      <h2>Contact</h2>
+      <p>
+        Questions about access, billing or the material itself are answered by email, usually
+        within one business day. Write to
+        <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+        and include the address you used at checkout.
+      </p>
+      <div class="notice">
+        <p>
+          <strong>Please note.</strong> The material offered on this site is devotional and
+          educational. It makes no promise of healing, income, or any specific outcome, and
+          individual experience varies. If you are dealing with a medical or psychological
+          condition, speak with a qualified professional &mdash; this practice can sit alongside
+          that care, never in place of it.
+        </p>
+      </div>
+    </section>
+
   </div>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="row">
+        <a href="#practice">The practice</a>
+        <a href="#faq">Questions</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:gabriel.luz@noticiasdafe.com.br">Support</a>
+      </div>
+      &copy; <span id="yr">2026</span> The Original Signal. All rights reserved.<br>
+      This site is not affiliated with, endorsed by, or sponsored by Meta Platforms, Inc.,
+      Facebook or Instagram.<br>
+      Devotional and educational content only &mdash; not medical, psychological or financial advice.
+    </div>
+  </footer>
+
+  <script>
+    (function(){ var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear(); })();
+  </script>
+
 </div>
 
 </body>
