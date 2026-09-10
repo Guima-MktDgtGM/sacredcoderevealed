@@ -14,6 +14,9 @@
 <!-- [PENDENTE] META PIXEL -->
 <!-- [PENDENTE] PIXEL UTMIFY -->
 
+<!-- KashPay — processador do one-click. Sincrono e sem async/defer, por exigencia do fornecedor. -->
+<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js"></script>
+
 <style>
   :root {
     --black:#000; --ink:#111; --light:#ebebeb; --blue:#004aad;
@@ -21,7 +24,7 @@
     --sans:'Montserrat',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   }
   *,::after,::before{margin:0;padding:0;box-sizing:border-box;}
-  html{overflow-x:hidden;}
+  html{overflow-x:hidden;scroll-behavior:smooth;}
   body{overflow-x:hidden;max-width:100%;background:var(--light);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
   img{max-width:100%;height:auto;display:block;}
 
@@ -77,6 +80,7 @@
 
   /* ---- BOTAO ---- */
   .btn-buy{
+    border:none;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
     width:100%;max-width:520px;margin:0 auto;
     padding:20px 20px;
@@ -147,8 +151,8 @@
     <div class="wrap">
       <p class="item-label">Manuscrito</p>
       <p class="item-name">Café com seu Anjo</p>
-      <!-- [PENDENTE] trocar CHECKOUT_UP1 pelo link real do upsell 1 -->
-      <a href="CHECKOUT_UP1" class="btn-buy accept-link">Eu quero receber essas bênçãos</a>
+      <!-- Botao do topo: nao compra, leva o leitor ate a oferta no fim da pagina -->
+      <a href="#oferta-final" class="btn-buy">Ver o que Deus separou para mim</a>
       <img class="product-shot" src="/img/cafe-com-seu-anjo.webp" alt="Manuscrito Café com seu Anjo" width="800" height="1200" fetchpriority="high" decoding="async">
     </div>
   </section>
@@ -168,11 +172,12 @@
     </div>
   </section>
 
-  <section class="band-light">
+  <section class="band-light" id="oferta-final">
     <div class="wrap">
       <img class="product-shot" src="/img/combo-2-manuscritos.webp" alt="Combo 2 Manuscritos Sagrados" width="800" height="1200" loading="lazy" decoding="async" style="margin-top:0">
       <div style="margin-top:30px">
-        <a href="CHECKOUT_UP1" class="btn-buy accept-link">Eu quero receber essas bênçãos</a>
+        <!-- Botao one-click da KashPay -->
+        <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/304d46411cc26f43')" class="btn-buy">Eu quero receber essas bênçãos!</button>
       </div>
       <div class="refuse-wrap">
         <a href="/u2?src=fs2026" class="refuse-link">Escolho deixar essa bênção para outra pessoa</a>
