@@ -1,323 +1,87 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Access Granted — The Creation Key</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<title>Access Confirmed</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- [PENDENTE] META PIXEL -->
+<!-- [PENDENTE] PIXEL UTMIFY -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  background:#fff;
-  color:#1a1a2e;
-  font-family:'Lato',sans-serif;
-  line-height:1.7;
-}
-.container{max-width:640px;margin:0 auto;padding:48px 24px 80px;}
+  :root{
+    --bg:#09090b; --card:#141417; --border:#27272a;
+    --gold:#c9a227; --green:#22c55e; --text:#f4f4f5; --muted:#a1a1aa;
+  }
+  *,::after,::before{margin:0;padding:0;box-sizing:border-box;}
+  html{overflow-x:hidden;}
+  body{overflow-x:hidden;max-width:100%;background:var(--bg);color:var(--text);
+    font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:28px 18px;}
 
-/* ── Header ── */
-.header{text-align:center;padding-bottom:40px;border-bottom:1px solid #e8e0f0;}
-.tag{
-  display:inline-block;
-  background:#f0f0ff;color:#6a5faa;
-  font-size:12px;letter-spacing:3px;text-transform:uppercase;
-  padding:6px 16px;border-radius:20px;margin-bottom:20px;
-  font-family:'Cinzel',serif;
-}
-.check{font-size:48px;margin-bottom:16px;display:block;}
-h1{
-  font-family:'Cinzel',serif;
-  font-size:clamp(22px,4vw,32px);
-  color:#1a1040;line-height:1.3;margin-bottom:12px;
-}
-.subtitle{font-size:16px;color:#666;max-width:480px;margin:0 auto;}
+  .card{width:100%;max-width:520px;background:var(--card);border:1px solid var(--border);
+    border-radius:16px;padding:40px 32px;text-align:center;}
 
-/* ── Seção ── */
-.section{padding:40px 0;border-bottom:1px solid #e8e0f0;}
-.section:last-child{border-bottom:none;}
-.section-label{
-  font-family:'Cinzel',serif;
-  font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:#c9884c;margin-bottom:20px;
-}
+  .success-icon{width:64px;height:64px;margin:0 auto 24px;border-radius:50%;
+    background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);
+    display:flex;align-items:center;justify-content:center;}
+  .success-icon svg{width:32px;height:32px;fill:var(--green);}
 
-/* ── CTA ── */
-.cta-area{text-align:center;}
-.cta-area h2{
-  font-family:'Cinzel',serif;
-  font-size:clamp(18px,3vw,24px);
-  color:#1a1040;margin-bottom:8px;
-}
-.cta-area p{font-size:15px;color:#666;margin-bottom:28px;}
-.btn{
-  display:inline-block;
-  padding:18px 52px;
-  background:linear-gradient(135deg,#c9a84c,#f0c060);
-  border-radius:50px;
-  font-family:'Cinzel',serif;
-  font-size:15px;font-weight:700;
-  color:#1a1040;
-  text-decoration:none;
-  letter-spacing:1px;
-  box-shadow:0 4px 20px #f0c06033;
-  transition:transform .2s,box-shadow .2s;
-}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px #f0c06055;}
-.login-hint{
-  margin-top:16px;font-size:13px;color:#999;
-}
-.login-hint strong{color:#c9884c;}
+  h1{font-family:'Cinzel',Georgia,serif;font-size:26px;line-height:1.25;
+    letter-spacing:.5px;margin-bottom:16px;color:#fff;}
+  p{font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:22px;}
 
-/* ── Itens do produto ── */
-.items{list-style:none;padding:0;}
-.items li{
-  display:flex;gap:16px;align-items:flex-start;
-  padding:16px 0;border-bottom:1px solid #f0edf8;
-}
-.items li:last-child{border-bottom:none;}
-.item-icon{font-size:22px;margin-top:2px;min-width:28px;text-align:center;}
-.item-text h4{font-size:15px;font-weight:700;color:#1a1040;margin-bottom:3px;}
-.item-text p{font-size:14px;color:#777;}
+  .steps{text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--border);
+    border-radius:12px;padding:20px 22px;margin-bottom:26px;}
+  .steps h2{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);
+    margin-bottom:14px;font-weight:700;}
+  .steps ol{margin:0 0 0 18px;}
+  .steps li{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:10px;}
+  .steps li:last-child{margin-bottom:0;}
+  .steps strong{color:var(--text);}
 
-/* ── Instalar / Aviso ── */
-.steps{list-style:none;padding:0;counter-reset:steps;}
-.steps li{
-  display:flex;gap:14px;align-items:flex-start;
-  padding:12px 0;border-bottom:1px solid #f0edf8;
-  font-size:14px;color:#555;
-}
-.steps li:last-child{border-bottom:none;}
-.snum{
-  min-width:28px;height:28px;border-radius:50%;
-  background:#f0f0ff;border:1px solid #c9a84c;
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;color:#c9a84c;margin-top:1px;
-}
+  .foot{margin-top:8px;font-size:13px;color:#71717a;line-height:1.7;}
+  .foot a{color:#71717a;}
 
-/* ── Testemunhos ── */
-.testimonials h2{
-  font-family:'Cinzel',serif;
-  font-size:clamp(18px,3vw,22px);
-  color:#1a1040;margin-bottom:8px;text-align:center;
-}
-.testimonials .sub{text-align:center;font-size:14px;color:#888;margin-bottom:32px;}
-.testimony{padding:24px 0;border-bottom:1px solid #f0edf8;}
-.testimony:last-child{border-bottom:none;}
-.t-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
-.avatar{
-  width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,#c9a84c,#f0c060);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:#1a1040;
-  flex-shrink:0;
-}
-.t-info{}
-.t-name{font-weight:700;font-size:15px;color:#1a1040;}
-.t-location{font-size:12px;color:#999;}
-.stars{color:#f0c060;font-size:15px;letter-spacing:1px;margin-bottom:4px;}
-.verified{font-size:11px;color:#2ecc71;font-weight:700;}
-.t-text{font-size:14px;color:#555;line-height:1.8;}
-.t-text em{color:#c9884c;font-style:normal;font-weight:700;}
-
-/* ── Promessa de atualização ── */
-.promise{
-  background:#faf8ff;border-left:3px solid #c9a84c;
-  padding:16px 20px;border-radius:0 8px 8px 0;
-  font-size:14px;color:#555;
-}
-.promise strong{color:#1a1040;}
-
-/* ── Suporte ── */
-.suporte{text-align:center;font-size:14px;color:#999;}
-.suporte a{color:#c9884c;text-decoration:none;}
-.suporte a:hover{text-decoration:underline;}
-
-/* ── Versículo ── */
-.versiculo{
-  text-align:center;padding-top:32px;
-  font-style:italic;font-size:14px;color:#aaa;
-}
-.versiculo strong{display:block;font-style:normal;font-size:15px;color:#1a1040;margin-bottom:4px;}
-
-@media(max-width:480px){
-  .btn{padding:16px 32px;font-size:14px;}
-}
+  @media (max-width:520px){ .card{padding:32px 22px;} h1{font-size:22px;} }
 </style>
-
-<!-- UTMify Base Tracking -->
-<!-- Meta Pixel (native — fires immediately, does not wait on UTMify) -->
-    <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-        document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1982986032358056');
-        fbq('trackSingle', '1982986032358056', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1982986032358056&ev=PageView&noscript=1" alt=""/></noscript>
-
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-
-<!-- UTMify Pixel Integration (Matching Active Campaign Pixel ID) -->
-<script>
-  window.pixelId = "6a9896700ed6e03c7a94cae9";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
 </head>
 <body>
-<div class="container">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="tag">✦ The Creation Key ✦</div>
-    <span class="check">✅</span>
-    <h1>Your purchase is confirmed!<br>Welcome to the journey.</h1>
-    <p class="subtitle">The ancient 20-word sacred sequence that unlocks divine abundance has been successfully released to you.</p>
-  </div>
+  <div class="card">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
 
-  <!-- Mockup Image (Parchment Cover) -->
-  <div style="text-align:center;padding:32px 0 8px;">
-    <img src="the_creation_key_cover.jpg" alt="The Creation Key" style="max-width:100%;width:380px;border-radius:12px;box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-  </div>
+    <h1>Your access is confirmed</h1>
 
-  <!-- CTA Principal -->
-  <div class="section cta-area">
-    <div class="section-label">→ First Step</div>
-    <h2>Open Your App</h2>
-    <p>Your access is already active. Everything you unlocked lives inside your private app — open it now and start tonight.</p>
-    <a href="https://app.appsell.ai/the-creation-key-390/login" class="btn" target="_blank">
-      ✨ ACCESS THE CREATION KEY
-    </a>
-    <div class="login-hint">
-      Log in with the <strong>same email address you used at checkout</strong>. No password to create — that email is your key.
+    <p>
+      Everything you secured has been sent to the email address you used at checkout.
+      It usually arrives within a few minutes.
+    </p>
+
+    <div class="steps">
+      <h2>Start here</h2>
+      <ol>
+        <li><strong>Open the email</strong> and download the audio to your phone. Do not leave it in the browser — the practice happens in the morning, often before you open anything else.</li>
+        <li><strong>Read the manual first.</strong> It is short, and it is what makes the audio work.</li>
+        <li><strong>Pick your time.</strong> Same hour, same chair, seven days. That is the whole protocol.</li>
+      </ol>
+    </div>
+
+    <div class="foot">
+      Nothing arrived? Check your spam folder first, then write to
+      <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+      with the email you used at checkout.<br><br>
+      Devotional and educational material only. Nothing here replaces medical, psychological
+      or financial advice.
     </div>
   </div>
 
-  <!-- O que tem no app -->
-  <div class="section">
-    <div class="section-label">→ What You Receive</div>
-    <ul class="items">
-      <li>
-        <span class="item-icon">📖</span>
-        <div class="item-text">
-          <h4>The 20-Word Sacred Sequence</h4>
-          <p>The original Hebrew characters, phonetic pronunciations, and literal English translations.</p>
-        </div>
-      </li>
-      <li>
-        <span class="item-icon">🙏</span>
-        <div class="item-text">
-          <h4>Daily Guided Prayers</h4>
-          <p>Targeted scripts for financial breakthroughs, family protection, and personal guidance.</p>
-        </div>
-      </li>
-      <li>
-        <span class="item-icon">📜</span>
-        <div class="item-text">
-          <h4>Linguistic Devotional Studies</h4>
-          <p>Deep theological insights analyzing the history of ancient biblical texts of abundance.</p>
-        </div>
-      </li>
-      <li>
-        <span class="item-icon">🧠</span>
-        <div class="item-text">
-          <h4>Daily Journal Reflections</h4>
-          <p>Personal self-reflection prompts to guide your mind and spiritual growth over the next 7 days.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Itens extra (se comprou) -->
-  <div class="section">
-    <div class="section-label">→ Did you purchase any upgrades?</div>
-    <p style="font-size:14px;color:#666;margin-bottom:22px;">If you added the Accelerator, the Frequencies, or any bonus to your order, they are already waiting inside the same app — no separate login and nothing else to claim. Everything sits under one account. 🙏</p>
-  </div>
-
-  <!-- Instalar no celular (Downtime warning) -->
-  <div class="section">
-    <div class="section-label">→ How To Get In</div>
-    <p style="font-size:15px;color:#1a1040;font-weight:700;margin-bottom:6px;">📲 Three steps, about a minute</p>
-    <p style="font-size:14px;color:#666;margin-bottom:20px;">Your app opens right in your browser — there is nothing to download from the App Store or Google Play.</p>
-    <ul class="steps">
-      <li>
-        <span class="snum">1</span>
-        Tap the green button above, or go to <strong>app.appsell.ai/the-creation-key-390/login</strong>
-      </li>
-      <li>
-        <span class="snum">2</span>
-        Enter the <strong>same email address you used at checkout</strong> — that email is what unlocks your access
-      </li>
-      <li>
-        <span class="snum">3</span>
-        Add the page to your home screen so it opens like any other app: on iPhone use Safari and tap Share → "Add to Home Screen"; on Android use Chrome and tap the three dots → "Add to Home screen"
-      </li>
-    </ul>
-
-    <div style="background:#fff4e5;border-left:3px solid #e09b2d;border-radius:6px;padding:14px 16px;margin-top:20px;">
-      <p style="font-size:13.5px;color:#3a2f1c;margin:0;line-height:1.65;"><strong>⏳ Access can take up to 1 hour to open.</strong> Because of occasional instability in our systems, some accounts are released shortly after the purchase rather than instantly. If the login does not recognise you yet, wait an hour and try again. If it still will not let you in, email us with your full name and your checkout email and we will open it by hand.</p>
-    </div>
-  </div>
-
-  <!-- Testemunhos -->
-  <div class="section testimonials">
-    <div class="section-label">→ Real Breakthroughs</div>
-    <h2>What others say about The Creation Key</h2>
-    <p class="sub">People across America practicing the daily scriptural activations.</p>
-
-    <div class="testimony">
-      <div class="t-header">
-        <div class="avatar">RF</div>
-        <div class="t-info">
-          <div class="stars">★★★★★</div>
-          <div class="t-name">Rosemary Fisher</div>
-          <div class="t-location">Atlanta, GA &nbsp;·&nbsp; <span class="verified">✓ Verified Purchase</span></div>
-        </div>
-      </div>
-      <p class="t-text">I was going through a highly stressful time both financially and emotionally. I began reciting the daily Hebrew words every single morning and within two weeks, my mind cleared in a way I hadn't felt in years. <em>A new work opportunity appeared out of nowhere</em>, something I had been waiting for for months. I highly recommend it.</p>
-    </div>
-
-    <div class="testimony">
-      <div class="t-header">
-        <div class="avatar">MO</div>
-        <div class="t-info">
-          <div class="stars">★★★★★</div>
-          <div class="t-name">Mark Oliver</div>
-          <div class="t-location">Phoenix, AZ &nbsp;·&nbsp; <span class="verified">✓ Verified Purchase</span></div>
-        </div>
-      </div>
-      <p class="t-text">I was skeptical at first, but my wife convinced me to try it together. Now we both recite the sequence before starting our day. <em>Our relationship has completely shifted</em>—more peace, more alignment, and fewer arguments about money. The scriptural study guides opened my eyes to a perspective of prosperity I was never taught in church.</p>
-    </div>
-  </div>
-
-  <!-- Promessa de atualizações -->
-  <div class="section">
-    <div class="promise">
-      🚀 <strong>This program grows with you.</strong> We continuously add new devotions, audio reflections, and materials. As an active member, you receive all future updates for free.
-    </div>
-  </div>
-
-  <!-- Suporte -->
-  <div class="section suporte">
-    <div class="section-label" style="text-align:center;">→ Need Assistance?</div>
-    Questions about your access or download? Get in touch with us:<br>
-    <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a><br>
-    <span style="font-size:12px;margin-top:6px;display:block;">We respond to all inquiries within 24 business hours.</span>
-  </div>
-
-  <!-- Versículo -->
-  <div class="versiculo">
-    <strong>"I can do all things through Christ who strengthens me."</strong>
-    Philippians 4:13 — Declare this today. 🕊️
-  </div>
-
-</div>
 </body>
 </html>
