@@ -7,59 +7,116 @@
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="preload" as="image" href="/img/cafe-com-seu-anjo.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- [PENDENTE] META PIXEL -->
 <!-- [PENDENTE] PIXEL UTMIFY -->
 
 <style>
   :root {
-    --black:#000; --light:#ebebeb; --blue:#004aad; --green:#249e3d;
-    --gold:#ffb000; --warn:#cfd8e6;
-    --sans:'Segoe UI',Roboto,-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+    --black:#000; --ink:#111; --light:#ebebeb; --blue:#004aad;
+    --green:#2eb84e; --green-dark:#1f7a34; --gold:#ffb000;
+    --sans:'Montserrat',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   }
   *,::after,::before{margin:0;padding:0;box-sizing:border-box;}
   html{overflow-x:hidden;}
   body{overflow-x:hidden;max-width:100%;background:var(--light);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
   img{max-width:100%;height:auto;display:block;}
 
-  /* conteudo real fica oculto ate o gate liberar */
   #conteudo-real{display:none;}
   #pagina-clean{display:block;}
 
-  .band-black{background:var(--black);padding:26px 16px 34px;}
-  .band-light{background:var(--light);padding:42px 16px 50px;}
   .wrap{width:100%;max-width:680px;margin:0 auto;}
 
-  .alert-top{font-size:14px;color:var(--warn);text-align:center;letter-spacing:.2px;margin-bottom:22px;}
-  h1.headline{font-size:48px;font-weight:700;line-height:1.1;color:#fff;text-align:center;text-transform:uppercase;}
-  .headline-sub{font-size:14px;font-weight:900;color:#e6e6e6;text-align:center;text-transform:uppercase;margin-top:16px;line-height:1.4;}
-  .item-label{font-size:16px;color:#000;text-align:center;text-transform:uppercase;letter-spacing:.5px;}
-  .item-name{font-size:16px;color:var(--blue);text-align:center;text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px;}
-  .offer-title{font-size:36px;font-weight:700;color:#fff;text-align:center;line-height:1.2;}
-  .offer-kicker{font-size:24px;font-weight:600;color:var(--gold);text-align:center;text-transform:uppercase;margin-top:12px;}
+  /* ---- FAIXA DE ALERTA: fundo branco, texto azul, alto contraste ---- */
+  .band-alert{background:#fff;padding:16px 18px;}
+  .alert-top{
+    font-size:16px;font-weight:800;line-height:1.35;
+    color:var(--blue);text-align:center;text-transform:uppercase;letter-spacing:.2px;
+  }
+
+  /* ---- FAIXA PRETA DA HEADLINE ---- */
+  .band-black{background:var(--black);padding:34px 18px 28px;}
+  h1.headline{
+    font-size:46px;font-weight:900;line-height:1.06;
+    color:#fff;text-align:center;text-transform:uppercase;letter-spacing:-.5px;
+  }
+
+  /* ---- FAIXA DA SUBHEADLINE ---- */
+  .band-sub{background:#141414;padding:16px 18px;}
+  .headline-sub{
+    font-size:15px;font-weight:800;line-height:1.4;
+    color:#fff;text-align:center;text-transform:uppercase;letter-spacing:.2px;
+  }
+
+  /* ---- FAIXAS DE PRODUTO ---- */
+  .band-light{background:var(--light);padding:34px 18px 40px;}
+  .item-label{
+    font-size:30px;font-weight:700;line-height:1.15;
+    color:var(--ink);text-align:center;text-transform:uppercase;
+  }
+  .item-name{
+    font-size:36px;font-weight:900;line-height:1.1;
+    color:var(--blue);text-align:center;text-transform:uppercase;
+    margin-top:2px;margin-bottom:22px;letter-spacing:-.5px;
+  }
+
+  /* ---- FAIXA DA OFERTA ---- */
+  .offer-title{
+    font-size:30px;font-weight:800;line-height:1.25;
+    color:#fff;text-align:center;
+  }
+  .offer-kicker{
+    font-size:30px;font-weight:900;line-height:1.2;
+    color:var(--gold);text-align:center;text-transform:uppercase;margin-top:14px;
+  }
+
   .product-shot{width:100%;max-width:520px;margin:26px auto 0;}
 
-  .btn-buy{display:block;width:100%;max-width:460px;margin:0 auto;background:var(--green);color:#fff;
-    font-family:var(--sans);font-size:16px;font-weight:600;text-align:center;text-decoration:none;
-    text-transform:uppercase;padding:18px 20px;border-radius:16px;line-height:1.25;
-    box-shadow:0 6px 18px rgba(36,158,61,.35);transition:background .18s ease,transform .18s ease;}
-  .btn-buy:hover{background:#1c7d30;transform:translateY(-2px);}
-  .refuse-wrap{text-align:center;margin-top:26px;}
-  .refuse-link{font-size:13px;color:#6b6b6b;text-decoration:underline;}
+  /* ---- BOTAO ---- */
+  .btn-buy{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;max-width:520px;margin:0 auto;
+    padding:20px 20px;
+    font-family:'Anton','Montserrat',Impact,sans-serif;
+    font-size:24px;font-weight:400;letter-spacing:.4px;line-height:1.1;
+    color:#fff;text-align:center;text-decoration:none;text-transform:uppercase;
+    text-shadow:0 2px 3px rgba(0,0,0,.3);
+    background:linear-gradient(180deg,#42cc63 0%,#2eb84e 55%,#25a343 100%);
+    border-bottom:5px solid var(--green-dark);
+    border-radius:44px;
+    box-shadow:0 10px 26px rgba(46,184,78,.4);
+    animation:ctaPulse 1.4s ease-in-out infinite;
+    transition:filter .15s ease,transform .12s ease;
+  }
+  .btn-buy:hover{filter:brightness(1.06);}
+  .btn-buy:active{transform:translateY(3px);border-bottom-width:2px;}
+  @keyframes ctaPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
+  @media (prefers-reduced-motion:reduce){.btn-buy{animation:none;}}
 
-  /* pagina institucional do gate */
-  .clean-wrap{max-width:640px;margin:0 auto;padding:60px 22px 80px;font-family:var(--sans);}
-  .clean-wrap h1{font-size:26px;line-height:1.3;color:#1d1a14;margin-bottom:14px;}
-  .clean-wrap p{font-size:16px;line-height:1.75;color:#3d382e;margin-bottom:16px;}
+  .refuse-wrap{text-align:center;margin-top:24px;}
+  .refuse-link{font-size:14px;font-weight:600;color:#6b6b6b;text-decoration:underline;}
+
+  /* ---- pagina institucional do gate ---- */
+  .clean-wrap{max-width:640px;margin:0 auto;padding:60px 22px 80px;}
+  .clean-wrap h1{font-size:26px;font-weight:700;line-height:1.3;color:#1d1a14;margin-bottom:14px;text-transform:none;}
+  .clean-wrap p{font-size:16px;font-weight:400;line-height:1.75;color:#3d382e;margin-bottom:16px;}
   .clean-foot{margin-top:36px;padding-top:20px;border-top:1px solid #d8d2c4;font-size:13px;color:#7a7466;line-height:1.7;}
   .clean-foot a{color:#7a7466;}
 
   @media (max-width:600px){
-    h1.headline{font-size:30px;}
-    .offer-title{font-size:24px;}
-    .offer-kicker{font-size:18px;}
-    .band-light{padding:32px 14px 38px;}
-    .btn-buy{font-size:15px;padding:16px 14px;}
+    .alert-top{font-size:14px;}
+    h1.headline{font-size:33px;}
+    .band-black{padding:26px 16px 22px;}
+    .headline-sub{font-size:13.5px;}
+    .item-label{font-size:23px;}
+    .item-name{font-size:27px;margin-bottom:18px;}
+    .offer-title{font-size:23px;}
+    .offer-kicker{font-size:23px;}
+    .btn-buy{font-size:19px;padding:17px 14px;border-radius:38px;}
+    .band-light{padding:26px 14px 32px;}
   }
 </style>
 </head>
@@ -68,10 +125,20 @@
 <!-- =============== CONTEUDO REAL =============== -->
 <div id="conteudo-real">
 
+  <section class="band-alert">
+    <div class="wrap">
+      <p class="alert-top">Não feche essa página ou nunca mais verá o que tem aqui para você</p>
+    </div>
+  </section>
+
   <section class="band-black">
     <div class="wrap">
-      <p class="alert-top">NÃO FECHE ESSA PÁGINA OU NUNCA MAIS VERÁ O QUE TEM AQUI PARA VOCÊ</p>
       <h1 class="headline">2 Manuscritos novos apenas para você!</h1>
+    </div>
+  </section>
+
+  <section class="band-sub">
+    <div class="wrap">
       <p class="headline-sub">Esses 2 manuscritos não estão disponíveis fora dessa página aqui</p>
     </div>
   </section>
@@ -86,11 +153,11 @@
     </div>
   </section>
 
-  <section class="band-light">
+  <section class="band-light" style="padding-top:10px">
     <div class="wrap">
       <p class="item-label">Grimório de</p>
       <p class="item-name">São Bento</p>
-      <img class="product-shot" src="/img/grimorio-sao-bento.webp" alt="Grimório de São Bento" width="800" height="1200" loading="lazy" decoding="async">
+      <img class="product-shot" src="/img/grimorio-sao-bento.webp" alt="Grimório de São Bento" width="800" height="1200" loading="lazy" decoding="async" style="margin-top:0">
     </div>
   </section>
 
@@ -103,7 +170,7 @@
 
   <section class="band-light">
     <div class="wrap">
-      <img class="product-shot" src="/img/combo-2-manuscritos.webp" alt="The 2 Manuscritos Sagrados" width="800" height="1200" loading="lazy" decoding="async" style="margin-top:0">
+      <img class="product-shot" src="/img/combo-2-manuscritos.webp" alt="Combo 2 Manuscritos Sagrados" width="800" height="1200" loading="lazy" decoding="async" style="margin-top:0">
       <div style="margin-top:30px">
         <a href="CHECKOUT_UP1" class="btn-buy accept-link">Eu quero receber essas bênçãos</a>
       </div>
@@ -118,19 +185,19 @@
 <!-- =============== PAGINA INSTITUCIONAL (padrao) =============== -->
 <div id="pagina-clean">
   <div class="clean-wrap">
-    <h1>Companion readings</h1>
+    <h1>Leituras complementares</h1>
     <p>
-      This page holds supplementary reading material offered to people who are already following
-      the daily practice. It is not a standalone product and is not sold separately.
+      Esta página reúne material de leitura complementar, oferecido a quem já acompanha a
+      prática diária. Não é um produto autónomo e não é vendido separadamente.
     </p>
     <p>
-      If you arrived here from a link in your email and the page looks incomplete, open it again
-      from the original message so the session can be restored.
+      Se chegou aqui por uma ligação recebida no seu e-mail e a página parece incompleta,
+      abra-a novamente a partir da mensagem original para que a sessão seja restabelecida.
     </p>
     <div class="clean-foot">
-      Devotional and educational material only. Nothing here replaces medical, psychological or
-      financial advice.<br><br>
-      Questions: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+      Material devocional e educativo apenas. Nada aqui substitui aconselhamento médico,
+      psicológico ou financeiro.<br><br>
+      Dúvidas: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
     </div>
   </div>
 </div>
