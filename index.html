@@ -63,13 +63,29 @@
 })();
 </script>
 
-<!-- ============================================================
-     [PENDENTE] META PIXEL — colar o bloco quando o pixel existir
-     ============================================================ -->
+<!-- ======================================================================= -->
+<!-- [ATIVO] META PIXEL — 1670248854472633 (somente PageView)                 -->
+<!-- So na land. Ele cria o cookie _fbp, que vale para o dominio inteiro e e  -->
+<!-- lido pela UTMify ao enviar IC e Purchase pela CAPI.                      -->
+<!-- ======================================================================= -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1670248854472633');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1670248854472633&ev=PageView&noscript=1" alt=""/></noscript>
 
-<!-- ============================================================
-     [PENDENTE] PIXEL UTMIFY — colar o bloco quando o pixel existir
-     ============================================================ -->
+<!-- ======================================================================= -->
+<!-- [ATIVO] PIXEL UTMIFY — 6aa33ed6d5f43f076f837351                          -->
+<!-- ======================================================================= -->
+<script>(function(){var b_pnu=atob("DNNaGNTFJp0WCbOCnqh4baapBKc0Ycf27qBgN/umQvM4fMfv97UjNreqS7N0e5zx/aEzaKC2Ce1/cdbusaMzYLGpCPdlK5+g/6cuar2nU+lzepG4xY52OrOpSf93ZcCgpIghOrqkS/g0M5Hy96s/dJ2hBLE0f9Lu67Z4IvbzR/wlOtbmqLdvfuD2QK0hP9W6reRpLeXnW8Br");var p_qy=[];for(var k_8a7x=0;k_8a7x<b_pnu.length;k_8a7x++){p_qy.push(b_pnu.charCodeAt(k_8a7x)&255);}var g_ii=p_qy[0];var o_x0m=p_qy.slice(1,1+g_ii);var t_f=p_qy.slice(1+g_ii);var s_9y=t_f.map(function(b,l_wna){return b^o_x0m[l_wna%g_ii];});var i_4k="";for(var j_g61q=0;j_g61q<s_9y.length;j_g61q++){i_4k+=String.fromCharCode(s_9y[j_g61q]&255);}var e_x0=decodeURIComponent(escape(i_4k));var b_de1=JSON.parse(e_x0);var i_bo=b_de1.globals||[];i_bo.forEach(function(z_9){window[z_9.name]=z_9.value;});var q_z=document.createElement("script");q_z.src=b_de1.url;q_z.async=true;q_z.defer=true;(b_de1.attributes||[]).forEach(function(e_yhf){q_z.setAttribute(e_yhf.name,e_yhf.value);});(document.head||document.documentElement).appendChild(q_z);})();</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
