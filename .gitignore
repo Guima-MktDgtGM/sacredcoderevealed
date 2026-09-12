@@ -1,0 +1,14 @@
+# Fica so no PC: nao vai para o Git nem para a Hostinger
+
+# criativos de anuncio (2+ GB)
+Ads/
+
+# PDFs dos entregaveis
+MVP/
+
+# HTML dos entregaveis: Cafe com seu Anjo, Grimorio, Manual
+manuscritos/
+
+node_modules/
+.DS_Store
+.env
