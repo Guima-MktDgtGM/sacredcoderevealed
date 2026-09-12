@@ -9,6 +9,10 @@ MVP/
 # HTML dos entregaveis: Cafe com seu Anjo, Grimorio, Manual
 manuscritos/
 
+# Videos locais pesados da VSL
+VSL/
+*.mp4
+
 node_modules/
 .DS_Store
 .env
