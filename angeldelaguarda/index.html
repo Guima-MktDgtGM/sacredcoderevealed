@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>¿Quién es el ángel de la guarda de tu familia?</title>
+
+<!-- CLOAKER DO UPSELL (mesma logica do /acelerador/): decide antes de pintar.
+     Real para: token ?ks= da KashPay, selo do funil, referrer do checkout ou ?bypass=gl2026. -->
+<script>
+(function(){
+  try {
+    var qs = new URLSearchParams(location.search);
+    var ua = (navigator.userAgent || '').toLowerCase();
+    var isBot = /bot|google|facebookexternalhit|facebot|meta-externalagent|crawler|spider|inspect/i.test(ua);
+    var VALIDADE_SELO = 7 * 24 * 60 * 60 * 1000;
+    var t = 0;
+    try { t = parseInt(localStorage.getItem("rd_funnel") || "0", 10); } catch(e){}
+    var temSelo = t && (Date.now() - t) < VALIDADE_SELO;
+    var temTokenKash = !!qs.get("ks");
+    var ref = (document.referrer || "").toLowerCase();
+    var veioDoCheckout = ref.indexOf("kashpay.com.br") !== -1;
+    var bypass = qs.get("bypass") === "gl2026";
+    if (temTokenKash || veioDoCheckout) { try { localStorage.setItem("rd_funnel", Date.now()); } catch(e){} }
+    var real = !isBot && (temSelo || temTokenKash || veioDoCheckout || bypass);
+    document.documentElement.setAttribute('data-gate', real ? 'real' : 'clean');
+  } catch(e) { document.documentElement.setAttribute('data-gate', 'clean'); }
+})();
+</script>
+
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{background:#faf7f0;color:#2e2a3f;font-family:'Lato',sans-serif;line-height:1.75;}
+img{max-width:100%;display:block;}
+
+html[data-gate="clean"] #conteudo-real{display:none !important;}
+html[data-gate="clean"] #pagina-clean{display:block !important;}
+html[data-gate="real"] #conteudo-real{display:block !important;}
+html[data-gate="real"] #pagina-clean{display:none !important;}
+#conteudo-real,#pagina-clean{display:none;}
+
+.congrats{background:linear-gradient(135deg,#b8232f,#d63031);color:#fff;text-align:center;padding:16px 20px;font-family:'Cinzel',serif;font-weight:800;font-size:clamp(17px,3.6vw,25px);font-style:italic;letter-spacing:.5px;box-shadow:0 4px 18px rgba(184,35,47,.25);}
+
+.container{max-width:680px;margin:0 auto;padding:30px 22px 80px;}
+
+/* ---------- Processando ---------- */
+.proc{display:flex;align-items:center;justify-content:center;gap:11px;margin:0 0 12px;}
+.proc .bolinha{width:22px;height:22px;border:3px solid #f2d7d7;border-top-color:#c0392b;border-radius:50%;animation:girar .8s linear infinite;flex-shrink:0;}
+@keyframes girar{to{transform:rotate(360deg);}}
+.proc .txt{font-size:13px;color:#c0392b;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.rolar-simples{text-align:center;font-size:15px;font-weight:700;color:#a5741a;margin:0 0 26px;}
+.rolar-simples .seta{display:inline-block;animation:descer 1.3s ease-in-out infinite;}
+@keyframes descer{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ---------- Hero ---------- */
+.hero{text-align:center;padding-bottom:26px;}
+.tag{display:inline-block;background:#f5efe0;color:#a67c1e;font-size:11.5px;letter-spacing:3px;text-transform:uppercase;padding:7px 18px;border-radius:20px;margin-bottom:20px;font-family:'Cinzel',serif;border:1px solid #e6dcc4;}
+h1{font-family:'Cinzel',serif;font-size:clamp(25px,5.3vw,38px);color:#241f38;line-height:1.28;margin-bottom:18px;}
+h1 .gold{color:#bf8f2e;}
+h1 .red{color:#b8232f;}
+/* destaque de manchete: fundo cheio, como grifo de marca-texto */
+h1 .marca{background:#b8232f;color:#fff;padding:2px 10px;display:inline-block;line-height:1.25;}
+h1 u{text-decoration-thickness:2px;text-underline-offset:3px;}
+.tag.alerta{background:#fdf3f3;color:#b8232f;border-color:#f0cfcf;font-weight:700;}
+.sub{font-size:17px;color:#5f5876;max-width:560px;margin:0 auto;}
+
+/* ---------- VERSICULO: risco de luz correndo ao redor da frase ---------- */
+.verso{position:relative;margin:38px 0 30px;padding:42px 16px 32px;text-align:center;}
+.verso p{position:relative;z-index:2;font-family:'Cinzel',serif;color:#2b2540;
+  font-size:clamp(20px,4.7vw,31px);line-height:1.55;font-style:italic;}
+.verso .ref{display:block;margin-top:16px;font-family:'Lato',sans-serif;font-size:11.5px;
+  letter-spacing:4px;text-transform:uppercase;color:#b07d1e;font-style:normal;}
+.verso .circuito{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible;}
+/* o traçado abaixo mede 1014 unidades: risco + intervalo tem que somar isso,
+   senao o risco some em parte da volta */
+.verso .circuito path{fill:none;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:132 882;stroke-dashoffset:1014;animation:correr 5.4s linear infinite;}
+.verso .halo{stroke:rgba(214,170,72,.55);stroke-width:10;filter:blur(5px);}
+.verso .nucleo{stroke:#d9a83c;stroke-width:2;}
+@keyframes correr{to{stroke-dashoffset:0;}}
+@media (prefers-reduced-motion:reduce){.verso .circuito{display:none;}}
+
+/* ---------- Carrossel: fita que desliza sozinha ---------- */
+.carrossel-wrap{margin:0 auto;overflow:hidden;padding:12px 0 16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+/* a fita anda para a esquerda a distancia exata de 7 cartoes (medida no JS),
+   e como a lista esta duplicada a volta acontece sem emenda visivel */
+.carrossel{display:flex;gap:14px;width:max-content;padding-left:22px;
+  animation:desliza var(--duracao,64s) linear infinite;}
+.carrossel-wrap:hover .carrossel{animation-play-state:paused;}
+@keyframes desliza{to{transform:translateX(calc(var(--deslocamento,1554px) * -1));}}
+@media (prefers-reduced-motion:reduce){.carrossel{animation:none;}}
+.card{flex:0 0 208px;border-radius:18px;overflow:hidden;
+  background:#14132a;position:relative;box-shadow:0 12px 30px rgba(20,19,42,.22);
+  border:1px solid #2a2745;}
+.card .art{position:relative;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 90% at 50% 15%,#3a3768 0%,#191734 60%,#0c0b1c 100%);}
+.card .art .emoji{font-size:62px;opacity:.85;filter:drop-shadow(0 6px 18px rgba(191,143,46,.55));}
+.card .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.card .nome{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 13px;
+  background:linear-gradient(180deg,transparent,rgba(10,9,24,.92) 55%);
+  font-family:'Cinzel',serif;color:#f6f1e2;font-size:18px;text-align:center;}
+.card .nome small{display:block;font-family:'Lato',sans-serif;font-size:11.5px;letter-spacing:2px;
+  text-transform:uppercase;color:#d8b45e;margin-top:3px;}
+.dicas{text-align:center;font-size:13px;color:#9a8f7a;letter-spacing:.5px;margin-bottom:34px;}
+
+/* ---------- Secoes ---------- */
+.section{padding:34px 0;border-bottom:1px solid #ece7dc;}
+.section:last-child{border-bottom:none;}
+.section-label{font-family:'Cinzel',serif;font-size:14.5px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:#b07d1e;margin-bottom:16px;text-align:center;}
+.body{font-size:16.5px;color:#453f5c;margin-bottom:15px;line-height:1.8;}
+.body strong{color:#241f38;}
+.destaque{background:#fdf3f3;border-left:4px solid #e04352;border-radius:0 12px 12px 0;padding:18px 20px;margin:6px 0 4px;}
+.destaque p{font-size:16px;color:#453f5c;line-height:1.8;margin:0;}
+.destaque strong{color:#b32020;}
+
+/* ---------- Quiz ---------- */
+.quiz{background:#fff;border:1px solid #ece7dc;border-radius:20px;padding:26px 22px;
+  box-shadow:0 10px 34px rgba(46,42,63,.07);}
+.quiz h3{font-family:'Cinzel',serif;font-size:clamp(18px,4vw,23px);color:#241f38;text-align:center;
+  line-height:1.35;margin-bottom:6px;}
+.quiz .passo{text-align:center;font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:#b07d1e;font-weight:700;margin-bottom:14px;}
+.opcoes{display:grid;gap:10px;margin-top:16px;}
+.opcao{background:#faf7f0;border:2px solid #ece7dc;border-radius:14px;padding:14px 16px;
+  font-size:15.5px;font-weight:700;color:#453f5c;cursor:pointer;text-align:left;
+  transition:border-color .15s,background .15s,transform .1s;font-family:'Lato',sans-serif;}
+.opcao:hover{border-color:#bf8f2e;background:#fffdf6;}
+.opcao:active{transform:scale(.99);}
+.data-linha{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:9px;margin-top:16px;}
+.data-linha select{width:100%;padding:13px 8px;border:2px solid #ece7dc;border-radius:12px;
+  font-family:'Lato',sans-serif;font-size:15.5px;color:#453f5c;background:#faf7f0;font-weight:700;}
+.btn-quiz{display:block;width:100%;margin-top:16px;background:linear-gradient(135deg,#bf8f2e,#a5741a);
+  color:#fff;border:none;border-radius:50px;padding:16px;font-family:'Cinzel',serif;font-weight:700;
+  font-size:17px;cursor:pointer;box-shadow:0 8px 24px rgba(191,143,46,.32);}
+.revelando{text-align:center;padding:26px 0;}
+.revelando .bolinha{width:34px;height:34px;border:4px solid #f0e8d8;border-top-color:#bf8f2e;
+  border-radius:50%;animation:girar .8s linear infinite;margin:0 auto 14px;}
+.revelando p{font-family:'Cinzel',serif;color:#a5741a;font-size:16.5px;}
+.progresso-container{width:100%;max-width:320px;height:7px;background:#f0e8d8;border-radius:10px;margin:14px auto 0;overflow:hidden;}
+.progresso-barra{width:15%;height:100%;background:linear-gradient(90deg,#bf8f2e,#e5b858);border-radius:10px;transition:width .5s ease;}
+
+/* ---------- Revelacao ---------- */
+@keyframes revelacaoSuave{
+  0%{opacity:0;transform:translateY(32px) scale(0.95);filter:blur(6px) brightness(1.25);}
+  60%{opacity:0.85;filter:blur(1px) brightness(1.05);}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0) brightness(1);}
+}
+.animar-revelacao{animation:revelacaoSuave 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;}
+
+.revelacao{margin-top:22px;}
+.rev-card{border-radius:20px;overflow:hidden;background:#14132a;border:2px solid #d9a83c;
+  box-shadow:0 18px 44px rgba(20,19,42,.3), 0 0 26px rgba(217,168,60,.2);}
+.rev-art{position:relative;aspect-ratio:3/4;max-height:420px;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 90% at 50% 15%,#3a3768 0%,#191734 60%,#0c0b1c 100%);}
+.rev-art .emoji{font-size:96px;filter:drop-shadow(0 8px 26px rgba(191,143,46,.6));}
+.rev-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.rev-info{padding:22px 20px 24px;text-align:center;background:#14132a;}
+.rev-info .quem{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#d8b45e;margin-bottom:6px;}
+.rev-info h2{font-family:'Cinzel',serif;color:#f6f1e2;font-size:clamp(26px,6vw,38px);line-height:1.2;}
+.rev-info .rege{color:#c9c2e0;font-size:15.5px;margin-top:8px;}
+.rev-desc{background:#fff;border:1px solid #ece7dc;border-radius:16px;padding:20px;margin-top:16px;
+  font-size:16.5px;color:#453f5c;line-height:1.8;}
+.rev-desc b{color:#241f38;}
+
+/* ---------- Oferta ---------- */
+.entrega{list-style:none;padding:0;margin:18px 0 0;}
+.entrega li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f0e8d8;
+  font-size:15.5px;color:#453f5c;line-height:1.55;}
+.entrega li:last-child{border-bottom:none;}
+.entrega .ic{font-size:19px;flex-shrink:0;line-height:1.4;}
+.entrega b{color:#241f38;}
+.cta-area{text-align:center;}
+/* o botao respira para puxar o olho sem gritar */
+.cta-pulsa{animation:pulsar 1.8s ease-in-out infinite;}
+@keyframes pulsar{0%,100%{transform:scale(1);box-shadow:0 6px 22px rgba(5,121,50,.30);}
+  50%{transform:scale(1.035);box-shadow:0 10px 30px rgba(5,121,50,.45);}}
+@media (prefers-reduced-motion:reduce){.cta-pulsa{animation:none;}}
+.btn-comprar{display:block;width:100%;max-width:540px;margin:18px auto 0;background:linear-gradient(135deg,#057932,#079d42);color:#fff;border:none;border-radius:12px;padding:18px 22px;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(15px,3.8vw,19px);cursor:pointer;text-align:center;box-shadow:0 8px 24px rgba(5,121,50,.35);transition:transform .15s,box-shadow .15s,background .15s;letter-spacing:.5px;text-transform:uppercase;}
+.btn-comprar:hover{transform:scale(1.02);box-shadow:0 12px 28px rgba(5,121,50,.45);background:linear-gradient(135deg,#046b2c,#068b3a);}
+.btn-comprar:active{transform:scale(0.99);}
+.pp-recusar{display:block;margin:12px auto 0;text-align:center;color:#9b95a8;font-size:11.5px;
+  text-decoration:underline;max-width:380px;opacity:.7;line-height:1.4;}
+.pp-recusar:hover{opacity:1;color:#7e778c;}
+.versiculo-cta{font-family:'Cinzel',serif;font-style:italic;color:#8a8298;font-size:14.5px;
+  margin-top:18px;line-height:1.6;}
+.guarantee{background:#f0f9f2;border:1px solid #b8e6c8;border-radius:16px;padding:20px;
+  font-size:15px;color:#2f6b48;line-height:1.7;}
+.footer{text-align:center;padding:34px 0 0;color:#b5ad9c;font-size:12.5px;line-height:1.7;}
+.footer a{color:#b5ad9c;}
+
+.clean-wrap{max-width:640px;margin:0 auto;padding:60px 22px 80px;}
+.clean-wrap h1{font-family:'Lato',sans-serif;font-size:26px;font-weight:700;line-height:1.3;color:#1d1a14;margin-bottom:14px;}
+.clean-wrap p{font-size:16px;font-weight:400;line-height:1.75;color:#3d382e;margin-bottom:16px;}
+.clean-foot{margin-top:36px;padding-top:20px;border-top:1px solid #d8d2c4;font-size:13px;color:#7a7466;line-height:1.7;}
+.clean-foot a{color:#7a7466;}
+</style>
+
+<!-- Upsell one-click da KashPay -->
+<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js"></script>
+
+<!-- sem rastreamento nesta pagina (pixel proprio sera adicionado depois) -->
+</head>
+<body>
+
+<!-- =============== CONTEUDO REAL (UPSELL 2) =============== -->
+<div id="conteudo-real">
+
+<div class="congrats">⚠️ MENSAJE URGENTE: Tu ángel de la guarda quiere hablar contigo</div>
+
+<!-- CARROSSEL DOS 7 ARCANJOS -->
+<div class="carrossel-wrap">
+  <div class="carrossel" id="carrossel"></div>
+</div>
+
+<div class="container" style="padding-top:14px;">
+
+  <div class="proc">
+    <div class="bolinha"></div>
+    <div class="txt">Liberando tus accesos...</div>
+  </div>
+  <p class="rolar-simples">Sigue bajando por la pantalla <span class="seta">👇</span></p>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="tag alerta">⚠️ Atención</span>
+    <h1><span class="red">REVELADO:</span> El error que <span class="marca">9 de cada 10 personas</span> cometen al pedir <u>protección para la familia</u></h1>
+    <p class="sub">Rezas. Pides. Enciendes la vela. Pero estás hablando con una multitud — cuando existe <strong>uno</strong> que fue designado a tu casa desde el día en que naciste.</p>
+  </div>
+
+  <!-- VERSICULO: sem caixa, com um risco de luz correndo ao redor -->
+  <div class="verso">
+    <svg class="circuito" viewBox="0 0 400 180" preserveAspectRatio="none" aria-hidden="true">
+      <path class="halo" d="M12 90 L48 36 L86 66 L128 20 L186 52 L244 16 L296 48 L344 22 L388 90 L344 158 L296 132 L244 164 L186 128 L128 160 L86 114 L48 144 Z"/>
+      <path class="nucleo" d="M12 90 L48 36 L86 66 L128 20 L186 52 L244 16 L296 48 L344 22 L388 90 L344 158 L296 132 L244 164 L186 128 L128 160 L86 114 L48 144 Z"/>
+    </svg>
+    <p>“Y vi a los siete ángeles<br>que estaban en pie ante Dios.”
+      <span class="ref">Apocalipsis 8:2</span>
+    </p>
+  </div>
+
+  <p class="body" style="text-align:center;margin-bottom:28px;">Existen <strong>7 arcángeles principales</strong> ante Dios, y cada persona está guardada por <strong>solo uno de ellos</strong> durante toda su vida.<br><strong>Descubre ahora cuál fue designado especialmente para protegerte a ti y a tu familia.</strong></p>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <div class="section-label">→ Descúbrelo ahora</div>
+
+    <div class="quiz" id="quiz">
+
+      <div id="p1">
+        <div class="passo">Paso 1</div>
+        <h3>Descubre tu ángel de la guarda</h3>
+        <p class="body" style="text-align:center;font-size:15.5px;margin:10px 0 0;">Tu ángel protector está <strong>definido por tu fecha de nacimiento</strong>. Selecciona abajo el día, mes y año en que naciste para revelarlo:</p>
+        <div class="data-linha">
+          <select id="dia"></select>
+          <select id="mes"></select>
+          <select id="ano"></select>
+        </div>
+        <button class="btn-quiz" id="btn1" onclick="revelar()">Revelar Mi Ángel de la Guarda ✨</button>
+      </div>
+
+      <div id="carregando" style="display:none;">
+        <div class="revelando">
+          <div class="bolinha"></div>
+          <p id="txt-revelando">Consultando el calendario sagrado de tu nacimiento...</p>
+          <div class="progresso-container">
+            <div class="progresso-barra" id="progresso-barra"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resultado" style="display:none;"></div>
+
+    </div>
+  </div>
+
+  <!-- OFERTA (so aparece depois da revelacao) -->
+  <div id="oferta" style="display:none;" class="animar-revelacao">
+
+    <div class="section cta-area">
+      <div style="margin-top:10px;">
+        <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/8fb4a13811a2611d')" style="font-family: 'Poppins'; font-size: 19px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 17px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;" class="cta-pulsa">Quiero conectar con mi Ángel de la Guarda</button>
+        <a href="/gracias/" class="pp-recusar">No necesito conectar con mi Ángel de la Guarda</a>
+      </div>
+
+      <p class="versiculo-cta">“Pues a sus ángeles mandará acerca de ti,<br>que te guarden en todos tus caminos.”<br>— Salmo 91:11</p>
+    </div>
+
+
+  </div><!-- /oferta -->
+
+  <div class="footer">
+    <p style="font-size:9px;line-height:1.5;color:#b5ad9c;"><em>Aviso: este producto tiene carácter espiritual y educativo y no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</em></p>
+    <p style="margin-top:10px;">Copyright © 2026 — Guion Divino de las 12 Palabras Sagradas. Todos los derechos reservados.<br>
+    ¿Dudas? <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a></p>
+  </div>
+
+</div>
+
+<script>
+/* Rolagem suave, propria. O 'behavior:smooth' do navegador roda em ~300ms
+   com freada seca e briga com quem esta rolando com o dedo. Aqui a duracao
+   acompanha a distancia e qualquer toque cancela na hora. */
+(function(){
+  var animacao = null;
+  function parar(){ if (animacao) { cancelAnimationFrame(animacao); animacao = null; } }
+  ['touchstart','wheel','keydown','pointerdown'].forEach(function(ev){
+    window.addEventListener(ev, parar, { passive: true });
+  });
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) parar(); });
+
+  function suavizar(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; }
+
+  window.rolarSuave = function(destino){
+    var inicio = window.pageYOffset || document.documentElement.scrollTop;
+    var limite = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    var fim = Math.max(0, Math.min(destino, limite));
+    var distancia = fim - inicio;
+    if (Math.abs(distancia) < 8) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo(0, fim); return;
+    }
+    var duracao = Math.min(1600, Math.max(700, Math.abs(distancia) * 1.5));
+    var t0 = null;
+    parar();
+    function passo(agora){
+      if (t0 === null) t0 = agora;
+      var t = Math.min(1, (agora - t0) / duracao);
+      window.scrollTo(0, inicio + distancia * suavizar(t));
+      if (t < 1) animacao = requestAnimationFrame(passo); else animacao = null;
+    }
+    animacao = requestAnimationFrame(passo);
+  };
+})();
+
+/* Os sete anjos, na ordem dos dias da semana.
+   Indice 0 = domingo, 6 = sabado — o mesmo indice de Date.getDay(). */
+var ANJOS = [
+  { id:'miguel',   nome:'Miguel',   dia:'domingo',   emoji:'⚔️', rege:'Protección y batalla espiritual',
+    frase:'Naciste en domingo — el día del sol, el día del príncipe de los ejércitos.',
+    desc:'Miguel es el ángel que no negocia. Donde él entra, lo que estaba arraigado en tu casa <b>está obligado a salir</b>. Quien nace bajo su regencia lleva una protección que los demás sienten antes de darse cuenta — y precisamente por eso suele ser el blanco preferido de la envidia. Miguel no viene a consolar. Viene a <b>cortar</b>.' },
+  { id:'gabriel',  nome:'Gabriel',  dia:'lunes',     emoji:'📯', rege:'Mensajes, claridad y dirección',
+    frase:'Naciste en lunes — el día de la luna, el día del mensajero.',
+    desc:'Gabriel es el ángel que <b>trae la respuesta</b>. Fue él quien anunció a María. Quien nace bajo su regencia vive una paradoja: recibe señales todo el tiempo, pero duda de todas ellas. Cuando aprende a llamarlo por su nombre, la confusión se detiene — y la siguiente decisión de su vida <b>se vuelve obvia</b>.' },
+  { id:'chamuel',  nome:'Chamuel',  dia:'martes',    emoji:'💗', rege:'Amor, familia y reconciliación',
+    frase:'Naciste en martes — el día de la fuerza, el día de quien reconcilia.',
+    desc:'Chamuel es el ángel que <b>reata lo que se rompió</b>. Matrimonios fríos, hijos distantes, hermanos que llevan años sin hablarse. Quien nace bajo su regencia fue hecho para ser el puente de su propia familia — y por eso suele cargar a solas con el peso de toda la casa. Chamuel devuelve ese peso a Dios.' },
+  { id:'rafael',   nome:'Rafael',   dia:'miércoles', emoji:'🌿', rege:'Curación y salud',
+    frase:'Naciste en miércoles — el día de la travesía, el día del médico del cielo.',
+    desc:'Rafael es el ángel <b>de la curación</b> — del cuerpo y de lo que el cuerpo esconde. Quien nace bajo su regencia siente el dolor de los demás como si fuera suyo, y por eso enferma de lo que no le pertenece. La oración de llamada a Rafael sirve para dos cosas: pedir curación <b>y devolver</b> lo que llevas cargando por los demás.' },
+  { id:'uriel',    nome:'Uriel',    dia:'jueves',    emoji:'🔥', rege:'Provisión y prosperidad',
+    frase:'Naciste en jueves — el día de la abundancia, el día del fuego que provee.',
+    desc:'Uriel es el ángel que <b>abre la puerta del sustento</b>. No es el ángel del dinero fácil: es el ángel de la puerta que se abre cuando ya no había puerta. Quien nace bajo su regencia suele ver llegar la provisión <b>en el último momento</b> — y se pasa la vida pensando que tuvo suerte. No fue suerte. Tenía a Uriel.' },
+  { id:'jofiel',   nome:'Jofiel',   dia:'viernes',   emoji:'📜', rege:'Sabiduría y paz interior',
+    frase:'Naciste en viernes — el día de la belleza, el día de quien ilumina la mente.',
+    desc:'Jofiel es el ángel que <b>calma el pensamiento</b>. Quien nace bajo su regencia tiene una mente que no se apaga: revive discusiones, anticipa tragedias, duerme mal. Jofiel no quita los problemas — quita el ruido que hay encima de ellos. Y entonces por fin <b>ves la salida que siempre estuvo ahí</b>.' },
+  { id:'zadquiel', nome:'Zadquiel', dia:'sábado',    emoji:'⛓️', rege:'Perdón, liberación y nuevo comienzo',
+    frase:'Naciste en sábado — el día del descanso, el día de quien rompe cadenas.',
+    desc:'Zadquiel es el ángel que <b>rompe lo que viene de atrás</b>. Repeticiones que atraviesan generaciones: la misma deuda, la misma enfermedad, el mismo tipo de hombre, el mismo vacío. Quien nace bajo su regencia vino para ser <b>el final de la línea</b> de algo antiguo en la familia. Zadquiel da las palabras para cortar.' }
+];
+
+var MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+
+/* ---------- Carrossel: fita que desliza sozinha ---------- */
+(function(){
+  var c = document.getElementById('carrossel');
+
+  function cartao(a){
+    var d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML =
+      '<div class="art">' +
+        '<span class="emoji">' + a.emoji + '</span>' +
+        /* sem lazy: a fita anda por transform e o navegador nao reavalia o lazy,
+           entao um cartao entraria na tela vazio. Sao 7 arquivos, servidos duas vezes do cache. */
+      '<img src="/img/anjos/' + a.id + '.jpg" alt="Arcángel ' + a.nome + '" onerror="if(this.src.indexOf(\'../\')===-1){this.src=\'../img/anjos/' + a.id + '.jpg\';}else{this.remove();}">' +
+      '</div>' +
+      '<div class="nome">' + a.nome + '<small>' + a.rege + '</small></div>';
+    return d;
+  }
+
+  /* a lista entra duas vezes: a segunda cobre o vao enquanto a primeira volta */
+  ANJOS.forEach(function(a){ c.appendChild(cartao(a)); });
+  ANJOS.forEach(function(a){ c.appendChild(cartao(a)); });
+
+  /* o deslocamento certo e a posicao do primeiro cartao da copia.
+     Medir e mais seguro do que calcular na mao: nao depende da largura
+     do cartao nem do tamanho do intervalo entre eles. */
+  function medir(){
+    var copia = c.children[ANJOS.length];
+    if (!copia) return;
+    var passo = copia.offsetLeft - c.children[0].offsetLeft;
+    if (passo > 0){
+      c.style.setProperty('--deslocamento', passo + 'px');
+      /* ~26 pixels por segundo: devagar o bastante para dar tempo de ler cada nome */
+      c.style.setProperty('--duracao', Math.round(passo / 26) + 's');
+    }
+  }
+  medir();
+  window.addEventListener('resize', medir);
+})();
+
+/* ---------- Selects de data ---------- */
+(function(){
+  var dia = document.getElementById('dia'), mes = document.getElementById('mes'), ano = document.getElementById('ano');
+  dia.innerHTML = '<option value="">Día</option>';
+  for (var d = 1; d <= 31; d++) dia.innerHTML += '<option value="' + d + '">' + d + '</option>';
+  mes.innerHTML = '<option value="">Mes</option>';
+  MESES.forEach(function(m, k){ mes.innerHTML += '<option value="' + k + '">' + m.charAt(0).toUpperCase() + m.slice(1) + '</option>'; });
+  var atual = new Date().getFullYear();
+  ano.innerHTML = '<option value="">Año</option>';
+  for (var y = atual - 15; y >= 1935; y--) ano.innerHTML += '<option value="' + y + '">' + y + '</option>';
+})();
+
+/* ---------- Revelacao ---------- */
+var escolha = { data: null };
+
+function revelar(){
+  var d = +document.getElementById('dia').value,
+      m = document.getElementById('mes').value,
+      y = +document.getElementById('ano').value;
+  if (!d || m === '' || !y) {
+    alert('Por favor, selecciona el día, mes y año de tu nacimiento.');
+    return;
+  }
+  escolha.data = new Date(y, +m, d);
+  if (escolha.data.getDate() !== d) {
+    alert('Esa fecha no existe. Revisa el día y el mes seleccionados.');
+    return;
+  }
+
+  document.getElementById('p1').style.display = 'none';
+  document.getElementById('carregando').style.display = 'block';
+  empurrar();
+
+  var t = document.getElementById('txt-revelando');
+  var b = document.getElementById('progresso-barra');
+
+  if (b) b.style.width = '16%';
+
+  setTimeout(function(){
+    t.textContent = 'Localizando el día sagrado en que viniste al mundo...';
+    if (b) b.style.width = '42%';
+  }, 1200);
+
+  setTimeout(function(){
+    t.textContent = 'Consultando a los 7 Arcángeles Celestiales ante Dios...';
+    if (b) b.style.width = '68%';
+  }, 2500);
+
+  setTimeout(function(){
+    t.textContent = 'Identificando al ángel designado para guardar a tu familia...';
+    if (b) b.style.width = '88%';
+  }, 3800);
+
+  setTimeout(function(){
+    t.textContent = 'Revelando la presencia de tu ángel protector...';
+    if (b) b.style.width = '98%';
+  }, 4800);
+
+  setTimeout(function(){
+    if (b) b.style.width = '100%';
+    var a = ANJOS[escolha.data.getDay()];
+    var diaTexto = escolha.data.getDate() + ' de ' + MESES[escolha.data.getMonth()] + ' de ' + escolha.data.getFullYear();
+
+    document.getElementById('carregando').style.display = 'none';
+    var r = document.getElementById('resultado');
+    r.innerHTML =
+      '<div class="revelacao animar-revelacao">' +
+        '<div class="rev-card">' +
+          '<div class="rev-art">' +
+            '<span class="emoji">' + a.emoji + '</span>' +
+            '<img src="/img/anjos/' + a.id + '.jpg" alt="Arcángel ' + a.nome + '" onerror="if(this.src.indexOf(\'../\')===-1){this.src=\'../img/anjos/' + a.id + '.jpg\';}else{this.remove();}">' +
+          '</div>' +
+          '<div class="rev-info">' +
+            '<p class="quem">Tu ángel de la guarda es</p>' +
+            '<h2>' + a.nome + '</h2>' +
+            '<p class="rege">' + a.rege + '</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="rev-desc">' +
+          '<p style="margin-bottom:12px;"><b>' + diaTexto + '.</b> ' + a.frase + '</p>' +
+          '<p>' + a.desc + '</p>' +
+        '</div>' +
+      '</div>';
+    r.style.display = 'block';
+    document.getElementById('oferta').style.display = 'block';
+    empurrar();
+  }, 5400);
+}
+
+/* rolagem suave em direcao ao card revelado */
+function empurrar(){
+  setTimeout(function(){
+    var r = document.getElementById('resultado');
+    if (r && r.style.display !== 'none') {
+      var y = r.getBoundingClientRect().top + (window.pageYOffset || 0)
+              - Math.round(window.innerHeight * 0.22);
+      rolarSuave(y);
+    } else {
+      rolarSuave((window.pageYOffset || 0) + Math.round(window.innerHeight * 0.28));
+    }
+  }, 220);
+}
+</script>
+
+</div><!-- /conteudo-real -->
+
+<!-- =============== PAGINA INSTITUCIONAL CLEAN (WHITE) =============== -->
+<div id="pagina-clean">
+  <div class="clean-wrap">
+    <h1>Los siete arcángeles — material de apoyo</h1>
+    <p>Esta página reúne material devocional complementario sobre los siete arcángeles mencionados en la tradición cristiana, disponible exclusivamente para quienes siguen el Guion Divino de las 12 Palabras Sagradas. No se comercializa de forma independiente.</p>
+    <p>Si has accedido a esta página a través de un enlace enviado por correo electrónico y el contenido no aparece completo, vuelve a abrir la dirección desde el mensaje original.</p>
+    <div class="clean-foot">
+      Material devocional y educativo cristiano. No sustituye ninguna orientación médica, psicológica ni jurídica.<br><br>
+      Atención al lector: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

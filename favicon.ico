@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <style>body {display:flex;align-items:center;justify-content:center;min-height: 100vh;padding: 0;margin: 0;background-color: #fefdf4;font-family: 'Merriweather Sans', Arial, Helvetica, sans-serif;font-size: 
+14px;}nav {background-color: #00022e;padding: 14px 24px;display: flex;justify-content: space-between;align-items: center;}a {text-decoration: none;color: #fefdf4;}.icon {display: flex;align-items: center;gap: 
+6px;}.icon svg {fill: #4adede;}.imagem {width: 40%;}#dominio {color: #00022e;margin: 0;margin-top: 16px;font-size: 48px;}h3 {margin:0;margin-top: 12px;font-size: 20px;}.caixa 
+{padding:24px;display:flex;flex-direction:column;align-items:center;}@media (min-width: 1200px) {.caixa {gap: 12px;padding: 15vh 8vw;}}@media (max-width: 1200px) {.imagem {width: 60%;margin-bottom: 12px;}#dominio 
+{font-size: 32px;}h3 {font-size: 16px;}p {font-size: 13px;}.caixa {;text-align: center;padding: 48px;}}@media (max-width: 640px) {.login {display: none;}nav {padding-right: 36px;}.imagem {width: 100%;}}</style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&amp;family=Merriweather+Sans:wght@300;400;500;700;800&amp;display=swap" as="style" 
+onload="this.onload=null;this.rel='stylesheet'">
+  </head>
+  <body>
+    <div class="caixa">
+      <h1 id="dominio">
+        Ainda não há nada publicado aqui...
+      </h1>
+      <h3>Verifique a URL ou publique uma página.</h3>
+    </div>
+  </body>
+</html>
+
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="robots" content="noindex,nofollow">
+<title>Acelerador del Guion Divino</title>
+
+<!-- CLOAKER DO UPSELL: decide antes de pintar, sem piscar.
+     Real para: token ?ks= da KashPay (prova de compra), selo de 7 dias gravado
+     numa visita anterior, referrer do checkout, ou ?bypass=gl2026. -->
+<script>
+(function(){
+  try {
+    var qs = new URLSearchParams(location.search);
+    var ua = (navigator.userAgent || '').toLowerCase();
+    var isBot = /bot|google|facebookexternalhit|facebot|meta-externalagent|crawler|spider|inspect/i.test(ua);
+    var VALIDADE_SELO = 7 * 24 * 60 * 60 * 1000;
+    var t = 0;
+    try { t = parseInt(localStorage.getItem("rd_funnel") || "0", 10); } catch(e){}
+    var temSelo = t && (Date.now() - t) < VALIDADE_SELO;
+    // ATENCAO: so LEMOS o ks. Nunca remover da URL: o one-click depende dele.
+    var temTokenKash = !!qs.get("ks");
+    var ref = (document.referrer || "").toLowerCase();
+    var veioDoCheckout = ref.indexOf("kashpay.com.br") !== -1;
+    var bypass = qs.get("bypass") === "gl2026";
+    if (temTokenKash || veioDoCheckout) { try { localStorage.setItem("rd_funnel", Date.now()); } catch(e){} }
+    var real = !isBot && (temSelo || temTokenKash || veioDoCheckout || bypass);
+    document.documentElement.setAttribute('data-gate', real ? 'real' : 'clean');
+  } catch(e) { document.documentElement.setAttribute('data-gate', 'clean'); }
+})();
+</script>
+
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../img/acelerador-roteiro-divino.jpg" fetchpriority="high">
+
+<!-- ONE-CLICK KASHPAY — NAO ALTERAR -->
+<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js"></script>
+
+<!-- sem rastreamento nesta pagina (pixel proprio sera adicionado depois) -->
+
+<style>
+  :root{--black:#000;--ink:#111;--light:#ebebeb;--blue:#004aad;--green:#057932;--gold:#ffb000;--sans:'Montserrat',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;}
+  *,::after,::before{margin:0;padding:0;box-sizing:border-box;}
+  html{overflow-x:hidden;scroll-behavior:smooth;}
+  body{overflow-x:hidden;max-width:100%;background:var(--light);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;height:auto;display:block;}
+
+  html[data-gate="clean"] #conteudo-real{display:none !important;}
+  html[data-gate="clean"] #pagina-clean{display:block !important;}
+  html[data-gate="real"] #conteudo-real{display:block !important;}
+  html[data-gate="real"] #pagina-clean{display:none !important;}
+  #conteudo-real,#pagina-clean{display:none;}
+
+  .wrap{width:100%;max-width:680px;margin:0 auto;}
+
+  .topo-vermelho{background:#e8141a;color:#fff;text-align:center;font-size:15px;font-weight:800;line-height:1.35;padding:13px 16px;}
+  .topo-vermelho b{display:block;margin-top:3px;}
+  .proc-pag{background:#fff;text-align:center;padding:36px 20px 32px;}
+  .proc-anel{position:relative;width:62px;height:62px;margin:0 auto 18px;border:5px solid #f2dede;border-top-color:#c0392b;border-radius:50%;animation:proc-girar .8s linear infinite;}
+  @keyframes proc-girar{to{transform:rotate(360deg);}}
+  .proc-anel #proc-seg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#c0392b;}
+  .proc-anel.ok{animation:none;border:5px solid #0f8a3c;}
+  .proc-anel.ok::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#0f8a3c;font-size:34px;font-weight:900;}
+  .proc-txt{font-size:19px;font-weight:900;color:#c0392b;letter-spacing:.3px;line-height:1.3;transition:color .4s;}
+  .proc-txt.ok{color:#0b6b2e;}
+  .proc-sub{font-size:13.5px;font-weight:600;color:#8a8a8a;margin-top:8px;}
+  .proc-nao-feche{font-size:13px;font-weight:600;color:#8a8a8a;margin-top:14px;}
+
+  .congrats{display:none;background:linear-gradient(90deg,#0b6b2e,#0f8a3c);color:#fff;text-align:center;font-size:15.5px;font-weight:800;line-height:1.4;padding:13px 18px;letter-spacing:.2px;}
+
+  .escolhida{display:none;background:#fff;padding:34px 20px 30px;text-align:center;}
+  .esc-titulo{font-size:30px;font-weight:900;color:#1aa838;letter-spacing:.5px;margin-bottom:14px;}
+  .esc-sub{font-size:17px;font-weight:600;color:#222;line-height:1.5;margin-bottom:16px;}
+  .esc-sub strong{color:#111;font-weight:800;}
+  .esc-txt{font-size:15.5px;font-weight:600;color:#222;line-height:1.6;max-width:520px;margin:0 auto 14px;}
+  .esc-txt mark{background:#fff23a;color:#111;padding:0 2px;}
+  .esc-verde{color:#1aa838;font-weight:800;}
+  .esc-taxa{display:flex;gap:12px;max-width:440px;margin:6px auto 18px;}
+  .esc-taxa div{flex:1;border-radius:12px;padding:12px 10px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.06);}
+  .esc-taxa .old{border:2px solid #d9d9d9;color:#666;}
+  .esc-taxa .new{border:2px solid var(--green);color:var(--green);}
+  .esc-taxa small{display:block;font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+  .esc-taxa b{font-size:30px;font-weight:900;line-height:1;}
+  .esc-taxa .old b{text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:#c0392b;}
+  .esc-img{width:100%;max-width:420px;margin:6px auto 4px;border-radius:12px;box-shadow:0 12px 30px rgba(0,74,173,.2);}
+  .esc-nota{font-size:12.5px;font-weight:700;color:#c0392b;margin-top:6px;}
+  .esc-verso{font-size:13.5px;font-style:italic;color:#666;line-height:1.5;margin-top:16px;}
+  .esc-verso span{display:block;font-style:normal;font-weight:800;font-size:11px;letter-spacing:1.2px;color:#9a7b1f;margin-top:3px;}
+  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.025);}}
+
+  #conteudo-real[data-fase="proc"] > :not(.topo-vermelho):not(#proc-pag){display:none !important;}
+  #conteudo-real[data-fase="ok"] #faixa-congrats{display:block;}
+  #conteudo-real[data-fase="ok"] .escolhida{display:block;}
+
+  .rodape{text-align:center;padding:22px 18px 30px;font-size:11px;color:#8a8577;line-height:1.6;}
+  .rodape a{color:#8a8577;}
+
+  .clean-wrap{max-width:640px;margin:0 auto;padding:60px 22px 80px;}
+  .clean-wrap h1{font-size:26px;font-weight:700;line-height:1.3;color:#1d1a14;margin-bottom:14px;}
+  .clean-wrap p{font-size:16px;font-weight:400;line-height:1.75;color:#3d382e;margin-bottom:16px;}
+  .clean-foot{margin-top:36px;padding-top:20px;border-top:1px solid #d8d2c4;font-size:13px;color:#7a7466;line-height:1.7;}
+  .clean-foot a{color:#7a7466;}
+
+  @media (max-width:600px){ .topo-vermelho{font-size:13.5px;} .esc-titulo{font-size:26px;} .esc-sub{font-size:15.5px;} .esc-txt{font-size:14.5px;} .esc-taxa b{font-size:26px;} }
+</style>
+</head>
+<body>
+
+<!-- =============== CONTEUDO REAL (UPSELL 1) =============== -->
+<div id="conteudo-real" data-fase="proc">
+
+  <div class="topo-vermelho" id="topo-vermelho">⚠️ Importante: no pulses atrás ni actualices esta página — podría interrumpir el procesamiento de tu pedido. <b>Espera la confirmación.</b></div>
+
+  <!-- PROCESSAMENTO COM CONTAGEM (8 s) -> CONFIRMADO -->
+  <div class="proc-pag" id="proc-pag">
+    <div class="proc-anel" id="proc-anel"><span id="proc-seg">8</span></div>
+    <p class="proc-txt" id="proc-txt">Confirmando tu pedido…</p>
+    <p class="proc-sub" id="proc-sub">Faltan <b id="proc-falta">8</b> segundos</p>
+    <p class="proc-nao-feche" id="proc-nao-feche">No cierres esta página mientras tanto.</p>
+  </div>
+
+  <div class="congrats" id="faixa-congrats">🎉 ¡Enhorabuena! Una bendición ha sido liberada en tu nombre.</div>
+
+  <section class="escolhida" id="bloco-escolhida">
+    <div class="wrap">
+      <h2 class="esc-titulo">HAS SIDO BENDECIDA</h2>
+      <p class="esc-sub">Para recibir el <strong>Acelerador del Guion Divino</strong> — el protocolo de 7 días que hace que las 12 Palabras actúen <strong>en hasta 3 días</strong>, ¡y no en 90!</p>
+
+      <div class="esc-taxa">
+        <div class="old"><small>Solo el Guion</small><b>18%</b></div>
+        <div class="new"><small>Con el Acelerador</small><b>91%</b></div>
+      </div>
+
+      <p class="esc-txt">Ignorar esto ahora sería como rechazar una bendición que Dios está poniendo en tu mano — y cuando esta puerta se cierre, <mark>no volverá a abrirse</mark>.</p>
+      <p class="esc-txt">Pulsa en <strong class="esc-verde">"SÍ, QUIERO MI BENDICIÓN"</strong> y recibe lo que el Cielo ha reservado solo para los elegidos.</p>
+
+      <img class="esc-img" src="../img/acelerador-roteiro-divino.jpg" alt="Acelerador del Guion Divino" width="1000" height="667" decoding="async">
+
+      <!-- ONE-CLICK KASHPAY — NAO ALTERAR os atributos nem a URL /u/. O token ?ks= vem na URL desta pagina. -->
+      <button type="button" id="btn-upsell" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/c2c4d3fbbb2a39e3')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 15px 7%; cursor: pointer; text-align: center; display: block; margin: 18px auto 10px; width: 100%; max-width: 440px; box-shadow: 0 10px 24px rgba(5,121,50,.3); animation: pulse 1.8s ease-in-out infinite;">SÍ, QUIERO MI BENDICIÓN</button>
+
+      <p class="esc-nota">Solo 50 copias consagradas. Una de ellas está reservada a tu nombre.</p>
+      <p class="esc-verso">“He aquí ahora el tiempo aceptable; he aquí ahora el día de salvación.”<span>2 CORINTIOS 6:2</span></p>
+    </div>
+  </section>
+
+  <div class="rodape">
+    <em>Material de carácter espiritual y educativo; no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</em><br>
+    © 2026 Guion Divino de las 12 Palabras Sagradas · <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+  </div>
+
+  <!-- PROCESSAMENTO: contagem de 8 s, confirma, chuva dourada e revela o bloco -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" async></script>
+  <script>
+  (function(){
+    var raiz = document.getElementById('conteudo-real');
+    if (!raiz) return;
+    var seg = 8;
+    var elSeg = document.getElementById('proc-seg'), elFalta = document.getElementById('proc-falta');
+    var t = setInterval(function(){
+      seg--;
+      if (seg > 0) { if (elSeg) elSeg.textContent = seg; if (elFalta) elFalta.textContent = seg; return; }
+      clearInterval(t);
+      var anel = document.getElementById('proc-anel'), txt = document.getElementById('proc-txt'),
+          sub = document.getElementById('proc-sub'), nf = document.getElementById('proc-nao-feche');
+      if (elSeg) elSeg.textContent = '';
+      if (anel) anel.classList.add('ok');
+      if (txt) { txt.textContent = 'Pedido confirmado'; txt.classList.add('ok'); }
+      if (sub) sub.textContent = 'Tu acceso al Guion Divino está garantizado.';
+      if (nf) nf.style.display = 'none';
+      raiz.setAttribute('data-fase', 'ok');
+      var topo = document.getElementById('topo-vermelho');
+      if (topo) topo.innerHTML = '✅ Pedido confirmado. <b>Sigue bajando para recibir tu bendición 👇</b>';
+      try { if (window.confetti) confetti({ particleCount: 140, spread: 80, origin: { y: 0.35 }, colors: ['#D4AF37','#FDF3D6','#0f8a3c','#ffffff'] }); } catch(e){}
+    }, 1000);
+  })();
+  </script>
+
+</div>
+
+<!-- =============== PAGINA INSTITUCIONAL CLEAN (WHITE) =============== -->
+<div id="pagina-clean">
+  <div class="clean-wrap">
+    <h1>Acelerador del Guion Divino — material de apoyo</h1>
+    <p>Esta página reúne material devocional complementario, disponible exclusivamente para quienes siguen el Guion Divino de las 12 Palabras Sagradas. No se comercializa de forma independiente.</p>
+    <p>Si has accedido a esta página a través de un enlace enviado por correo electrónico y el contenido no aparece completo, vuelve a abrir la dirección desde el mensaje original.</p>
+    <div class="clean-foot">
+      Material devocional y educativo cristiano. No sustituye ninguna orientación médica, psicológica ni jurídica.<br><br>
+      Atención al lector: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
