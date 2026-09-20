@@ -73,6 +73,68 @@ h1{
   color:#c9884c;margin-bottom:18px;
 }
 
+/* ── Botón Destacado Google Drive ── */
+.drive-cta-box{
+  text-align:center;
+  margin:20px 0 28px;
+}
+.btn-drive-main{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  background:linear-gradient(135deg,#057932,#0ca647);
+  color:#ffffff !important;
+  text-decoration:none;
+  padding:18px 24px;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(5,121,50,0.28);
+  transition:transform .2s,box-shadow .2s,background .2s;
+  width:100%;
+  box-sizing:border-box;
+  text-align:left;
+}
+.btn-drive-main:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(5,121,50,0.38);
+  background:linear-gradient(135deg,#046529,#098d3c);
+}
+.btn-drive-icon{
+  font-size:32px;
+  flex-shrink:0;
+  line-height:1;
+}
+.btn-drive-info{
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+}
+.btn-drive-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(15px,3.6vw,18px);
+  font-weight:700;
+  letter-spacing:0.5px;
+  line-height:1.25;
+}
+.btn-drive-sub{
+  font-size:13px;
+  color:#d4f7de;
+  margin-top:3px;
+  line-height:1.35;
+  font-family:'Lato',sans-serif;
+}
+.btn-drive-arrow{
+  font-size:22px;
+  font-weight:700;
+  flex-shrink:0;
+}
+.drive-cta-note{
+  font-size:13.5px;
+  color:#555;
+  margin-top:10px;
+  line-height:1.5;
+}
+
 /* ── Tarjeta Principal de Instrucciones de Correo ── */
 .email-instructions{
   background:#fffdf6;
@@ -417,6 +479,19 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
   <!-- Mockup en Español (Proporción perfecta y ajustada) -->
   <div class="mockup-wrap">
     <img src="../img/mockup-es-v2.jpg" alt="Guion Divino de las 12 Palabras Sagradas" width="750" height="1004" class="hero-mockup" fetchpriority="high" decoding="async">
+  </div>
+
+  <!-- Botón Principal: Acceso Inmediato en Google Drive -->
+  <div class="drive-cta-box">
+    <a href="https://drive.google.com/drive/folders/1sX-H4aegWlqHhZUW1JWjnVPzcmWLtA_F?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-drive-main">
+      <span class="btn-drive-icon">📥</span>
+      <span class="btn-drive-info">
+        <span class="btn-drive-title">ACCEDER AHORA A TUS MATERIALES (DRIVE)</span>
+        <span class="btn-drive-sub">Haz clic aquí para abrir tu carpeta oficial y descargar todos tus PDF y audios</span>
+      </span>
+      <span class="btn-drive-arrow">➔</span>
+    </a>
+    <p class="drive-cta-note">⚡ <strong>Acceso directo e instantáneo:</strong> Si no deseas esperar a que llegue el correo electrónico, puedes acceder y descargar todo tu material inmediatamente en el botón de arriba.</p>
   </div>
 
   <!-- Instrucciones de Acceso por Correo y Aviso de Spam -->
