@@ -32,7 +32,10 @@
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://checkout.kashpay.com.br">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&display=swap"></noscript>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{overflow-x:hidden;max-width:100%;}
@@ -204,8 +207,8 @@ h1 u{text-decoration-thickness:2px;text-underline-offset:3px;}
 .clean-foot a{color:#7a7466;}
 </style>
 
-<!-- Upsell one-click da KashPay -->
-<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js"></script>
+<!-- Upsell one-click da KashPay — defer para carregamento instantaneo -->
+<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js" defer></script>
 
 <!-- Meta Pixel — oferta ES (1071568292283694). So PageView: IC vem da KashPay, Purchase vem da UTMify por API. -->
 <script>
@@ -395,7 +398,7 @@ var MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','
         '<span class="emoji">' + a.emoji + '</span>' +
         /* sem lazy: a fita anda por transform e o navegador nao reavalia o lazy,
            entao um cartao entraria na tela vazio. Sao 7 arquivos, servidos duas vezes do cache. */
-      '<img src="/img/anjos/' + a.id + '.jpg" alt="Arcángel ' + a.nome + '" onerror="if(this.src.indexOf(\'../\')===-1){this.src=\'../img/anjos/' + a.id + '.jpg\';}else{this.remove();}">' +
+      '<img decoding="async" width="416" height="554" src="/img/anjos/' + a.id + '.jpg" alt="Arcángel ' + a.nome + '" onerror="if(this.src.indexOf(\'../\')===-1){this.src=\'../img/anjos/' + a.id + '.jpg\';}else{this.remove();}">' +
       '</div>' +
       '<div class="nome">' + a.nome + '<small>' + a.rege + '</small></div>';
     return d;

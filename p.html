@@ -42,14 +42,19 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
   <!-- VSL em espanhol (player vid-6a618c7354d111868fe939e5) -->
   <link rel="preload" href="https://scripts.converteai.net/141468aa-0e0b-4b46-b784-a9403b5f9a1c/players/6a618c7354d111868fe939e5/v4/player.js" as="script">
   <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-  <link rel="dns-prefetch" href="https://cdn.converteai.net">
-  <link rel="dns-prefetch" href="https://scripts.converteai.net">
-  <link rel="dns-prefetch" href="https://images.converteai.net">
-  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <!-- Preconnects para VTurb CDN de alta velocidade -->
+  <link rel="preconnect" href="https://cdn.converteai.net" crossorigin>
+  <link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
+  <link rel="preconnect" href="https://images.converteai.net" crossorigin>
+  <link rel="preconnect" href="https://m3u8.vturb.net" crossorigin>
   <link rel="dns-prefetch" href="https://license.vturb.com">
+
+  <!-- Carga assincrona de fontes sem bloqueio de renderizacao -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"></noscript>
 
   <style>
     *, ::after, ::before, body { margin: 0; padding: 0; box-sizing: border-box; }

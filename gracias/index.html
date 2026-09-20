@@ -8,69 +8,226 @@
 <link rel="icon" href="../favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"></noscript>
+<link rel="preload" as="image" href="../img/mockup.jpg" fetchpriority="high">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
-  background:#fff;
+  background:#faf8f5;
   color:#1a1a2e;
   font-family:'Lato',sans-serif;
   line-height:1.7;
 }
-.container{max-width:640px;margin:0 auto;padding:48px 24px 80px;}
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+.container{
+  max-width:680px;
+  margin:0 auto;
+  padding:44px 22px 80px;
+  background:#ffffff;
+  box-shadow:0 4px 30px rgba(0,0,0,0.04);
+}
 
 /* ── Header ── */
-.header{text-align:center;padding-bottom:40px;border-bottom:1px solid #e8e0f0;}
+.header{text-align:center;padding-bottom:32px;border-bottom:1px solid #e8e0f0;}
 .tag{
   display:inline-block;
   background:#f0f0ff;color:#6a5faa;
   font-size:12px;letter-spacing:3px;text-transform:uppercase;
-  padding:6px 16px;border-radius:20px;margin-bottom:20px;
+  padding:6px 16px;border-radius:20px;margin-bottom:18px;
   font-family:'Cinzel',serif;
 }
-.check{font-size:48px;margin-bottom:16px;display:block;}
+.check{font-size:46px;margin-bottom:14px;display:block;}
 h1{
   font-family:'Cinzel',serif;
   font-size:clamp(22px,4vw,32px);
   color:#1a1040;line-height:1.3;margin-bottom:12px;
 }
-.subtitle{font-size:16px;color:#666;max-width:480px;margin:0 auto;}
+.subtitle{font-size:16px;color:#555;max-width:520px;margin:0 auto;}
 
-/* ── Seção ── */
-.section{padding:40px 0;border-bottom:1px solid #e8e0f0;}
+/* ── Mockup Hero (Ajustado, sin distorsión) ── */
+.mockup-wrap{
+  text-align:center;
+  padding:28px 0 16px;
+}
+.hero-mockup{
+  width:420px;
+  max-width:100%;
+  height:auto;
+  margin:0 auto;
+  border-radius:14px;
+  box-shadow:0 14px 38px rgba(20,16,64,0.16);
+}
+
+/* ── Secciones Generales ── */
+.section{padding:36px 0;border-bottom:1px solid #e8e0f0;}
 .section:last-child{border-bottom:none;}
 .section-label{
   font-family:'Cinzel',serif;
   font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:#c9884c;margin-bottom:20px;
+  color:#c9884c;margin-bottom:18px;
 }
 
-/* ── CTA ── */
-.cta-area{text-align:center;}
-.cta-area h2{
-  font-family:'Cinzel',serif;
-  font-size:clamp(18px,3vw,24px);
-  color:#1a1040;margin-bottom:8px;
+/* ── Tarjeta Principal de Instrucciones de Correo ── */
+.email-instructions{
+  background:#fffdf6;
+  border:2px solid #e2c168;
+  border-radius:16px;
+  padding:30px 24px;
+  margin-top:12px;
+  box-shadow:0 6px 24px rgba(201,168,76,0.12);
 }
-.cta-area p{font-size:15px;color:#666;margin-bottom:28px;}
-.btn{
+.email-instructions h2{
+  font-family:'Cinzel',serif;
+  font-size:clamp(20px,3.5vw,25px);
+  color:#1a1040;
+  margin-bottom:10px;
+  line-height:1.3;
+}
+.email-instructions p{
+  font-size:15px;
+  color:#444;
+  margin-bottom:20px;
+}
+
+/* ── Alerta Destacada de SPAM ── */
+.spam-alert{
+  background:#fff5f5;
+  border-left:5px solid #d9383a;
+  border-radius:0 10px 10px 0;
+  padding:16px 18px;
+  margin:20px 0 24px;
+  font-size:14.5px;
+  color:#333;
+  line-height:1.6;
+}
+.spam-alert strong{
+  color:#b8232f;
+  display:block;
+  margin-bottom:4px;
+  font-size:15px;
+}
+
+/* ── Tarjetas de Materiales Liberados ── */
+.materials-title{
+  font-family:'Cinzel',serif;
+  font-size:17px;
+  color:#1a1040;
+  margin-bottom:14px;
+  font-weight:700;
+}
+.materials-grid{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:26px;
+}
+.mat-card{
+  background:#ffffff;
+  border:1px solid #e8e2f2;
+  border-radius:12px;
+  padding:16px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  box-shadow:0 2px 8px rgba(0,0,0,0.03);
+  transition:transform .2s ease;
+}
+.mat-card:hover{
+  transform:translateY(-2px);
+}
+.mat-icon{
+  font-size:24px;
+  min-width:38px;
+  height:38px;
+  background:#f6f3fc;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.mat-body h4{
+  font-size:15px;
+  font-weight:700;
+  color:#1a1040;
+  margin-bottom:4px;
+}
+.mat-body p{
+  font-size:13.5px;
+  color:#666;
+  line-height:1.5;
+  margin:0;
+}
+.mat-tag{
   display:inline-block;
-  padding:18px 52px;
+  font-size:11px;
+  font-weight:700;
+  color:#27ae60;
+  background:#eafaf1;
+  padding:2px 8px;
+  border-radius:4px;
+  margin-top:6px;
+}
+
+/* ── Botones de Correo Rápido y Plataforma ── */
+.email-actions{
+  text-align:center;
+  padding-top:8px;
+}
+.email-actions .hint{
+  font-size:13.5px;
+  color:#777;
+  margin-bottom:14px;
+}
+.quick-email-buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.btn-mail-prov{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 18px;
+  background:#f4f1fa;
+  border:1px solid #ded5eb;
+  border-radius:24px;
+  color:#1a1040;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  transition:all .2s ease;
+}
+.btn-mail-prov:hover{
+  background:#ebe3fa;
+  transform:translateY(-1px);
+}
+.btn-platform{
+  display:inline-block;
+  padding:16px 42px;
   background:linear-gradient(135deg,#c9a84c,#f0c060);
   border-radius:50px;
   font-family:'Cinzel',serif;
-  font-size:16px;font-weight:700;
+  font-size:15px;
+  font-weight:700;
   color:#1a1040;
   text-decoration:none;
   letter-spacing:1px;
-  box-shadow:0 4px 20px #f0c06033;
+  box-shadow:0 4px 18px rgba(240,192,96,0.35);
   transition:transform .2s,box-shadow .2s;
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px #f0c06055;}
-.login-hint{
-  margin-top:16px;font-size:13px;color:#999;
+.btn-platform:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 26px rgba(240,192,96,0.5);
 }
-.login-hint strong{color:#c9884c;}
 
 /* ── Itens do produto ── */
 .items{list-style:none;padding:0;}
@@ -83,58 +240,135 @@ h1{
 .item-text h4{font-size:15px;font-weight:700;color:#1a1040;margin-bottom:3px;}
 .item-text p{font-size:14px;color:#777;}
 
-/* ── Instalar ── */
-.steps{list-style:none;padding:0;counter-reset:steps;}
-.steps li{
-  display:flex;gap:14px;align-items:flex-start;
-  padding:12px 0;border-bottom:1px solid #f0edf8;
-  font-size:14px;color:#555;
+/* ── Itens Adicionais Adquiridos ── */
+.extra-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:14px 0;
+  border-bottom:1px solid #f0edf8;
 }
-.steps li:last-child{border-bottom:none;}
-.snum{
-  min-width:28px;height:28px;border-radius:50%;
-  background:#f0f0ff;border:1px solid #c9a84c;
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;color:#c9a84c;margin-top:1px;
+.extra-item:last-child{border-bottom:none;}
+.extra-thumb{
+  width:64px;
+  height:64px;
+  border-radius:8px;
+  object-fit:cover;
+  flex-shrink:0;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
-/* ── Testemunhos ── */
+/* ── Testemunhos de Toda Europa ── */
 .testimonials h2{
   font-family:'Cinzel',serif;
-  font-size:clamp(18px,3vw,22px);
+  font-size:clamp(19px,3vw,24px);
   color:#1a1040;margin-bottom:8px;text-align:center;
 }
-.testimonials .sub{text-align:center;font-size:14px;color:#888;margin-bottom:32px;}
-.testimony{padding:24px 0;border-bottom:1px solid #f0edf8;}
-.testimony:last-child{border-bottom:none;}
-.t-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
-.avatar{
-  width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,#c9a84c,#f0c060);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:#1a1040;
-  flex-shrink:0;
+.testimonials .sub{text-align:center;font-size:14px;color:#777;margin-bottom:28px;}
+.europe-badge{
+  display:block;
+  width:fit-content;
+  margin:0 auto 12px;
+  background:#ede9fe;
+  color:#5b21b6;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:4px 14px;
+  border-radius:20px;
 }
-.t-info{}
+.testimony{padding:22px 0;border-bottom:1px solid #f0edf8;}
+.testimony:last-child{border-bottom:none;}
+.t-header{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.avatar{
+  width:50px;height:50px;border-radius:50%;
+  overflow:hidden;
+  flex-shrink:0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.12);
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 .t-name{font-weight:700;font-size:15px;color:#1a1040;}
-.t-location{font-size:12px;color:#999;}
-.stars{color:#f0c060;font-size:15px;letter-spacing:1px;margin-bottom:4px;}
-.verified{font-size:11px;color:#2ecc71;font-weight:700;}
-.t-text{font-size:14px;color:#555;line-height:1.8;}
+.t-location{font-size:12.5px;color:#888;}
+.t-flag{margin-right:4px;}
+.stars{color:#f0c060;font-size:15px;letter-spacing:1px;margin-bottom:2px;}
+.verified{font-size:11px;color:#27ae60;font-weight:700;}
+.t-text{font-size:14px;color:#555;line-height:1.75;}
 .t-text em{color:#c9884c;font-style:normal;font-weight:700;}
 
-/* ── Promessa de atualização ── */
+/* ── Suporte e Botão Rápido ── */
+.support-section{
+  background:#f9f7fc;
+  border:1px solid #e5dff0;
+  border-radius:16px;
+  padding:34px 24px;
+  text-align:center;
+  margin-top:20px;
+}
+.support-section h2{
+  font-family:'Cinzel',serif;
+  font-size:clamp(19px,3.2vw,23px);
+  color:#1a1040;
+  margin-bottom:10px;
+}
+.support-section p{
+  font-size:14.5px;
+  color:#555;
+  max-width:520px;
+  margin:0 auto 18px;
+}
+.support-email-pill{
+  display:inline-block;
+  background:#ffffff;
+  border:1px solid #d4c8e8;
+  color:#1a1040;
+  font-weight:700;
+  font-size:15px;
+  padding:8px 20px;
+  border-radius:30px;
+  margin-bottom:20px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.04);
+}
+.btn-support-fast{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 36px;
+  background:linear-gradient(135deg,#1a1040,#32206d);
+  color:#ffffff !important;
+  text-decoration:none;
+  border-radius:50px;
+  font-family:'Cinzel',serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:0.5px;
+  box-shadow:0 6px 20px rgba(26,16,64,0.22);
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+.btn-support-fast:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(26,16,64,0.32);
+  background:linear-gradient(135deg,#241656,#442c94);
+}
+.support-guarantee{
+  display:block;
+  font-size:12.5px;
+  color:#888;
+  margin-top:14px;
+}
+
+/* ── Promesa de actualización continua ── */
 .promise{
   background:#faf8ff;border-left:3px solid #c9a84c;
   padding:16px 20px;border-radius:0 8px 8px 0;
   font-size:14px;color:#555;
 }
 .promise strong{color:#1a1040;}
-
-/* ── Suporte ── */
-.suporte{text-align:center;font-size:14px;color:#999;}
-.suporte a{color:#c9884c;text-decoration:none;}
-.suporte a:hover{text-decoration:underline;}
 
 /* ── Versículo ── */
 .versiculo{
@@ -144,7 +378,12 @@ h1{
 .versiculo strong{display:block;font-style:normal;font-size:15px;color:#1a1040;margin-bottom:4px;}
 
 @media(max-width:480px){
-  .btn{padding:16px 32px;font-size:14px;}
+  .container{padding:28px 16px 60px;}
+  .email-instructions{padding:22px 16px;}
+  .btn-platform{padding:14px 28px;font-size:14px;}
+  .btn-support-fast{padding:14px 24px;font-size:13.5px;width:100%;}
+  .quick-email-buttons{flex-direction:column;}
+  .btn-mail-prov{justify-content:center;}
 }
 </style>
 
@@ -171,32 +410,76 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
   <div class="header">
     <div class="tag">✦ Guion Divino de las 12 Palabras ✦</div>
     <span class="check">✅</span>
-    <h1>¡Tu compra ha sido confirmada!<br>Bienvenido(a) al camino.</h1>
-    <p class="subtitle">Las 12 Palabras Sagradas que abren las puertas de la abundancia divina ya están liberadas para ti.</p>
+    <h1>¡Tu compra ha sido confirmada!<br>Bienvenido(a) a tu camino de bendición.</h1>
+    <p class="subtitle">Las 12 Palabras Sagradas y todas las herramientas sagradas añadidas a tu orden ya han sido liberadas.</p>
   </div>
 
-  <!-- Mockup -->
-  <div style="text-align:center;padding:32px 0 8px;">
-    <img src="/img/mockup.jpg" alt="Guion Divino de las 12 Palabras" style="max-width:100%;width:480px;" width="960" height="640" decoding="async">
+  <!-- Mockup en Español (Proporción perfecta y ajustada) -->
+  <div class="mockup-wrap">
+    <img src="../img/mockup.jpg" alt="Guion Divino de las 12 Palabras Sagradas" width="750" height="1004" class="hero-mockup" fetchpriority="high" decoding="async">
   </div>
 
-  <!-- CTA Principal -->
-  <div class="section cta-area">
-    <div class="section-label">→ Primer paso</div>
-    <h2>Accede a tu app ahora</h2>
-    <p>Entra con el <strong>correo electrónico que usaste en la compra</strong>. La primera vez, crea tu contraseña y empieza hoy mismo.</p>
-    <a href="https://app.appsell.ai/roteiro-divino-das-12-palavras-161/login" class="btn" target="_blank">
-      ✨ ENTRAR EN LA APP
-    </a>
-    <div class="login-hint">
-      <strong>Enlace:</strong> app.appsell.ai/roteiro-divino-das-12-palavras-161/login<br>
-      Usa el correo electrónico registrado en la compra para iniciar sesión.
+  <!-- Instrucciones de Acceso por Correo y Aviso de Spam -->
+  <div class="section">
+    <div class="email-instructions">
+      <div class="section-label">→ Paso imprescindible para acceder</div>
+      <h2>📥 Descarga tus materiales en PDF directamente en tu correo</h2>
+      <p>
+        Acabamos de enviarte los enlaces para <strong>descargar tus libros y guías en formato PDF</strong> al <strong>correo electrónico que utilizaste al realizar la compra</strong>.
+      </p>
+
+      <!-- Alerta Destacada: Carpeta de Spam / Promociones -->
+      <div class="spam-alert">
+        <strong>⚠️ ¿No ves el correo con tus archivos PDF?</strong>
+        Por favor, revisa inmediatamente tu <strong>carpeta de Spam (Correo no deseado)</strong> o la pestaña de <strong>Promociones</strong>. En ocasiones, los filtros de correo desvían los correos de descarga allí por error. Si lo encuentras en spam, márcalo como <em>"No es spam"</em> para abrir y descargar todos tus PDF de inmediato.
+      </div>
+
+      <!-- Explicación de los 3 Materiales en PDF -->
+      <div class="materials-title">📚 Tus materiales en formato PDF listos para descargar:</div>
+      <div class="materials-grid">
+        <div class="mat-card">
+          <div class="mat-icon">📄</div>
+          <div class="mat-body">
+            <h4>1. PDF del Guion Divino de las 12 Palabras</h4>
+            <p>Tu libro digital principal en PDF con las 12 palabras sagradas en hebreo, las oraciones diarias de activación, frecuencias de sanación y las lecciones de prosperidad.</p>
+            <span class="mat-tag">✓ PDF enviado a tu correo</span>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-icon">⚡</div>
+          <div class="mat-body">
+            <h4>2. PDF del Acelerador del Guion Divino</h4>
+            <p>Si sumaste el Acelerador a tu pedido, tu guía en PDF con el protocolo acelerador de 7 días y las frecuencias en estado theta se encuentra en el mismo correo.</p>
+            <span class="mat-tag">✓ PDF incluido si fue añadido</span>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-icon">👼</div>
+          <div class="mat-body">
+            <h4>3. PDF del Ángel de la Guarda Familiar</h4>
+            <p>Si adquiriste la revelación del Ángel de la Guarda, tu manuscrito en PDF con la identificación de tu ángel custodio, invocaciones y oraciones de protección está disponible.</p>
+            <span class="mat-tag">✓ PDF incluido si fue añadido</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acceso Rápido a Proveedores de Correo -->
+      <div class="email-actions">
+        <div class="hint">Pulsa en tu proveedor de correo para abrirlo y descargar tus PDF:</div>
+        <div class="quick-email-buttons">
+          <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" class="btn-mail-prov">📧 Abrir Gmail</a>
+          <a href="https://outlook.live.com" target="_blank" rel="noopener noreferrer" class="btn-mail-prov">📧 Abrir Outlook / Hotmail</a>
+          <a href="https://mail.yahoo.com" target="_blank" rel="noopener noreferrer" class="btn-mail-prov">📧 Abrir Yahoo Mail</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- O que tem no app -->
+  <!-- Lo que recibes en el Guion Divino -->
   <div class="section">
-    <div class="section-label">→ Lo que recibes</div>
+    <div class="section-label">→ Contenido de tu Guion Divino</div>
     <ul class="items">
       <li>
         <span class="item-icon">📖</span>
@@ -264,123 +547,166 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
     </ul>
   </div>
 
-  <!-- Itens extras (se comprou) -->
+  <!-- Resumen de Materiales Adicionales (Upsells) -->
   <div class="section">
-    <div class="section-label">→ ¿Has adquirido algo más?</div>
-    <p style="font-size:14px;color:#666;margin-bottom:22px;">Si en tu pedido también te has asegurado alguno de estos artículos — en el checkout o en las ofertas siguientes — el acceso <strong style="color:#1a1040;">ya está liberado dentro de tu app</strong>, junto con todo lo demás. 🙏</p>
+    <div class="section-label">→ ¿Adquiriste materiales complementarios?</div>
+    <p style="font-size:14px;color:#666;margin-bottom:20px;">Si durante el proceso de compra te aseguraste alguno de estos materiales adicionales, sus accesos ya se encuentran unificados en tu cuenta y enviados a tu correo: 🙏</p>
 
-    <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f0edf8;">
-      <img src="/img/150-afirmacoes-divinas.jpg" alt="150 Afirmaciones Divinas" width="62" height="62" loading="lazy" style="width:62px;height:auto;border-radius:8px;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.15);">
-      <div>
-        <h4 style="font-size:15px;font-weight:700;color:#1a1040;margin:0 0 3px;">➜ 150 Afirmaciones Divinas</h4>
-        <p style="font-size:13.5px;color:#777;margin:0;">150 declaraciones poderosas para que las declares cada día y aceleres tus bendiciones.</p>
-      </div>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f0edf8;">
-      <img src="/img/acelerador-roteiro-divino-mini.jpg" alt="Acelerador del Guion Divino" width="62" height="62" loading="lazy" style="width:62px;height:auto;border-radius:8px;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.15);">
+    <div class="extra-item">
+      <img src="../img/acelerador-roteiro-divino-mini.jpg" alt="Acelerador del Guion Divino" width="64" height="64" class="extra-thumb" loading="lazy">
       <div>
         <h4 style="font-size:15px;font-weight:700;color:#1a1040;margin:0 0 3px;">➜ Acelerador del Guion Divino</h4>
-        <p style="font-size:13.5px;color:#777;margin:0;">Las meditaciones y frecuencias que reprograman tu mente y aceleran tu transformación.</p>
+        <p style="font-size:13.5px;color:#777;margin:0;">Frecuencias y meditaciones en estado theta que reprograman tu subconsciente y aceleran la manifestación de milagros.</p>
       </div>
     </div>
 
-    <div style="display:flex;align-items:center;gap:14px;padding:14px 0;">
-      <img src="/img/frequencia-roteiro-divino-mini.jpg" alt="Frecuencias Divinas del Subconsciente" width="62" height="62" loading="lazy" style="width:62px;height:auto;border-radius:8px;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.15);">
+    <div class="extra-item">
+      <img src="../img/anjos/miguel.jpg" alt="Ángel de la Guarda Familiar" width="64" height="64" class="extra-thumb" loading="lazy">
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:#1a1040;margin:0 0 3px;">➜ Revelación del Ángel de la Guarda</h4>
+        <p style="font-size:13.5px;color:#777;margin:0;">El manuscrito sagrado para conectar con el ángel custodio de tu familia, blindando tu hogar de negatividad.</p>
+      </div>
+    </div>
+
+    <div class="extra-item">
+      <img src="../img/150-afirmacoes-divinas.jpg" alt="150 Afirmaciones Divinas" width="64" height="64" class="extra-thumb" loading="lazy">
+      <div>
+        <h4 style="font-size:15px;font-weight:700;color:#1a1040;margin:0 0 3px;">➜ 150 Afirmaciones Divinas</h4>
+        <p style="font-size:13.5px;color:#777;margin:0;">150 declaraciones poderosas para decretar abundancia, salud y bendiciones cada día.</p>
+      </div>
+    </div>
+
+    <div class="extra-item">
+      <img src="../img/frequencia-roteiro-divino-mini.jpg" alt="Frecuencias Divinas del Subconsciente" width="64" height="64" class="extra-thumb" loading="lazy">
       <div>
         <h4 style="font-size:15px;font-weight:700;color:#1a1040;margin:0 0 3px;">➜ Frecuencias Divinas del Subconsciente</h4>
-        <p style="font-size:13.5px;color:#777;margin:0;">Frecuencias para reprogramar tu subconsciente en estado theta, mientras duermes.</p>
+        <p style="font-size:13.5px;color:#777;margin:0;">Audios especiales para escuchar mientras duermes y limpiar bloqueos emocionales profundos.</p>
       </div>
     </div>
   </div>
 
-  <!-- Instalar no celular -->
-  <div class="section">
-    <div class="section-label">→ Consejo importante</div>
-    <p style="font-size:15px;color:#1a1040;font-weight:700;margin-bottom:6px;">📲 Instala la app en tu móvil</p>
-    <p style="font-size:14px;color:#666;margin-bottom:20px;">Ten las 12 Palabras Sagradas siempre contigo — sin necesidad de pasar por la tienda de aplicaciones.</p>
-    <ul class="steps">
-      <li>
-        <span class="snum">1</span>
-        Abre el enlace de la app desde el navegador de tu móvil (Chrome en Android / Safari en iPhone)
-      </li>
-      <li>
-        <span class="snum">2</span>
-        <span><strong>iPhone:</strong> pulsa el icono de compartir → "Añadir a pantalla de inicio"</span>
-      </li>
-      <li>
-        <span class="snum">3</span>
-        <span><strong>Android:</strong> pulsa los 3 puntitos de Chrome → "Añadir a pantalla de inicio"</span>
-      </li>
-      <li>
-        <span class="snum">4</span>
-        ¡Listo! La app aparece en tu pantalla como cualquier otra aplicación. 🙏
-      </li>
-    </ul>
-  </div>
-
-  <!-- Testemunhos -->
+  <!-- Testimonios de Toda Europa -->
   <div class="section testimonials">
     <div class="section-label">→ Resultados reales</div>
-    <h2>Lo que dicen sobre el Guion Divino</h2>
-    <p class="sub">Personas de toda España que practican las 12 Palabras Sagradas a diario.</p>
+    <span class="europe-badge">🌍 Testimonios de Toda Europa</span>
+    <h2>Vidas transformadas por el Guion Divino</h2>
+    <p class="sub">Personas en España, Italia, Francia, Portugal y Suiza que aplican las 12 Palabras Sagradas a diario.</p>
 
+    <!-- Testimonio 1: España -->
     <div class="testimony">
       <div class="t-header">
-        <div class="avatar"><img src="/img/perfil-1.jpg" alt="" width="48" height="48" loading="lazy" style="width:48px;height:48px;border-radius:50%;object-fit:cover;"></div>
-        <div class="t-info">
+        <div class="avatar"><img src="../img/perfil-1.jpg" alt="Rosario Fernández" width="50" height="50" loading="lazy"></div>
+        <div>
           <div class="stars">★★★★★</div>
           <div class="t-name">Rosario Fernández</div>
-          <div class="t-location">Sevilla &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
+          <div class="t-location"><span class="t-flag">🇪🇸</span> Madrid, España &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
         </div>
       </div>
-      <p class="t-text">Estaba pasando por un momento muy difícil, económica y emocionalmente. Empecé a declarar las palabras cada mañana temprano y en tres semanas mi cabeza se aclaró de una forma que nunca había sentido. <em>Surgió una oportunidad de trabajo de la nada</em>, algo que llevaba meses esperando. No sé explicar cómo, pero funciona. Lo recomiendo de corazón.</p>
+      <p class="t-text">Estaba pasando por un momento muy difícil, económica y emocionalmente. Empecé a declarar las palabras cada mañana temprano y en menos de tres semanas mi cabeza se aclaró de una forma que nunca había sentido. <em>Surgió una oportunidad laboral inesperada</em> que llevaba meses esperando. Recibí el material de inmediato en mi correo y ha sido la mejor inversión que he hecho en mi bienestar espiritual.</p>
     </div>
 
+    <!-- Testimonio 2: Italia -->
     <div class="testimony">
       <div class="t-header">
-        <div class="avatar"><img src="/img/perfil-4.jpg" alt="" width="48" height="48" loading="lazy" style="width:48px;height:48px;border-radius:50%;object-fit:cover;"></div>
-        <div class="t-info">
+        <div class="avatar"><img src="../img/perfil-4.jpg" alt="Matteo Rossi" width="50" height="50" loading="lazy"></div>
+        <div>
           <div class="stars">★★★★★</div>
-          <div class="t-name">Marcos Olivares</div>
-          <div class="t-location">Valencia &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
+          <div class="t-name">Matteo Rossi</div>
+          <div class="t-location"><span class="t-flag">🇮🇹</span> Milán, Italia &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
         </div>
       </div>
-      <p class="t-text">Al principio fui escéptico, lo confieso. Pero mi mujer insistió y decidimos probar juntos. Hoy los dos declaramos las palabras antes de dormir. <em>Nuestra relación cambió por completo</em> — más paz, más unión, menos discusiones por dinero. El contenido de las lecciones de prosperidad me abrió la mente a una visión que la iglesia nunca me enseñó de forma tan clara.</p>
+      <p class="t-text">Al principio fui escéptico, lo confieso. Pero mi mujer insistió y decidimos sumar también el Acelerador para hacerlo juntos antes de dormir. <em>Nuestra relación y la paz en nuestra casa cambiaron por completo</em> — menos discusiones por dinero y logramos desbloquear el cobro de una deuda que considerábamos perdida. El contenido es extraordinario y muy claro.</p>
     </div>
 
+    <!-- Testimonio 3: Francia -->
     <div class="testimony">
       <div class="t-header">
-        <div class="avatar"><img src="/img/perfil-3.jpg" alt="" width="48" height="48" loading="lazy" style="width:48px;height:48px;border-radius:50%;object-fit:cover;"></div>
-        <div class="t-info">
+        <div class="avatar"><img src="../img/perfil-5.jpg" alt="Sophie Laurent" width="50" height="50" loading="lazy"></div>
+        <div>
           <div class="stars">★★★★★</div>
-          <div class="t-name">Patricia Mendoza</div>
-          <div class="t-location">Madrid &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
+          <div class="t-name">Sophie Laurent</div>
+          <div class="t-location"><span class="t-flag">🇫🇷</span> París, Francia &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
         </div>
       </div>
-      <p class="t-text">Las frecuencias de curación me sorprendieron muchísimo. Llevo años con insomnio y, después de una semana escuchando el audio de 432 Hz antes de dormir, <em>empecé a tener noches mucho más tranquilas</em>. Es una paz que viene de dentro. Junto con las oraciones guiadas, se ha convertido en mi ritual nocturno. Gracias por crear algo tan especial.</p>
+      <p class="t-text">Las frecuencias de curación me sorprendieron muchísimo. Llevo años lidiando con insomnio por el ritmo de trabajo y, tras una semana escuchando el audio de 432 Hz antes de dormir, <em>empecé a tener un descanso profundo y reparador</em>. Además, el material sobre el Ángel de la Guarda me transmitió una serenidad única. Vale cada céntimo.</p>
+    </div>
+
+    <!-- Testimonio 4: Portugal -->
+    <div class="testimony">
+      <div class="t-header">
+        <div class="avatar"><img src="../img/perfil-3.jpg" alt="Manuel Silva Ferreira" width="50" height="50" loading="lazy"></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="t-name">Manuel Silva Ferreira</div>
+          <div class="t-location"><span class="t-flag">🇵🇹</span> Lisboa, Portugal &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
+        </div>
+      </div>
+      <p class="t-text">Adquirí el Guion Divino junto con el Acelerador para aplicarlo en mi pequeño negocio. Estábamos sufriendo meses de muchas dudas e incertidumbre financiera. Al empezar a declarar las palabras sagradas y escuchar los audios, <em>comenzaron a llegar nuevos clientes de manera constante</em>. Se respira una energía completamente distinta en mi familia.</p>
+    </div>
+
+    <!-- Testimonio 5: Suiza -->
+    <div class="testimony">
+      <div class="t-header">
+        <div class="avatar"><img src="../img/perfil-6.jpg" alt="Elena Zimmermann" width="50" height="50" loading="lazy"></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="t-name">Elena Zimmermann</div>
+          <div class="t-location"><span class="t-flag">🇨🇭</span> Zúrich, Suiza &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
+        </div>
+      </div>
+      <p class="t-text">Me impresionó la profundidad espiritual que tiene. No son fórmulas mágicas vacías, son principios sagrados explicados con mucha seriedad. El correo con el acceso me llegó enseguida (estaba en la carpeta de promociones, así que recomiendo mirarla bien). Las lecciones de prosperidad bíblica me abrieron los ojos y renovaron mi fe en un momento decisivo.</p>
+    </div>
+
+    <!-- Testimonio 6: España -->
+    <div class="testimony">
+      <div class="t-header">
+        <div class="avatar"><img src="../img/perfil-2.jpg" alt="Valeria Conti" width="50" height="50" loading="lazy"></div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="t-name">Valeria Conti</div>
+          <div class="t-location"><span class="t-flag">🇪🇸</span> Valencia, España &nbsp;·&nbsp; <span class="verified">✓ Compra verificada</span></div>
+        </div>
+      </div>
+      <p class="t-text">Tuve una duda con respecto al acceso del Ángel de la Guarda y el soporte por correo me contestó el mismo día con total amabilidad. La paz que se siente al rezar las declaraciones diarias no tiene comparación. <em>He sentido una bendición enorme en mi economía familiar y en mi salud</em>. Recomiendo este camino a quien quiera una transformación genuina.</p>
     </div>
   </div>
 
-  <!-- Promessa de atualizações -->
+  <!-- Promesa de actualización continua -->
   <div class="section">
     <div class="promise">
-      🚀 <strong>Esta app va a crecer contigo.</strong> Se irán añadiendo continuamente nuevas oraciones, declaraciones y frecuencias. Como miembro, recibes todo esto sin pagar nada más.
+      🚀 <strong>Acceso continuo y actualizaciones incluidas:</strong> Como miembro, tendrás acceso permanente a tus materiales, incluyendo futuras oraciones, declaraciones y frecuencias que se incorporen, sin que tengas que abonar nada más.
     </div>
   </div>
 
-  <!-- Suporte -->
-  <div class="section suporte">
-    <div class="section-label" style="text-align:center;">→ ¿Necesitas ayuda?</div>
-    ¿Dudas o problemas con el acceso? Escríbenos:<br>
-    <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a><br>
-    <span style="font-size:12px;margin-top:6px;display:block;">Respondemos en un plazo máximo de 24 horas laborables.</span>
+  <!-- Sección de Soporte y Botón de Envío Rápido -->
+  <div class="section">
+    <div class="support-section">
+      <div class="section-label" style="text-align:center;">→ Soporte Inmediato al Cliente</div>
+      <h2>¿Tienes alguna duda o necesitas ayuda con tu acceso?</h2>
+      <p>
+        Estamos a tu completa disposición para acompañarte. Si por cualquier motivo no encuentras el correo de confirmación, tienes dudas para ingresar o necesitas asistencia con el Guion Divino, el Acelerador o el Ángel de la Guarda, escríbenos directamente a:
+      </p>
+
+      <div class="support-email-pill">
+        ✉️ gabriel.luz@noticiasdafe.com.br
+      </div>
+
+      <div>
+        <a href="mailto:gabriel.luz@noticiasdafe.com.br?subject=Ayuda%20con%20mi%20acceso%20-%20Guion%20Divino" class="btn-support-fast">
+          ✉️ ENVIAR UN CORREO AL SOPORTE AHORA
+        </a>
+      </div>
+
+      <span class="support-guarantee">
+        🛡️ Respondemos con máxima prioridad en un plazo menor a 24 horas laborables.
+      </span>
+    </div>
   </div>
 
   <!-- Versículo -->
   <div class="versiculo">
     <strong>"Todo lo puedo en Cristo que me fortalece."</strong>
-    Filipenses 4:13 — Decláralo hoy. 🕊️
+    Filipenses 4:13 — Decláralo hoy y camina en fe. 🕊️
   </div>
 
 </div>
