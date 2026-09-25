@@ -77,6 +77,27 @@ h1{
 .drive-cta-box{
   text-align:center;
   margin:20px 0 28px;
+.btn-app-main{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  background:linear-gradient(135deg,#c99a3c,#9e7523);
+  color:#ffffff !important;
+  text-decoration:none;
+  padding:18px 24px;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(201,154,60,0.32);
+  transition:transform .2s,box-shadow .2s,background .2s;
+  width:100%;
+  box-sizing:border-box;
+  text-align:left;
+  margin-bottom:12px;
+}
+.btn-app-main:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(201,154,60,0.45);
+  background:linear-gradient(135deg,#dbac48,#b3842b);
 }
 .btn-drive-main{
   display:inline-flex;
@@ -481,17 +502,26 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
     <img src="../img/mockup-es-v2.jpg" alt="Guion Divino de las 12 Palabras Sagradas" width="750" height="1004" class="hero-mockup" fetchpriority="high" decoding="async">
   </div>
 
-  <!-- Botón Principal: Acceso Inmediato en Google Drive -->
+  <!-- Botones Principales: Web App Oficial & Google Drive -->
   <div class="drive-cta-box">
-    <a href="https://drive.google.com/drive/folders/1sX-H4aegWlqHhZUW1JWjnVPzcmWLtA_F?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-drive-main">
-      <span class="btn-drive-icon">📥</span>
+    <a href="../app/" class="btn-app-main">
+      <span class="btn-drive-icon">📱</span>
       <span class="btn-drive-info">
-        <span class="btn-drive-title">ACCEDER AHORA A TUS MATERIALES (DRIVE)</span>
+        <span class="btn-drive-title">ABRIR EL WEB APP OFICIAL (SANTUARIO VIVO)</span>
+        <span class="btn-drive-sub">Accede a tu aplicación con las 12 palabras, reproductor de frecuencias y la comunidad</span>
+      </span>
+      <span class="btn-drive-arrow">➔</span>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1sX-H4aegWlqHhZUW1JWjnVPzcmWLtA_F?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-drive-main">
+      <span class="btn-drive-icon">📁</span>
+      <span class="btn-drive-info">
+        <span class="btn-drive-title">DESCARGAR LIBROS EN PDF (GOOGLE DRIVE)</span>
         <span class="btn-drive-sub">Haz clic aquí para abrir tu carpeta oficial y descargar todos tus PDF y audios</span>
       </span>
       <span class="btn-drive-arrow">➔</span>
     </a>
-    <p class="drive-cta-note">⚡ <strong>Acceso directo e instantáneo:</strong> Si no deseas esperar a que llegue el correo electrónico, puedes acceder y descargar todo tu material inmediatamente en el botón de arriba.</p>
+    <p class="drive-cta-note">⚡ <strong>Acceso inmediato:</strong> Ya puedes entrar directamente al Web App arriba o descargar todos tus libros en formato PDF.</p>
   </div>
 
   <!-- Instrucciones de Acceso por Correo y Aviso de Spam -->

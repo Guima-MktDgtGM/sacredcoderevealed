@@ -1,0 +1,18 @@
+{
+  "name": "Santuario de las 12 Palabras — Guion Divino",
+  "short_name": "Guion Divino",
+  "description": "El Código Sagrado de las 12 Palabras y el Altar de Bendición y Prosperidad",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070B19",
+  "theme_color": "#070B19",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/app-icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
