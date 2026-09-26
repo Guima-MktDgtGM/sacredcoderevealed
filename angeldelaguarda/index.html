@@ -205,7 +205,51 @@ h1 u{text-decoration-thickness:2px;text-underline-offset:3px;}
 .clean-wrap p{font-size:16px;font-weight:400;line-height:1.75;color:#3d382e;margin-bottom:16px;}
 .clean-foot{margin-top:36px;padding-top:20px;border-top:1px solid #d8d2c4;font-size:13px;color:#7a7466;line-height:1.7;}
 .clean-foot a{color:#7a7466;}
+
+/* Oculta botoes de recusa/retry para avanco automatico e silencioso ao Up3 */
+#kashpay-skip-btn, #kashpay-retry-btn { display: none !important; }
 </style>
+
+<!-- REDIRECIONAMENTO AUTOMATICO E SILENCIOSO PARA UP3 EM CASO DE FALHA OU RECUSA NO UP2 -->
+<script>
+(function(){
+  function getUp3Url() {
+    var targetUrl = new URL('/canticos/', window.location.origin);
+    var currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.forEach(function(val, key) {
+      if (!targetUrl.searchParams.has(key)) {
+        targetUrl.searchParams.set(key, val);
+      }
+    });
+    return targetUrl.toString();
+  }
+
+  var redirecionado = false;
+  function redirecionarUp3() {
+    if (redirecionado) return;
+    redirecionado = true;
+    var modal = document.getElementById('kashpay-upsell-modal');
+    if (modal) modal.style.display = 'none';
+    window.location.href = getUp3Url();
+  }
+
+  var observer = new MutationObserver(function() {
+    var skipBtn = document.getElementById('kashpay-skip-btn');
+    if (skipBtn) {
+      observer.disconnect();
+      redirecionarUp3();
+    }
+  });
+
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+})();
+</script>
 
 <!-- Upsell one-click da KashPay — defer para carregamento instantaneo -->
 <script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js" defer></script>
@@ -305,7 +349,20 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
     <div class="section cta-area">
       <div style="margin-top:10px;">
         <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/67fcde17d781261d')" style="font-family: 'Poppins'; font-size: 19px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 17px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;" class="cta-pulsa">Quiero conectar con mi Ángel de la Guarda</button>
-        <a href="/gracias/" class="pp-recusar">No necesito conectar con mi Ángel de la Guarda</a>
+        <a href="/canticos/" id="link-recusa-up2" class="pp-recusar">No necesito conectar con mi Ángel de la Guarda</a>
+        <script>
+        (function(){
+          try {
+            var l = document.getElementById('link-recusa-up2');
+            if (l) {
+              var u = new URL('/canticos/', window.location.origin);
+              var cur = new URL(window.location.href);
+              cur.searchParams.forEach(function(v, k){ u.searchParams.set(k, v); });
+              l.href = u.toString();
+            }
+          } catch(e){}
+        })();
+        </script>
       </div>
 
       <p class="versiculo-cta">“Pues a sus ángeles mandará acerca de ti,<br>que te guarden en todos tus caminos.”<br>— Salmo 91:11</p>

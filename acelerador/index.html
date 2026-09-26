@@ -43,17 +43,8 @@
 <!-- REDIRECIONAMENTO AUTOMATICO E SILENCIOSO PARA UP2 EM CASO DE FALHA OU RECUSA NO UP1 -->
 <script>
 (function(){
-  function getUp2Url(backendSkipUrl) {
-    var targetUrl;
-    try {
-      if (backendSkipUrl && backendSkipUrl.indexOf('angeldelaguarda') !== -1) {
-        targetUrl = new URL(backendSkipUrl, window.location.origin);
-      } else {
-        targetUrl = new URL('/angeldelaguarda/', window.location.origin);
-      }
-    } catch(e) {
-      targetUrl = new URL('/angeldelaguarda/', window.location.origin);
-    }
+  function getUp2Url() {
+    var targetUrl = new URL('/angeldelaguarda/', window.location.origin);
     var currentUrl = new URL(window.location.href);
     currentUrl.searchParams.forEach(function(val, key) {
       if (!targetUrl.searchParams.has(key)) {
@@ -63,51 +54,25 @@
     return targetUrl.toString();
   }
 
-  var originalFetch = window.fetch;
-  window.fetch = async function(resource, init) {
-    var urlStr = typeof resource === 'string' ? resource : (resource && resource.url) || '';
-    var isUpsellCall = urlStr.indexOf('upsell-process') !== -1 || urlStr.indexOf('create-whop-upsell-charge') !== -1;
-
-    if (!isUpsellCall) {
-      return originalFetch.apply(this, arguments);
-    }
-
-    try {
-      var response = await originalFetch.apply(this, arguments);
-      var clone = response.clone();
-      var data = {};
-      try { data = await clone.json(); } catch(e){}
-
-      // Se a cobranca nao foi aprovada (recusa por saldo, limite, bloqueio de cartao, etc.)
-      if (!response.ok || (data && data.error)) {
-        var nextUp2 = getUp2Url(data && data.skipUrl);
-        var modifiedData = Object.assign({}, data, {
-          error: 'payment_declined',
-          canRetry: false,
-          skipUrl: nextUp2
-        });
-        return new Response(JSON.stringify(modifiedData), {
-          status: response.status || 402,
-          statusText: response.statusText || 'Payment Declined',
-          headers: { 'Content-Type': 'application/json' }
-        });
-      }
-      return response;
-    } catch(err) {
-      window.location.href = getUp2Url();
-      throw err;
-    }
-  };
+  // Zero risco para a cobranca: nao intercepta fetch, Stripe ou 3DS.
+  // Age UNICAMENTE no exato momento em que a KashPay declara recusa e renderiza o aviso.
+  var redirecionado = false;
+  function redirecionarUp2() {
+    if (redirecionado) return;
+    redirecionado = true;
+    var modal = document.getElementById('kashpay-upsell-modal');
+    if (modal) modal.style.display = 'none';
+    window.location.href = getUp2Url();
+  }
 
   var observer = new MutationObserver(function() {
     var skipBtn = document.getElementById('kashpay-skip-btn');
-    var modal = document.getElementById('kashpay-upsell-modal');
     if (skipBtn) {
       observer.disconnect();
-      if (modal) modal.style.display = 'none';
-      window.location.href = getUp2Url();
+      redirecionarUp2();
     }
   });
+
   if (document.body) {
     observer.observe(document.body, { childList: true, subtree: true });
   } else {
