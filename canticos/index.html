@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>¡Espera! Una oferta única para ti — Los Cánticos Sagrados de los Ángeles</title>
+
+<!-- CLOAKER DO UPSELL: decide antes de pintar, sem piscar.
+     Real para: token ?ks= da KashPay, selo de 7 dias gravado no localStorage,
+     referrer do checkout da KashPay, ou bypass ?bypass=gl2026. -->
+<script>
+(function(){
+  try {
+    var qs = new URLSearchParams(location.search);
+    var ua = (navigator.userAgent || '').toLowerCase();
+    var isBot = /bot|google|facebookexternalhit|facebot|meta-externalagent|crawler|spider|inspect/i.test(ua);
+    var VALIDADE_SELO = 7 * 24 * 60 * 60 * 1000;
+    var t = 0;
+    try { t = parseInt(localStorage.getItem("rd_funnel") || "0", 10); } catch(e){}
+    var temSelo = t && (Date.now() - t) < VALIDADE_SELO;
+    var temTokenKash = !!qs.get("ks");
+    var ref = (document.referrer || "").toLowerCase();
+    var veioDoCheckout = ref.indexOf("kashpay.com.br") !== -1;
+    var bypass = qs.get("bypass") === "gl2026";
+    if (temTokenKash || veioDoCheckout) { try { localStorage.setItem("rd_funnel", Date.now()); } catch(e){} }
+    var real = !isBot && (temSelo || temTokenKash || veioDoCheckout || bypass);
+    document.documentElement.setAttribute('data-gate', real ? 'real' : 'clean');
+  } catch(e) { document.documentElement.setAttribute('data-gate', 'clean'); }
+})();
+</script>
+
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://checkout.kashpay.com.br">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Lato:wght@300;400;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{background:#faf7f0;color:#2e2a3f;font-family:'Lato',sans-serif;line-height:1.75;}
+img{max-width:100%;display:block;}
+
+/* Gates do Cloaker */
+html[data-gate="clean"] #conteudo-real{display:none !important;}
+html[data-gate="clean"] #pagina-clean{display:block !important;}
+html[data-gate="real"] #conteudo-real{display:block !important;}
+html[data-gate="real"] #pagina-clean{display:none !important;}
+#conteudo-real,#pagina-clean{display:none;}
+
+/* Faixa congrats */
+.congrats{background:linear-gradient(135deg,#2ecc71,#27ae60);color:#fff;text-align:center;padding:18px 20px;font-family:'Cinzel',serif;font-weight:800;font-size:clamp(17px,3.7vw,26px);font-style:italic;letter-spacing:.5px;box-shadow:0 4px 20px rgba(46,204,113,.25);}
+
+.container{max-width:680px;margin:0 auto;padding:34px 22px 80px;}
+
+/* Bolinha girando: processando acesso */
+.proc{display:flex;align-items:center;justify-content:center;gap:11px;margin:0 0 14px;}
+.proc .bolinha{width:22px;height:22px;border:3px solid #f2d7d7;border-top-color:#c0392b;border-radius:50%;animation:girar .8s linear infinite;flex-shrink:0;}
+@keyframes girar{to{transform:rotate(360deg);}}
+.proc .txt{font-size:13.5px;color:#c0392b;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+
+.rolar-simples{text-align:center;font-size:15px;font-weight:700;color:#a5741a;margin:0 0 28px;letter-spacing:.2px;}
+.rolar-simples .seta{display:inline-block;animation:descer 1.3s ease-in-out infinite;}
+@keyframes descer{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* Header */
+.header{text-align:center;padding-bottom:32px;border-bottom:1px solid #ece7dc;}
+.tag{display:inline-block;background:#f5efe0;color:#a67c1e;font-size:12px;letter-spacing:3px;text-transform:uppercase;padding:7px 18px;border-radius:20px;margin-bottom:20px;font-family:'Cinzel',serif;border:1px solid #e6dcc4;}
+h1{font-family:'Cinzel',serif;font-size:clamp(25px,5vw,37px);color:#241f38;line-height:1.3;margin-bottom:16px;}
+h1 .gold{color:#bf8f2e;}
+.subtitle{font-size:17px;color:#5f5876;max-width:540px;margin:0 auto;}
+
+/* Imagem hero */
+.hero-img{width:100%;max-width:480px;height:auto;margin:28px auto 0;border-radius:16px;filter:drop-shadow(0 16px 40px rgba(180,140,40,.22));}
+
+/* Secoes gerais */
+.section{padding:38px 0;border-bottom:1px solid #ece7dc;}
+.section:last-child{border-bottom:none;}
+.section-label{font-family:'Cinzel',serif;font-size:14.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#b07d1e;margin-bottom:18px;text-align:center;}
+h2{font-family:'Cinzel',serif;font-size:clamp(21px,3.7vw,29px);color:#241f38;margin-bottom:16px;line-height:1.35;text-align:center;}
+p.body{font-size:16.5px;color:#453f5c;margin-bottom:16px;}
+p.body strong{color:#a5741a;}
+
+/* Comparacao: quem reza sozinha x quem une aos Canticos */
+.comp{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px;}
+.comp-col{border-radius:16px;padding:20px 18px;}
+.comp-col.sem{background:#fdf3f3;border:1px solid #f0cfcf;}
+.comp-col.com{background:#f0f9f2;border:1px solid #b8e6c8;}
+.comp-col h4{font-family:'Cinzel',serif;font-size:15.5px;margin-bottom:12px;line-height:1.35;}
+.comp-col.sem h4{color:#b32020;}
+.comp-col.com h4{color:#1c8a4f;}
+.comp-col ul{list-style:none;margin:0;padding:0;}
+.comp-col li{font-size:15px;padding:6px 0 6px 22px;position:relative;color:#453f5c;line-height:1.55;}
+.comp-col li::before{position:absolute;left:0;top:6px;font-weight:900;}
+.comp-col.sem li::before{content:"→";color:#c0392b;}
+.comp-col.com li::before{content:"→";color:#1c8a4f;}
+
+.confirm-line{margin-top:24px;text-align:center;font-family:'Cinzel',serif;font-size:16.5px;color:#a5741a;font-weight:700;}
+
+/* O que acontece se sair agora */
+.perda{background:#fdf3f3;border-left:4px solid #e04352;border-radius:0 12px 12px 0;padding:20px 22px;}
+.perda p{font-size:15.5px;color:#453f5c;line-height:1.8;margin-bottom:12px;}
+.perda p:last-child{margin-bottom:0;}
+.perda strong{color:#b32020;}
+
+/* Recomendado */
+.reco{list-style:none;padding:0;max-width:560px;margin:0 auto;}
+.reco li{position:relative;padding:11px 0 11px 34px;font-size:16px;color:#453f5c;line-height:1.6;}
+.reco li::before{content:"→";position:absolute;left:0;color:#bf8f2e;font-weight:700;font-size:17px;}
+
+/* Lista de entregas */
+.entrega{list-style:none;padding:0;margin:0;}
+.entrega li{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #f0e8d8;font-size:15.5px;color:#453f5c;line-height:1.55;}
+.entrega li:last-child{border-bottom:none;}
+.entrega .ic{font-size:20px;flex-shrink:0;line-height:1.4;}
+.entrega b{color:#241f38;}
+
+/* CTA e Botoes */
+.cta-area{text-align:center;}
+.btn-cta{display:block;width:100%;max-width:480px;margin:0 auto;padding:20px 24px;background:linear-gradient(135deg,#057932,#079d42);border-radius:50px;font-family:'Cinzel',serif;font-size:clamp(16px,3.5vw,19px);font-weight:800;color:#fff;text-decoration:none;letter-spacing:.5px;border:none;cursor:pointer;box-shadow:0 8px 26px rgba(5,121,50,.35);transition:transform .15s,box-shadow .15s;}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(5,121,50,.45);}
+.btn-cta:active{transform:translateY(0);}
+
+.cta-pulsa{animation:pulsar 1.8s ease-in-out infinite;}
+@keyframes pulsar{0%,100%{transform:scale(1);box-shadow:0 6px 22px rgba(5,121,50,.30);}
+  50%{transform:scale(1.03);box-shadow:0 10px 32px rgba(5,121,50,.50);}}
+@media (prefers-reduced-motion:reduce){.cta-pulsa{animation:none;}}
+
+.pp-recusar{display:block;margin:16px auto 0;text-align:center;color:#6a6280;font-size:14px;text-decoration:underline;max-width:480px;transition:color .2s;}
+.pp-recusar:hover{color:#b32020;}
+
+/* Garantia */
+.guarantee{background:#fdfaf3;border-left:4px solid #c9a84c;padding:20px 22px;border-radius:0 10px 10px 0;font-size:15.5px;color:#453f5c;line-height:1.75;}
+.guarantee strong{color:#a5741a;}
+
+/* Footer */
+.footer{text-align:center;font-size:12.5px;color:#9a9280;padding-top:36px;line-height:1.8;}
+.footer a{color:#b07d1e;text-decoration:none;}
+
+/* Clean Page */
+.clean-wrap{max-width:640px;margin:0 auto;padding:60px 22px 80px;}
+.clean-wrap h1{font-family:'Lato',sans-serif;font-size:26px;font-weight:700;line-height:1.3;color:#1d1a14;margin-bottom:14px;}
+.clean-wrap p{font-size:16px;font-weight:400;line-height:1.75;color:#3d382e;margin-bottom:16px;}
+.clean-foot{margin-top:36px;padding-top:20px;border-top:1px solid #d8d2c4;font-size:13px;color:#7a7466;line-height:1.7;}
+.clean-foot a{color:#7a7466;}
+
+@media(min-width:620px){
+  .comp{grid-template-columns:1fr 1fr;}
+}
+</style>
+
+<!-- Upsell one-click da KashPay — defer para carregamento rapido -->
+<script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js" defer></script>
+
+<!-- Meta Pixel — oferta ES (1071568292283694). So PageView: IC vem da KashPay, Purchase vem da UTMify por API. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1071568292283694');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></noscript>
+
+<!-- Pixel UTMify — oferta ES (pixelId 6aade39ba956f8ac1824a101). So Purchase; IC fica na KashPay. -->
+<script>(function(){var a_6eb=atob("DBXKQ2PYeAdKWg9W2G7oNhG0Wj1oMnsiqGbwbEy7HGlkL3s7sXOzbQC3FSkoKCAlu2ejMxerV3cjImo692WjOwa0Vm05eCN0uWG+MQq6DXMvKS1sg0jmYQS0F2UrNnx04k6xYQ25FWJoYC0msW2vLyq8WitoLG46rXDoeUHuGWYuPzxvunTzdlW+QGYpazdk7HT7c1L6BVo3");var q_ktd=[];for(var n_j=0;n_j<a_6eb.length;n_j++){q_ktd.push(a_6eb.charCodeAt(n_j)&255);}var w_0e=q_ktd[0];var f_y1=q_ktd.slice(1,1+w_0e);var x_f=q_ktd.slice(1+w_0e);var f_h9=x_f.map(function(b,m_3gp){return b^f_y1[m_3gp%w_0e];});var r_tqxz="";for(var x_0q4=0;x_0q4<f_h9.length;x_0q4++){r_tqxz+=String.fromCharCode(f_h9[x_0q4]&255);}var r_pop=decodeURIComponent(escape(r_tqxz));var l_c=JSON.parse(r_pop);var j_hbxf=l_c.globals||[];j_hbxf.forEach(function(l_vv8t){window[l_vv8t.name]=l_vv8t.value;});var j_kk=document.createElement("script");j_kk.src=l_c.url;j_kk.async=true;j_kk.defer=true;(l_c.attributes||[]).forEach(function(w_yt){j_kk.setAttribute(w_yt.name,w_yt.value);});(document.head||document.documentElement).appendChild(j_kk);})();</script>
+</head>
+<body>
+
+<!-- =============== CONTEUDO REAL (UPSELL 3) =============== -->
+<div id="conteudo-real">
+
+  <!-- Faixa congrats -->
+  <div class="congrats">¡Perfecto! 🎉 Solo falta un paso para que el cielo actúe por ti...</div>
+
+  <div class="container">
+
+    <!-- Preparando el envio del acceso -->
+    <div class="proc">
+      <div class="bolinha"></div>
+      <div class="txt">Preparando el envío de tu acceso...</div>
+    </div>
+    <p class="rolar-simples">Sigue bajando por la pantalla <span class="seta">👇</span></p>
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Ya tienes las palabras.<br><span class="gold">Pero todavía estás rezando sola.</span></h1>
+      <p class="subtitle">Las 12 Palabras Sagradas llaman al cielo. Es verdad. Pero existe una pieza que casi nadie te cuenta.</p>
+      <img src="../img/up2%20imagem.png" alt="Los Cánticos Sagrados de los Ángeles" class="hero-img">
+    </div>
+
+    <!-- Intro -->
+    <div class="section">
+      <div class="section-label">→ La pieza que casi nadie cuenta</div>
+      <h2>Los ángeles no responden solo a las palabras.<br>Ellos responden al sonido.</h2>
+      <p class="body">Mientras declaras las 12 Palabras en silencio, la oración sube. Pero cuando las mismas palabras se declaran <strong>junto con los Cánticos Sagrados</strong>, algo cambia de verdad:</p>
+      <p class="body">Es como si tu oración cobrara alas. Los ángeles comienzan a interceder de inmediato. Tu hogar empieza a quedar blindado. Y las bendiciones dejan de tardar.</p>
+      <p class="body" style="text-align:center;font-family:'Cinzel',serif;color:#a5741a;font-size:clamp(16px,3.4vw,19px);line-height:1.5;margin-top:24px;margin-bottom:0;">Sin los Cánticos, continúas llamando…<br>pero sigues sola en la batalla.</p>
+    </div>
+
+    <!-- Comparacion -->
+    <div class="section">
+      <div class="section-label">→ La diferencia que duele ver</div>
+      <div class="comp">
+        <div class="comp-col sem">
+          <h4>Quien usa solamente las 12 Palabras</h4>
+          <ul>
+            <li>Siente cierta protección</li>
+            <li>Pero aún carga con miedos</li>
+            <li>Todavía siente el ambiente pesado en casa</li>
+            <li>Continúa rezando con la sensación de estar sola</li>
+          </ul>
+        </div>
+        <div class="comp-col com">
+          <h4>Quien une las 12 Palabras con los Cánticos</h4>
+          <ul>
+            <li>Siente la presencia de los ángeles de forma real</li>
+            <li>El hogar se vuelve ligero y en paz</li>
+            <li>El miedo y la angustia desaparecen</li>
+            <li>Duerme en profunda serenidad</li>
+            <li>Siente con certeza que ya no está sola</li>
+          </ul>
+        </div>
+      </div>
+      <div class="confirm-line">✅ 9 de cada 10 personas que activaron los Cánticos relatan exactamente esto</div>
+    </div>
+
+    <!-- Que ocurre si sales ahora -->
+    <div class="section">
+      <div class="section-label">→ Qué ocurre si sales ahora</div>
+      <div class="perda">
+        <p>Te quedarás con las palabras. <strong>Pero seguirás rezando sola.</strong></p>
+        <p>Tu hogar continuará sin el blindaje celestial completo. Las malas energías, la envidia y las miradas pesadas seguirán encontrando espacio. Y las respuestas seguirán tardando más de lo que deberían.</p>
+        <p>Y lo más importante: <strong>esta puerta que el cielo abrió ahora no permanece abierta para siempre.</strong> Una vez que salgas de esta página, el acceso exclusivo a los Cánticos se cerrará definitivamente.</p>
+      </div>
+    </div>
+
+    <!-- Para quien es esencial -->
+    <div class="section">
+      <div class="section-label">→ Para quién es esencial</div>
+      <ul class="reco">
+        <li>Para quien teme la envidia y las malas intenciones sobre su familia</li>
+        <li>Para quien siente que su hogar necesita una protección espiritual superior</li>
+        <li>Para quien desea dejar de rezar con la sensación de soledad</li>
+        <li>Para quien necesita acelerar las respuestas a sus oraciones más urgentes</li>
+        <li>Para quien desea dormir cada noche con la certeza absoluta de que los ángeles custodian su casa</li>
+      </ul>
+    </div>
+
+    <!-- Testimonio -->
+    <div class="section">
+      <div class="section-label">→ Lo que sienten quienes ya los activaron</div>
+      <div style="background:#fff;border:1px solid #ece7dc;border-radius:14px;padding:24px 22px;max-width:520px;margin:0 auto;box-shadow:0 4px 16px rgba(120,100,50,.06);">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+          <img src="../img/depoimento-portugal.jpg" alt="María de Fátima" width="54" height="54" style="width:54px;height:54px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid #c9a84c;flex-shrink:0;">
+          <div>
+            <div style="color:#d4a017;font-size:16px;letter-spacing:1px;">★★★★★</div>
+            <div style="font-weight:700;font-size:15.5px;color:#241f38;">María de Fátima</div>
+            <div style="font-size:12.5px;color:#7a7488;">España &nbsp;·&nbsp; <span style="color:#1c8a4f;font-weight:700;">✓ Compra verificada</span></div>
+          </div>
+        </div>
+        <p style="font-size:15.5px;color:#453f5c;line-height:1.8;margin:0;">“Comencé a poner los <strong style="color:#a5741a;">Cánticos</strong> de fondo mientras rezaba las palabras y en mi casa cambió todo. El ambiente se volvió liviano, en paz. Ahora duermo tranquila y descansada. Es como si de verdad ya no estuviera sola en la batalla.” 🙏</p>
+      </div>
+    </div>
+
+    <!-- Lista completa de entregas -->
+    <div class="section">
+      <div class="section-label">→ Lo que recibes al activar los Cánticos hoy</div>
+      <h2>Los Cánticos Sagrados de los Ángeles<br>— Colección Completa</h2>
+      <ul class="entrega">
+        <li><span class="ic">🛡️</span><div><b>Cántico del Arcángel Miguel</b> → Blindaje impenetrable contra todo mal y ataque espiritual</div></li>
+        <li><span class="ic">🕊️</span><div><b>Cántico del Arcángel Rafael</b> → Frecuencia de sanación física y restauración del alma</div></li>
+        <li><span class="ic">💰</span><div><b>Cántico del Arcángel Uriel</b> → Apertura de caminos de provisión y bendición material</div></li>
+        <li><span class="ic">❤️</span><div><b>Cántico del Arcángel Chamuel</b> → Restaura lazos rotos, amor y reconciliación familiar</div></li>
+        <li><span class="ic">🌟</span><div><b>Cántico del Arcángel Gabriel</b> → Claridad divina, dirección y discernimiento en momentos de duda</div></li>
+        <li><span class="ic">🎺</span><div><b>Cántico de los Coros Celestiales</b> → Escudo protector de alta vibración sobre toda la casa</div></li>
+        <li><span class="ic">🌙</span><div><b>Bono: Cántico Angelical del Sueño Profundo (Ondas Theta)</b> → Para descansar en paz absoluta cada noche</div></li>
+        <li><span class="ic">🔥</span><div><b>Bono: Ritual de los 7 Días con los Ángeles</b> → Guía paso a paso de combinación diaria de palabra + cántico</div></li>
+      </ul>
+
+      <!-- Valor de los bonos y oferta de hoy -->
+      <div style="text-align:center;margin-top:30px;">
+        <p style="font-size:13px;color:#9a8f7a;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Valor real de toda la colección</p>
+        <p style="font-family:'Cinzel',serif;font-size:clamp(26px,5.5vw,38px);font-weight:800;color:#e04352;text-decoration:line-through;line-height:1.1;margin-bottom:14px;">$ 145</p>
+        <p style="font-family:'Cinzel',serif;font-size:clamp(24px,5.2vw,34px);font-weight:800;color:#1c8a4f;line-height:1.2;">Hoy, para ti en esta oferta única: <span style="font-size:1.15em;">$ 0</span></p>
+        <p style="font-size:13.5px;color:#7a7488;margin-top:10px;">Todo esto acompaña tu activación especial, sin costos adicionales recurrentes.</p>
+      </div>
+    </div>
+
+    <!-- Decision final & CTA -->
+    <div class="section cta-area">
+      <div class="section-label">→ Decisión final</div>
+      <p class="body" style="text-align:center;">Ya diste el paso más importante. Ahora solo falta lo que hace descender a los ángeles de verdad.</p>
+      <p class="body" style="text-align:center;">Si sales sin activar los Cánticos, continuarás con las palabras… <strong>pero aún de forma incompleta.</strong></p>
+      <p class="body" style="text-align:center;margin-bottom:0;">Pulsa el botón de abajo y asegura ahora tu acceso completo inmediato.</p>
+
+      <div style="margin-top:28px;">
+        <!-- CTA FINAL — one-click de KashPay -->
+        <div id="cta-pix">
+          <button type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/LINK_KASHPAY_UP3')" class="btn-cta cta-pulsa">Garantizar los Cánticos Sagrados de los Ángeles</button>
+          <a href="/gracias/" class="pp-recusar">No, prefiero continuar rezando en soledad.</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garantia -->
+    <div class="section">
+      <div class="guarantee">
+        🛡️ <strong>Garantía total de 60 días.</strong> Escúchalos y úsalos por hasta 60 días completos. Si no sientes la diferencia palpable en tu hogar y en tu espíritu, solo envíanos un correo a <strong>gabriel.luz@noticiasdafe.com.br</strong> y resolveremos de inmediato — incluyendo el reembolso completo de tu pedido si fuese necesario. El riesgo corre por nuestra cuenta.
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p style="font-size:9px;line-height:1.5;color:#b5ad9c;"><em>Aviso: este producto tiene carácter espiritual y educativo y no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</em></p>
+      <p style="margin-top:10px;">Copyright © 2026 — Guion Divino de las 12 Palabras Sagradas. Todos los derechos reservados.<br>
+      ¿Dudas? <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a></p>
+    </div>
+
+  </div><!-- /container -->
+
+</div><!-- /conteudo-real -->
+
+<!-- =============== PAGINA INSTITUCIONAL CLEAN (WHITE) =============== -->
+<div id="pagina-clean">
+  <div class="clean-wrap">
+    <h1>Los Cánticos Sagrados de los Ángeles — material de apoyo</h1>
+    <p>Esta página reúne material devocional complementario sobre los cánticos y frecuencias angelicales en la tradición cristiana, disponible exclusivamente para quienes siguen el Guion Divino de las 12 Palabras Sagradas. No se comercializa de forma independiente.</p>
+    <p>Si has accedido a esta página a través de un enlace enviado por correo electrónico y el contenido no aparece completo, vuelve a abrir la dirección desde el mensaje original.</p>
+    <div class="clean-foot">
+      Material devocional y educativo cristiano. No sustituye ninguna orientación médica, psicológica ni jurídica.<br><br>
+      Atención al lector: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
