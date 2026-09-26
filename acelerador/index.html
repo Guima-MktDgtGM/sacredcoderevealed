@@ -40,6 +40,84 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Montserrat:wght@600;700;800;900&display=swap"></noscript>
 <link rel="preload" as="image" href="../img/acelerador-roteiro-divino.jpg" fetchpriority="high">
 
+<!-- REDIRECIONAMENTO AUTOMATICO E SILENCIOSO PARA UP2 EM CASO DE FALHA OU RECUSA NO UP1 -->
+<script>
+(function(){
+  function getUp2Url(backendSkipUrl) {
+    var targetUrl;
+    try {
+      if (backendSkipUrl && backendSkipUrl.indexOf('angeldelaguarda') !== -1) {
+        targetUrl = new URL(backendSkipUrl, window.location.origin);
+      } else {
+        targetUrl = new URL('/angeldelaguarda/', window.location.origin);
+      }
+    } catch(e) {
+      targetUrl = new URL('/angeldelaguarda/', window.location.origin);
+    }
+    var currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.forEach(function(val, key) {
+      if (!targetUrl.searchParams.has(key)) {
+        targetUrl.searchParams.set(key, val);
+      }
+    });
+    return targetUrl.toString();
+  }
+
+  var originalFetch = window.fetch;
+  window.fetch = async function(resource, init) {
+    var urlStr = typeof resource === 'string' ? resource : (resource && resource.url) || '';
+    var isUpsellCall = urlStr.indexOf('upsell-process') !== -1 || urlStr.indexOf('create-whop-upsell-charge') !== -1;
+
+    if (!isUpsellCall) {
+      return originalFetch.apply(this, arguments);
+    }
+
+    try {
+      var response = await originalFetch.apply(this, arguments);
+      var clone = response.clone();
+      var data = {};
+      try { data = await clone.json(); } catch(e){}
+
+      // Se a cobranca nao foi aprovada (recusa por saldo, limite, bloqueio de cartao, etc.)
+      if (!response.ok || (data && data.error)) {
+        var nextUp2 = getUp2Url(data && data.skipUrl);
+        var modifiedData = Object.assign({}, data, {
+          error: 'payment_declined',
+          canRetry: false,
+          skipUrl: nextUp2
+        });
+        return new Response(JSON.stringify(modifiedData), {
+          status: response.status || 402,
+          statusText: response.statusText || 'Payment Declined',
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      return response;
+    } catch(err) {
+      window.location.href = getUp2Url();
+      throw err;
+    }
+  };
+
+  var observer = new MutationObserver(function() {
+    var skipBtn = document.getElementById('kashpay-skip-btn');
+    var modal = document.getElementById('kashpay-upsell-modal');
+    if (skipBtn) {
+      observer.disconnect();
+      if (modal) modal.style.display = 'none';
+      window.location.href = getUp2Url();
+    }
+  });
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+})();
+</script>
+
 <!-- ONE-CLICK KASHPAY — Defer para nao bloquear renderizacao -->
 <script src="https://checkout.kashpay.com.br/scripts/upsell-processor.js" defer></script>
 
@@ -184,6 +262,10 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  /* Oculta botoes de recusa/retry para fluxo 100% silencioso e direto ao Up2 */
+  #kashpay-skip-btn, #kashpay-retry-btn {
+    display: none !important;
   }
 </style>
 </head>
