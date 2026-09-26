@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Santuario de las 12 Palabras — Guion Divino</title>
-  <meta name="description" content="El Código Sagrado de las 12 Palabras de Dios y el Altar Vivo de Prosperidad y Protección">
-  <meta name="theme-color" content="#070B19">
+  <meta name="description" content="El Código Sagrado de las 12 Palabras de Dios, Altar Vivo de Prosperidad, Protección y Milagros">
+  <meta name="theme-color" content="#060914">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Guion Divino">
@@ -15,10 +15,10 @@
   <link rel="icon" type="image/jpeg" href="images/app-icon.jpg">
   <link rel="apple-touch-icon" href="images/app-icon.jpg">
 
-  <!-- GOOGLE FONTS: Cinzel, Cinzel Decorative, EB Garamond & Plus Jakarta Sans -->
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- TAILWIND CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,19 +29,16 @@
         extend: {
           colors: {
             sacred: {
-              bg: '#070B19',
-              surface: '#0D1630',
-              card: 'rgba(15, 26, 56, 0.78)',
-              cardSolid: '#101B3A',
-              cardHover: '#16244C',
+              bg: '#060914',
+              surface: '#0A1126',
+              card: 'rgba(12, 19, 44, 0.78)',
+              cardSolid: '#0E1736',
+              cardHover: '#14204A',
               gold: '#D4AF37',
-              goldHover: '#E5C04B',
-              goldDark: '#8A6814',
-              goldLight: '#FDF3D6',
-              goldGlow: 'rgba(212, 175, 55, 0.28)',
-              blue: '#1E3A8A',
-              purple: '#5B21B6',
-              green: '#0D8A43',
+              goldHover: '#E8C559',
+              goldDark: '#947218',
+              goldLight: '#FDF6E2',
+              goldGlow: 'rgba(212, 175, 55, 0.35)',
               border: 'rgba(212, 175, 55, 0.22)'
             }
           },
@@ -61,57 +58,70 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-    body {
-      background-color: #070B19;
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body {
+      background-color: #060914;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.22) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.15) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(15, 26, 56, 0.55) 0px, transparent 100%);
+        radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.32) 0px, transparent 55%),
+        radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.2) 0px, transparent 60%),
+        radial-gradient(at 50% 30%, rgba(14, 23, 54, 0.75) 0px, transparent 100%);
       color: #F8FAFC;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
       user-select: none;
     }
 
+    /* CARD LUXUOSO ULTRA-ARREDONDADO E TRANSLÚCIDO */
     .glass-card {
-      background: rgba(13, 23, 50, 0.76);
+      background: linear-gradient(135deg, rgba(14, 22, 48, 0.82) 0%, rgba(10, 16, 36, 0.88) 100%);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+    }
+
+    .glass-card-sm {
+      background: linear-gradient(135deg, rgba(16, 26, 56, 0.78) 0%, rgba(10, 16, 36, 0.84) 100%);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(212, 175, 55, 0.22);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.55), 0 0 20px -5px rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.2);
       border-radius: 22px;
+      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.08);
     }
 
     .glass-modal {
-      background: rgba(8, 14, 32, 0.94);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(212, 175, 55, 0.32);
-      box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 40px -10px rgba(212, 175, 55, 0.25);
+      background: rgba(7, 12, 28, 0.95);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 50px -10px rgba(212, 175, 55, 0.3);
     }
 
+    /* BOTÃO DOURADO ORGÂNICO */
     .gold-btn {
-      background: linear-gradient(135deg, #F9E298 0%, #D4AF37 50%, #B88E1B 100%);
-      color: #070D1F;
+      background: linear-gradient(135deg, #FDE68A 0%, #D4AF37 50%, #B48518 100%);
+      color: #050B1A;
       font-weight: 800;
+      border-radius: 9999px;
       box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.6);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .gold-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 30px -4px rgba(212, 175, 55, 0.6);
+      box-shadow: 0 14px 30px -4px rgba(212, 175, 55, 0.65);
     }
     .gold-btn:active {
       transform: translateY(1px) scale(0.98);
     }
 
     .gold-pill {
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: #F8E7AD;
+      background: rgba(212, 175, 55, 0.14);
+      border: 1px solid rgba(212, 175, 55, 0.38);
+      color: #FDF3D6;
     }
 
-    /* Chama líquida da vela animada */
+    /* VELA E CHAMA LÍQUIDA */
     .flame-anim {
       animation: flicker 1.8s ease-in-out infinite alternate;
       transform-origin: bottom center;
@@ -122,130 +132,258 @@
       100% { transform: scale(0.94, 0.97) rotate(-2deg); opacity: 0.88; filter: drop-shadow(0 0 10px #D97706); }
     }
 
-    /* As 12 Palavras Slots */
-    .word-card {
-      background: linear-gradient(135deg, rgba(16, 27, 58, 0.9), rgba(11, 18, 40, 0.95));
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      transition: all 0.3s ease;
+    /* CÍRCULO RESPIRATÓRIO SAGRADO */
+    .breath-circle {
+      animation: breath 19s ease-in-out infinite;
+      transform-origin: center;
     }
-    .word-card.revealed {
-      border-color: rgba(212, 175, 55, 0.7);
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(15, 26, 56, 0.95));
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+    @keyframes breath {
+      0%, 100% { transform: scale(0.72); border-color: rgba(212, 175, 55, 0.3); }
+      21% { transform: scale(1.15); border-color: rgba(212, 175, 55, 0.85); box-shadow: 0 0 35px rgba(212, 175, 55, 0.4); } /* Inhala 4s */
+      57% { transform: scale(1.15); border-color: rgba(245, 158, 11, 0.9); box-shadow: 0 0 45px rgba(245, 158, 11, 0.5); } /* Retém 7s */
+      100% { transform: scale(0.72); border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); } /* Exhala 8s */
     }
 
-    /* Ocultar barra de rolagem */
+    /* CARD DE PALAVRA REVELADA */
+    .word-card {
+      background: linear-gradient(135deg, rgba(16, 27, 58, 0.9), rgba(10, 16, 36, 0.95));
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      border-radius: 20px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .word-card:active {
+      transform: scale(0.97);
+    }
+    .word-card.revealed {
+      border-color: rgba(212, 175, 55, 0.75);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(14, 23, 52, 0.95));
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+
+    /* OCULTAR SCROLLBAR */
     ::-webkit-scrollbar { display: none; }
     * { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col pb-24">
+<body class="min-h-screen flex flex-col pb-32">
 
-  <!-- ==================== TOP BAR NAVEGAÇÃO ==================== -->
-  <header class="sticky top-0 z-40 bg-[#070B19]/90 backdrop-blur-xl border-b border-sacred-border/40 px-4 py-3">
+  <!-- ==================== TOP BAR LUXUOSA FLUTUANTE ==================== -->
+  <header class="sticky top-0 z-40 bg-[#060914]/85 backdrop-blur-2xl border-b border-sacred-border/30 px-4 py-3.5">
     <div class="max-w-md mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-600 via-sacred-gold to-yellow-200 p-[1.5px] shadow-lg">
-          <img id="nav-user-avatar" src="images/app-icon.jpg" alt="Avatar" class="w-full h-full rounded-full object-cover">
+      
+      <!-- Usuário / Perfil Rápido -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('comunidade')">
+        <div class="relative">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 via-sacred-gold to-yellow-200 p-[1.5px] shadow-lg">
+            <img id="nav-user-avatar" src="images/app-icon.jpg" alt="Avatar" class="w-full h-full rounded-full object-cover">
+          </div>
+          <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#060914]"></span>
         </div>
         <div>
-          <span class="text-[10px] font-cinzel font-bold text-sacred-gold uppercase tracking-wider block">Santuario Sagrado</span>
-          <h1 id="nav-user-greeting" class="text-xs font-bold text-white font-serif truncate max-w-[170px]">Bienvenido, Devoto(a)</h1>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[10px] font-cinzel font-bold text-sacred-gold uppercase tracking-wider block">Santuario Sagrado</span>
+            <span class="text-[9px] bg-amber-500/20 text-amber-300 font-bold px-1.5 py-0.2 rounded-full border border-amber-500/30">En Conexión</span>
+          </div>
+          <h1 id="nav-user-greeting" class="text-xs font-bold text-white font-serif truncate max-w-[160px]">Bienvenido, Devoto(a)</h1>
         </div>
       </div>
 
-      <!-- Seletor de Idioma e Notificações -->
+      <!-- Ações: Streak de Vela & Notificações -->
       <div class="flex items-center gap-2">
-        <button onclick="toggleLanguage()" class="px-2.5 py-1 rounded-full text-[11px] font-bold gold-pill flex items-center gap-1 shadow transition">
-          <span id="lang-flag">🇪🇸</span>
-          <span id="lang-code">ES</span>
-        </button>
-        <button onclick="switchTab('comunidade')" class="relative p-2 rounded-xl bg-slate-900/80 border border-slate-700/80 text-sacred-gold hover:text-white transition">
-          <i data-lucide="bell" class="w-4 h-4"></i>
-          <span id="comm-unread-dot" class="absolute top-1 right-1 w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+        <div onclick="switchTab('santuario'); rolarParaVela();" class="px-2.5 py-1 rounded-full gold-pill flex items-center gap-1.5 text-xs font-bold shadow-md cursor-pointer hover:scale-105 transition">
+          <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-400 fill-current"></i>
+          <span id="nav-streak-val">0d</span>
+        </div>
+        <button onclick="toggleAudioFrequency(432)" id="nav-audio-btn" class="p-2 rounded-full bg-slate-900/90 border border-slate-700/80 text-sacred-gold hover:text-white transition shadow" title="Activar 432Hz">
+          <i id="nav-audio-icon" data-lucide="headphones" class="w-4 h-4"></i>
         </button>
       </div>
+
     </div>
   </header>
 
   <!-- ==================== CONTAINER PRINCIPAL ==================== -->
   <div class="max-w-md mx-auto w-full flex-1 flex flex-col">
 
-    <main class="flex-1 px-4 py-3 space-y-4">
+    <main class="flex-1 px-4 py-4 space-y-5">
 
       <!-- ======================================================== -->
-      <!-- TAB 1: SANTUARIO (INICIO / ALTAR SAGRADO) -->
+      <!-- TAB 1: SANTUARIO (INICIO / ALTAR VIVO & DIÁRIO) -->
       <!-- ======================================================== -->
-      <div id="tab-santuario" class="space-y-4">
+      <div id="tab-santuario" class="space-y-5">
         
-        <!-- Saludo Dinámico con Horario -->
-        <div class="glass-card p-5 relative overflow-hidden">
-          <div class="flex items-center gap-2 text-sacred-gold text-xs font-bold mb-1.5">
-            <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+        <!-- CARD HERO: SAUDAÇÃO & MOMENTO DO DIA -->
+        <div class="glass-card p-6 relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-36 h-36 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="flex items-center gap-2 text-sacred-gold text-xs font-bold mb-2">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
             <span id="greeting-time">Paz y bendición en este día</span>
           </div>
-          <h2 class="text-xl font-serif font-bold text-white mb-1.5 leading-snug">El Altar de las 12 Palabras Sagradas</h2>
+          <h2 class="text-2xl font-serif font-bold text-white mb-2 leading-tight">El Altar de las 12 Palabras</h2>
           <p class="text-xs text-slate-300 leading-relaxed font-sans">
-            Sintoniza tu corazón en la frecuencia directa de Dios. Como aprendió Joseph del noble Leonardo y el Padre Antonio: el poder que transformó la historia está listo para obrar en tu hogar.
+            Sintoniza tu corazón con el Cielo. Como enseñó el Padre Antonio: cuando la frecuencia del alma se une al Verbo, las puertas cerradas se abren solas.
           </p>
+
+          <div class="mt-4 pt-3 border-t border-sacred-border/30 flex items-center justify-between text-xs text-slate-300">
+            <span class="flex items-center gap-1.5 text-amber-300 text-[11px] font-semibold">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> 12 Códigos Consagrados
+            </span>
+            <button onclick="switchTab('guion')" class="text-sacred-gold font-bold hover:underline text-[11px] flex items-center gap-1">
+              <span>Ir a Oraciones</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================== MOMENTO SAGRADO: RESPIRACIÓN 4-7-8 ==================== -->
+        <div class="glass-card p-6 border-sacred-gold/30 text-center relative overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30">
+              <i data-lucide="wind" class="w-3 h-3 text-amber-300"></i> Calma & Preparación Espiritual
+            </span>
+            <span class="text-[10px] text-slate-400 font-medium">Ritmo Sagrado 4-7-8</span>
+          </div>
+
+          <p class="text-xs text-slate-300 mb-6 max-w-xs mx-auto">
+            Vacía tu pecho de toda aflicción antes de orar. Sigue la pulsación del círculo sagrado:
+          </p>
+
+          <!-- Círculo de Respiração Animado -->
+          <div class="relative w-44 h-44 mx-auto flex items-center justify-center my-3">
+            <div id="breath-circle-el" class="breath-circle absolute inset-0 rounded-full border-2 border-sacred-gold/50 bg-gradient-to-tr from-amber-500/10 via-sacred-surface to-amber-900/10 transition-all duration-700"></div>
+            <div class="relative z-10 text-center px-4 space-y-1">
+              <i data-lucide="heart" class="w-5 h-5 text-amber-300 mx-auto fill-current opacity-80 animate-pulse"></i>
+              <span id="breath-guide-text" class="text-sm font-serif font-bold text-white block leading-tight">Inhala Paz</span>
+              <span id="breath-timer-val" class="text-[10px] text-amber-200 font-cinzel font-bold tracking-widest block uppercase">4 Segundos</span>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 mt-4 italic">
+            “Estad quietos, y conoced que yo soy Dios.” — Salmo 46:10
+          </p>
+        </div>
+
+        <!-- ==================== ORÁCULO DE SABIDURÍA: ¿CÓMO TE SIENTES HOY? ==================== -->
+        <div class="glass-card p-6 border-sacred-gold/30 space-y-4">
+          <div>
+            <div class="flex items-center gap-2 text-sacred-gold text-xs font-bold mb-1">
+              <i data-lucide="compass" class="w-4 h-4 text-amber-300"></i>
+              <span class="uppercase tracking-wider font-cinzel text-[10px]">Guía para tu Alma</span>
+            </div>
+            <h3 class="text-lg font-serif font-bold text-white">¿Qué necesita tu corazón en este momento?</h3>
+            <p class="text-xs text-slate-300 mt-0.5">Toca tu estado actual para recibir la Palabra y Promesa exacta de Dios:</p>
+          </div>
+
+          <!-- Selector de Estado de Ánimo -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="revealDivineOracle('ansiedad')" class="p-3 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-sacred-gold text-left transition flex items-center gap-2.5">
+              <span class="text-lg">🌊</span>
+              <div>
+                <strong class="block text-white text-[11px]">Tengo Ansiedad</strong>
+                <span class="text-[10px] text-slate-400">Paz y serenidad</span>
+              </div>
+            </button>
+
+            <button onclick="revealDivineOracle('finanzas')" class="p-3 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-sacred-gold text-left transition flex items-center gap-2.5">
+              <span class="text-lg">💰</span>
+              <div>
+                <strong class="block text-white text-[11px]">Deudas y Escasez</strong>
+                <span class="text-[10px] text-slate-400">Provisión de Jireh</span>
+              </div>
+            </button>
+
+            <button onclick="revealDivineOracle('salud')" class="p-3 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-sacred-gold text-left transition flex items-center gap-2.5">
+              <span class="text-lg">🌿</span>
+              <div>
+                <strong class="block text-white text-[11px]">Dolor o Enfermedad</strong>
+                <span class="text-[10px] text-slate-400">Sanación de Rapha</span>
+              </div>
+            </button>
+
+            <button onclick="revealDivineOracle('familia')" class="p-3 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-sacred-gold text-left transition flex items-center gap-2.5">
+              <span class="text-lg">🕊️</span>
+              <div>
+                <strong class="block text-white text-[11px]">Hijos y Pareja</strong>
+                <span class="text-[10px] text-slate-400">Unión en el hogar</span>
+              </div>
+            </button>
+          </div>
+
+          <!-- Resultado del Oráculo (Inyectado) -->
+          <div id="oracle-result-card" class="hidden p-4 rounded-2xl bg-gradient-to-r from-amber-950/40 via-sacred-surface to-slate-900 border border-sacred-gold/50 space-y-2.5 animate-fadeIn">
+            <div class="flex items-center justify-between">
+              <span id="oracle-word-badge" class="px-2 py-0.5 rounded-full bg-sacred-gold text-slate-950 text-[10px] font-bold font-cinzel"></span>
+              <span class="text-xs text-amber-300">✦ Clave Revelada</span>
+            </div>
+            <h4 id="oracle-psalm-title" class="text-xs font-bold text-white font-serif"></h4>
+            <p id="oracle-decree-text" class="text-xs text-slate-200 italic leading-relaxed"></p>
+            <div class="pt-1 flex justify-between items-center text-[11px]">
+              <button onclick="copyOracleDecree()" class="text-sacred-gold font-bold flex items-center gap-1 hover:underline">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="oracle-copy-label">Copiar Decreto</span>
+              </button>
+              <button onclick="switchTab('guion')" class="text-emerald-400 font-bold hover:underline">
+                Rezar Oración Completa →
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- ==================== EL PERGAMINO DE LAS 12 PALABRAS ==================== -->
         <div class="glass-card overflow-hidden border-sacred-gold/40 relative">
-          <div class="absolute inset-0 bg-gradient-to-b from-amber-900/20 via-transparent to-transparent pointer-events-none"></div>
-
-          <div class="p-5 pb-3 relative z-10">
+          <div class="p-6 pb-3 relative z-10">
             <div class="flex items-center justify-between mb-2">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30">
-                <i data-lucide="scroll-text" class="w-3 h-3"></i> Manuscrito de Teodosio I · Roma
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30">
+                <i data-lucide="scroll-text" class="w-3.5 h-3.5"></i> Manuscrito Sagrado · Roma
               </span>
-              <span id="words-revealed-badge" class="text-[10px] font-bold text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded-full">12 Códigos Divinos</span>
+              <span id="words-revealed-badge" class="text-[10px] font-bold text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full">12 Códigos</span>
             </div>
-            <h3 class="text-xl font-cinzel font-bold text-white leading-tight">Las 12 Palabras en Hebreo Antiguo</h3>
+            <h3 class="text-xl font-cinzel font-bold text-white leading-tight">Las 12 Palabras en Hebreo</h3>
             <p class="text-xs text-slate-300 leading-relaxed mt-1">
-              Las 5 palabras guardadas por 1.600 años unidas a las 7 palabras rescatadas de la iglesia italiana. Toca cada palabra para vocalizar y sintonizar su poder:
+              Toca cada código sagrado para vocalizar su sonido y activar su virtud en tu espíritu:
             </p>
           </div>
 
           <!-- GRID DE LAS 12 PALABRAS -->
-          <div class="px-5 py-2 grid grid-cols-2 gap-2" id="grid-12-palabras">
+          <div class="px-5 py-2 grid grid-cols-2 gap-2.5" id="grid-12-palabras">
             <!-- Injetado dinamicamente via JS -->
           </div>
 
-          <div class="p-5 pt-3 relative z-10 space-y-3">
-            <button onclick="playAllWordsChime()" class="w-full py-3 gold-btn rounded-2xl text-xs flex items-center justify-center gap-2 shadow-lg">
+          <div class="p-6 pt-3 relative z-10 space-y-3">
+            <button onclick="playAllWordsChime()" class="w-full py-3.5 gold-btn rounded-2xl text-xs flex items-center justify-center gap-2 shadow-lg">
               <i data-lucide="volume-2" class="w-4 h-4"></i>
               <span>Entonar las 12 Frecuencias Sagradas</span>
             </button>
             <div class="text-[11px] text-slate-400 text-center flex items-center justify-center gap-1">
               <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
-              <span>Vibración acústica sintetizada en 432Hz</span>
+              <span>Acústica armónica sintetizada en 432Hz</span>
             </div>
           </div>
         </div>
 
         <!-- ==================== VELA SAGRADA PERPETUA (STREAK DIARIO) ==================== -->
-        <div class="glass-card p-5 border-amber-500/30 relative overflow-hidden bg-gradient-to-b from-amber-950/30 via-sacred-surface to-sacred-surface">
+        <div id="bloco-vela-sagrada" class="glass-card p-6 border-amber-500/30 relative overflow-hidden bg-gradient-to-b from-amber-950/30 via-sacred-surface to-sacred-surface">
           <div class="flex items-start justify-between">
             <div class="space-y-1.5 max-w-[65%]">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold tracking-wider uppercase border border-amber-500/30">
-                <i data-lucide="flame" class="w-3 h-3 text-amber-400"></i> Altar Vivo de la Familia
+              <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold tracking-wider uppercase border border-amber-500/30">
+                <i data-lucide="flame" class="w-3 h-3 text-amber-400 fill-current"></i> Altar Vivo del Hogar
               </span>
               <h3 class="text-base font-serif font-bold text-white">Vela Sagrada de Conexión</h3>
-              <p class="text-xs text-slate-300 leading-normal">Enciende la llama a diario para mantener sellada tu casa en la provisión inagotable.</p>
+              <p class="text-xs text-slate-300 leading-normal">Enciende la llama a diario para sellar tu casa en la provisión inagotable.</p>
             </div>
 
-            <!-- Vela Animada -->
-            <div id="candle-icon-container" class="relative flex flex-col items-center justify-center w-16 h-24 bg-slate-950/80 rounded-2xl border border-amber-500/40 p-2 shadow-inner">
-              <div id="candle-flame" class="w-4 h-7 bg-gradient-to-t from-red-500 via-amber-300 to-yellow-100 rounded-full flame-anim -mb-1 z-10 hidden"></div>
-              <div class="w-5 h-12 bg-gradient-to-b from-amber-100 to-amber-200 rounded-sm shadow-inner border border-amber-200/80"></div>
-              <span id="streak-badge" class="absolute -top-2.5 -right-2.5 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg">0d</span>
+            <!-- Vela Animada com Aura Líquida -->
+            <div id="candle-icon-container" class="relative flex flex-col items-center justify-center w-18 h-28 bg-slate-950/90 rounded-3xl border border-amber-500/40 p-2.5 shadow-2xl">
+              <div id="candle-flame" class="w-5 h-8 bg-gradient-to-t from-red-500 via-amber-300 to-yellow-100 rounded-full flame-anim -mb-1 z-10 hidden"></div>
+              <div class="w-6 h-14 bg-gradient-to-b from-amber-100 via-amber-200 to-amber-300 rounded-md shadow-inner border border-amber-200/80"></div>
+              <span id="streak-badge" class="absolute -top-2.5 -right-2 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg">0d</span>
             </div>
           </div>
 
-          <div class="mt-4 pt-3.5 border-t border-slate-800/80 flex items-center justify-between">
+          <div class="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between">
             <span id="streak-text" class="text-xs font-medium text-amber-200/90">Enciende la vela de hoy</span>
-            <button id="btn-light-candle" onclick="lightCandle()" class="px-5 py-2.5 gold-btn text-xs rounded-2xl transition flex items-center gap-2">
+            <button id="btn-light-candle" onclick="lightCandle()" class="px-5 py-2.5 gold-btn text-xs rounded-full transition flex items-center gap-2">
               <i data-lucide="flame" class="w-3.5 h-3.5 fill-current"></i>
               <span id="btn-candle-text">Encender Vela</span>
             </button>
@@ -253,10 +391,10 @@
         </div>
 
         <!-- ==================== REPRODUCTOR DE FRECUENCIAS SAGRADAS ==================== -->
-        <div class="glass-card p-4 border-sacred-gold/30 bg-gradient-to-r from-slate-900 to-[#0C152B] space-y-3">
+        <div class="glass-card p-5 border-sacred-gold/30 bg-gradient-to-r from-slate-900 via-sacred-surface to-[#0C152B] space-y-3.5">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-2xl bg-sacred-gold/20 flex items-center justify-center text-sacred-gold shadow-inner">
+              <div class="w-11 h-11 rounded-2xl bg-sacred-gold/20 flex items-center justify-center text-sacred-gold shadow-inner border border-sacred-gold/30">
                 <i data-lucide="headphones" class="w-5 h-5"></i>
               </div>
               <div>
@@ -264,42 +402,42 @@
                 <span id="active-freq-label" class="text-xs text-white font-semibold">432Hz — Paz Profunda y Conexión</span>
               </div>
             </div>
-            <button id="btn-freq-toggle" onclick="toggleAudioFrequency(432)" class="w-10 h-10 rounded-2xl gold-btn flex items-center justify-center shadow">
+            <button id="btn-freq-toggle" onclick="toggleAudioFrequency(432)" class="w-11 h-11 rounded-full gold-btn flex items-center justify-center shadow-lg">
               <i id="audio-icon" data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
             </button>
           </div>
 
           <!-- Selector de Frecuencias -->
           <div class="grid grid-cols-4 gap-1.5 pt-1">
-            <button onclick="setFrequency(432, '432Hz — Paz Profunda y Conexión')" class="px-2 py-1.5 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">432Hz</button>
-            <button onclick="setFrequency(528, '528Hz — Milagros y Restauración')" class="px-2 py-1.5 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">528Hz</button>
-            <button onclick="setFrequency(741, '741Hz — Limpieza de Invidia y Trabas')" class="px-2 py-1.5 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">741Hz</button>
-            <button onclick="setFrequency(888, '888Hz — Riqueza Infinita y Provisión')" class="px-2 py-1.5 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">888Hz</button>
+            <button onclick="setFrequency(432, '432Hz — Paz Profunda y Conexión')" class="px-2 py-2 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">432Hz</button>
+            <button onclick="setFrequency(528, '528Hz — Milagros y Restauración')" class="px-2 py-2 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">528Hz</button>
+            <button onclick="setFrequency(741, '741Hz — Limpieza de Envidia y Trabas')" class="px-2 py-2 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">741Hz</button>
+            <button onclick="setFrequency(888, '888Hz — Riqueza Infinita y Provisión')" class="px-2 py-2 rounded-xl bg-slate-800/90 text-[10px] font-bold text-slate-300 hover:text-white hover:bg-slate-700 transition">888Hz</button>
           </div>
 
           <!-- Timer de Apagado -->
           <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px] text-slate-400">
-            <span>Apagado automático:</span>
-            <div class="flex items-center gap-1">
-              <button onclick="setSleepTimer(15)" class="px-2 py-0.5 rounded-lg bg-slate-800 text-slate-300 text-[10px]">15m</button>
-              <button onclick="setSleepTimer(30)" class="px-2 py-0.5 rounded-lg bg-slate-800 text-slate-300 text-[10px]">30m</button>
-              <button onclick="setSleepTimer(60)" class="px-2 py-0.5 rounded-lg bg-slate-800 text-slate-300 text-[10px]">60m</button>
+            <span>Temporizador de apagado:</span>
+            <div class="flex items-center gap-1.5">
+              <button onclick="setSleepTimer(15)" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-[10px] hover:text-white">15m</button>
+              <button onclick="setSleepTimer(30)" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-[10px] hover:text-white">30m</button>
+              <button onclick="setSleepTimer(60)" class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-[10px] hover:text-white">60m</button>
               <span id="sleep-timer-status" class="text-sacred-gold font-bold ml-1"></span>
             </div>
           </div>
         </div>
 
         <!-- ==================== VERSÍCULO DEL DÍA ==================== -->
-        <div class="glass-card p-5 text-center space-y-2 border-sacred-border/30">
-          <i data-lucide="quote" class="w-5 h-5 text-sacred-gold/70 mx-auto"></i>
-          <p id="verse-text" class="text-sm font-serif italic text-slate-200 leading-relaxed px-2">
+        <div class="glass-card p-6 text-center space-y-2 border-sacred-border/30">
+          <i data-lucide="quote" class="w-6 h-6 text-sacred-gold/70 mx-auto"></i>
+          <p id="verse-text" class="text-sm font-serif italic text-slate-200 leading-relaxed px-3">
             "Y mi Dios proveerá a todas vuestras necesidades, conforme a sus riquezas en gloria en Cristo Jesús."
           </p>
           <span id="verse-ref" class="text-[10px] font-cinzel font-bold text-sacred-gold tracking-widest block uppercase">— Filipenses 4:19</span>
         </div>
 
         <!-- CÍRCULO EN WHATSAPP -->
-        <a href="https://chat.whatsapp.com/JZRzUaIEfw75xzBFWPSroQ" target="_blank" rel="noopener" class="glass-card p-4 flex items-center gap-3.5 border-emerald-500/30 bg-gradient-to-r from-emerald-950/30 via-[#0B132B] to-[#0B132B]">
+        <a href="https://chat.whatsapp.com/JZRzUaIEfw75xzBFWPSroQ" target="_blank" rel="noopener" class="glass-card p-5 flex items-center gap-3.5 border-emerald-500/30 bg-gradient-to-r from-emerald-950/30 via-[#0B132B] to-[#0B132B]">
           <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-sacred-gold/40 flex items-center justify-center text-sacred-gold text-2xl flex-shrink-0">
             ✝
           </div>
@@ -308,7 +446,7 @@
             <h4 class="text-sm font-bold text-white font-serif mt-0.5">Nadie reza en soledad</h4>
             <p class="text-[11px] text-slate-400 leading-snug">Únete a Gabriel Luz y miles de hermanos en la fe.</p>
           </div>
-          <span class="w-10 h-10 rounded-2xl bg-[#25D366] flex items-center justify-center flex-shrink-0 shadow-lg">
+          <span class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center flex-shrink-0 shadow-lg">
             <i data-lucide="message-circle" class="w-5 h-5 text-[#062b16]"></i>
           </span>
         </a>
@@ -316,73 +454,80 @@
       </div>
 
       <!-- ======================================================== -->
-      <!-- TAB 2: EL GUION (ORACIONES GUIADAS & PROTOCOLO) -->
+      <!-- TAB 2: EL GUION (ORACIONES GUIADAS COMPLETAS) -->
       <!-- ======================================================== -->
-      <div id="tab-guion" class="hidden space-y-4">
-        <div class="text-center py-2">
-          <h2 class="text-xl font-serif font-bold text-white">El Protocolo de las 12 Palabras</h2>
-          <p class="text-xs text-slate-300 max-w-xs mx-auto">
-            Las 4 etapas de sintonización y las oraciones guiadas para cada necesidad de tu vida.
+      <div id="tab-guion" class="hidden space-y-5">
+        
+        <div class="text-center py-1">
+          <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30 mb-1.5">
+            <i data-lucide="book-open" class="w-3 h-3"></i> Liturgia de Poder Divino
+          </span>
+          <h2 class="text-2xl font-serif font-bold text-white">Oraciones Guiadas Completas</h2>
+          <p class="text-xs text-slate-300 max-w-xs mx-auto mt-1 leading-relaxed">
+            Plegarias consagradas en 5 tiempos litúrgicos para cada necesidad profunda de tu vida.
           </p>
         </div>
 
         <!-- 4 PASOS DE ACTIVACIÓN -->
-        <div class="glass-card p-4 border-sacred-gold/30">
-          <span class="text-[11px] font-cinzel font-bold text-sacred-gold block uppercase tracking-wider mb-2">Protocolo Diario de 4 Pasos</span>
-          <div class="space-y-2.5 text-xs text-slate-200">
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-sacred-gold text-slate-950 font-bold text-[10px] flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-              <p><strong>Purificación del Recipiente:</strong> Inhala en 4 segundos, retén 7 y exhala en 8. Vacía la mente de toda queja y aflicción.</p>
+        <div class="glass-card p-5 border-sacred-gold/30">
+          <span class="text-[11px] font-cinzel font-bold text-sacred-gold block uppercase tracking-wider mb-3">Protocolo Diario de 4 Pasos</span>
+          <div class="space-y-3 text-xs text-slate-200">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-sacred-gold text-slate-950 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+              <p><strong>Purificación del Recipiente:</strong> Inhala en 4s, retén 7s y exhala en 8s. Vacía tu mente de quejas, temores y aflicciones.</p>
             </div>
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-sacred-gold text-slate-950 font-bold text-[10px] flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-              <p><strong>Anclaje del Corazón:</strong> Lleva la mano derecha al centro del pecho. Siente el latido: ahí reside el altar interior de Dios.</p>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-sacred-gold text-slate-950 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+              <p><strong>Anclaje del Corazón:</strong> Lleva tu mano derecha al centro del pecho. Siente el latido sagrado: ahí reside el templo de Dios.</p>
             </div>
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-sacred-gold text-slate-950 font-bold text-[10px] flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-              <p><strong>Vocalización Sagrada:</strong> Pronuncia la oración específica con voz firme y serena, dejando resonar las palabras hebreas.</p>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-sacred-gold text-slate-950 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+              <p><strong>Vocalización Sagrada:</strong> Pronuncia la oración con voz firme y serena, dejando resonar los nombres hebreos en tu habitación.</p>
             </div>
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-sacred-gold text-slate-950 font-bold text-[10px] flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-              <p><strong>Sello del Agradecimiento:</strong> Declara con certeza inquebrantable: <em>“Amén, hecho está. La abundancia ya es mía.”</em></p>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-sacred-gold text-slate-950 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+              <p><strong>Sello del Agradecimiento:</strong> Declara con fe inquebrantable: <em>“Amén, hecho está. La abundancia divina ya es mía.”</em></p>
             </div>
           </div>
         </div>
 
-        <!-- LISTA DE LAS 6 GRANDES ORACIONES GUIADAS -->
+        <!-- LISTA DE LAS 8 GRANDES ORACIONES GUIADAS -->
         <div class="space-y-3" id="prayers-list">
-          <!-- Injetado via JS -->
+          <!-- Injetado dinamicamente via JS -->
         </div>
 
       </div>
 
       <!-- ======================================================== -->
-      <!-- TAB 3: BIBLIOTECA (ENTREGABLES & LIBROS COMPLETOS) -->
+      <!-- TAB 3: BIBLIOTECA (ENTREGABLES & MANUALES OFICIALES) -->
       <!-- ======================================================== -->
-      <div id="tab-biblioteca" class="hidden space-y-4">
-        <div class="text-center py-2">
-          <h2 class="text-xl font-serif font-bold text-white">Biblioteca y Entregables Oficiales</h2>
-          <p class="text-xs text-slate-300">Tus libros, manuales de activación y bônus de la VSL en un solo lugar.</p>
+      <div id="tab-biblioteca" class="hidden space-y-5">
+        <div class="text-center py-1">
+          <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30 mb-1.5">
+            <i data-lucide="library" class="w-3 h-3"></i> Textos Sagrados Oficiales
+          </span>
+          <h2 class="text-2xl font-serif font-bold text-white">Biblioteca y Entregables</h2>
+          <p class="text-xs text-slate-300">Tus libros sagrados, manuales de activación y bônus de la VSL en un solo lugar.</p>
         </div>
 
         <!-- LIBRO 1: GUION DIVINO -->
-        <div class="glass-card overflow-hidden shadow-xl border-sacred-gold/30">
-          <div class="relative h-44 overflow-hidden">
+        <div class="glass-card overflow-hidden shadow-2xl border-sacred-gold/35">
+          <div class="relative h-48 overflow-hidden">
             <img src="images/guion-divino-cover.jpg" alt="Guion Divino" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent"></div>
-            <span class="absolute top-3 left-3 bg-sacred-gold text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full shadow uppercase">Libro Principal</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A1126] via-[#0A1126]/60 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-sacred-gold text-slate-950 text-[10px] font-black px-3 py-1 rounded-full shadow uppercase">Libro Principal</span>
           </div>
-          <div class="p-5 space-y-3 -mt-6 relative z-10">
+          <div class="p-6 space-y-3 -mt-6 relative z-10">
             <h3 class="font-serif font-bold text-lg text-white">El Guion Divino de las 12 Palabras Sagradas</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               El manuscrito oficial completo: la historia de Teodosio I, la ciencia de las 12 palabras, el protocolo de 21 días y la biblioteca de oraciones.
             </p>
-            <div class="grid grid-cols-2 gap-2 pt-1">
-              <button onclick="openBookModal('guion')" class="py-2.5 gold-btn rounded-xl text-xs flex items-center justify-center gap-1.5">
+            <div class="grid grid-cols-2 gap-2.5 pt-1">
+              <button onclick="openBookModal('guion')" class="py-3 gold-btn rounded-full text-xs flex items-center justify-center gap-1.5">
                 <i data-lucide="book-open" class="w-4 h-4"></i>
                 <span>Leer en el App</span>
               </button>
-              <a href="../Guion_Divino_12_Palabras_Entregable_Oficial.html" target="_blank" class="py-2.5 bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 rounded-xl text-xs flex items-center justify-center gap-1.5 transition">
+              <a href="../Guion_Divino_12_Palabras_Entregable_Oficial.html" target="_blank" class="py-3 bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 rounded-full text-xs flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="download" class="w-4 h-4 text-sacred-gold"></i>
                 <span>Descargar PDF</span>
               </a>
@@ -391,23 +536,23 @@
         </div>
 
         <!-- LIBRO 2: ACELERADOR 10X -->
-        <div class="glass-card overflow-hidden shadow-xl border-sacred-gold/30">
-          <div class="relative h-44 overflow-hidden">
+        <div class="glass-card overflow-hidden shadow-2xl border-sacred-gold/35">
+          <div class="relative h-48 overflow-hidden">
             <img src="images/acelerador-cover.jpg" alt="Acelerador" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent"></div>
-            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full shadow uppercase">Upsell 1 · Acelerador</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A1126] via-[#0A1126]/60 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full shadow uppercase">Acelerador 10X</span>
           </div>
-          <div class="p-5 space-y-3 -mt-6 relative z-10">
+          <div class="p-6 space-y-3 -mt-6 relative z-10">
             <h3 class="font-serif font-bold text-lg text-white">Acelerador del Guion Divino 10X</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
-              El protocolo de choque de 7 días y la reprogramación en estado Theta para manifestar respuestas inmediatas en tus finanzas.
+              El protocolo de choque de 7 días y la reprogramación en estado Theta para manifestar respuestas inmediatas en tus finanzas y salud.
             </p>
-            <div class="grid grid-cols-2 gap-2 pt-1">
-              <button onclick="openBookModal('acelerador')" class="py-2.5 gold-btn rounded-xl text-xs flex items-center justify-center gap-1.5">
+            <div class="grid grid-cols-2 gap-2.5 pt-1">
+              <button onclick="openBookModal('acelerador')" class="py-3 gold-btn rounded-full text-xs flex items-center justify-center gap-1.5">
                 <i data-lucide="book-open" class="w-4 h-4"></i>
                 <span>Leer en el App</span>
               </button>
-              <a href="../es antigo (latam jul-2026)/Acelerador_Guion_Divino_Entregable.html" target="_blank" class="py-2.5 bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 rounded-xl text-xs flex items-center justify-center gap-1.5 transition">
+              <a href="../es antigo (latam jul-2026)/Acelerador_Guion_Divino_Entregable.html" target="_blank" class="py-3 bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 rounded-full text-xs flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="download" class="w-4 h-4 text-sacred-gold"></i>
                 <span>Descargar PDF</span>
               </a>
@@ -415,24 +560,24 @@
           </div>
         </div>
 
-        <!-- LIBRO 3: ÁNGEL DE LA GUARDA Y LOS 7 ARCÁNGELES -->
-        <div class="glass-card overflow-hidden shadow-xl border-sacred-gold/30">
-          <div class="relative h-44 overflow-hidden">
+        <!-- LIBRO 3: ÁNGEL DE LA GUARDA -->
+        <div class="glass-card overflow-hidden shadow-2xl border-sacred-gold/35">
+          <div class="relative h-48 overflow-hidden">
             <img src="images/anjos/miguel.jpg" alt="Ángel de la Guarda" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent"></div>
-            <span class="absolute top-3 left-3 bg-indigo-500 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow uppercase">Upsell 2 · Protección</span>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A1126] via-[#0A1126]/60 to-transparent"></div>
+            <span class="absolute top-3 left-3 bg-indigo-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow uppercase">Protección Angelical</span>
           </div>
-          <div class="p-5 space-y-3 -mt-6 relative z-10">
+          <div class="p-6 space-y-3 -mt-6 relative z-10">
             <h3 class="font-serif font-bold text-lg text-white">El Libro Sagrado del Ángel de la Guarda</h3>
             <p class="text-xs text-slate-300 leading-relaxed">
               La guía completa de los 7 Santos Arcángeles de la semana, tu ángel custodio según tu nacimiento y el ritual del Escudo de San Miguel.
             </p>
-            <div class="grid grid-cols-2 gap-2 pt-1">
-              <button onclick="openBookModal('angel')" class="py-2.5 gold-btn rounded-xl text-xs flex items-center justify-center gap-1.5">
+            <div class="grid grid-cols-2 gap-2.5 pt-1">
+              <button onclick="openBookModal('angel')" class="py-3 gold-btn rounded-full text-xs flex items-center justify-center gap-1.5">
                 <i data-lucide="book-open" class="w-4 h-4"></i>
                 <span>Leer en el App</span>
               </button>
-              <a href="../Protocolo_Angel_de_la_Guarda_Entregable_Oficial.html" target="_blank" class="py-2.5 bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 rounded-xl text-xs flex items-center justify-center gap-1.5 transition">
+              <a href="../Protocolo_Angel_de_la_Guarda_Entregable_Oficial.html" target="_blank" class="py-3 bg-slate-900/90 border border-slate-700 hover:bg-slate-800 text-slate-200 rounded-full text-xs flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="download" class="w-4 h-4 text-sacred-gold"></i>
                 <span>Descargar PDF</span>
               </a>
@@ -440,15 +585,15 @@
           </div>
         </div>
 
-        <!-- LIBRO 4: 150 AFIRMACIONES & LOS 3 BONOS DE LA VSL -->
-        <div class="glass-card p-5 space-y-3 border-sacred-gold/30">
+        <!-- BÔNUS DE LA VSL -->
+        <div class="glass-card p-6 space-y-3.5 border-sacred-gold/30">
           <div class="flex items-center justify-between">
             <span class="text-xs font-serif font-bold text-sacred-gold uppercase">Bônus Especiales de la VSL</span>
-            <span class="text-[10px] text-emerald-400 font-bold">100% Incluidos</span>
+            <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/15 px-2 py-0.5 rounded-full border border-emerald-500/30">100% Incluidos</span>
           </div>
 
-          <div class="space-y-2">
-            <button onclick="openBookModal('bonus1')" class="w-full text-left p-3 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
+          <div class="space-y-2.5">
+            <button onclick="openBookModal('bonus1')" class="w-full text-left p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
               <div>
                 <span class="text-xs font-bold text-white block">1. Alcanza la Mente Millonaria</span>
                 <span class="text-[10px] text-slate-400">Reprogramación mental para atraer riqueza sin esfuerzo</span>
@@ -456,7 +601,7 @@
               <i data-lucide="chevron-right" class="w-4 h-4 text-sacred-gold"></i>
             </button>
 
-            <button onclick="openBookModal('bonus2')" class="w-full text-left p-3 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
+            <button onclick="openBookModal('bonus2')" class="w-full text-left p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
               <div>
                 <span class="text-xs font-bold text-white block">2. El Secreto de la Abundancia Ilimitada</span>
                 <span class="text-[10px] text-slate-400">Hábitos diarios que multiplican la provisión x10</span>
@@ -464,7 +609,7 @@
               <i data-lucide="chevron-right" class="w-4 h-4 text-sacred-gold"></i>
             </button>
 
-            <button onclick="openBookModal('bonus3')" class="w-full text-left p-3 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
+            <button onclick="openBookModal('bonus3')" class="w-full text-left p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
               <div>
                 <span class="text-xs font-bold text-white block">3. Manifiesta Dinero Sin Esfuerzo</span>
                 <span class="text-[10px] text-slate-400">La conexión sagrada entre la paz interior y el dinero</span>
@@ -472,7 +617,7 @@
               <i data-lucide="chevron-right" class="w-4 h-4 text-sacred-gold"></i>
             </button>
 
-            <button onclick="openBookModal('afirmaciones')" class="w-full text-left p-3 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
+            <button onclick="openBookModal('afirmaciones')" class="w-full text-left p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-sacred-gold/50 flex items-center justify-between transition">
               <div>
                 <span class="text-xs font-bold text-white block">4. 150 Afirmaciones Divinas</span>
                 <span class="text-[10px] text-slate-400">Las 15 categorías de prosperidad y fe</span>
@@ -485,21 +630,23 @@
       </div>
 
       <!-- ======================================================== -->
-      <!-- TAB 4: COMUNIDAD VIVA (FÓRUM DINÂMICO & INTERATIVO) -->
+      <!-- TAB 4: COMUNIDAD VIVA (FÓRUM DINÁMICO & INTERATIVO) -->
       <!-- ======================================================== -->
-      <div id="tab-comunidade" class="hidden space-y-4">
+      <div id="tab-comunidade" class="hidden space-y-5">
         
-        <div class="text-center py-2">
-          <h2 class="text-xl font-serif font-bold text-white">Comunidad de Fe y Milagros</h2>
-          <p class="text-xs text-slate-300">Hermanos de Europa y América Latina orando y compartiendo testimonios en tiempo real.</p>
+        <div class="text-center py-1">
+          <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30 mb-1.5">
+            <i data-lucide="users" class="w-3 h-3"></i> Comunidad de Oración Activa
+          </span>
+          <h2 class="text-2xl font-serif font-bold text-white">Comunidad de Fe y Milagros</h2>
+          <p class="text-xs text-slate-300">Hermanos orando juntos en tiempo real por el mundo entero.</p>
         </div>
 
-        <!-- ==================== PERFIL DO USUÁRIO & FOTO UPLOAD ==================== -->
-        <div class="glass-card p-4 border-sacred-gold/30 bg-gradient-to-r from-[#0C152F] via-[#0E1A3C] to-[#0C152F]">
-          <div class="flex items-center gap-3.5">
-            <!-- Avatar com Botão de Foto -->
+        <!-- PERFIL DO USUÁRIO & FOTO UPLOAD -->
+        <div class="glass-card p-5 border-sacred-gold/30 bg-gradient-to-r from-[#0A122A] via-[#0E1A3C] to-[#0A122A]">
+          <div class="flex items-center gap-4">
             <div class="relative group cursor-pointer" onclick="triggerPhotoUpload()">
-              <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-sacred-gold to-yellow-200 p-[2px] shadow-lg overflow-hidden">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-sacred-gold to-yellow-200 p-[2px] shadow-xl overflow-hidden">
                 <img id="comm-user-avatar" src="images/app-icon.jpg" alt="Tu Foto" class="w-full h-full rounded-full object-cover">
               </div>
               <div class="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-80 group-hover:opacity-100 transition">
@@ -508,100 +655,111 @@
               <input type="file" id="photo-upload-input" accept="image/*" class="hidden" onchange="handleUserPhotoUpload(event)">
             </div>
 
-            <!-- Dados do Usuário -->
             <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-1.5">
-                <input type="text" id="comm-name-input" value="Hermano(a) en la Fe" placeholder="Tu Nombre Completo" class="bg-transparent border-b border-slate-700 text-sm font-bold text-white focus:outline-none focus:border-sacred-gold w-full truncate" onchange="saveUserProfile()">
-              </div>
+              <input type="text" id="comm-name-input" value="Hermano(a) en la Fe" placeholder="Tu Nombre Completo" class="bg-transparent border-b border-slate-700 text-sm font-bold text-white focus:outline-none focus:border-sacred-gold w-full truncate" onchange="saveUserProfile()">
               <input type="text" id="comm-city-input" value="Madrid, España" placeholder="Tu Ciudad / País" class="bg-transparent border-b border-slate-800 text-[11px] text-sacred-gold/90 focus:outline-none focus:border-sacred-gold w-full mt-1" onchange="saveUserProfile()">
-              <span class="text-[9px] text-slate-400 block mt-0.5">Toca la foto para cambiar tu imagen de perfil</span>
+              <span class="text-[9px] text-slate-400 block mt-1">Toca la foto para personalizar tu imagen</span>
             </div>
           </div>
         </div>
 
-        <!-- ==================== CAMPO DE PUBLICAÇÃO DO USUÁRIO ==================== -->
-        <div class="glass-card p-4 space-y-3 border-sacred-border/60">
-          <span class="text-[11px] font-cinzel font-bold text-sacred-gold block uppercase tracking-wider">Publicar Petición o Testimonio</span>
-          <textarea id="user-post-input" rows="3" placeholder="Escribe aquí tu petición de oración o cuenta el milagro que Dios ha obrado en tu vida..." class="w-full bg-slate-950/80 border border-slate-700/80 rounded-2xl p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sacred-gold resize-none leading-relaxed"></textarea>
+        <!-- CAMPO DE PUBLICAÇÃO DO USUÁRIO -->
+        <div class="glass-card p-5 space-y-3.5 border-sacred-border/60">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-cinzel font-bold text-sacred-gold uppercase tracking-wider">Publicar en el Muro</span>
+            <div class="flex items-center gap-1.5" id="post-category-selector">
+              <button onclick="selectPostCategory('peticion')" id="cat-peticion" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">Petición</button>
+              <button onclick="selectPostCategory('milagro')" id="cat-milagro" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">Milagro</button>
+              <button onclick="selectPostCategory('gratitud')" id="cat-gratitud" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">Gratitud</button>
+            </div>
+          </div>
+
+          <textarea id="user-post-input" rows="3" placeholder="Escribe aquí tu petición o comparte el milagro que Dios ha obrado en tu vida..." class="w-full bg-slate-950/80 border border-slate-700/80 rounded-2xl p-3.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sacred-gold resize-none leading-relaxed"></textarea>
           
           <div class="flex items-center justify-between pt-1">
             <span class="text-[10px] text-slate-400 flex items-center gap-1">
               <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Comunidad protegida
             </span>
-            <button onclick="publishUserPost()" class="px-5 py-2.5 gold-btn text-xs rounded-xl shadow flex items-center gap-1.5">
+            <button onclick="publishUserPost()" class="px-5 py-2.5 gold-btn text-xs rounded-full shadow-lg flex items-center gap-1.5">
               <i data-lucide="send" class="w-3.5 h-3.5"></i>
               <span>Publicar Ahora</span>
             </button>
           </div>
         </div>
 
-        <!-- ==================== FEED DE POSTS DA COMUNIDADE ==================== -->
+        <!-- FEED DE POSTS DA COMUNIDADE -->
         <div class="flex items-center justify-between px-1">
-          <span class="text-[11px] font-cinzel font-bold text-sacred-gold uppercase tracking-wider">Actividad en el Foro Vivo</span>
-          <span class="text-[10px] text-slate-400 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Actualizado en vivo</span>
+          <span class="text-[11px] font-cinzel font-bold text-sacred-gold uppercase tracking-wider">Actividad en Vivo</span>
+          <span class="text-[10px] text-slate-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Actualizado en directo</span>
         </div>
 
-        <div id="community-feed" class="space-y-3.5">
-          <!-- Injetado dinamicamente via renderCommunity() -->
+        <div id="community-feed" class="space-y-4">
+          <!-- Injetado dinamicamente via JS -->
         </div>
 
       </div>
 
       <!-- ======================================================== -->
-      <!-- TAB 5: MI ALTAR (CADERNO DE GRAÇAS & PERFIL) -->
+      <!-- TAB 5: MI ALTAR (CADERNO DE MILAGRES & QUIZ) -->
       <!-- ======================================================== -->
-      <div id="tab-altar" class="hidden space-y-4">
+      <div id="tab-altar" class="hidden space-y-5">
         
-        <div class="text-center py-2">
-          <h2 class="text-xl font-serif font-bold text-white">Mi Altar y Cuaderno de Milagros</h2>
-          <p class="text-xs text-slate-300">Entrega tus peticiones personales y declara cada victoria concedida.</p>
+        <div class="text-center py-1">
+          <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-sacred-gold/15 text-sacred-goldLight text-[10px] font-bold tracking-wider uppercase border border-sacred-gold/30 mb-1.5">
+            <i data-lucide="star" class="w-3 h-3"></i> Cuaderno de Victorias
+          </span>
+          <h2 class="text-2xl font-serif font-bold text-white">Mi Altar y Cuaderno de Milagros</h2>
+          <p class="text-xs text-slate-300">Entrega tus peticiones personales y celebra cada gracia recibida.</p>
         </div>
 
-        <!-- PETICIONES PERSONALES -->
-        <div class="glass-card p-5 space-y-3.5">
+        <!-- CUADERNO DE PETICIONES PERSONALES -->
+        <div class="glass-card p-6 space-y-4">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-serif font-bold text-sacred-gold uppercase">Mis Peticiones Entregadas a Dios</span>
-            <span id="miracles-count" class="text-[10px] text-emerald-400 font-bold">0 Milagros Celebrados</span>
+            <span class="text-xs font-serif font-bold text-sacred-gold uppercase">Mis Peticiones ante el Trono</span>
+            <span id="miracles-count" class="text-[10px] text-emerald-300 font-bold bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-500/40">0 Milagros Celebrados</span>
           </div>
 
-          <div id="knots-list" class="space-y-2.5">
+          <div id="knots-list" class="space-y-3">
             <!-- Gerado dinamicamente -->
           </div>
 
           <div class="pt-2 flex gap-2">
-            <input type="text" id="new-knot-input" placeholder="Ej: Cancelar deuda del banco, Sanación para mamá..." class="flex-1 bg-slate-950/80 border border-slate-700 rounded-2xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sacred-gold">
-            <button onclick="addKnot()" class="px-4 py-2.5 gold-btn text-xs rounded-2xl shadow">
+            <input type="text" id="new-knot-input" placeholder="Ej: Cancelación de deuda bancaria, salud de mi madre..." class="flex-1 bg-slate-950/80 border border-slate-700 rounded-full px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sacred-gold">
+            <button onclick="addKnot()" class="px-5 py-3 gold-btn text-xs rounded-full shadow-lg flex-shrink-0">
               + Entregar
             </button>
           </div>
         </div>
 
-        <!-- QUIZ RÁPIDO: TU ÁNGEL DE LA GUARDA REVELADO -->
-        <div class="glass-card p-5 space-y-3 border-indigo-500/30 bg-gradient-to-b from-indigo-950/20 via-sacred-surface to-sacred-surface">
+        <!-- QUIZ: TU ÁNGEL DE LA GUARDA REVELADO -->
+        <div class="glass-card p-6 space-y-4 border-indigo-500/30 bg-gradient-to-b from-indigo-950/25 via-sacred-surface to-sacred-surface">
           <div class="flex items-center gap-2">
-            <span class="text-xl">👼</span>
-            <h3 class="text-base font-serif font-bold text-white">Tu Ángel de la Guarda Personal</h3>
+            <span class="text-2xl">👼</span>
+            <div>
+              <h3 class="text-base font-serif font-bold text-white leading-tight">Tu Ángel de la Guarda Personal</h3>
+              <span class="text-[10px] text-indigo-300 font-bold uppercase tracking-wider">Revelación según tu Nacimiento</span>
+            </div>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">
             Ingresa tu fecha de nacimiento para conocer el arcángel que custodia tu vida y tu familia:
           </p>
           <div class="grid grid-cols-3 gap-2">
-            <select id="quiz-dia" class="bg-slate-900 border border-slate-700 rounded-xl p-2 text-xs text-white"></select>
-            <select id="quiz-mes" class="bg-slate-900 border border-slate-700 rounded-xl p-2 text-xs text-white"></select>
-            <select id="quiz-ano" class="bg-slate-900 border border-slate-700 rounded-xl p-2 text-xs text-white"></select>
+            <select id="quiz-dia" class="bg-slate-900 border border-slate-700 rounded-2xl p-2.5 text-xs text-white"></select>
+            <select id="quiz-mes" class="bg-slate-900 border border-slate-700 rounded-2xl p-2.5 text-xs text-white"></select>
+            <select id="quiz-ano" class="bg-slate-900 border border-slate-700 rounded-2xl p-2.5 text-xs text-white"></select>
           </div>
-          <button onclick="revealUserAngel()" class="w-full py-2.5 gold-btn rounded-xl text-xs font-bold shadow">
+          <button onclick="revealUserAngel()" class="w-full py-3 gold-btn rounded-full text-xs font-bold shadow-lg">
             Revelar Mi Ángel Protector
           </button>
-          <div id="quiz-result-box" class="hidden p-3 rounded-xl bg-slate-900/90 border border-sacred-gold/40 text-center space-y-1">
+          <div id="quiz-result-box" class="hidden p-4 rounded-2xl bg-slate-900/90 border border-sacred-gold/40 text-center space-y-2">
             <span id="quiz-angel-name" class="text-sm font-cinzel font-bold text-sacred-gold block"></span>
-            <p id="quiz-angel-desc" class="text-[11px] text-slate-200 leading-relaxed"></p>
+            <p id="quiz-angel-desc" class="text-xs text-slate-200 leading-relaxed"></p>
           </div>
         </div>
 
         <!-- GARANTIA DE 60 DIAS -->
-        <div class="glass-card p-5 text-center space-y-2 border-sacred-gold/40">
-          <div class="w-12 h-12 rounded-2xl bg-sacred-gold/15 text-sacred-gold flex items-center justify-center mx-auto shadow-inner">
+        <div class="glass-card p-6 text-center space-y-2 border-sacred-gold/40">
+          <div class="w-12 h-12 rounded-2xl bg-sacred-gold/15 text-sacred-gold flex items-center justify-center mx-auto shadow-inner border border-sacred-gold/30">
             <i data-lucide="award" class="w-6 h-6"></i>
           </div>
           <h4 class="font-serif font-bold text-base text-white">Garantía Incondicional de 60 Días</h4>
@@ -611,22 +769,22 @@
         </div>
 
         <!-- SOPORTE DIRECTO -->
-        <div class="glass-card p-5 space-y-3.5">
+        <div class="glass-card p-6 space-y-4">
           <h4 class="font-serif font-bold text-sm text-white text-center">Apoyo y Oración Personal</h4>
           <p class="text-xs text-slate-300 text-center">Estamos a tu disposición para ayudarte con cualquier duda:</p>
 
-          <div class="grid grid-cols-2 gap-2.5 pt-1">
-            <a href="mailto:gabriel.luz@noticiasdafe.com.br" class="flex items-center justify-center gap-2 p-3 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 rounded-2xl text-xs font-bold text-white transition shadow">
+          <div class="grid grid-cols-2 gap-3 pt-1">
+            <a href="mailto:gabriel.luz@noticiasdafe.com.br" class="flex items-center justify-center gap-2 p-3.5 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 rounded-full text-xs font-bold text-white transition shadow">
               <i data-lucide="mail" class="w-4 h-4 text-sacred-gold"></i>
               <span>E-mail</span>
             </a>
-            <a href="https://chat.whatsapp.com/JZRzUaIEfw75xzBFWPSroQ" target="_blank" class="flex items-center justify-center gap-2 p-3 bg-emerald-900/70 hover:bg-emerald-800 border border-emerald-600/60 rounded-2xl text-xs font-bold text-white transition shadow">
+            <a href="https://chat.whatsapp.com/JZRzUaIEfw75xzBFWPSroQ" target="_blank" class="flex items-center justify-center gap-2 p-3.5 bg-emerald-900/70 hover:bg-emerald-800 border border-emerald-600/60 rounded-full text-xs font-bold text-white transition shadow">
               <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
               <span>WhatsApp</span>
             </a>
           </div>
 
-          <button onclick="openInstallModal()" class="w-full py-2.5 bg-slate-950/80 hover:bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold rounded-2xl transition flex items-center justify-center gap-2">
+          <button onclick="openInstallModal()" class="w-full py-3 bg-slate-950/80 hover:bg-slate-900 border border-slate-800 text-slate-300 text-xs font-semibold rounded-full transition flex items-center justify-center gap-2">
             <i data-lucide="smartphone" class="w-4 h-4 text-sacred-gold"></i>
             <span>Cómo Instalar el App en tu Celular (PWA)</span>
           </button>
@@ -638,83 +796,107 @@
 
   </div>
 
-  <!-- ==================== MODAL DE LECTURA DE LIBROS ==================== -->
-  <div id="book-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="glass-modal w-full max-w-lg max-h-[92vh] rounded-t-[32px] sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden border-t border-sacred-gold/40">
-      <div class="p-4 px-5 border-b border-slate-800/80 flex items-center justify-between bg-[#081024]">
-        <h3 id="book-modal-title" class="text-sm font-serif font-bold text-white truncate max-w-[260px]">Título del Libro</h3>
-        <button onclick="closeBookModal()" class="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-      <div id="book-modal-body" class="flex-1 overflow-y-auto p-5 space-y-4 text-slate-200 text-xs leading-relaxed text-justify">
-        <!-- Injetado dinamicamente -->
-      </div>
-      <div class="p-4 bg-[#081024] border-t border-slate-800 flex justify-between items-center">
-        <span class="text-[11px] text-slate-400">Manual Sagrado Oficial</span>
-        <button onclick="closeBookModal()" class="px-5 py-2 gold-btn rounded-xl text-xs font-bold">Cerrar Lector</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== MODAL DE ORACIÓN GUIADA ==================== -->
-  <div id="prayer-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="glass-modal w-full max-w-md max-h-[92vh] rounded-t-[32px] sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden border-t border-sacred-gold/40">
-      <div class="p-4 px-5 border-b border-slate-800/80 flex items-center justify-between bg-[#081024]">
-        <div class="flex items-center gap-2">
+  <!-- ==================== MODAL DE ORACIÓN GUIADA COMPLETA (INTERATIVO) ==================== -->
+  <div id="prayer-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="glass-modal w-full max-w-lg max-h-[94vh] rounded-t-[36px] sm:rounded-[32px] flex flex-col shadow-2xl overflow-hidden border-t sm:border border-sacred-gold/40">
+      
+      <!-- Topo do Modal -->
+      <div class="p-4 px-6 border-b border-slate-800/80 flex items-center justify-between bg-[#081024]">
+        <div class="flex items-center gap-2.5">
           <span class="text-sacred-gold text-lg">✦</span>
-          <h3 id="prayer-modal-title" class="text-sm font-serif font-bold text-white truncate max-w-[220px]">Oración Guiada</h3>
+          <div>
+            <span id="prayer-modal-category" class="text-[9px] font-cinzel font-bold text-sacred-gold uppercase tracking-widest block"></span>
+            <h3 id="prayer-modal-title" class="text-sm font-serif font-bold text-white truncate max-w-[240px]">Oración Guiada</h3>
+          </div>
         </div>
         <button onclick="closePrayerModal()" class="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <div class="flex-1 overflow-y-auto p-5 space-y-4 text-slate-200 text-xs leading-relaxed">
-        <div class="p-3.5 rounded-2xl bg-sacred-gold/10 border border-sacred-gold/30 flex items-center justify-between">
-          <div class="flex items-center gap-2.5">
-            <i data-lucide="music" class="w-4 h-4 text-sacred-gold"></i>
-            <span class="text-xs font-semibold text-white">Música Sacra de Fondo</span>
-          </div>
-          <button onclick="toggleAudioFrequency(432)" class="px-3 py-1 rounded-xl gold-btn text-[10px]">Activar Audio</button>
+      <!-- Barra de Áudio de Fundo e Controle de Estrofes -->
+      <div class="px-6 py-2.5 bg-slate-950/60 border-b border-slate-800/60 flex items-center justify-between text-xs">
+        <div class="flex items-center gap-2">
+          <i data-lucide="headphones" class="w-3.5 h-3.5 text-sacred-gold"></i>
+          <span class="text-[11px] text-slate-300">Frecuencia 432Hz</span>
         </div>
-
-        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 text-center space-y-3">
-          <span id="prayer-modal-category" class="text-[10px] font-cinzel font-bold text-sacred-gold tracking-widest uppercase"></span>
-          <div id="prayer-modal-text" class="text-sm font-serif text-slate-100 leading-relaxed italic space-y-3"></div>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-amber-950/20 border border-amber-500/30 text-xs text-amber-200 text-center">
-          Declara con fe: <strong>“Amén, hecho está. La bendición de Dios desciende sobre mi casa.”</strong>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleAudioFrequency(432)" class="px-3 py-1 rounded-full gold-pill text-[10px] font-bold">Sonido de Fondo</button>
+          <span id="prayer-stanza-badge" class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 text-[10px]">Estrofa 1/5</span>
         </div>
       </div>
 
-      <div class="p-4 bg-[#081024] border-t border-slate-800">
-        <button onclick="completePrayer()" class="w-full py-3.5 gold-btn rounded-2xl text-xs flex items-center justify-center gap-2 shadow-lg">
+      <!-- Corpo da Oração em Estrofes / Modo Guiado -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-4 text-slate-200 text-xs leading-relaxed">
+        
+        <div class="p-6 rounded-[24px] bg-slate-900/90 border border-slate-800 text-center space-y-4">
+          <div id="prayer-modal-stanza-container" class="space-y-3 font-serif text-slate-100 text-sm leading-relaxed italic">
+            <!-- Injetado dinamicamente -->
+          </div>
+        </div>
+
+        <!-- Navegação de Estrofes -->
+        <div class="flex items-center justify-between pt-1">
+          <button onclick="prevPrayerStanza()" id="btn-prev-stanza" class="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition disabled:opacity-40">
+            ← Anterior
+          </button>
+          <button onclick="nextPrayerStanza()" id="btn-next-stanza" class="px-4 py-2 rounded-full gold-pill text-xs font-bold transition">
+            Siguiente →
+          </button>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-amber-950/20 border border-amber-500/30 text-xs text-amber-200 text-center">
+          Declara con fe inquebrantable: <strong>“Amén, hecho está. La bendición de Dios desciende sobre mi casa.”</strong>
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal com Botão de Sello -->
+      <div class="p-4 px-6 bg-[#081024] border-t border-slate-800">
+        <button onclick="completePrayer()" class="w-full py-3.5 gold-btn rounded-full text-xs flex items-center justify-center gap-2 shadow-xl">
           <i data-lucide="check-circle" class="w-4 h-4"></i>
-          <span>Completar y Sellar Oración</span>
+          <span>He Orado Esta Oración (Sellar con Amén)</span>
         </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== MODAL DE LECTURA DE LIBROS ==================== -->
+  <div id="book-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="glass-modal w-full max-w-lg max-h-[92vh] rounded-t-[36px] sm:rounded-[32px] flex flex-col shadow-2xl overflow-hidden border-t sm:border border-sacred-gold/40">
+      <div class="p-4 px-6 border-b border-slate-800/80 flex items-center justify-between bg-[#081024]">
+        <h3 id="book-modal-title" class="text-sm font-serif font-bold text-white truncate max-w-[260px]">Título del Libro</h3>
+        <button onclick="closeBookModal()" class="p-2 text-slate-400 hover:text-white rounded-full hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div id="book-modal-body" class="flex-1 overflow-y-auto p-6 space-y-4 text-slate-200 text-xs leading-relaxed text-justify">
+        <!-- Injetado dinamicamente -->
+      </div>
+      <div class="p-4 px-6 bg-[#081024] border-t border-slate-800 flex justify-between items-center">
+        <span class="text-[11px] text-slate-400">Manual Sagrado Oficial</span>
+        <button onclick="closeBookModal()" class="px-5 py-2 gold-btn rounded-full text-xs font-bold">Cerrar Lector</button>
       </div>
     </div>
   </div>
 
   <!-- ==================== MODAL DE INSTALAÇÃO PWA ==================== -->
-  <div id="install-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="glass-modal w-full max-w-md rounded-t-[32px] sm:rounded-3xl p-6 space-y-4 border-t border-sacred-gold/40">
+  <div id="install-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="glass-modal w-full max-w-md rounded-t-[36px] sm:rounded-[32px] p-6 space-y-4 border-t sm:border border-sacred-gold/40">
       <div class="flex items-center justify-between">
-        <h3 class="font-serif font-bold text-base text-white">Instalar App en tu Pantalla de Inicio</h3>
+        <h3 class="font-serif font-bold text-base text-white">Instalar App en tu Celular</h3>
         <button onclick="closeInstallModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
       </div>
 
       <div class="space-y-3 text-xs text-slate-200">
-        <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1.5">
+        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1.5">
           <span class="text-sacred-gold font-bold flex items-center gap-1.5"><i data-lucide="apple" class="w-4 h-4"></i> En iPhone / iPad (Safari):</span>
           <p>1. Toca el botón <strong>Compartir</strong> <span class="text-sacred-gold">⎋</span> en la barra inferior de Safari.</p>
           <p>2. Baja un poco y selecciona <strong>“Agregar a pantalla de inicio”</strong>.</p>
           <p>3. Pulsa <strong>“Agregar”</strong> arriba a la derecha. ¡Listo!</p>
         </div>
 
-        <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1.5">
+        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1.5">
           <span class="text-sacred-gold font-bold flex items-center gap-1.5"><i data-lucide="smartphone" class="w-4 h-4"></i> En Android (Chrome):</span>
           <p>1. Toca los <strong>tres puntos</strong> <span class="text-sacred-gold">⋮</span> arriba a la derecha en Chrome.</p>
           <p>2. Selecciona <strong>“Instalar aplicación”</strong> o <strong>“Agregar a pantalla principal”</strong>.</p>
@@ -722,51 +904,51 @@
         </div>
       </div>
 
-      <button onclick="closeInstallModal()" class="w-full py-3 gold-btn rounded-xl text-xs font-bold">Entendido</button>
+      <button onclick="closeInstallModal()" class="w-full py-3 gold-btn rounded-full text-xs font-bold">Entendido</button>
     </div>
   </div>
 
-  <!-- ==================== TOAST NOTIFICAÇÃO FLUTUANTE (AO VIVO) ==================== -->
-  <div id="live-toast" class="fixed bottom-24 left-4 right-4 max-w-md mx-auto pointer-events-none z-40 transform translate-y-16 opacity-0 transition-all duration-500">
-    <div class="glass-modal rounded-2xl p-3.5 flex items-center gap-3 border border-sacred-gold/40 shadow-2xl">
-      <div class="w-9 h-9 rounded-xl bg-sacred-gold/20 flex items-center justify-center text-sacred-gold flex-shrink-0">
+  <!-- ==================== TOAST NOTIFICAÇÃO FLUTUANTE ==================== -->
+  <div id="live-toast" class="fixed bottom-24 left-4 right-4 max-w-md mx-auto pointer-events-none z-50 transform translate-y-16 opacity-0 transition-all duration-500">
+    <div class="glass-modal rounded-full px-5 py-3.5 flex items-center gap-3 border border-sacred-gold/40 shadow-2xl">
+      <div class="w-8 h-8 rounded-full bg-sacred-gold/20 flex items-center justify-center text-sacred-gold flex-shrink-0">
         <i data-lucide="sparkles" class="w-4 h-4"></i>
       </div>
       <div class="flex-1 min-w-0">
-        <span id="toast-title" class="text-[10px] font-bold text-sacred-gold block uppercase truncate">Bênção en Vivo</span>
-        <p id="toast-body" class="text-xs text-white truncate">Elena R. de Sevilla acaba de encender su vela sagrada</p>
+        <span id="toast-title" class="text-[10px] font-bold text-sacred-gold block uppercase truncate font-cinzel">Bênção en Vivo</span>
+        <p id="toast-body" class="text-xs text-white truncate font-medium">Elena R. de Sevilla acaba de orar</p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== BOTTOM BAR (NAVEGAÇÃO FIXA) ==================== -->
-  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#070B19]/95 backdrop-blur-2xl border-t border-sacred-border/40 py-2">
-    <div class="max-w-md mx-auto flex items-center justify-around px-2">
+  <!-- ==================== DOCK FLUTUANTE ULTRA-MODERNO (BOTTOM BAR) ==================== -->
+  <nav class="fixed bottom-4 left-4 right-4 max-w-md mx-auto z-40 bg-[#081026]/90 backdrop-blur-2xl border border-sacred-gold/30 shadow-[0_20px_45px_rgba(0,0,0,0.7)] rounded-full px-2 py-1.5">
+    <div class="flex items-center justify-around">
       
-      <button onclick="switchTab('santuario')" id="nav-btn-santuario" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 text-sacred-gold transition">
-        <i data-lucide="home" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold tracking-wider font-cinzel">Santuario</span>
+      <button onclick="switchTab('santuario')" id="nav-btn-santuario" class="nav-item flex flex-col items-center gap-0.5 py-1 px-3 text-sacred-gold bg-sacred-gold/15 rounded-full transition-all duration-300">
+        <i data-lucide="home" class="w-4 h-4"></i>
+        <span class="text-[9px] font-bold font-cinzel tracking-wider">Santuario</span>
       </button>
 
-      <button onclick="switchTab('guion')" id="nav-btn-guion" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 text-slate-400 hover:text-sacred-gold transition">
-        <i data-lucide="book" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold tracking-wider font-cinzel">El Guion</span>
+      <button onclick="switchTab('guion')" id="nav-btn-guion" class="nav-item flex flex-col items-center gap-0.5 py-1 px-3 text-slate-400 hover:text-sacred-gold rounded-full transition-all duration-300">
+        <i data-lucide="book" class="w-4 h-4"></i>
+        <span class="text-[9px] font-bold font-cinzel tracking-wider">El Guion</span>
       </button>
 
-      <button onclick="switchTab('biblioteca')" id="nav-btn-biblioteca" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 text-slate-400 hover:text-sacred-gold transition">
-        <i data-lucide="library" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold tracking-wider font-cinzel">Biblioteca</span>
+      <button onclick="switchTab('biblioteca')" id="nav-btn-biblioteca" class="nav-item flex flex-col items-center gap-0.5 py-1 px-3 text-slate-400 hover:text-sacred-gold rounded-full transition-all duration-300">
+        <i data-lucide="library" class="w-4 h-4"></i>
+        <span class="text-[9px] font-bold font-cinzel tracking-wider">Biblioteca</span>
       </button>
 
-      <button onclick="switchTab('comunidade')" id="nav-btn-comunidade" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 text-slate-400 hover:text-sacred-gold transition relative">
-        <i data-lucide="users" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold tracking-wider font-cinzel">Comunidad</span>
-        <span class="absolute top-1 right-2 w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+      <button onclick="switchTab('comunidade')" id="nav-btn-comunidade" class="nav-item flex flex-col items-center gap-0.5 py-1 px-3 text-slate-400 hover:text-sacred-gold rounded-full transition-all duration-300 relative">
+        <i data-lucide="users" class="w-4 h-4"></i>
+        <span class="text-[9px] font-bold font-cinzel tracking-wider">Comunidad</span>
+        <span class="absolute top-1 right-2 w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
       </button>
 
-      <button onclick="switchTab('altar')" id="nav-btn-altar" class="nav-item flex flex-col items-center gap-1 py-1 px-2.5 text-slate-400 hover:text-sacred-gold transition">
-        <i data-lucide="star" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold tracking-wider font-cinzel">Mi Altar</span>
+      <button onclick="switchTab('altar')" id="nav-btn-altar" class="nav-item flex flex-col items-center gap-0.5 py-1 px-3 text-slate-400 hover:text-sacred-gold rounded-full transition-all duration-300">
+        <i data-lucide="star" class="w-4 h-4"></i>
+        <span class="text-[9px] font-bold font-cinzel tracking-wider">Mi Altar</span>
       </button>
 
     </div>
@@ -775,13 +957,13 @@
   <!-- ==================== JAVASCRIPT MASTER: LOGICA DO APP ==================== -->
   <script>
     // --- ESTADO GLOBAL & DADOS ---
-    let currentLang = localStorage.getItem('rd_lang') || 'es';
     let audioContext = null;
     let currentOscillator = null;
     let sleepTimerTimeout = null;
     let isPlayingAudio = false;
+    let currentPostCategory = 'peticion';
 
-    // As 12 Palavras Sagradas (Storyline do Leonardo + Padre Antonio)
+    // As 12 Palabras Sagradas
     const PALABRAS_12 = [
       { id: 1, hebraico: 'קָדוֹשׁ', fonetica: 'Kadosh', significado: 'Santo / Purificación', decreto: 'Mi mente y mi corazón son purificados hoy.' },
       { id: 2, hebraico: 'שָׁלוֹם', fonetica: 'Shalom', significado: 'Paz que Anula la Angustia', decreto: 'La paz indestructible de Dios reina en mi hogar.' },
@@ -797,102 +979,190 @@
       { id: 12, hebraico: 'הוֹשַׁע נָא', fonetica: 'Hosanna', significado: 'Sálvanos Ahora / Auxilio', decreto: 'El auxilio de Dios llega inmediatamente a mi vida.' }
     ];
 
-    // As 6 Grandes Orações Guiadas
+    // AS 8 GRANDES ORAÇÕES GUIADAS COMPLETAS (MULTI-ESTROFES)
     const PRAYERS_DATA = [
       {
         id: 'deudas',
         title: 'Cancelación Inmediata de Deudas y Apertura Financiera',
         category: 'Provisión & Finanzas',
         icon: 'dollar-sign',
-        text: `“Señor Todopoderoso, Dios de Abraham, de Isaac y de Jacob; Dios que pronuncias <strong>Jireh</strong> y multiplicas el pan donde solo había escasez:
-        Hoy presento ante tu altar cada una de las deudas que han quitado el sueño a mi familia. Cancelo en el plano espiritual todo peso de escasez y declaro que las puertas del trabajo, de las ventas y del dinero bendecido se abren de par en par. 
-        Con la fuerza de <strong>Tsidkenu</strong>, reclamo mi justicia económica y la paz para sustentar mi casa con honor y abundancia. Amén, hecho está.”`
-      },
-      {
-        id: 'ventas',
-        title: 'Atracción de Clientes, Ventas y Empleo Fructífero',
-        category: 'Negocios & Trabajo',
-        icon: 'trending-up',
-        text: `“Espíritu Creador, tú que diriges los caminos de las aguas y conoces el corazón humano:
-        Bendice hoy las obras de mis manos. Atrae a mi negocio clientes honestos, contratos provechosos y oportunidades multiplicadas.
-        Que la palabra <strong>Rohi</strong> sea mi guía en cada negociación y que el favor de Dios preceda mis pasos. Declaro prosperidad limpia y multiplicación continua sobre mi labor. Amén, hecho está.”`
+        time: '4 min',
+        stanzas: [
+          '“Señor Todopoderoso, Dios de Abraham, de Isaac y de Jacob; Dios que pronuncias el Verbo creador y multiplicas el pan donde antes solo había escasez y aflicción: hoy me presento ante tu altar santo reconociendo que de ti proviene toda la plata, todo el oro y toda riqueza limpia.”',
+          '“Activo en este momento en mi espíritu la palabra <strong>JIREH</strong> (El Proveedor Divino). Desato la bendición sobre mi economía y renuncio a todo espíritu de ruina, escasez o deudas heredadas de mis antepasados. Mi nombre y mi hogar quedan sellados bajo el orden de la abundancia.”',
+          '“Clamo con la autoridad de <strong>TSIDKENU</strong> (Justicia Divina) para que todo pago pendiente, todo salario retenido, todo contrato trabado y toda deuda que ha quitado el sueño a mi familia sea cancelada y saldada de forma milagrosa. El cielo abre compuertas que ningún hombre sobre la tierra podrá cerrar.”',
+          '“Declaro conforme a <em>Filipenses 4:19</em>: ‘Mi Dios proveerá a todas vuestras necesidades conforme a sus riquezas en gloria’. Camino con la cabeza en alto, con solvencia, honra y multiplicación continua en mis manos.”',
+          '“Sello esta oración con la certeza absoluta de la fe: Amén, hecho está. La provisión de Dios desciende ahora mismo sobre mis cuentas, mi trabajo y mi alacena.”'
+        ]
       },
       {
         id: 'proteccion',
-        title: 'Blindaje Absoluto del Hogar y Corte de Envidia',
+        title: 'Blindaje Absoluto del Hogar y Escudo de San Miguel Arcángel',
         category: 'Protección Espiritual',
         icon: 'shield',
-        text: `“San Miguel Arcángel y legiones celestiales de <strong>Sabaoth</strong>:
-        Desciendan con la Espada de Fuego Azul sobre las cuatro esquinas de mi hogar. Corten de raíz todo dardo de envidia, mal de ojo o resentimiento ajeno que intente tocar mi paz o mi provisión.
-        Sello los dinteles de mi puerta con la palabra <strong>Mekaddishkem</strong>. Solo entra luz, riqueza y salud; toda pesadez retrocede en el acto. Amén, hecho está.”`
+        time: '5 min',
+        stanzas: [
+          '“Príncipe de la Milicia Celestial, San Miguel Arcángel, y legiones de ángeles bajo las órdenes del Dios de <strong>SABAOTH</strong> (Señor de los Ejércitos): desciendan en este instante sobre las cuatro esquinas de mi hogar.”',
+          '“Empuñen la espada de fuego celestial y corten de raíz toda flecha de envidia, todo mal de ojo, todo resentimiento, brujería, habladuría o pesadez espiritual que haya intentado perturbar la paz de mi techo y la mente de mis seres amados.”',
+          '“Sello los dinteles de mis puertas y las ventanas de mi casa con la santa palabra <strong>MEKADDISHKEM</strong> (El Señor que Santifica y Protege). Establezco un cerco de lumbre divina que ciega a los enemigos y ahuyenta a toda entidad de oscuridad.”',
+          '“Proclamo la victoria inquebrantable del <em>Salmo 91:10-11</em>: ‘No te sobrevendrá mal, ni plaga tocará tu morada. Pues a sus ángeles mandará acerca de ti, que te guarden en todos tus caminos’.”',
+          '“Declaro mi hogar territorio inviolable del Altísimo: entra la salud, la armonía, la sonrisa y la riqueza; toda sombra retrocede para siempre. Amén, hecho está.”'
+        ]
       },
       {
         id: 'salud',
-        title: 'Sanación Física, Vitalidad y Alivio del Dolor',
+        title: 'Sanación Completa del Cuerpo, la Mente y el Alma',
         category: 'Salud & Sanación',
         icon: 'heart-pulse',
-        text: `“Padre compasivo, fuente de toda vida y salud:
-        Pongo mi cuerpo bajo la frecuencia sagrada de <strong>Rapha</strong>. Expulsa de mí toda raíz de enfermedad, dolor crónico, pesadez o fatiga que intente debilitar mis fuerzas.
-        Que tu bálsamo celeste penetre mis células, mis órganos y mi sangre, devolviéndome la vitalidad perfecta y la fortaleza para cumplir mi propósito en esta tierra. Amén, hecho está.”`
+        time: '4 min',
+        stanzas: [
+          '“Padre Celestial, Fuente inagotable de vida, aliento y regeneración: pongo mi cuerpo físico y las emociones de mi corazón ante tu presencia consoladora.”',
+          '“Invoco sobre mi ser la vibración santa de <strong>RAPHA</strong> (El Médico Celestial). Ordeno a cada célula, a cada tejido, a cada órgano vital, a mi torrente sanguíneo y a mis articulaciones que se alineen ahora mismo con la salud perfecta original con la que fui creado(a).”',
+          '“Con la pureza de <strong>KADOSH</strong>, limpio mi mente de recuerdos de dolor, temores a diagnósticos y angustias acumuladas. Todo dolor crónico, inflamación, pesadez o fatiga es expulsado de mi templo corporal en este instante.”',
+          '“Me apropio de la promesa de <em>Isaías 53:5</em>: ‘Por sus llagas fuimos nosotros curados’. Recibo juventud renovada, energía vital, defensas fortalecidas y vigor para cumplir mi propósito en la tierra.”',
+          '“Doy gracias a Dios porque la salud perfecta florece en mí desde la coronilla hasta la planta de mis pies. Amén, hecho está.”'
+        ]
       },
       {
-        id: 'paz',
-        title: 'Paz Mental, Fin de la Ansiedad y Sueño Profundo',
-        category: 'Paz & Bienestar',
+        id: 'alba',
+        title: 'Oración del Alba: Consagración del Día y Apertura de Caminos',
+        category: 'Amanecer & Camino',
+        icon: 'sun',
+        time: '3 min',
+        stanzas: [
+          '“Señor de la Luz, Creador del nuevo amanecer: te doy gracias por este regalo inmenso de abrir los ojos y respirar un día más de vida bajo tu gracia infinita.”',
+          '“Pronuncio sobre mis pasos la palabra <strong>ROHI</strong> (El Señor es mi Pastor). Pido dirección divina para cada decisión, sabiduría para cada conversación y discernimiento para apartarme de personas que resten mi paz.”',
+          '“Levanto la bandera de <strong>NISSI</strong> (El Señor es mi Victoria) sobre mis proyectos, mis ventas y mis tareas de hoy. Todo obstáculo que el enemigo puso en mi camino se convierte en puente de bendición y triunfo.”',
+          '“Declaro las palabras del <em>Salmo 23</em>: ‘El Señor es mi pastor, nada me faltará. Ciertamente el bien y la misericordia me seguirán todos los días de mi vida’.”',
+          '“Salgo a conquistar este día con gozo, honradez y la certeza de que los ángeles van abriendo camino delante de mí. Amén, hecho está.”'
+        ]
+      },
+      {
+        id: 'noche',
+        title: 'Gran Oración de la Noche: Paz Profunda y Sueño Reparador',
+        category: 'Paz & Descanso',
         icon: 'moon',
-        text: `“Dios de toda consolación, tú que apacientas las aguas embravecidas:
-        Entrego a tu presencia cada pensamiento de temor, angustia o incertidumbre sobre el futuro. Pronuncio la santa vibración de <strong>Shalom</strong> en el centro de mi pecho.
-        Apaga el ruido de mi mente, aquieta mis latidos y concédeme un descanso santo y reparador esta noche. Mañana será un día de victoria. Amén, hecho está.”`
+        time: '4 min',
+        stanzas: [
+          '“Dios de toda consolación, guardián incansable que vela por mi alma sin dormitar: al caer las sombras de la noche, llego a tus brazos a entregar todo el cansancio de esta jornada.”',
+          '“Vocalizo la bendita frecuencia de <strong>SHALOM</strong> en el centro de mi pecho. Apago el ruido de mi mente, entrego toda preocupación sobre el mañana y declaro que tú ya tienes preparado el milagro de mi nuevo día.”',
+          '“Declaro la presencia de <strong>SHAMMAH</strong> (El Señor está aquí) llenando mi habitación y las camas de mis hijos. Ninguna pesadilla, ningún sobresalto nocturno y ningún insomnio tienen poder sobre mi descanso.”',
+          '“Hago mío el decreto del <em>Salmo 4:8</em>: ‘En paz me acostaré, y asimismo dormiré; porque solo tú, Señor, me haces vivir confiado’.”',
+          '“Desciendo en un sueño profundo, dulce y sanador en las alas de los ángeles. Mañana despertaré con nuevas fuerzas y bendición multiplicada. Amén, hecho está.”'
+        ]
       },
       {
-        id: 'hijos',
-        title: 'Bendición y Cobertura Sagrada para los Hijos',
-        category: 'Familia & Generaciones',
-        icon: 'users',
-        text: `“Señor de amor eterno, que guardas pacto con mil generaciones:
-        Cubre a mis hijos bajo tus alas sagradas. Guárdalos de malas compañías, de peligros ocultos y de tropiezos en sus caminos.
-        Que la palabra <strong>Elyon</strong> guíe sus corazones y que crezcan en sabiduría, salud y prosperidad. Declaro paz y reconciliación total en mi matrimonio y en mi hogar. Amén, hecho está.”`
+        id: 'familia',
+        title: 'Restauración Familiar, Unión Conyugal y Cobertura de Hijos',
+        category: 'Familia & Matrimonio',
+        icon: 'heart',
+        time: '4 min',
+        stanzas: [
+          '“Padre Amoroso, arquitecto del hogar y fundador de la familia: hoy pongo a mis seres más queridos bajo la sombra protectora de tus alas.”',
+          '“Clamo con la palabra <strong>HOSANNA</strong> (Sálvanos Ahora) para que todo muro de orgullo, frialdad, aspereza o falta de perdón entre nosotros sea derribado por tu Espíritu de Gracia.”',
+          '“Riego con la paz de <strong>SHALOM</strong> el corazón de mi cónyuge y de mis hijos. Protejo sus mentes de malas compañías, de vicios, de rebelión y de caminos oscuros. Que la mesa familiar vuelva a ser lugar de risas y bendición.”',
+          '“Declaro el pacto de <em>Josué 24:15</em>: ‘Pero yo y mi casa serviremos al Señor’. La discordia huye y el amor incondicional florece en cada rincón de nuestro hogar.”',
+          '“Sello la unidad y la prosperidad de todas mis generaciones presentes y futuras. Amén, hecho está.”'
+        ]
+      },
+      {
+        id: 'ventas',
+        title: 'Atracción de Clientes, Ventas Multiplicadas y Empleo Fructífero',
+        category: 'Trabajo & Clientes',
+        icon: 'trending-up',
+        time: '3 min',
+        stanzas: [
+          '“Dios de sabiduría, tú que das el poder y la gracia para generar riquezas honestas (Deuteronomio 8:18): bendice el sudor de mi frente y la obra de mis manos.”',
+          '“Activo las virtudes de <strong>JIREH</strong> y <strong>NISSI</strong> sobre mi empleo, negocio o emprendimiento. Atraigo clientes nobles, contratos solventes, ventas abundantes y puertas de ascenso donde antes había rechazo.”',
+          '“Que la palabra <strong>ROHI</strong> me guíe en cada propuesta, precio y negociación para que todo acuerdo sea de bendición mutua y multiplicación honrosa.”',
+          '“Declaro el <em>Salmo 90:17</em>: ‘Sea la luz del Señor nuestro Dios sobre nosotros, y la obra de nuestras manos confirma sobre nosotros; sí, la obra de nuestras manos confirma’.”',
+          '“La escasez laboral queda rota: soy canal de bendición y mi economía se expande sin freno. Amén, hecho está.”'
+        ]
+      },
+      {
+        id: 'liberacion',
+        title: 'Ruptura de Cadenas Ancestrales y Victoria Espiritual',
+        category: 'Liberación & Rompimiento',
+        icon: 'sparkles',
+        time: '4 min',
+        stanzas: [
+          '“Dios Altísimo, <strong>ELYON</strong>, soberano sobre todo principado y potestad: hoy me levanto con la autoridad de los hijos de Dios para romper toda atadura del pasado.”',
+          '“En el nombre que es sobre todo nombre, rompo y anulo todo patrón repetitivo de divorcio, ruina económica, depresión, enfermedad o adicciones que haya querido gobernar mi árbol genealógico.”',
+          '“Declaro con el poder de <strong>SABAOTH</strong> que las cadenas se quiebran ahora. El pasado ya no tiene derecho legal sobre mi destino ni sobre la vida de mis hijos.”',
+          '“Proclamo <em>Gálatas 5:1</em>: ‘Estad, pues, firmes en la libertad con que Cristo nos hizo libres, y no estéis otra vez sujetos al yugo de esclavitud’.”',
+          '“Camino en libertad santa, en victoria total y en herencia de bendición perpetua. Amén, hecho está.”'
+        ]
       }
     ];
 
-    // --- COMUNIDADE VIVA: POSTS INICIAIS DINÂMICOS ---
+    // ORÁCULO DE SABIDURÍA (MAPA DE RESPOSTAS)
+    const ORACLE_DATA = {
+      ansiedad: {
+        badge: 'SHALOM (Paz)',
+        psalm: 'Salmo 46:1-3',
+        decree: '“Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones. Renuncio a la prisa y al miedo: la calma indestructible de Dios gobierna mi mente hoy.”',
+        shortText: 'Dios aquieta tu respiración y disuelve la tormenta ahora mismo.'
+      },
+      finanzas: {
+        badge: 'JIREH (Provisión)',
+        psalm: 'Malaquías 3:10 & Fil. 4:19',
+        decree: '“El Señor abrirá su buen tesoro, el cielo, para enviar la lluvia a mi tierra en su tiempo y para bendecir toda obra de mis manos. No me faltará ningún bien.”',
+        shortText: 'Una puerta de dinero bendecido se abrirá donde parecía haber un muro.'
+      },
+      salud: {
+        badge: 'RAPHA (Sanación)',
+        psalm: 'Jeremías 30:17',
+        decree: '“Mas yo haré venir sanidad para ti, y sanaré tus heridas, dice el Señor. Recibo la corriente de vida divina que regenera mis órganos y calma todo dolor.”',
+        shortText: 'Tu cuerpo es templo de Dios; la vitalidad y la fuerza regresan a ti.'
+      },
+      familia: {
+        badge: 'SHAMMAH (Presencia)',
+        psalm: 'Salmo 128:3-4',
+        decree: '“Tu casa será llena de paz y tus hijos serán como renuevos de olivo alrededor de tu mesa. La reconciliación vence al rencor y la unidad es restaurada.”',
+        shortText: 'El amor de Dios derriba la frialdad y une a tu familia con lazos de oro.'
+      }
+    };
+
+    // POSTS INICIAIS DA COMUNIDADE (COM HISTÓRIAS REAIS E PROFUNDAS)
     function getInitialCommunityPosts() {
       const now = Date.now();
       return [
         {
           id: 1,
-          name: 'Carmen Navarro Gómez',
+          name: 'Carmen Morales',
           city: 'Madrid, España',
           avatar: 'images/perfil-1.jpg',
-          text: '¡Hermanos, Dios es fiel! Llevaba 6 meses sin poder dormir por una deuda de 3.400€ con el banco. Tras 5 días vocalizando el Guion Divino con la vela encendida, hoy me llamaron para proponerme una condonación del 70% y pago a plazos cómodo. ¡Hecho está!',
-          timestamp: now - (4 * 60 * 1000), // 4 min atrás
-          prayers: 34,
+          category: 'milagro',
+          text: 'Hermanos, tengo que dar testimonio de la fidelidad de Dios. Llevaba 9 meses con una deuda del banco que amenazaba el techo de mis hijos. Comencé a rezar la Oración de Cancelación de Deudas entonando JIREH y TSIDKENU cada mañana... Ayer me llamaron de la entidad para ofrecerme una condonación del 70% y un plan que puedo pagar con dignidad. ¡El cielo obra de verdad cuando uno deja de quejarse!',
+          timestamp: now - (14 * 60 * 1000), // ~14 min atrás
+          prayers: 89,
           userPrayed: false,
           replies: [
-            { name: 'Gabriel Luz', avatar: 'images/app-icon.jpg', isHost: true, text: '¡Gloria a Dios, hermana Carmen! La frecuencia de Tsidkenu opera cuando el corazón cree sin vacilar. Seguimos orando por tu casa.', timestamp: now - (2 * 60 * 1000) }
+            { name: 'Gabriel Luz', avatar: 'images/app-icon.jpg', isHost: true, text: '¡Gloria a Dios en las alturas, Carmen! Cuando sintonizamos el corazón con Jireh, el orden divino cancela los yugos.', timestamp: now - (8 * 60 * 1000) },
+            { name: 'Lucía Benítez', avatar: 'images/perfil-2.jpg', text: 'Amén querida Carmen, me das una esperanza inmensa para mi caso.', timestamp: now - (3 * 60 * 1000) }
           ]
         },
         {
           id: 2,
-          name: 'Marco Moretti',
-          city: 'Milano, Italia',
+          name: 'Beatriz Londoño',
+          city: 'Bogotá, Colombia',
           avatar: 'images/perfil-2.jpg',
-          text: 'Pido oración por la salud de mi hijo Matteo. Empezamos hoy el día 1 de las 12 palabras y ya siento una paz que hacía años no sentía en esta casa. Gracias a todos los que oren por él.',
-          timestamp: now - (19 * 60 * 1000), // 19 min atrás
-          prayers: 52,
+          category: 'peticion',
+          text: 'Pido oración por la salud de mi hijo mayor Andrés, que ha estado atravesando una prueba de salud en sus riñones. Estamos orando con la frecuencia de RAPHA y encendiendo la vela sagrada cada noche. Sé que los ángeles de Dios están en su habitación.',
+          timestamp: now - (38 * 60 * 1000), // ~38 min atrás
+          prayers: 154,
           userPrayed: false,
-          replies: [
-            { name: 'Elena Ramos', avatar: 'images/perfil-5.jpg', text: 'Me uno en oración por Matteo con la palabra Rapha. ¡Declaramos salud perfecta!', timestamp: now - (11 * 60 * 1000) }
-          ]
+          replies: []
         },
         {
           id: 3,
-          name: 'Sophie Laurent',
-          city: 'Lyon, Francia',
+          name: 'Carlos Mendoza',
+          city: 'Ciudad de México, México',
           avatar: 'images/perfil-3.jpg',
-          text: 'El Acelerador 10X en 528Hz es verdaderamente un milagro. Mi esposo consiguió un nuevo empleo directivo después de casi un año de desempleo. ¡No duden nunca del poder de Dios!',
-          timestamp: now - (48 * 60 * 1000), // 48 min atrás
-          prayers: 89,
+          category: 'gratitud',
+          text: 'El ambiente pesado y las discusiones sin sentido que teníamos en casa desaparecieron por completo tras hacer la consagración de los cuatro puntos con San Miguel Arcángel y la palabra MEKADDISHKEM. La paz que se respira hoy no la cambio por nada en este mundo.',
+          timestamp: now - (72 * 60 * 1000), // ~1h atrás
+          prayers: 62,
           userPrayed: false,
           replies: []
         },
@@ -901,9 +1171,10 @@
           name: 'Rui Gonçalves',
           city: 'Porto, Portugal',
           avatar: 'images/perfil-4.jpg',
-          text: 'Descubrí que mi arcángel es San Uriel al ingresar mi fecha de nacimiento (jueves). La oración de apertura financiera me trajo dos contratos nuevos para mi taller esta misma semana.',
-          timestamp: now - (115 * 60 * 1000), // ~2 horas atrás
-          prayers: 41,
+          category: 'milagro',
+          text: 'Descubrí que mi arcángel regente es San Uriel (jueves). La oración de apertura laboral me trajo dos contratos nuevos para mi taller esta misma semana después de meses de parón. Dios bendiga este guion sagrado.',
+          timestamp: now - (120 * 60 * 1000), // ~2h atrás
+          prayers: 47,
           userPrayed: false,
           replies: []
         },
@@ -912,9 +1183,10 @@
           name: 'Elena Ramos',
           city: 'Sevilla, España',
           avatar: 'images/perfil-5.jpg',
-          text: 'Hice el ritual de los cuatro puntos del hogar con San Miguel y la frialdad que había en mi matrimonio se disolvió. Mi esposo me abrazó llorando y me pidió perdón. Gracias Dios.',
-          timestamp: now - (260 * 60 * 1000), // ~4 horas atrás
-          prayers: 118,
+          category: 'peticion',
+          text: 'Pido la unión de oraciones de toda la comunidad por mi matrimonio. Sé que Dios puede ablandar los corazones más endurecidos. Confío en la palabra SHALOM.',
+          timestamp: now - (270 * 60 * 1000), // ~4.5h atrás
+          prayers: 128,
           userPrayed: false,
           replies: []
         },
@@ -923,16 +1195,17 @@
           name: 'Mateo Fischer',
           city: 'Zürich, Suiza',
           avatar: 'images/perfil-6.jpg',
-          text: 'La tranquilidad que se experimenta al escuchar las frecuencias antes de dormir no tiene precio. Dejé los medicamentos para el insomnio desde el segundo día.',
-          timestamp: now - (540 * 60 * 1000), // ~9 horas atrás
-          prayers: 67,
+          category: 'gratitud',
+          text: 'La tranquilidad que se experimenta al escuchar las frecuencias en 432Hz antes de dormir no tiene precio. Dejé las pastillas para el insomnio desde el segundo día de oración guiada.',
+          timestamp: now - (580 * 60 * 1000), // ~9.5h atrás
+          prayers: 76,
           userPrayed: false,
           replies: []
         }
       ];
     }
 
-    // --- CÁLCULO DE TEMPO DINÂMICO TIPO FÓRUM (NUNCA ESTÁTICO) ---
+    // CÁLCULO DE TEMPO DINÂMICO
     function formatTimeAgo(timestamp) {
       if (!timestamp) return 'hace unos momentos';
       const diff = Math.max(0, Date.now() - timestamp);
@@ -950,21 +1223,25 @@
       return `hace ${days} días`;
     }
 
-    // --- CARREGAMENTO INICIAL DO LOCALSTORAGE ---
+    // CARREGAR DADOS DO LOCALSTORAGE
     let communityPosts = [];
     try {
-      const stored = localStorage.getItem('rd_community_posts_v2');
+      const stored = localStorage.getItem('rd_community_posts_v3');
       if (stored) {
         communityPosts = JSON.parse(stored);
       } else {
         communityPosts = getInitialCommunityPosts();
-        localStorage.setItem('rd_community_posts_v2', JSON.stringify(communityPosts));
+        localStorage.setItem('rd_community_posts_v3', JSON.stringify(communityPosts));
       }
     } catch(e) {
       communityPosts = getInitialCommunityPosts();
     }
 
-    // --- INICIALIZAÇÃO DA INTERFACE ---
+    // ESTADO DA ORAÇÃO EM MODAL (ESTROFES)
+    let currentActivePrayer = null;
+    let currentStanzaIndex = 0;
+
+    // INICIALIZAÇÃO
     document.addEventListener('DOMContentLoaded', () => {
       loadUserProfile();
       render12Palabras();
@@ -985,9 +1262,74 @@
       setInterval(() => {
         triggerLiveCommunityEvent();
       }, 55000);
+
+      // Timer cíclico para o texto do respirador sagrado (4s -> 7s -> 8s)
+      initBreathingCycle();
     });
 
-    // --- RENDERIZAR PALAVRAS SAGRADAS ---
+    // CICLO DA RESPIRAÇÃO SAGRADA (4-7-8)
+    function initBreathingCycle() {
+      const guideText = document.getElementById('breath-guide-text');
+      const timerVal = document.getElementById('breath-timer-val');
+      if (!guideText || !timerVal) return;
+
+      function runCycle() {
+        // 0s: Inhala (4s)
+        guideText.textContent = 'Inhala Paz';
+        timerVal.textContent = '4 Segundos (Nariz)';
+        playChimeNote(396);
+
+        // 4s: Retén (7s)
+        setTimeout(() => {
+          if (!guideText) return;
+          guideText.textContent = 'Retén la Gracia';
+          timerVal.textContent = '7 Segundos (Corazón)';
+          playChimeNote(528);
+        }, 4000);
+
+        // 11s: Exhala (8s)
+        setTimeout(() => {
+          if (!guideText) return;
+          guideText.textContent = 'Suelta la Angustia';
+          timerVal.textContent = '8 Segundos (Boca)';
+          playChimeNote(432);
+        }, 11000);
+      }
+
+      runCycle();
+      setInterval(runCycle, 19000); // Ciclo completo de 19 segundos
+    }
+
+    // ORÁCULO DE SABIDURÍA BÍBLICA
+    function revealDivineOracle(type) {
+      const data = ORACLE_DATA[type];
+      if (!data) return;
+
+      const card = document.getElementById('oracle-result-card');
+      const badge = document.getElementById('oracle-word-badge');
+      const title = document.getElementById('oracle-psalm-title');
+      const decree = document.getElementById('oracle-decree-text');
+
+      badge.textContent = data.badge;
+      title.textContent = `Promesa Bíblica: ${data.psalm}`;
+      decree.textContent = data.decree;
+
+      card.classList.remove('hidden');
+      confetti({ particleCount: 30, spread: 60, origin: { y: 0.6 } });
+      playChimeChord([432, 540, 648]);
+    }
+
+    function copyOracleDecree() {
+      const decree = document.getElementById('oracle-decree-text').textContent;
+      navigator.clipboard.writeText(decree).then(() => {
+        const label = document.getElementById('oracle-copy-label');
+        label.textContent = '¡Copiado al Portapapeles!';
+        setTimeout(() => { label.textContent = 'Copiar Decreto'; }, 3000);
+        showLiveToast('Decreto Guardado', 'Guarda estas palabras y repítelas durante el día.');
+      });
+    }
+
+    // RENDERIZAR PALAVRAS SAGRADAS
     function render12Palabras() {
       const grid = document.getElementById('grid-12-palabras');
       if (!grid) return;
@@ -995,22 +1337,22 @@
 
       const revealedState = JSON.parse(localStorage.getItem('rd_revealed_words') || '{}');
 
-      PALABRAS_12.forEach((p, idx) => {
+      PALABRAS_12.forEach((p) => {
         const isRevealed = !!revealedState[p.id];
         const card = document.createElement('div');
         card.id = `word-card-${p.id}`;
-        card.className = `word-card p-3 rounded-2xl cursor-pointer ${isRevealed ? 'revealed' : ''}`;
+        card.className = `word-card p-3.5 cursor-pointer ${isRevealed ? 'revealed' : ''}`;
         card.onclick = () => toggleRevealWord(p.id);
 
         card.innerHTML = `
-          <div class="flex items-center justify-between mb-1">
-            <span class="text-[10px] font-bold text-sacred-gold uppercase font-cinzel">#${p.id}</span>
-            <span class="text-[10px] text-slate-400 font-serif">${p.hebraico}</span>
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[10px] font-bold text-sacred-gold uppercase font-cinzel tracking-wider">#${p.id}</span>
+            <span class="text-xs text-amber-200/80 font-serif">${p.hebraico}</span>
           </div>
-          <div class="text-sm font-bold text-white font-cinzel ${isRevealed ? 'text-amber-200' : 'filter blur-[1.5px]'} transition-all duration-300">
+          <div class="text-sm font-bold text-white font-cinzel ${isRevealed ? 'text-amber-200' : 'filter blur-[2px]'} transition-all duration-300">
             ${p.fonetica}
           </div>
-          <div class="text-[10px] text-slate-300 truncate mt-0.5 ${isRevealed ? '' : 'hidden'}">
+          <div class="text-[10px] text-slate-300 truncate mt-1 ${isRevealed ? '' : 'hidden'}">
             ${p.significado}
           </div>
         `;
@@ -1023,13 +1365,12 @@
       revealedState[id] = true;
       localStorage.setItem('rd_revealed_words', JSON.stringify(revealedState));
 
-      // Efeito sonoro suave
-      playChimeNote(300 + id * 35);
+      playChimeNote(280 + id * 35);
       render12Palabras();
       lucide.createIcons();
     }
 
-    // --- RENDERIZAR ORAÇÕES GUIADAS ---
+    // RENDERIZAR LISTA DE ORAÇÕES
     function renderPrayers() {
       const list = document.getElementById('prayers-list');
       if (!list) return;
@@ -1037,28 +1378,134 @@
 
       PRAYERS_DATA.forEach(p => {
         const item = document.createElement('div');
-        item.className = 'glass-card p-4 flex items-center justify-between gap-3 hover:border-sacred-gold/50 transition cursor-pointer';
+        item.className = 'glass-card p-5 flex items-center justify-between gap-3 hover:border-sacred-gold/60 transition cursor-pointer';
         item.onclick = () => openPrayerModal(p.id);
 
         item.innerHTML = `
-          <div class="flex items-center gap-3 min-w-0">
-            <div class="w-10 h-10 rounded-xl bg-sacred-gold/15 flex items-center justify-center text-sacred-gold flex-shrink-0">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-12 h-12 rounded-2xl bg-sacred-gold/15 flex items-center justify-center text-sacred-gold flex-shrink-0 border border-sacred-gold/30">
               <i data-lucide="${p.icon}" class="w-5 h-5"></i>
             </div>
             <div class="min-w-0">
-              <span class="text-[9px] font-bold text-sacred-gold uppercase tracking-wider block font-cinzel">${p.category}</span>
+              <div class="flex items-center gap-2">
+                <span class="text-[9px] font-bold text-sacred-gold uppercase tracking-wider font-cinzel">${p.category}</span>
+                <span class="text-[9px] text-slate-400 font-medium">⏱ ${p.time}</span>
+              </div>
               <h4 class="text-xs font-bold text-white truncate font-serif mt-0.5">${p.title}</h4>
+              <span class="text-[10px] text-slate-400 block mt-0.5">${p.stanzas.length} Estrofes Consagradas</span>
             </div>
           </div>
-          <button class="w-8 h-8 rounded-xl gold-btn flex items-center justify-center flex-shrink-0 shadow">
+          <button class="w-9 h-9 rounded-full gold-btn flex items-center justify-center flex-shrink-0 shadow-md">
             <i data-lucide="play" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
           </button>
         `;
         list.appendChild(item);
       });
+      lucide.createIcons();
     }
 
-    // --- RENDERIZAR COMUNIDADE COM RESPOSTAS E TEMPOS DINÂMICOS ---
+    // MODAL DE ORAÇÃO GUIADA EM ESTROFES
+    function openPrayerModal(prayerId) {
+      const p = PRAYERS_DATA.find(item => item.id === prayerId);
+      if (!p) return;
+
+      currentActivePrayer = p;
+      currentStanzaIndex = 0;
+
+      document.getElementById('prayer-modal-title').textContent = p.title;
+      document.getElementById('prayer-modal-category').textContent = p.category;
+
+      renderCurrentPrayerStanza();
+      document.getElementById('prayer-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function renderCurrentPrayerStanza() {
+      if (!currentActivePrayer) return;
+
+      const container = document.getElementById('prayer-modal-stanza-container');
+      const badge = document.getElementById('prayer-stanza-badge');
+      const btnPrev = document.getElementById('btn-prev-stanza');
+      const btnNext = document.getElementById('btn-next-stanza');
+
+      const total = currentActivePrayer.stanzas.length;
+      badge.textContent = `Estrofa ${currentStanzaIndex + 1} de ${total}`;
+
+      container.innerHTML = `
+        <div class="p-2 animate-fadeIn">
+          <p class="leading-relaxed">${currentActivePrayer.stanzas[currentStanzaIndex]}</p>
+        </div>
+      `;
+
+      btnPrev.disabled = currentStanzaIndex === 0;
+      if (currentStanzaIndex === total - 1) {
+        btnNext.textContent = 'Ver Todo el Texto';
+        btnNext.onclick = showFullPrayerText;
+      } else {
+        btnNext.textContent = 'Siguiente →';
+        btnNext.onclick = nextPrayerStanza;
+      }
+    }
+
+    function nextPrayerStanza() {
+      if (currentActivePrayer && currentStanzaIndex < currentActivePrayer.stanzas.length - 1) {
+        currentStanzaIndex++;
+        renderCurrentPrayerStanza();
+        playChimeNote(432 + currentStanzaIndex * 40);
+      }
+    }
+
+    function prevPrayerStanza() {
+      if (currentActivePrayer && currentStanzaIndex > 0) {
+        currentStanzaIndex--;
+        renderCurrentPrayerStanza();
+      }
+    }
+
+    function showFullPrayerText() {
+      if (!currentActivePrayer) return;
+      const container = document.getElementById('prayer-modal-stanza-container');
+      const badge = document.getElementById('prayer-stanza-badge');
+      badge.textContent = 'Texto Completo';
+
+      container.innerHTML = currentActivePrayer.stanzas.map(s => `<p class="leading-relaxed mb-3">${s}</p>`).join('');
+      document.getElementById('btn-next-stanza').textContent = 'Rezar en Estrofas';
+      document.getElementById('btn-next-stanza').onclick = () => {
+        currentStanzaIndex = 0;
+        renderCurrentPrayerStanza();
+      };
+    }
+
+    function closePrayerModal() {
+      document.getElementById('prayer-modal').classList.add('hidden');
+    }
+
+    function completePrayer() {
+      closePrayerModal();
+      confetti({ particleCount: 70, spread: 100, origin: { y: 0.6 } });
+      playChimeChord([528, 660, 792]);
+      showLiveToast('¡Oración Sellada!', 'Tu clamor ha subido ante el Trono de Dios. Hecho está.');
+
+      // Registrar oração no streak do usuário
+      let totalPrayers = parseInt(localStorage.getItem('rd_total_prayers_user') || '0', 10);
+      totalPrayers += 1;
+      localStorage.setItem('rd_total_prayers_user', totalPrayers.toString());
+    }
+
+    // CATEGORIAS DE POSTAGEM
+    function selectPostCategory(cat) {
+      currentPostCategory = cat;
+      ['peticion', 'milagro', 'gratitud'].forEach(c => {
+        const btn = document.getElementById(`cat-${c}`);
+        if (c === cat) {
+          btn.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40';
+        } else {
+          btn.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700';
+        }
+      });
+    }
+
+    // RENDERIZAR COMUNIDADE
     function renderCommunity() {
       const feed = document.getElementById('community-feed');
       if (!feed) return;
@@ -1066,23 +1513,33 @@
 
       communityPosts.forEach(post => {
         const postCard = document.createElement('div');
-        postCard.className = 'glass-card p-4 space-y-3 border-slate-800/80';
+        postCard.className = 'glass-card p-5 space-y-3.5 border-slate-800/80';
         postCard.id = `post-${post.id}`;
 
         const isUserPost = post.isUserPost;
         const timeAgoText = formatTimeAgo(post.timestamp);
 
+        let catBadge = '';
+        if (post.category === 'milagro') {
+          catBadge = '<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[9px] font-bold uppercase border border-emerald-500/40">Milagro Concedido</span>';
+        } else if (post.category === 'gratitud') {
+          catBadge = '<span class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[9px] font-bold uppercase border border-indigo-500/40">Gratitud</span>';
+        } else {
+          catBadge = '<span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[9px] font-bold uppercase border border-amber-500/40">Petición</span>';
+        }
+
         postCard.innerHTML = `
           <!-- Topo do Post -->
           <div class="flex items-start justify-between">
-            <div class="flex items-center gap-2.5">
-              <img src="${post.avatar || 'images/app-icon.jpg'}" alt="${post.name}" class="w-10 h-10 rounded-full object-cover border border-sacred-gold/40 shadow">
+            <div class="flex items-center gap-3">
+              <img src="${post.avatar || 'images/app-icon.jpg'}" alt="${post.name}" class="w-11 h-11 rounded-full object-cover border border-sacred-gold/40 shadow-md">
               <div>
-                <div class="flex items-center gap-1.5">
+                <div class="flex items-center gap-2">
                   <span class="text-xs font-bold text-white font-serif">${post.name}</span>
                   ${isUserPost ? '<span class="px-1.5 py-0.2 rounded-full bg-sacred-gold/20 text-sacred-gold text-[9px] font-bold uppercase">Tú</span>' : ''}
+                  ${catBadge}
                 </div>
-                <span class="text-[10px] text-slate-400 block">${post.city} • <span class="post-time text-slate-400 font-medium" data-timestamp="${post.timestamp}">${timeAgoText}</span></span>
+                <span class="text-[10px] text-slate-400 block mt-0.5">${post.city} • <span class="post-time text-slate-400 font-medium" data-timestamp="${post.timestamp}">${timeAgoText}</span></span>
               </div>
             </div>
             <span class="text-xs text-amber-400">✨</span>
@@ -1091,40 +1548,40 @@
           <!-- Mensagem -->
           <p class="text-xs text-slate-200 leading-relaxed font-sans text-justify">${post.text}</p>
 
-          <!-- Ações: Me Uno en Oración & Responder -->
+          <!-- Ações -->
           <div class="pt-2 border-t border-slate-800/70 flex items-center justify-between text-xs">
             <button onclick="togglePrayForPost(${post.id})" class="flex items-center gap-1.5 ${post.userPrayed ? 'text-sacred-gold font-bold' : 'text-slate-400 hover:text-sacred-gold'} transition">
               <span class="text-sm">🙏</span>
               <span>Me uno en oración (<strong id="prayers-count-${post.id}">${post.prayers}</strong>)</span>
             </button>
-            <button onclick="toggleReplyBox(${post.id})" class="flex items-center gap-1 text-slate-400 hover:text-white transition">
+            <button onclick="toggleReplyBox(${post.id})" class="flex items-center gap-1.5 text-slate-400 hover:text-white transition">
               <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
               <span>Responder (${(post.replies || []).length})</span>
             </button>
           </div>
 
           <!-- Respostas Encadeadas -->
-          <div id="replies-container-${post.id}" class="space-y-2 pt-2 border-t border-slate-800/50 ${(post.replies && post.replies.length > 0) ? '' : 'hidden'}">
+          <div id="replies-container-${post.id}" class="space-y-2.5 pt-2 border-t border-slate-800/50 ${(post.replies && post.replies.length > 0) ? '' : 'hidden'}">
             <div id="replies-list-${post.id}" class="space-y-2">
               ${(post.replies || []).map(r => `
-                <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800/80 text-xs space-y-1">
+                <div class="p-3 rounded-2xl bg-slate-900/90 border border-slate-800/80 text-xs space-y-1">
                   <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-1.5">
+                    <div class="flex items-center gap-2">
                       <img src="${r.avatar || 'images/app-icon.jpg'}" class="w-5 h-5 rounded-full object-cover">
                       <span class="font-bold text-white text-[11px]">${r.name}</span>
                       ${r.isHost ? '<span class="text-[8px] bg-amber-500/20 text-amber-300 px-1 py-0.5 rounded font-bold">Autor</span>' : ''}
                     </div>
                     <span class="text-[9px] text-slate-400">${formatTimeAgo(r.timestamp)}</span>
                   </div>
-                  <p class="text-slate-300 text-[11px] leading-snug pl-6">${r.text}</p>
+                  <p class="text-slate-300 text-[11px] leading-snug pl-7">${r.text}</p>
                 </div>
               `).join('')}
             </div>
 
             <!-- Caixa de Envio de Resposta -->
-            <div class="pt-1 flex gap-1.5">
-              <input type="text" id="reply-input-${post.id}" placeholder="Escribe tu mensaje de aliento..." class="flex-1 bg-slate-950/90 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sacred-gold">
-              <button onclick="submitReply(${post.id})" class="px-3 py-1.5 gold-btn rounded-xl text-xs font-bold">Enviar</button>
+            <div class="pt-1 flex gap-2">
+              <input type="text" id="reply-input-${post.id}" placeholder="Escribe un mensaje de aliento o fe..." class="flex-1 bg-slate-950/90 border border-slate-700/80 rounded-full px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sacred-gold">
+              <button onclick="submitReply(${post.id})" class="px-4 py-2 gold-btn rounded-full text-xs font-bold shadow">Enviar</button>
             </div>
           </div>
         `;
@@ -1133,7 +1590,6 @@
       lucide.createIcons();
     }
 
-    // Atualizar apenas os textos de tempo de todos os posts na tela sem re-renderizar o DOM
     function updateAllPostTimestamps() {
       document.querySelectorAll('.post-time').forEach(el => {
         const ts = parseInt(el.getAttribute('data-timestamp'), 10);
@@ -1141,7 +1597,6 @@
       });
     }
 
-    // --- ME UNO EN ORACIÓN (INTERATIVO) ---
     function togglePrayForPost(postId) {
       const post = communityPosts.find(p => p.id === postId);
       if (!post) return;
@@ -1150,17 +1605,17 @@
         post.prayers += 1;
         post.userPrayed = true;
         playChimeNote(528);
+        showLiveToast('Unión en Oración', `Has enviado tu bendición a ${post.name}.`);
       } else {
         post.prayers -= 1;
         post.userPrayed = false;
       }
-      localStorage.setItem('rd_community_posts_v2', JSON.stringify(communityPosts));
+      localStorage.setItem('rd_community_posts_v3', JSON.stringify(communityPosts));
       const countEl = document.getElementById(`prayers-count-${postId}`);
       if (countEl) countEl.textContent = post.prayers;
       renderCommunity();
     }
 
-    // --- ENVIAR RESPOSTA PARA UM POST ---
     function toggleReplyBox(postId) {
       const container = document.getElementById(`replies-container-${postId}`);
       if (container) container.classList.toggle('hidden');
@@ -1182,14 +1637,13 @@
           text: input.value.trim(),
           timestamp: Date.now()
         });
-        localStorage.setItem('rd_community_posts_v2', JSON.stringify(communityPosts));
+        localStorage.setItem('rd_community_posts_v3', JSON.stringify(communityPosts));
         input.value = '';
         renderCommunity();
         playChimeNote(600);
       }
     }
 
-    // --- PUBLICAR NOVO POST DO USUÁRIO ---
     function publishUserPost() {
       const input = document.getElementById('user-post-input');
       if (!input || !input.value.trim()) {
@@ -1206,6 +1660,7 @@
         name: userName,
         city: userCity,
         avatar: userPhoto,
+        category: currentPostCategory,
         text: input.value.trim(),
         timestamp: Date.now(),
         prayers: 1,
@@ -1215,15 +1670,16 @@
       };
 
       communityPosts.unshift(newPost);
-      localStorage.setItem('rd_community_posts_v2', JSON.stringify(communityPosts));
+      localStorage.setItem('rd_community_posts_v3', JSON.stringify(communityPosts));
       input.value = '';
 
       renderCommunity();
-      confetti({ particleCount: 30, spread: 60, origin: { y: 0.6 } });
+      confetti({ particleCount: 40, spread: 70, origin: { y: 0.6 } });
       playChimeNote(528);
+      showLiveToast('Petición Publicada', 'Tu mensaje ya está en el muro de oración global.');
     }
 
-    // --- UPLOAD DA FOTO DO USUÁRIO ---
+    // UPLOAD DA FOTO DO USUÁRIO
     function triggerPhotoUpload() {
       document.getElementById('photo-upload-input').click();
     }
@@ -1235,7 +1691,6 @@
       const reader = new FileReader();
       reader.onload = function(e) {
         const rawData = e.target.result;
-        // Redimensionar para manter leve no localStorage
         const img = new Image();
         img.onload = function() {
           const canvas = document.createElement('canvas');
@@ -1284,7 +1739,7 @@
       if (cityInput) cityInput.value = city;
     }
 
-    // --- EVENTO AO VIVO SIMULADO (MAIS INTERAÇÃO DINÂMICA) ---
+    // EVENTOS AO VIVO SIMULADOS
     function triggerLiveCommunityEvent() {
       const events = [
         { title: 'Oración Comunitaria', body: 'Rosa M. de Valencia se unió a una petición en el foro' },
@@ -1311,7 +1766,7 @@
       }, 4200);
     }
 
-    // --- VELA SAGRADA (STREAK DIARIO) ---
+    // VELA SAGRADA & STREAK
     function updateCandleState() {
       const lastLit = localStorage.getItem('rd_candle_last_date');
       const streak = parseInt(localStorage.getItem('rd_candle_streak') || '0', 10);
@@ -1319,10 +1774,12 @@
 
       const flame = document.getElementById('candle-flame');
       const badge = document.getElementById('streak-badge');
+      const navBadge = document.getElementById('nav-streak-val');
       const streakTxt = document.getElementById('streak-text');
       const btnTxt = document.getElementById('btn-candle-text');
 
       if (badge) badge.textContent = `${streak}d`;
+      if (navBadge) navBadge.textContent = `${streak}d`;
 
       if (lastLit === today) {
         if (flame) flame.classList.remove('hidden');
@@ -1348,10 +1805,16 @@
 
       updateCandleState();
       playChimeChord([432, 540, 648]);
-      confetti({ particleCount: 40, spread: 60, origin: { y: 0.7 } });
+      confetti({ particleCount: 50, spread: 70, origin: { y: 0.7 } });
+      showLiveToast('Vela Consagrada', 'Tu hogar está iluminado bajo la provisión divina.');
     }
 
-    // --- ALTAR: CUADERNO DE MILAGROS Y PETICIONES ---
+    function rolarParaVela() {
+      const el = document.getElementById('bloco-vela-sagrada');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ALTAR: CUADERNO DE MILAGROS
     function loadAltarKnots() {
       const list = document.getElementById('knots-list');
       if (!list) return;
@@ -1364,7 +1827,7 @@
 
       if (knots.length === 0) {
         knots = [
-          { id: 1, title: 'Liberación de deudas y paz financiera', resolved: false },
+          { id: 1, title: 'Cancelación de deudas y paz financiera', resolved: false },
           { id: 2, title: 'Protección y unión sagrada en mi matrimonio', resolved: true }
         ];
         localStorage.setItem('rd_altar_knots', JSON.stringify(knots));
@@ -1376,14 +1839,14 @@
 
       knots.forEach(k => {
         const item = document.createElement('div');
-        item.className = `p-3.5 rounded-2xl flex items-center justify-between border transition ${k.resolved ? 'bg-emerald-950/30 border-emerald-500/40 text-emerald-100' : 'bg-slate-900/80 border-slate-800 text-slate-200'}`;
+        item.className = `p-4 rounded-2xl flex items-center justify-between border transition ${k.resolved ? 'bg-emerald-950/30 border-emerald-500/40 text-emerald-100' : 'bg-slate-900/80 border-slate-800 text-slate-200'}`;
 
         item.innerHTML = `
-          <div class="flex items-center gap-2.5 min-w-0">
-            <span class="text-sm">${k.resolved ? '✨' : '🕯️'}</span>
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="text-base">${k.resolved ? '✨' : '🕯️'}</span>
             <span class="text-xs truncate font-medium ${k.resolved ? 'line-through text-emerald-300' : ''}">${k.title}</span>
           </div>
-          <button onclick="toggleKnotResolved(${k.id})" class="text-[10px] font-bold px-2.5 py-1 rounded-xl transition ${k.resolved ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'gold-btn'}">
+          <button onclick="toggleKnotResolved(${k.id})" class="text-[10px] font-bold px-3 py-1.5 rounded-full transition shadow ${k.resolved ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'gold-btn'}">
             ${k.resolved ? 'Concedido ✓' : '¡Milagro!'}
           </button>
         `;
@@ -1401,6 +1864,7 @@
       input.value = '';
       loadAltarKnots();
       playChimeNote(432);
+      showLiveToast('Petición Entregada', 'Depositada en tu Altar personal.');
     }
 
     function toggleKnotResolved(id) {
@@ -1411,13 +1875,14 @@
         localStorage.setItem('rd_altar_knots', JSON.stringify(knots));
         loadAltarKnots();
         if (k.resolved) {
-          confetti({ particleCount: 50, spread: 80, origin: { y: 0.6 } });
+          confetti({ particleCount: 60, spread: 90, origin: { y: 0.6 } });
           playChimeChord([528, 660, 792]);
+          showLiveToast('¡Aleluya! Milagro Celebrado', `Victoria concedida en: ${k.title}`);
         }
       }
     }
 
-    // --- QUIZ DEL ÁNGEL DE LA GUARDA ---
+    // QUIZ DEL ÁNGEL DE LA GUARDA
     function populateQuizDates() {
       const dSel = document.getElementById('quiz-dia');
       const mSel = document.getElementById('quiz-mes');
@@ -1444,7 +1909,7 @@
         return;
       }
       const date = new Date(y, m, d);
-      const dayOfWeek = date.getDay(); // 0 = Domingo, 1 = Lunes, etc.
+      const dayOfWeek = date.getDay();
 
       const angeloMap = [
         { name: 'San Miguel Arcángel (Domingo)', desc: 'Defensa absoluta, corte de envidias y victoria espiritual. Protector supremo de tu hogar.' },
@@ -1465,34 +1930,11 @@
       descEl.textContent = res.desc;
       box.classList.remove('hidden');
 
-      confetti({ particleCount: 35, spread: 70, origin: { y: 0.7 } });
+      confetti({ particleCount: 40, spread: 75, origin: { y: 0.7 } });
       playChimeChord([432, 540, 648]);
     }
 
-    // --- MODAL DE ORAÇÃO ---
-    function openPrayerModal(prayerId) {
-      const p = PRAYERS_DATA.find(item => item.id === prayerId);
-      if (!p) return;
-
-      document.getElementById('prayer-modal-title').textContent = p.title;
-      document.getElementById('prayer-modal-category').textContent = p.category;
-      document.getElementById('prayer-modal-text').innerHTML = p.text;
-
-      document.getElementById('prayer-modal').classList.remove('hidden');
-    }
-
-    function closePrayerModal() {
-      document.getElementById('prayer-modal').classList.add('hidden');
-    }
-
-    function completePrayer() {
-      closePrayerModal();
-      confetti({ particleCount: 60, spread: 90, origin: { y: 0.6 } });
-      playChimeChord([528, 660, 792]);
-      showLiveToast('¡Oración Sellada!', 'Tu clamor ha sido depositado ante el Trono Celestial.');
-    }
-
-    // --- MODAL DE LEITURA DE LIVROS ---
+    // MODAL DE LEITURA DE LIVROS
     function openBookModal(type) {
       const titleEl = document.getElementById('book-modal-title');
       const bodyEl = document.getElementById('book-modal-body');
@@ -1503,7 +1945,7 @@
           <h4 class="font-serif font-bold text-sacred-gold text-base">La Tesis de Teodosio I y las 12 Frecuencias</h4>
           <p>Durante más de dieciséis siglos, las familias más influyentes mantuvieron en secreto que la verdadera manifestación no depende de la fuerza física humana, sino de la frecuencia con la que el corazón se sintoniza con Dios.</p>
           <p>En el manuscrito original, los 12 nombres sagrados en hebreo actúan como llaves acústicas que disuelven los bloqueos del subconsciente. Al pronunciar Kadosh, Shalom, Elyon, Jireh, Rapha, Nissi, Rohi, Shammah, Tsidkenu, Mekaddishkem, Sabaoth y Hosanna, el alma ingresa al estado de gracia donde todo es provisto.</p>
-          <div class="p-3 rounded-xl bg-slate-900 border border-sacred-gold/40 text-center">
+          <div class="p-3 rounded-2xl bg-slate-900 border border-sacred-gold/40 text-center">
             <span class="text-sacred-gold font-bold text-xs">Descarga la versión completa en PDF para conservar todos los capítulos y gráficos en tu dispositivo.</span>
           </div>
         `;
@@ -1561,7 +2003,7 @@
       document.getElementById('install-modal').classList.add('hidden');
     }
 
-    // --- NAVEGAÇÃO DE TABS ---
+    // NAVEGAÇÃO DE TABS (COM HIGHLIGHT CAPSULAR)
     function switchTab(tabId) {
       const tabs = ['santuario', 'guion', 'biblioteca', 'comunidade', 'altar'];
       tabs.forEach(t => {
@@ -1570,13 +2012,13 @@
         if (t === tabId) {
           if (el) el.classList.remove('hidden');
           if (btn) {
-            btn.classList.add('text-sacred-gold');
+            btn.classList.add('text-sacred-gold', 'bg-sacred-gold/15');
             btn.classList.remove('text-slate-400');
           }
         } else {
           if (el) el.classList.add('hidden');
           if (btn) {
-            btn.classList.remove('text-sacred-gold');
+            btn.classList.remove('text-sacred-gold', 'bg-sacred-gold/15');
             btn.classList.add('text-slate-400');
           }
         }
@@ -1584,7 +2026,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // --- SÍNTESE ACÚSTICA REAL (WEB AUDIO API) ---
+    // SÍNTESE ACÚSTICA (WEB AUDIO API)
     function initAudioContext() {
       if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -1677,10 +2119,10 @@
 
     function updateAudioButtonState(isPlaying) {
       const icon = document.getElementById('audio-icon');
-      if (icon) {
-        icon.setAttribute('data-lucide', isPlaying ? 'pause' : 'play');
-        lucide.createIcons();
-      }
+      const navIcon = document.getElementById('nav-audio-icon');
+      if (icon) icon.setAttribute('data-lucide', isPlaying ? 'pause' : 'play');
+      if (navIcon) navIcon.setAttribute('data-lucide', isPlaying ? 'volume-x' : 'headphones');
+      lucide.createIcons();
     }
 
     function setSleepTimer(minutes) {
@@ -1694,26 +2136,15 @@
       }, minutes * 60 * 1000);
     }
 
-    // --- SAUDAÇÃO DINÂMICA ---
+    // SAUDAÇÃO DINÂMICA
     function updateGreeting() {
       const hour = new Date().getHours();
       let text = 'Paz y bendición en este día';
-      if (hour >= 5 && hour < 12) text = 'Buenos días en el Señor';
-      else if (hour >= 12 && hour < 19) text = 'Buenas tardes con bendición';
-      else text = 'Buenas noches en paz divina';
+      if (hour >= 5 && hour < 12) text = 'Buenos días en la Gracia de Dios';
+      else if (hour >= 12 && hour < 19) text = 'Buenas tardes con Paz Celestial';
+      else text = 'Buenas noches en reposo divino';
       const el = document.getElementById('greeting-time');
       if (el) el.textContent = text;
-    }
-
-    // --- TOGGLE DE IDIOMA (ESPANHOL / PORTUGUÊS) ---
-    function toggleLanguage() {
-      currentLang = currentLang === 'es' ? 'pt' : 'es';
-      localStorage.setItem('rd_lang', currentLang);
-
-      document.getElementById('lang-flag').textContent = currentLang === 'es' ? '🇪🇸' : '🇧🇷';
-      document.getElementById('lang-code').textContent = currentLang.toUpperCase();
-
-      showLiveToast('Idioma Actualizado', currentLang === 'es' ? 'Aplicación en Español' : 'Aplicativo em Português');
     }
   </script>
 
