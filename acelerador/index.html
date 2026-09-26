@@ -123,6 +123,68 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
   .clean-foot a{color:#7a7466;}
 
   @media (max-width:600px){ .topo-vermelho{font-size:13.5px;} .esc-titulo{font-size:26px;} .esc-sub{font-size:15.5px;} .esc-txt{font-size:14.5px;} .esc-taxa b{font-size:26px;} }
+
+  /* ---- QUIZ INTERACTIVO UP1 (CADENCIA DE ANTIFRAUDE Y COMPROMISO) ---- */
+  .quiz-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 13px 16px;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  .quiz-btn:hover, .quiz-btn:active {
+    border-color: #057932;
+    background: #f0fdf4;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(5, 121, 50, 0.12);
+  }
+  .quiz-ic {
+    font-size: 24px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .quiz-txt {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1e293b;
+    flex: 1;
+  }
+  .quiz-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  .quiz-btn:hover .quiz-radio, .quiz-btn:active .quiz-radio {
+    border-color: #057932;
+    background: #057932;
+    box-shadow: inset 0 0 0 4px #ffffff;
+  }
+  .quiz-loader {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px 18px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeIn .3s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 </head>
 <body>
@@ -153,14 +215,131 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
       </div>
 
       <p class="esc-txt">Ignorar esto ahora sería como rechazar una bendición que Dios está poniendo en tu mano — y cuando esta puerta se cierre, <mark>no volverá a abrirse</mark>.</p>
-      <p class="esc-txt">Pulsa en <strong class="esc-verde">"SÍ, QUIERO MI BENDICIÓN"</strong> y recibe lo que el Cielo ha reservado solo para los elegidos.</p>
+      <p class="esc-txt">Responde a las siguientes <strong class="esc-verde">3 breves preguntas</strong> para recibir y activar la gracia que ha sido reservada a tu nombre.</p>
 
       <img class="esc-img" src="../img/acelerador-roteiro-divino.jpg" alt="Acelerador del Guion Divino" width="1000" height="667" decoding="async">
 
-      <!-- ONE-CLICK KASHPAY — NAO ALTERAR os atributos nem a URL /u/. O token ?ks= vem na URL desta pagina. -->
-      <button type="button" id="btn-upsell" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/18d1557eaa1b0bb0')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 15px 7%; cursor: pointer; text-align: center; display: block; margin: 18px auto 10px; width: 100%; max-width: 440px; box-shadow: 0 10px 24px rgba(5,121,50,.3); animation: pulse 1.8s ease-in-out infinite;">SÍ, QUIERO MI BENDICIÓN</button>
+      <p class="esc-nota" style="margin: 12px auto 18px; max-width: 440px;">⚠️ Solo 50 copias consagradas. Una de ellas está reservada a tu nombre. Responde abajo para vincular la tuya:</p>
 
-      <p class="esc-nota">Solo 50 copias consagradas. Una de ellas está reservada a tu nombre.</p>
+      <!-- QUIZ INTERACTIVO CON LOADERS (CADENCIA ANTIFRAUDE) -->
+      <div id="quiz-blindagem" style="max-width:460px;margin:0 auto 24px;">
+        
+        <!-- ETAPA 1 -->
+        <div id="quiz-etapa-1" class="quiz-step">
+          <div style="font-size:11.5px;font-weight:800;letter-spacing:1px;color:#0b6b2e;text-transform:uppercase;margin-bottom:6px;text-align:center;">Pregunta 1 de 3</div>
+          <h3 style="font-size:16px;font-weight:800;line-height:1.35;color:#111;text-align:center;margin-bottom:6px;">¿En qué área de tu vida necesitas que Dios abra puertas con mayor urgencia?</h3>
+          <p style="font-size:12px;font-weight:600;color:#0b6b2e;text-align:center;margin-bottom:14px;">👉 Toca la opción que mejor representa tu necesidad:</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <button type="button" class="quiz-btn" onclick="responderPergunta(1)">
+              <span class="quiz-ic">💸</span>
+              <span class="quiz-txt">En deudas y finanzas trabadas que me quitan la tranquilidad</span>
+              <span class="quiz-radio"></span>
+            </button>
+            <button type="button" class="quiz-btn" onclick="responderPergunta(1)">
+              <span class="quiz-ic">🏠</span>
+              <span class="quiz-txt">En la protección de mi hogar frente a envidias y conflictos</span>
+              <span class="quiz-radio"></span>
+            </button>
+            <button type="button" class="quiz-btn" onclick="responderPergunta(1)">
+              <span class="quiz-ic">🙏</span>
+              <span class="quiz-txt">En la salud física, emocional y paz de espíritu</span>
+              <span class="quiz-radio"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LOADER 1 -->
+        <div id="quiz-loader-1" class="quiz-loader" style="display:none;">
+          <div class="proc-anel" style="width:48px;height:48px;border-width:4px;margin:10px auto 14px;"></div>
+          <p style="font-size:14.5px;font-weight:800;color:#111;">Analizando la vibración espiritual de tu hogar…</p>
+          <p style="font-size:12.5px;color:#666;margin-top:4px;">Calculando la aceleración necesaria para tu caso</p>
+          <div style="background:#e5e7eb;border-radius:999px;height:6px;width:100%;max-width:240px;margin:14px auto 0;overflow:hidden;">
+            <div style="background:#057932;height:100%;width:33%;transition:width .4s;"></div>
+          </div>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <div id="quiz-etapa-2" class="quiz-step" style="display:none;">
+          <div style="font-size:11.5px;font-weight:800;letter-spacing:1px;color:#0b6b2e;text-transform:uppercase;margin-bottom:6px;text-align:center;">Pregunta 2 de 3</div>
+          <h3 style="font-size:16px;font-weight:800;line-height:1.35;color:#111;text-align:center;margin-bottom:6px;">Al consagrar este protocolo de 7 días, ¿a quién deseas cubrir prioritariamente bajo el manto de Dios?</h3>
+          <p style="font-size:12px;font-weight:600;color:#0b6b2e;text-align:center;margin-bottom:14px;">👉 Toca la opción que deseas bendecir:</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <button type="button" class="quiz-btn" onclick="responderPergunta(2)">
+              <span class="quiz-ic">👨‍👩‍👧‍👦</span>
+              <span class="quiz-txt">Mis hijos y nietos (para que ningún mal los alcance jamás)</span>
+              <span class="quiz-radio"></span>
+            </button>
+            <button type="button" class="quiz-btn" onclick="responderPergunta(2)">
+              <span class="quiz-ic">💍</span>
+              <span class="quiz-txt">Mi matrimonio y la unión pacífica de mi hogar</span>
+              <span class="quiz-radio"></span>
+            </button>
+            <button type="button" class="quiz-btn" onclick="responderPergunta(2)">
+              <span class="quiz-ic">🛡️</span>
+              <span class="quiz-txt">A mí misma y la protección de mi economía y bienestar</span>
+              <span class="quiz-radio"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LOADER 2 -->
+        <div id="quiz-loader-2" class="quiz-loader" style="display:none;">
+          <div class="proc-anel" style="width:48px;height:48px;border-width:4px;margin:10px auto 14px;"></div>
+          <p style="font-size:14.5px;font-weight:800;color:#111;">Inscribiendo los nombres de tu familia…</p>
+          <p style="font-size:12.5px;color:#666;margin-top:4px;">Vinculando tu intención al protocolo de 7 días</p>
+          <div style="background:#e5e7eb;border-radius:999px;height:6px;width:100%;max-width:240px;margin:14px auto 0;overflow:hidden;">
+            <div style="background:#057932;height:100%;width:66%;transition:width .4s;"></div>
+          </div>
+        </div>
+
+        <!-- ETAPA 3 -->
+        <div id="quiz-etapa-3" class="quiz-step" style="display:none;">
+          <div style="font-size:11.5px;font-weight:800;letter-spacing:1px;color:#0b6b2e;text-transform:uppercase;margin-bottom:6px;text-align:center;">Pregunta 3 de 3</div>
+          <h3 style="font-size:16px;font-weight:800;line-height:1.35;color:#111;text-align:center;margin-bottom:6px;">Las oraciones del Acelerador requieren solo 3 minutos al día. ¿Te comprometes a realizar la lectura sagrada?</h3>
+          <p style="font-size:12px;font-weight:600;color:#0b6b2e;text-align:center;margin-bottom:14px;">👉 Toca para confirmar tu compromiso:</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <button type="button" class="quiz-btn" onclick="responderPergunta(3)">
+              <span class="quiz-ic">🕯️</span>
+              <span class="quiz-txt">SÍ, me comprometo a dedicar 3 minutos diarios para acelerar mis bendiciones</span>
+              <span class="quiz-radio"></span>
+            </button>
+            <button type="button" class="quiz-btn" onclick="responderPergunta(3)">
+              <span class="quiz-ic">✨</span>
+              <span class="quiz-txt">SÍ, estoy lista para que las 12 Palabras actúen en mi vida en hasta 3 días</span>
+              <span class="quiz-radio"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- LOADER FINAL -->
+        <div id="quiz-loader-final" class="quiz-loader" style="display:none;">
+          <div class="proc-anel" style="width:48px;height:48px;border-width:4px;margin:10px auto 14px;"></div>
+          <p style="font-size:14.5px;font-weight:800;color:#111;">Reservando 1 de las 50 copias consagradas a tu nombre…</p>
+          <p style="font-size:12.5px;color:#666;margin-top:4px;">Cerrando la lista y generando tu bendición inmediata</p>
+          <div style="background:#e5e7eb;border-radius:999px;height:6px;width:100%;max-width:240px;margin:14px auto 0;overflow:hidden;">
+            <div id="quiz-bar-final" style="background:#057932;height:100%;width:90%;transition:width .6s;"></div>
+          </div>
+        </div>
+
+        <!-- RESULTADO FINAL CON EL BOTÓN ONE-CLICK KASHPAY ORIGINAL -->
+        <div id="quiz-resultado" style="display:none;animation:fadeIn .5s ease;">
+          <div style="background:#ffffff;border:2.5px solid #057932;border-radius:16px;padding:20px 16px 16px;box-shadow:0 10px 28px rgba(5,121,50,0.18);text-align:center;">
+            <div style="background:#e7f6ec;color:#0b6b2e;font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:999px;display:inline-block;margin-bottom:8px;">
+              ✓ COPIA RESERVADA CON ÉXITO
+            </div>
+            <h3 style="font-size:18px;font-weight:900;color:#111;margin-bottom:4px;text-transform:uppercase;">
+              Tu Acelerador de 7 Días Ha Sido Liberado
+            </h3>
+            <p style="font-size:13.5px;color:#444;font-weight:600;line-height:1.45;margin-bottom:14px;">
+              Una de las 50 copias consagradas fue vinculada a tu nombre. Pulsa el botón de abajo para añadirla a tu pedido con un solo clic:
+            </p>
+
+            <!-- ONE-CLICK KASHPAY — NAO ALTERAR os atributos nem a URL /u/. O token ?ks= vem na URL desta pagina. -->
+            <button type="button" id="btn-upsell" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/18d1557eaa1b0bb0')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 15px 7%; cursor: pointer; text-align: center; display: block; margin: 10px auto; width: 100%; max-width: 440px; box-shadow: 0 10px 24px rgba(5,121,50,.3); animation: pulse 1.8s ease-in-out infinite;">SÍ, QUIERO MI BENDICIÓN</button>
+          </div>
+        </div>
+
+      </div>
       <p class="esc-verso">“He aquí ahora el tiempo aceptable; he aquí ahora el día de salvación.”<span>2 CORINTIOS 6:2</span></p>
     </div>
   </section>
@@ -195,6 +374,40 @@ src="https://www.facebook.com/tr?id=1071568292283694&ev=PageView&noscript=1"></n
       try { if (window.confetti) confetti({ particleCount: 140, spread: 80, origin: { y: 0.35 }, colors: ['#D4AF37','#FDF3D6','#0f8a3c','#ffffff'] }); } catch(e){}
     }, 1000);
   })();
+
+  window.responderPergunta = function(etapa) {
+    if (etapa === 1) {
+      document.getElementById('quiz-etapa-1').style.display = 'none';
+      document.getElementById('quiz-loader-1').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('quiz-loader-1').style.display = 'none';
+        document.getElementById('quiz-etapa-2').style.display = 'block';
+      }, 3400);
+    } else if (etapa === 2) {
+      document.getElementById('quiz-etapa-2').style.display = 'none';
+      document.getElementById('quiz-loader-2').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('quiz-loader-2').style.display = 'none';
+        document.getElementById('quiz-etapa-3').style.display = 'block';
+      }, 3400);
+    } else if (etapa === 3) {
+      document.getElementById('quiz-etapa-3').style.display = 'none';
+      document.getElementById('quiz-loader-final').style.display = 'block';
+      setTimeout(function() {
+        var bar = document.getElementById('quiz-bar-final');
+        if (bar) bar.style.width = '100%';
+      }, 1800);
+      setTimeout(function() {
+        document.getElementById('quiz-loader-final').style.display = 'none';
+        document.getElementById('quiz-resultado').style.display = 'block';
+        try {
+          if (window.confetti) {
+            confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 }, colors: ['#057932', '#D4AF37', '#ffffff'] });
+          }
+        } catch(e){}
+      }, 3800);
+    }
+  };
   </script>
 
 </div>
