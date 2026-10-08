@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>O Manuscrito Sagrado — Portal do Fiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ================= RESET & ULTRA-LUXURY DESIGN SYSTEM ================= */
+  :root {
+    --bg-dark: #060503;
+    --bg-surface: #0e0b07;
+    --bg-card: rgba(20, 15, 9, 0.78);
+    --bg-card-hover: rgba(30, 23, 14, 0.88);
+    --gold-primary: #f3c34e;
+    --gold-light: #fce289;
+    --gold-dark: #b88316;
+    --gold-gradient: linear-gradient(135deg, #fce289 0%, #e5b02e 50%, #b88316 100%);
+    --gold-gradient-subtle: linear-gradient(145deg, rgba(243,195,78,0.14) 0%, rgba(184,131,22,0.05) 100%);
+    --gold-glow: rgba(243, 195, 78, 0.35);
+    --gold-glow-strong: rgba(243, 195, 78, 0.6);
+    --border-gold: rgba(212, 175, 55, 0.28);
+    --border-gold-bright: rgba(243, 195, 78, 0.75);
+    --text-main: #fbf7ee;
+    --text-muted: #b8ab8e;
+    --text-dim: #7a705a;
+    --radius-xl: 24px;
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --font-heading: 'Cinzel', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    min-height: 100vh;
+    background: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -2;
+    background: url('background.jpg') center top / cover no-repeat fixed;
+    filter: brightness(0.24) saturate(1.25);
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: -1;
+    background: radial-gradient(circle at 50% 12%, rgba(243,195,78,0.12) 0%, rgba(6,5,3,0.94) 75%);
+  }
+
+  /* ================= TOP HEADER ================= */
+  .app-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10, 8, 5, 0.92);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+  }
+  .header-brand { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  .header-logo {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1.5px solid var(--gold-primary);
+    box-shadow: 0 0 15px var(--gold-glow);
+    object-fit: cover; background: #000;
+  }
+  .header-title-box { display: flex; flex-direction: column; }
+  .header-title {
+    font-family: var(--font-heading); font-size: 16px; font-weight: 800;
+    color: var(--gold-primary); letter-spacing: 1.2px; line-height: 1.2;
+    text-shadow: 0 0 12px rgba(243,195,78,0.4);
+  }
+  .header-tagline { font-size: 10px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+
+  .header-right { display: flex; align-items: center; gap: 10px; }
+  .header-tier-badge {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+    padding: 5px 12px; border-radius: 20px; cursor: pointer;
+    background: var(--gold-gradient-subtle); border: 1px solid var(--border-gold-bright);
+    color: var(--gold-light); display: flex; align-items: center; gap: 6px;
+    transition: all 0.2s ease;
+  }
+  .header-tier-badge:hover { transform: scale(1.03); filter: brightness(1.15); }
+  .header-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1.5px solid var(--gold-primary);
+    overflow: hidden; cursor: pointer; background: var(--gold-gradient);
+    color: #110d05; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-family: var(--font-heading); font-size: 16px;
+    box-shadow: 0 0 12px var(--gold-glow);
+  }
+  .header-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ================= BOTTOM MOBILE / TOP DESKTOP NAV ================= */
+  .nav-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+    background: rgba(10, 8, 5, 0.95);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid var(--border-gold);
+    display: flex; justify-content: space-around;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    max-width: 650px; margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .nav-bar {
+      position: static; border-top: none; border-bottom: 1px solid var(--border-gold);
+      max-width: 100%; padding: 12px 24px; gap: 24px; justify-content: center;
+    }
+  }
+  .nav-btn {
+    background: none; border: none; color: var(--text-muted);
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s ease; padding: 6px 12px; border-radius: var(--radius-sm);
+  }
+  .nav-btn .icon { font-size: 20px; transition: transform 0.2s ease; }
+  .nav-btn.active { color: var(--gold-primary); background: rgba(243, 195, 78, 0.12); }
+  .nav-btn.active .icon { transform: translateY(-2px); filter: drop-shadow(0 0 10px var(--gold-glow)); }
+
+  /* ================= CONTAINER & TABS ================= */
+  .app-container {
+    max-width: 820px; margin: 0 auto;
+    padding: 22px 18px calc(90px + env(safe-area-inset-bottom));
+  }
+  .tab-view { display: none; animation: fadeIn 0.25s ease-out; }
+  .tab-view.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ================= HERO CARD ================= */
+  .hero-card {
+    background: linear-gradient(145deg, rgba(28, 21, 12, 0.88), rgba(14, 10, 6, 0.94));
+    border: 1.5px solid var(--border-gold-bright);
+    border-radius: var(--radius-xl);
+    padding: 26px 22px; margin-bottom: 24px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.65), inset 0 0 35px rgba(243,195,78,0.06);
+    position: relative; overflow: hidden;
+  }
+  .hero-card::before {
+    content: "✦"; position: absolute; right: -10px; bottom: -30px;
+    font-size: 150px; color: rgba(243,195,78,0.035); font-family: var(--font-heading);
+    pointer-events: none;
+  }
+  .hero-top-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .hero-fiel-tag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    padding: 4px 10px; border-radius: 20px; background: rgba(243,195,78,0.12);
+    border: 1px solid var(--border-gold); color: var(--gold-light);
+  }
+  .hero-title { font-family: var(--font-heading); font-size: 24px; color: var(--gold-primary); margin-bottom: 6px; }
+  .hero-sub { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .hero-stats {
+    display: grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap: 10px;
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-gold);
+    text-align: center;
+  }
+  .stat-val { font-size: 22px; font-weight: 800; color: var(--gold-light); font-family: var(--font-heading); }
+  .stat-label { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  /* ================= AUDIO PLAYER BAR ================= */
+  .audio-bar {
+    background: rgba(22, 17, 10, 0.85); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-md); padding: 14px 18px; margin: 20px 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+  }
+  .audio-info { display: flex; align-items: center; gap: 14px; }
+  .audio-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--gold-gradient); color: #110d06;
+    display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer;
+    box-shadow: 0 0 16px var(--gold-glow); transition: transform 0.1s ease; flex-shrink: 0;
+  }
+  .audio-icon:active { transform: scale(0.92); }
+  .audio-text h5 { font-size: 14px; color: var(--gold-light); font-weight: 700; margin-bottom: 2px; }
+  .audio-text p { font-size: 11.5px; color: var(--text-muted); }
+  .ambient-btn {
+    background: none; border: 1px solid var(--gold-primary); border-radius: 20px;
+    color: var(--gold-primary); font-size: 11.5px; padding: 7px 14px; font-weight: 700; cursor: pointer;
+    transition: all 0.2s ease; white-space: nowrap;
+  }
+  .ambient-btn.playing { background: var(--gold-gradient); color: #110d06; border-color: transparent; }
+
+  /* ================= JORNADA 21 DIAS ================= */
+  .day-selector {
+    display: flex; gap: 9px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 22px;
+    scrollbar-width: thin; scrollbar-color: var(--border-gold) transparent;
+  }
+  .day-pill {
+    flex-shrink: 0; width: 56px; height: 70px; border-radius: var(--radius-md);
+    background: rgba(18, 14, 8, 0.85); border: 1px solid var(--border-gold);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s ease;
+  }
+  .day-pill .num { font-size: 18px; font-weight: 800; color: var(--text-main); font-family: var(--font-heading); }
+  .day-pill .txt { font-size: 9.5px; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+  .day-pill.completed { border-color: #27ae60; background: rgba(39, 174, 96, 0.14); }
+  .day-pill.completed .num { color: #2ecc71; }
+  .day-pill.active {
+    background: var(--gold-gradient); border-color: var(--gold-primary); transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--gold-glow);
+  }
+  .day-pill.active .num, .day-pill.active .txt { color: #140f06; font-weight: 800; }
+
+  .ritual-card {
+    background: var(--bg-card); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-xl); padding: 26px 24px; margin-bottom: 22px;
+  }
+  .ritual-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+  .ritual-day-tag {
+    font-size: 12px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase; letter-spacing: 1px;
+    background: rgba(243,195,78,0.12); border: 1px solid var(--border-gold); padding: 4px 12px; border-radius: 20px;
+  }
+  .ritual-title { font-family: var(--font-heading); font-size: 23px; color: #fff; line-height: 1.35; margin: 12px 0 14px; }
+  .ritual-scripture {
+    background: rgba(10, 8, 5, 0.75); border-left: 3.5px solid var(--gold-primary);
+    padding: 14px 18px; border-radius: 0 10px 10px 0; margin-bottom: 20px;
+    font-style: italic; font-size: 14.5px; color: var(--gold-light); line-height: 1.6;
+  }
+  .ritual-scripture cite { display: block; text-align: right; font-style: normal; font-weight: 700; font-size: 12px; color: var(--gold-primary); margin-top: 6px; }
+  .ritual-body { font-size: 15px; line-height: 1.8; color: #ece4d2; margin-bottom: 22px; text-align: justify; }
+
+  .mission-box {
+    background: rgba(32, 24, 14, 0.75); border: 1.5px dashed var(--gold-primary);
+    border-radius: var(--radius-md); padding: 18px; margin: 22px 0;
+  }
+  .mission-title { font-size: 13px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .mission-desc { font-size: 14.5px; color: #fdfaf2; line-height: 1.6; }
+
+  .timer-box {
+    background: rgba(12, 9, 5, 0.92); border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md); padding: 18px; margin: 22px 0; text-align: center;
+  }
+  .timer-clock { font-family: var(--font-heading); font-size: 34px; color: var(--gold-primary); font-weight: 700; margin: 8px 0; letter-spacing: 2px; }
+  .timer-btn {
+    background: none; border: 1.5px solid var(--gold-primary); color: var(--gold-primary);
+    font-family: inherit; font-size: 13px; font-weight: 700; padding: 8px 22px; border-radius: 20px; cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .timer-btn:active { background: var(--gold-primary); color: #110d06; }
+
+  .journal-box { margin-top: 22px; }
+  .journal-label { font-size: 13.5px; font-weight: 600; color: var(--gold-light); margin-bottom: 8px; display: block; }
+  .journal-input {
+    width: 100%; min-height: 95px; background: rgba(14, 11, 7, 0.85);
+    border: 1px solid var(--border-gold); border-radius: var(--radius-sm);
+    color: #fff; font-family: inherit; font-size: 14px; padding: 12px; resize: vertical; outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .journal-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 12px rgba(243,195,78,0.25); }
+
+  .complete-day-btn {
+    width: 100%; background: var(--gold-gradient); color: #120d05;
+    border: none; border-radius: var(--radius-md); padding: 16px; font-family: var(--font-heading);
+    font-size: 15.5px; font-weight: 800; letter-spacing: 1px; cursor: pointer; margin-top: 16px;
+    box-shadow: 0 4px 20px var(--gold-glow); transition: all 0.15s ease;
+  }
+  .complete-day-btn:active { transform: translateY(2px); }
+
+  /* ================= 10 PORTAIS ================= */
+  .comm-header {
+    background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: var(--radius-xl);
+    padding: 22px; margin-bottom: 22px; text-align: center;
+  }
+  .comm-title { font-family: var(--font-heading); font-size: 24px; color: var(--gold-primary); margin-bottom: 6px; }
+  .comm-sub { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; max-width: 620px; margin: 0 auto; }
+
+  .portals-grid { display: grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap: 16px; }
+  @media (max-width: 550px) { .portals-grid { grid-template-columns: 1fr; } }
+  .portal-card {
+    background: var(--bg-card); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;
+    cursor: pointer; transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .portal-card:hover { border-color: var(--gold-primary); box-shadow: 0 8px 24px rgba(243,195,78,0.15); }
+  .portal-card:active { transform: scale(0.98); }
+  .portal-img-wrap { width: 100%; aspect-ratio: 16/10; overflow: hidden; position: relative; }
+  .portal-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .portal-card:hover .portal-img-wrap img { transform: scale(1.05); }
+  .portal-badge {
+    position: absolute; top: 10px; right: 10px; background: rgba(8,6,4,0.88);
+    border: 1px solid var(--gold-primary); border-radius: 12px; padding: 3px 9px; font-size: 10.5px; font-weight: 700; color: var(--gold-primary);
+  }
+  .portal-content { padding: 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .portal-title { font-family: var(--font-heading); font-size: 17px; color: var(--gold-light); margin-bottom: 4px; }
+  .portal-sub { font-size: 12px; color: var(--text-muted); line-height: 1.4; margin-bottom: 12px; }
+  .portal-btn {
+    width: 100%; background: none; border: 1px solid var(--border-gold); border-radius: var(--radius-sm);
+    color: var(--gold-primary); font-size: 12px; font-weight: 700; padding: 9px; cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .portal-card:hover .portal-btn { background: var(--gold-primary); color: #110d06; }
+
+  /* ================= COMUNIDADE (ALTAR VIVO) ================= */
+  .prayer-input-card {
+    background: rgba(22, 17, 10, 0.92); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .prayer-input-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .prayer-user-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid var(--gold-primary); overflow: hidden;
+    background: var(--gold-gradient); color: #110d05;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px;
+    flex-shrink: 0;
+  }
+  .prayer-user-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .prayer-textarea {
+    width: 100%; height: 80px; background: rgba(10, 8, 5, 0.85); border: 1px solid var(--border-gold);
+    border-radius: var(--radius-sm); color: #fff; padding: 12px; font-family: inherit; font-size: 13.5px;
+    outline: none; resize: none; margin-bottom: 12px;
+  }
+  .prayer-textarea:focus { border-color: var(--gold-primary); }
+  .prayer-actions { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .post-btn {
+    background: var(--gold-gradient); border: none; border-radius: 20px; color: #110d05;
+    font-family: inherit; font-size: 12.5px; font-weight: 800; padding: 9px 20px; cursor: pointer;
+    box-shadow: 0 2px 12px var(--gold-glow); transition: transform 0.1s ease;
+  }
+  .post-btn:active { transform: scale(0.96); }
+
+  .feed-list { display: flex; flex-direction: column; gap: 16px; }
+  .feed-card {
+    background: var(--bg-card); border: 1px solid var(--border-gold);
+    border-radius: var(--radius-lg); padding: 18px 20px; transition: border-color 0.2s ease, transform 0.15s ease;
+  }
+  .feed-card:hover { border-color: rgba(243,195,78,0.5); }
+  .feed-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .feed-author { display: flex; align-items: center; gap: 12px; }
+  .feed-avatar {
+    width: 42px; height: 42px; border-radius: 50%; background: #251c0e; border: 1.5px solid var(--gold-primary);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gold-light); font-size: 14px;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .feed-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .feed-name { font-size: 14.5px; font-weight: 700; color: #fdfaf2; display: flex; align-items: center; gap: 6px; }
+  .feed-tier-pill {
+    font-size: 9.5px; font-weight: 700; text-transform: uppercase; padding: 2px 7px; border-radius: 10px;
+    background: rgba(243,195,78,0.15); border: 1px solid var(--border-gold); color: var(--gold-primary);
+  }
+  .feed-loc { font-size: 11.5px; color: var(--text-muted); }
+  .feed-time { font-size: 11.5px; color: var(--text-muted); }
+  .feed-content { font-size: 14.5px; color: #ece4d2; line-height: 1.65; margin-bottom: 14px; text-align: justify; }
+  .feed-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(212,175,55,0.15); }
+  .pray-action-btn {
+    background: none; border: 1px solid var(--border-gold); border-radius: 20px;
+    color: var(--gold-light); font-size: 12px; font-weight: 700; padding: 7px 16px; cursor: pointer;
+    display: flex; align-items: center; gap: 6px; transition: all 0.15s ease;
+  }
+  .pray-action-btn.prayed { background: var(--gold-gradient); color: #110d06; border-color: transparent; }
+  .pray-count { font-size: 12px; color: var(--text-muted); }
+
+  /* ================= TRATADO & MÓDULOS VIP ================= */
+  .vip-banner {
+    background: linear-gradient(135deg, rgba(243,195,78,0.15) 0%, rgba(30,22,12,0.85) 100%);
+    border: 1.5px solid var(--border-gold-bright); border-radius: var(--radius-lg);
+    padding: 20px; margin: 24px 0; position: relative; overflow: hidden;
+  }
+  .vip-badge-tag {
+    font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+    background: var(--gold-gradient); color: #110d06; padding: 4px 10px; border-radius: 12px;
+    display: inline-block; margin-bottom: 8px;
+  }
+
+  /* ================= PERFIL / MEU ALTAR ================= */
+  .profile-card {
+    background: var(--bg-card); border: 1.5px solid var(--border-gold-bright);
+    border-radius: var(--radius-xl); padding: 32px 22px; text-align: center; margin-bottom: 24px;
+    box-shadow: 0 0 35px rgba(243,195,78,0.12);
+  }
+  .profile-avatar-wrap {
+    position: relative; width: 92px; height: 92px; margin: 0 auto 16px;
+  }
+  .profile-avatar {
+    width: 100%; height: 100%; border-radius: 50%;
+    border: 3px solid var(--gold-primary); box-shadow: 0 0 25px var(--gold-glow);
+    background: var(--gold-gradient); color: #110d06; display: flex; align-items: center; justify-content: center;
+    font-size: 40px; font-weight: bold; font-family: var(--font-heading); overflow: hidden;
+  }
+  .profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .profile-avatar-badge {
+    position: absolute; bottom: 0; right: 0; background: #110d06; border: 1.5px solid var(--gold-primary);
+    width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer; color: var(--gold-primary);
+  }
+  .profile-name { font-family: var(--font-heading); font-size: 26px; color: var(--gold-primary); margin-bottom: 4px; }
+  .profile-alianca { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+  .change-avatar-btn {
+    background: none; border: 1px solid var(--border-gold); border-radius: 20px;
+    color: var(--gold-primary); font-size: 12px; font-weight: 700; padding: 6px 14px; cursor: pointer;
+    margin-bottom: 20px; display: inline-block;
+  }
+
+  .tier-selector-box {
+    background: rgba(14, 11, 7, 0.85); border: 1px solid var(--border-gold);
+    border-radius: var(--radius-md); padding: 18px; margin: 20px 0; text-align: left;
+  }
+  .tier-selector-title { font-size: 12px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .tier-options-grid { display: grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap: 10px; }
+  @media (max-width: 500px) { .tier-options-grid { grid-template-columns: 1fr; } }
+  .tier-btn-opt {
+    background: rgba(22, 17, 10, 0.7); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-sm); padding: 12px; cursor: pointer; text-align: left;
+    transition: all 0.2s ease;
+  }
+  .tier-btn-opt.active {
+    border-color: var(--gold-primary); background: rgba(243,195,78,0.15);
+    box-shadow: 0 0 14px rgba(243,195,78,0.2);
+  }
+  .tier-btn-opt .t-title { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .tier-btn-opt .t-sub { font-size: 11px; color: var(--text-muted); }
+
+  /* ================= MODAIS (CONSEGRAÇÃO & PORTAL) ================= */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 250;
+    background: rgba(0,0,0,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .modal-overlay.active { display: flex; animation: fadeIn 0.2s ease; }
+  .modal-box {
+    background: #110e08; border: 2px solid var(--gold-primary); border-radius: var(--radius-xl);
+    max-width: 520px; width: 100%; padding: 28px 24px; text-align: center; max-height: 92vh; overflow-y: auto;
+    box-shadow: 0 0 50px rgba(243,195,78,0.25);
+  }
+  .modal-logo { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--gold-primary); margin: 0 auto 14px; box-shadow: 0 0 20px var(--gold-glow); object-fit: cover; }
+  .modal-title { font-family: var(--font-heading); font-size: 22px; color: var(--gold-primary); margin-bottom: 6px; }
+  .modal-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+
+  /* Consecration Form */
+  .consec-label { font-size: 12.5px; font-weight: 700; color: var(--gold-light); text-align: left; display: block; margin-bottom: 6px; }
+  .consec-input {
+    width: 100%; background: rgba(18, 14, 8, 0.9); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-sm); color: #fff; font-family: inherit; font-size: 15px; padding: 12px 14px;
+    outline: none; margin-bottom: 18px; transition: border-color 0.2s ease;
+  }
+  .consec-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 14px rgba(243,195,78,0.3); }
+
+  .consec-plans-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; text-align: left; }
+  .consec-plan-card {
+    background: rgba(20, 16, 10, 0.85); border: 1.5px solid var(--border-gold);
+    border-radius: var(--radius-md); padding: 12px 14px; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; transition: all 0.2s ease;
+  }
+  .consec-plan-card:hover { border-color: var(--gold-primary); }
+  .consec-plan-card.selected {
+    border-color: var(--gold-primary); background: rgba(243,195,78,0.14);
+    box-shadow: 0 0 15px rgba(243,195,78,0.25);
+  }
+  .consec-plan-card .left { display: flex; align-items: center; gap: 10px; }
+  .consec-plan-card .radio-circle {
+    width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border-gold);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .consec-plan-card.selected .radio-circle { border-color: var(--gold-primary); }
+  .consec-plan-card.selected .radio-circle::after {
+    content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold-primary);
+  }
+  .consec-plan-card .title { font-size: 13.5px; font-weight: 700; color: #fff; }
+  .consec-plan-card .desc { font-size: 11px; color: var(--text-muted); }
+  .consec-plan-card .price { font-family: var(--font-heading); font-size: 15px; font-weight: 800; color: var(--gold-primary); }
+
+  .consec-submit-btn {
+    width: 100%; background: var(--gold-gradient); color: #110d06; border: none;
+    border-radius: var(--radius-md); padding: 16px; font-family: var(--font-heading);
+    font-size: 15px; font-weight: 800; letter-spacing: 1px; cursor: pointer;
+    box-shadow: 0 4px 20px var(--gold-glow); transition: transform 0.1s ease;
+  }
+  .consec-submit-btn:active { transform: scale(0.98); }
+
+  /* Toast notification */
+  .toast-notification {
+    position: fixed; bottom: 85px; left: 20px; z-index: 150;
+    background: rgba(14, 11, 7, 0.95); border: 1px solid var(--border-gold);
+    border-radius: 30px; padding: 10px 18px; display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.6); pointer-events: none;
+    transform: translateY(100px); opacity: 0; transition: all 0.35s ease;
+  }
+  .toast-notification.show { transform: translateY(0); opacity: 1; }
+  .toast-text { font-size: 12px; color: var(--text-main); }
+  .toast-text b { color: var(--gold-primary); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="app-header">
+  <div class="header-brand" onclick="switchTab('jornada')">
+    <img src="logo.png" alt="O Manuscrito Sagrado" class="header-logo" onerror="this.src='100X-god.jpg'">
+    <div class="header-title-box">
+      <div class="header-title">O MANUSCRITO</div>
+      <div class="header-tagline">Portal do Fiel &middot; Altar Vivo</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="header-tier-badge" id="headerPlanBadge" onclick="switchTab('perfil')">
+      <span>👑</span> <span id="headerPlanBadgeText">Aliança Ativa</span>
+    </div>
+    <div class="header-avatar" id="headerAvatarBtn" onclick="switchTab('perfil')">
+      <span id="headerAvatarLetter">F</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAVIGATION BAR -->
+<nav class="nav-bar">
+  <button class="nav-btn active" onclick="switchTab('jornada')">
+    <span class="icon">⚡</span>
+    <span>Jornada 21D</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('portais')">
+    <span class="icon">🏛️</span>
+    <span>10 Portais</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('comunidade')">
+    <span class="icon">🕊️</span>
+    <span>Altar Vivo</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('manuscrito')">
+    <span class="icon">📜</span>
+    <span>Tratado &amp; VIP</span>
+  </button>
+  <button class="nav-btn" onclick="switchTab('perfil')">
+    <span class="icon">👤</span>
+    <span>Meu Altar</span>
+  </button>
+</nav>
+
+<!-- MAIN APP BODY -->
+<main class="app-container">
+
+  <!-- ==================== TAB 1: JORNADA 21 DIAS ==================== -->
+  <section id="tab-jornada" class="tab-view active">
+    <!-- HERO HEADER -->
+    <div class="hero-card">
+      <div class="hero-top-meta">
+        <span class="hero-fiel-tag" id="heroBadgePlan">Soberano 100x</span>
+        <span style="font-size: 12px; color: var(--gold-light);">Altar Sagrado Ativo</span>
+      </div>
+      <div class="hero-title" id="heroName">Bem-vindo(a), Fiel</div>
+      <div class="hero-sub">Hoje é um dia santo. O seu compromisso de 21 dias está a despedaçar as amarras espirituais da escassez que travaram as suas finanças por gerações.</div>
+      
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val" id="statDaysCount">0 / 21</div>
+          <div class="stat-label">Dias Selados</div>
+        </div>
+        <div>
+          <div class="stat-val" id="statMultiplier">100x</div>
+          <div class="stat-label">Multiplicador</div>
+        </div>
+        <div>
+          <div class="stat-val" id="statStatus">Ativo</div>
+          <div class="stat-label">Estado de Graça</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUDIO SACRO AMBIENTE -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon" id="audioToggleBtn" onclick="toggleSacredAudio()">▶</div>
+        <div class="audio-text">
+          <h5 id="audioTitle">Harmonia Sagrada 432Hz</h5>
+          <p id="audioStatusText">Toque para ouvir a melodia de paz e comunhão</p>
+        </div>
+      </div>
+      <button class="ambient-btn" id="audioAmbientBtn" onclick="toggleSacredAudio()">Ouvir Áudio</button>
+    </div>
+
+    <!-- DAY SELECTOR CAROUSEL -->
+    <div class="day-selector" id="dayPillsContainer">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- RITUAL CONTENT CARD -->
+    <div class="ritual-card" id="ritualCard">
+      <!-- Injected by renderDay(currentDay) -->
+    </div>
+  </section>
+
+  <!-- ==================== TAB 2: 10 PORTAIS ==================== -->
+  <section id="tab-portais" class="tab-view">
+    <div class="comm-header">
+      <h2 class="comm-title">Os 10 Portais de Prosperidade</h2>
+      <p class="comm-sub">Desbloqueados no Altar da Fé. Toque em qualquer portal para aceder à revelação completa, à passagem bíblica e ao decreto em voz alta.</p>
+    </div>
+    <div class="portals-grid" id="portalsGridContainer">
+      <!-- Injected via JS -->
+    </div>
+  </section>
+
+  <!-- ==================== TAB 3: COMUNIDADE / ALTAR VIVO ==================== -->
+  <section id="tab-comunidade" class="tab-view">
+    <div class="comm-header">
+      <h2 class="comm-title">Muro de Intercessão &amp; Altar Vivo</h2>
+      <p class="comm-sub">Centenas de fiéis em Portugal, Suíça, França e no mundo unidos na mesma corrente de milagres. Publique o seu testemunho ou junte a sua oração pelos irmãos.</p>
+    </div>
+
+    <!-- PRAYER INPUT BOX -->
+    <div class="prayer-input-card">
+      <div class="prayer-input-header">
+        <div class="prayer-user-avatar" id="prayerUserAvatar">F</div>
+        <div>
+          <div style="font-size: 13.5px; font-weight: 700; color: #fff;" id="prayerUserName">O Seu Nome</div>
+          <div style="font-size: 11px; color: var(--gold-light);" id="prayerUserTier">Aliança Ativada</div>
+        </div>
+      </div>
+      <textarea id="myPrayerInput" class="prayer-textarea" placeholder="Escreva o seu pedido de oração ou testemunho de bênção recebida para o Altar..."></textarea>
+      <div class="prayer-actions">
+        <span style="font-size: 11.5px; color: var(--text-muted);">🕊️ Oração em tempo real na congregação</span>
+        <button class="post-btn" onclick="postMyPrayer()">✦ Publicar no Altar ✦</button>
+      </div>
+    </div>
+
+    <!-- FEED -->
+    <div class="feed-list" id="feedListContainer">
+      <!-- Injected dynamically via JS with dynamic relative timestamps -->
+    </div>
+  </section>
+
+  <!-- ==================== TAB 4: TRATADO & MÓDULOS VIP ==================== -->
+  <section id="tab-manuscrito" class="tab-view">
+    <div class="comm-header">
+      <h2 class="comm-title">O Tratado Sagrado &amp; Módulos da Aliança</h2>
+      <p class="comm-sub">A teologia sagrada da multiplicação centuplicada de Isaque e os protocolos de autoridade espiritual.</p>
+    </div>
+
+    <!-- CORE TEOLOGIA -->
+    <div class="ritual-card">
+      <h3 style="color: var(--gold-primary); margin-bottom: 12px; font-family: var(--font-heading); font-size: 20px;">1. O Mistério da Multiplicação 100x de Isaque</h3>
+      <p style="font-size: 14.5px; color: #e5dcc7; line-height: 1.75; text-align: justify; margin-bottom: 16px;">
+        Em Gênesis 26:12, está registrado que <em>"Semeou Isaque naquela terra e, no mesmo ano, recolheu cento por um, porque o Senhor o abençoava"</em>. A chave desse versículo é a geografia da época: Isaque estava no vale de Gerar durante um período de extrema seca e escassez. Enquanto todos os homens da terra estavam em desespero, a semente no altar celestial produziu cem vezes mais. A prosperidade do fiel não responde à economia humana, mas sim ao decreto celestial.
+      </p>
+
+      <h3 style="color: var(--gold-primary); margin: 24px 0 12px; font-family: var(--font-heading); font-size: 20px;">2. O Ciclo das 3 Provações Bíblicas</h3>
+      <p style="font-size: 14.5px; color: #e5dcc7; line-height: 1.75; text-align: justify; margin-bottom: 16px;">
+        • <strong>A Provação de José (O Tempo da Espera):</strong> José passou 13 anos encarcerado no Egito sem nunca murmurar de Deus. Numa única manhã, a porta da prisão abriu-se e ele foi coroado governador. A sua virada financeira não avisa com antecedência: acontece de repente.<br><br>
+        • <strong>A Provação de Abraão (O Salto sem Rede):</strong> Subir o Monte Moriá sem ver o cordeiro antecipadamente. A fé bíblica é a certeza da fidelidade de Deus antes mesmo da provisão se materializar aos olhos terrenos.<br><br>
+        • <strong>A Provação de Jó (A Restituição da Porção Dobrada):</strong> Quando Jó perdeu tudo, ele prostrou-se e adorou. E a Palavra relata no capítulo 42 que o Senhor lhe restituiu o dobro de tudo o que tivera antes.
+      </p>
+
+      <!-- VIP PROTOCOL MODULE (LIBERADO PARA TODOS) -->
+      <div id="moduleCurseBreak" class="vip-banner">
+        <span class="vip-badge-tag" id="badgeCurseBreak" style="background:rgba(5,121,50,0.2); border:1px solid #16a34a; color:#4ade80;">✓ Módulo Sagrado Ativo</span>
+        <h4 style="font-family: var(--font-heading); font-size: 18px; color: var(--gold-primary); margin-bottom: 8px;">⚔️ Protocolo Secreto de Quebra de Maldições Geracionais (30 Dias)</h4>
+        <p style="font-size: 13.5px; color: #f5eedb; line-height: 1.6; margin-bottom: 14px;" id="descCurseBreak">
+          Decreto de revogação de sentenças espirituais que mantiveram a sua árvore genealógica na escassez. Desbloqueado com sucesso na sua aliança!
+        </p>
+        <button class="portal-btn" onclick="openCurseModal()" id="btnCurseBreak">⚔️ Ver Decreto de Libertação 30D</button>
+      </div>
+
+      <!-- SOBERANO ARCA MODULE (LIBERADO PARA TODOS) -->
+      <div id="moduleArca" class="vip-banner">
+        <span class="vip-badge-tag" id="badgeArca" style="background:rgba(5,121,50,0.2); border:1px solid #16a34a; color:#4ade80;">✓ Aliança Soberana Ativa</span>
+        <h4 style="font-family: var(--font-heading); font-size: 18px; color: var(--gold-primary); margin-bottom: 8px;">👑 O Segredo da Arca da Aliança e a Prosperidade Contínua</h4>
+        <p style="font-size: 13.5px; color: #f5eedb; line-height: 1.6; margin-bottom: 14px;" id="descArca">
+          A revelação das três relíquias guardadas dentro da Arca (o Maná, a Vara de Arão que Floresceu e as Tábuas da Lei) aplicadas ao património perpétuo.
+        </p>
+        <button class="portal-btn" onclick="openArcaModal()" id="btnArca">👑 Aceder à Revelação da Arca</button>
+      </div>
+
+      <div style="text-align: center; margin-top: 26px;">
+        <button class="complete-day-btn" onclick="window.open('manuscrito_sagrado.html', '_blank')">📖 Abrir Livro Iluminado Completo &amp; Baixar PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TAB 5: MEU ALTAR / PERFIL ==================== -->
+  <section id="tab-perfil" class="tab-view">
+    <div class="profile-card">
+      <div class="profile-avatar-wrap">
+        <div class="profile-avatar" id="profileAvatarDisplay">
+          <span id="profileAvatarLetter">F</span>
+        </div>
+        <div class="profile-avatar-badge" onclick="triggerPhotoUpload()" title="Alterar Foto de Perfil">📷</div>
+      </div>
+
+      <input type="file" id="avatarFileInput" accept="image/*" style="display:none;" onchange="handlePhotoUpload(event)">
+      
+      <button class="change-avatar-btn" onclick="triggerPhotoUpload()">📸 Escolher Minha Foto de Perfil</button>
+      
+      <div class="profile-name" id="profileNameDisplay">Fiel Consagrado</div>
+      <div class="profile-alianca" id="profileAliancaDisplay">Aliança Sagrada Soberana (100x)</div>
+
+      <!-- PROGRESS TRACKER -->
+      <div style="background: rgba(14,11,7,0.85); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 18px; margin: 20px 0; text-align: left;">
+        <div style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 10px;">
+          <span style="color: var(--text-muted);">Progresso da Consagração:</span>
+          <span style="color: var(--gold-primary); font-weight: 800;" id="progPercentText">0%</span>
+        </div>
+        <div style="height: 12px; background: #1c160c; border-radius: 10px; overflow: hidden; border: 1px solid rgba(212,175,55,0.25);">
+          <div id="progBarFill" style="height: 100%; width: 0%; background: var(--gold-gradient); border-radius: 10px; transition: width 0.35s ease;"></div>
+        </div>
+      </div>
+
+      <!-- STATUS DE ACESSO TOTAL VITALÍCIO -->
+      <div style="background: rgba(14, 11, 7, 0.85); border: 1.5px solid var(--border-gold-bright); border-radius: var(--radius-md); padding: 20px 18px; margin: 20px 0; text-align: center; box-shadow: 0 0 22px rgba(243,195,78,0.18);">
+        <div style="font-size: 28px; margin-bottom: 6px;">👑</div>
+        <div style="font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: var(--gold-primary); letter-spacing: 1px; text-transform: uppercase;">Aliança Soberana &middot; Acesso Total</div>
+        <div style="font-size: 13px; color: #f3eedc; margin-top: 8px; line-height: 1.6;">
+          Todos os 10 Portais, Jornada de 21 Dias, Áudio 432Hz e Protocolos Especiais estão <strong>100% desbloqueados</strong> no seu nome, sem limites nem mensalidades.
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+        <button class="complete-day-btn" onclick="window.open('manuscrito_sagrado.html', '_blank')">
+          📜 Baixar Certificado Oficial &amp; Livro em PDF
+        </button>
+        <button style="background:none; border: 1px solid var(--border-gold); color: var(--text-muted); padding: 12px; border-radius: var(--radius-md); cursor: pointer; font-size: 12px;" onclick="reopenConsecrationModal()">
+          ✏️ Alterar Nome ou Recalibrar Altar
+        </button>
+      </div>
+
+      <div style="margin-top: 24px; font-size: 12px; color: var(--text-muted); line-height: 1.6;">
+        Registado na Rede Pastoral Plan Faith &middot; Garantia Incondicional de 60 Dias Ativa.<br>
+        Acesso vitalício aos decretos e ao Muro de Intercessão.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== MODAL DE CONSAGRAÇÃO INICIAL (ONBOARDING) ==================== -->
+<div class="modal-overlay" id="modalConsecration">
+  <div class="modal-box">
+    <img src="logo.png" alt="Logo" class="modal-logo" onerror="this.src='100X-god.jpg'">
+    <h3 class="modal-title">Consagração do Seu Altar</h3>
+    <p class="modal-sub">Bem-vindo(a) ao seu Portal Sagrado! Para ativarmos o seu Manuscrito e personalizar os seus 10 Portais de Prosperidade, confirme o seu nome:</p>
+
+    <label class="consec-label">O seu Nome Completo:</label>
+    <input type="text" id="consecNameInput" class="consec-input" placeholder="Ex: Maria Santos ou João Silva" autocomplete="name">
+
+    <div style="background: rgba(243,195,78,0.08); border: 1.5px solid var(--border-gold); border-radius: 12px; padding: 14px 16px; margin: 16px 0 22px; text-align: left;">
+      <div style="font-size: 12px; font-weight: 800; color: var(--gold-primary); text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <span>👑</span> Acesso Pleno &amp; Vitalício Desbloqueado
+      </div>
+      <div style="font-size: 13px; color: #f3eedc; line-height: 1.5;">
+        Todos os 10 Portais, a Jornada dos 21 Dias, a Frequência Sacra 432Hz e os Protocolos de Libertação estão 100% liberados para si.
+      </div>
+    </div>
+
+    <button class="consec-submit-btn" onclick="submitConsecration()">✦ Consagrar Altar e Aceder a Tudo ✦</button>
+  </div>
+</div>
+
+<!-- ==================== MODAL DETALHE PORTAL ==================== -->
+<div class="modal-overlay" id="portalModal" onclick="closePortalModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <img id="modalPortalImg" src="" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:12px; margin-bottom:16px; border:1px solid var(--border-gold);">
+    <div class="modal-title" id="modalPortalTitle"></div>
+    <div id="modalPortalDesc" style="font-size:14px; color:#e5dcc7; line-height:1.7; margin-bottom:18px; text-align:justify;"></div>
+    <div id="modalPortalPrayer" style="background:rgba(243,195,78,0.1); border-left:3px solid var(--gold-primary); padding:14px; border-radius:0 8px 8px 0; font-style:italic; font-size:14px; color:var(--gold-light); margin-bottom:20px;"></div>
+    <button class="consec-submit-btn" onclick="closePortalModal()">✦ Selar e Voltar aos Portais ✦</button>
+  </div>
+</div>
+
+<!-- ==================== MODAL PROTOCOLO QUEBRA DE MALDIÇÕES ==================== -->
+<div class="modal-overlay" id="modalCurseProtocol" onclick="closeCurseModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <span class="vip-badge-tag">Módulo Sagrado de Autoridade</span>
+    <h3 class="modal-title" style="margin-top:8px;">Protocolo de Quebra de Maldições Geracionais</h3>
+    <div style="font-size:14.5px; color:#e5dcc7; line-height:1.75; text-align:justify; margin:16px 0;">
+      <p>Em Gálatas 3:13, Cristo resgatou-nos da maldição da lei fazendo-se maldição por nós. Este protocolo é executado durante 30 madrugadas para anular dívidas espirituais de antepassados que sabotavam negócios, geravam casamentos falidos e falências cíclicas.</p>
+      <div style="background:rgba(243,195,78,0.08); border:1px solid var(--border-gold); padding:14px; border-radius:10px; margin:16px 0; font-style:italic; color:#fff8e6;">
+        "Pelo sangue da Nova Aliança, eu cancelo qualquer voto de pobreza, feitiço, palavra de inveja ou ruína declarada contra a minha linhagem. Eu entro na bênção de Isaque e Abraão!"
+      </div>
+    </div>
+    <button class="consec-submit-btn" onclick="closeCurseModal()">✦ Amém &middot; Decreto Selado ✦</button>
+  </div>
+</div>
+
+<!-- ==================== MODAL ARCA DA ALIANÇA ==================== -->
+<div class="modal-overlay" id="modalArcaProtocol" onclick="closeArcaModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <span class="vip-badge-tag">Aliança Patriarcal Soberana</span>
+    <h3 class="modal-title" style="margin-top:8px;">O Segredo da Arca da Aliança</h3>
+    <div style="font-size:14.5px; color:#e5dcc7; line-height:1.75; text-align:justify; margin:16px 0;">
+      <p>A Arca da Aliança continha 3 elementos proféticos essenciais:</p>
+      <ul style="padding-left:20px; margin:12px 0;">
+        <li><strong>O Pote de Maná:</strong> Provisão diária inesgotável sem angústia;</li>
+        <li><strong>A Vara de Arão que Floresceu:</strong> Autoridade contra adversários e fecundidade nos negócios;</li>
+        <li><strong>As Tábuas da Lei:</strong> A justiça divina protegendo a sua casa contra tribunais injustos.</li>
+      </ul>
+      <p>O Fiel que carrega a presença da Arca torna-se um íman vivo de recursos e honra por onde quer que ande.</p>
+    </div>
+    <button class="consec-submit-btn" onclick="closeArcaModal()">✦ Glória a Deus &middot; Recebido ✦</button>
+  </div>
+</div>
+
+
+<!-- FLOATING LIVE TOAST -->
+<div class="toast-notification" id="liveToast">
+  <span style="font-size:18px;">🕊️</span>
+  <span class="toast-text" id="liveToastText">Novo fiel em oração no Altar Vivo</span>
+</div>
+
+<script>
+/* ==================== 1. DADOS DOS 21 DIAS DA JORNADA ==================== */
+const RITUALS_21 = [
+  {
+    day: 1,
+    title: "O Rompimento das Cadeias do Silêncio",
+    scripture: "Disse Deus: Haja luz; e houve luz. E viu Deus que a luz era boa.",
+    reference: "Gênesis 1:3-4",
+    body: "Durante meses ou anos, você guardou a dor para si. O silêncio perante a escassez não é santidade; é conformismo. Deus nunca criou o mundo através do silêncio, mas sim através do Verbo proclamado. Hoje é o dia em que quebra a passividade espiritual da sua linhagem. Não aceite mais a escassez como se fosse o seu destino normal.",
+    mission: "Pegue numa folha em branco e anote as 3 maiores dívidas ou frustrações materiais que tiram a sua paz. Trace uma cruz dourada por cima de cada uma delas e diga em voz alta: 'Cancelado pelo Sangue da Promessa'. Guarde esta folha dentro de uma Bíblia.",
+    prayer: "Pai celestial, hoje quebro o silêncio da resignação. O que os meus antepassados suportaram na miséria não será a herança dos meus filhos. Eu proclamo luz sobre as minhas finanças e paz sobre a minha mente!",
+    action: "Não se queixe de nenhuma despesa ou conta durante as próximas 24 horas."
+  },
+  {
+    day: 2,
+    title: "A Limpeza Espiritual do Ambiente Físico",
+    scripture: "Lança fora o escarnecedor, e cessará a contenda; sim, cessarão as demandas e a vergonha.",
+    reference: "Provérbios 22:10",
+    body: "O mundo espiritual reage à desordem física. Ambientes carregados de objetos quebrados, papéis velhos de cobrança e roupas que já não servem emitem uma frequência contínua de carência e ruína. O Templo de Salomão era o lugar mais limpo, perfumado e ordenado da terra porque Deus habita na excelência.",
+    mission: "Faça uma varredura no seu quarto ou mesa de trabalho. Livre-se de 3 coisas velhas ou estragadas que simbolizam estagnação. Limpe a sua carteira física: retire recibos inúteis e papéis amarrotados.",
+    prayer: "Senhor, assim como organizo este espaço, organiza o meu coração e os meus negócios. Que qualquer energia de desolação seja banida do meu teto em nome de Jesus!",
+    action: "Abra todas as janelas da sua casa durante 15 minutos para renovar o ar enquanto ora o Salmo 91."
+  },
+  {
+    day: 3,
+    title: "A Unção dos 100x de Isaque em Tempo de Seca",
+    scripture: "Semeou Isaque naquela terra e, no mesmo ano, recolheu cento por um, porque o Senhor o abençoava.",
+    reference: "Gênesis 26:12",
+    body: "A prosperidade bíblica é imune à crise política ou inflação do país. Quando Isaque semeou em Gerar, a terra estava rachada pelo sol ardente e ninguém ousava arriscar. Mas o favor de Deus não necessita de clima favorável para prosperar quem tem aliança.",
+    mission: "Pegue no número do seu saldo bancário atual e multiplique por 100. Escreva esse valor num papel com o título: 'A minha cotação na Bolsa do Céu'. Olhe para esse número sem medo nem incredulidade.",
+    prayer: "Declaro sobre as obras das minhas mãos a bênção centuplicada de Isaque. Onde outros veem escassez, eu colherei celeiros cheios para honra e glória do Altíssimo!",
+    action: "Agradeça a Deus por uma quantia financeira que ainda não entrou na sua conta, como prova de fé real."
+  },
+  {
+    day: 4,
+    title: "A Quebra da Provação de José (O Fim do Calabouço)",
+    scripture: "O rei mandou soltá-lo; o governador dos povos o libertou. Ele o constituiu senhor da sua casa e administrador de todos os seus bens.",
+    reference: "Salmos 105:20-21",
+    body: "José passou anos esquecido na prisão após ter sido traído pelos irmãos. Ele não tinha advogados nem influência política. Mas tinha a presença viva de Deus. Numa única manhã, o faraó teve um sonho e José foi chamado. A sua restituição financeira não virá a passos lentos; será um aceleramento divino repentino.",
+    mission: "Identifique quem o prejudicou ou desvalorizou no passado no trabalho ou na família. Escreva o nome dessa pessoa e proclame: 'Eu te liberto e te perdoo, porque o meu futuro pertence a Deus'.",
+    prayer: "Senhor, assim como soltaste José com honra real, quebra as correntes invisíveis que amarravam a minha vida profissional. Abre a porta do palácio que reservaste para mim!",
+    action: "Envie uma mensagem de apreço genuíno a alguém que o ajudou no passado."
+  },
+  {
+    day: 5,
+    title: "O Monte Moriá de Abraão (A Confiança Cega)",
+    scripture: "Respondeu Abraão: Deus proverá para Si, meu filho, o cordeiro para o holocausto. E seguiam ambos juntos.",
+    reference: "Gênesis 22:8",
+    body: "Abraão subiu a montanha sem saber como Deus resolveria a questão. O teste de Abraão não foi sobre perda; foi sobre quem ocupava o primeiro lugar no seu coração. Quando Deus viu que Abraão confiava Nele acima de qualquer bem terreno, Ele jurou por Si mesmo que o abençoaria grandemente.",
+    mission: "Separe um pequeno valor simbólico ou alimento e decida abençoar alguém que está a passar necessidade sem que ninguém saiba.",
+    prayer: "Pai, eu não preciso de entender todos os Teus passos para Te obedecer. O meu coração confia na Tua provisão inesgotável. O Senhor é o meu Jeová Jiré!",
+    action: "Faça uma boa ação em segredo durante o dia de hoje."
+  },
+  {
+    day: 6,
+    title: "A Restituição da Porção Dobrada de Jó",
+    scripture: "Mudou o Senhor a sorte de Jó, quando este orava pelos seus amigos; e o Senhor deu-lhe o dobro de tudo o que antes possuíra.",
+    reference: "Jó 42:10",
+    body: "Repare no detalhe decisivo do livro de Jó: a sua sorte só virou quando ele orou pelos amigos que o haviam criticado e acusado injustamente. O rancor é o maior repelente de prosperidade que existe. O perdão abre as comportas da restituição em dobro.",
+    mission: "Abaixe a cabeça por 2 minutos e ore com sinceridade pedindo a bênção de Deus para alguém de quem você guarda mágoa.",
+    prayer: "Pai, libero todo o ressentimento do meu peito. Assim como Jó orou pelos seus acusadores, eu abençoo quem me magoou. Em troca, recebo do Teu trono a minha porção dobrada!",
+    action: "Elimine do seu telemóvel contactos ou conversas antigas que despertam amargura."
+  },
+  {
+    day: 7,
+    title: "O Repouso Sagrado da Aliança",
+    scripture: "Em paz me deito e logo adormeço, porque só Tu, Senhor, me fazes habitar em segurança.",
+    reference: "Salmos 4:8",
+    body: "Você completou a sua primeira semana de consagração! O sétimo dia na criação foi o dia em que Deus contemplou a Sua obra e descansou. Descansar não é preguiça; é o ápice da fé. É dizer: 'O Senhor está no comando enquanto eu durmo'.",
+    mission: "Desligue as redes sociais e ecrãs por pelo menos 2 horas na tarde de hoje. Dedique esse tempo a contemplar a paz da sua caminhada.",
+    prayer: "Obrigado, meu Pai, pelos primeiros 7 dias de libertação. A minha mente agora repousa na Tua graça abundante. Amém!",
+    action: "Faça uma pausa de silêncio contemplativo com chá ou água fresca."
+  },
+  {
+    day: 8,
+    title: "A Chave de David que Abre Portas Impossíveis",
+    scripture: "Isto diz o Santo, o Verdadeiro, Aquele que tem a chave de David, que abre, e ninguém fechará, e que fecha, e ninguém abrirá.",
+    reference: "Apocalipse 3:7",
+    body: "Existem contratos, empregos e portas comerciais que não dependem do seu currículo humano; dependem da Chave de David. Quando Deus gira essa chave espiritual no Céu, burocracias caem por terra e decisões de autoridades mudam a seu favor.",
+    mission: "Escreva num papel o nome da empresa, processo judicial ou porta profissional que você precisa que seja aberta.",
+    prayer: "Senhor Jesus, usa a Chave de David sobre a minha vida! Fecha as portas da perda e abre as comportas dos contratos e parcerias prósperas!",
+    action: "Faça uma oração em frente à porta de entrada da sua casa, profetizando provisão."
+  },
+  {
+    day: 9,
+    title: "A Mesa Farta e o Cálice que Transborda",
+    scripture: "Preparas uma mesa perante mim na presença dos meus inimigos, unges a minha cabeça com óleo, o meu cálice transborda.",
+    reference: "Salmos 23:5",
+    body: "Deus não prepara a mesa no Céu para quando você morrer; Ele prepara a mesa de honra aqui na terra, diante daqueles que duvidaram de si. A mesa é o símbolo do sustento inabalável e da honra pública.",
+    mission: "Prepare a mesa da sua próxima refeição com o melhor prato e toalha que tiver em casa.",
+    prayer: "Declaro que a escassez nunca mais se sentará à mesa da minha família. O meu cálice transborda de alegria, provisão e saúde divina!",
+    action: "Abençoe o pão e o alimento com uma oração fervorosa antes de comer."
+  },
+  {
+    day: 10,
+    title: "A Sabedoria Financeira do Rei Salomão",
+    scripture: "Dei-te um coração sábio e inteligente, de maneira que antes de ti não houve teu semelhante, nem depois de ti haverá.",
+    reference: "1 Reis 3:12",
+    body: "Salomão não pediu ouro nem a morte dos inimigos; pediu sabedoria para discernir e liderar. E Deus deu-lhe sabedoria com tanta riqueza agregada que a prata em Jerusalém era tão comum como pedras da rua.",
+    mission: "Abra o extrato das suas despesas e corte qualquer gasto impulsivo ou assinatura desnecessária que roubou o seu dinheiro.",
+    prayer: "Pai, derrama sobre a minha mente o espírito de sabedoria e discernimento de Salomão. Ensina-me a multiplicar o que ganho e a cortar os ralos de desperdício!",
+    action: "Economize um valor hoje que normalmente gastaria em algo supérfluo."
+  },
+  {
+    day: 11,
+    title: "O Destroçar das Palavras de Maldição",
+    scripture: "Nenhuma arma forjada contra ti prosperará; e toda a língua que se levantar contra ti em juízo, tu a condenarás.",
+    reference: "Isaías 54:17",
+    body: "Muitas vezes, palavras duras ditas por pais, ex-cônjuges ou chefes ('você nunca vai ser nada', 'você é um desastre com dinheiro') funcionam como sentenças espirituais no subconsciente. Hoje revogamos cada uma delas no tribunal do Céu.",
+    mission: "Lembre-se da pior palavra negativa que já ouviu na vida sobre o seu futuro. Diga em voz alta: 'Eu revogo e anulo essa mentira pelo poder da Palavra de Deus'.",
+    prayer: "Eu quebro todo o feitiço, palavra de inveja ou sentença de derrota pronunciada sobre o meu nome. O que Deus abençoou, homem nenhum pode amaldiçoar!",
+    action: "Elogie com carinho uma pessoa próxima para semear vida através dos seus lábios."
+  },
+  {
+    day: 12,
+    title: "A Conquista da Casa e do Lar Inabalável",
+    scripture: "A minha habitação será uma morada de paz, e habitações seguras, e lugares quietos de descanso.",
+    reference: "Isaías 32:18",
+    body: "O sonho da casa própria ou de um imóvel digno não é vaidade; é a manifestação da tenda de paz que Deus planeou para os Seus filhos. As quatro paredes do seu lar devem ser um refúgio celestial.",
+    mission: "Olhe para uma chave qualquer que tenha no chaveiro e visualize-a como a chave definitiva do seu imóvel próprio sem dívidas.",
+    prayer: "Senhor Deus, Tu és o meu abrigo e a minha fortaleza. Estabelece a minha família num lugar espaçoso, digno, seguro e cheio da Tua divina presença!",
+    action: "Limpe e perfume a entrada do seu lar com intenção santa de acolhimento."
+  },
+  {
+    day: 13,
+    title: "A Cura da Angústia e da Opressão Noturna",
+    scripture: "Lançando sobre Ele toda a vossa ansiedade, porque Ele tem cuidado de vós.",
+    reference: "1 Pedro 5:7",
+    body: "O inimigo adora atacar no meio da noite com pensamentos de ruína e pânico financeiro. Mas a Palavra garante que o Guarda de Israel não dormita nem dorme. Se Ele está acordado a cuidar de si, você pode descansar em paz.",
+    mission: "Antes de dormir, coloque o telemóvel noutra sala ou longe da cama. Feche os olhos repetindo mentalmente: 'Deus cuida de tudo'.",
+    prayer: "Senhor Jesus, retiro do meu peito todo o aperto, taquicardia e insónia. Eu entrego nas Tuas mãos as contas de amanhã e recebo o Teu sono suave!",
+    action: "Faça 3 respirações profundas de 4 segundos antes de dormir esta noite."
+  },
+  {
+    day: 14,
+    title: "A Multiplicação dos Pães e dos Peixes",
+    scripture: "Tomando os cinco pães e os dois peixes, ergueu os olhos ao céu, abençoou-os, partiu-os e deu-os aos discípulos para que os distribuíssem à multidão.",
+    reference: "Lucas 9:16",
+    body: "Jesus não precisava de padarias inteiras para alimentar 5.000 homens; precisava apenas daquilo que estava disponível, consagrado com gratidão. O pouco que você tem hoje, quando colocado no altar da fé, alimenta multidões e ainda sobra doze cestos cheios.",
+    mission: "Pegue na menor moeda ou nota que tiver na carteira e faça uma oração profética sobre ela, declarando que ela é semente de celeiros fartos.",
+    prayer: "Pai, eu Te louvo pelo recurso que tenho hoje, mesmo que pareça pequeno. Sei que nas Tuas mãos santas ele é transformado em fartura incalculável!",
+    action: "Compartilhe uma refeição ou lanche com alguém necessitado hoje."
+  },
+  {
+    day: 15,
+    title: "A Aliança da Herança e da Descendência",
+    scripture: "O homem de bem deixa herança aos filhos de seus filhos, mas a riqueza do pecador é depositada para o justo.",
+    reference: "Provérbios 13:22",
+    body: "Deus não quer que você apenas sobreviva até ao fim da vida; Ele quer que você deixe um legado de nome limpo, fé inabalável e património sólido para as próximas gerações.",
+    mission: "Escreva os nomes dos seus filhos, sobrinhos ou futuros herdeiros num papel e ministre: 'Vocês viverão na terra como gigantes abençoados'.",
+    prayer: "Quebro a herança da miséria e da dor! Os meus descendentes nunca mendigarão o pão, porque a Tua aliança perdura por mil gerações!",
+    action: "Diga a um familiar próximo o quanto você o ama e honra."
+  },
+  {
+    day: 16,
+    title: "A Queda das Muralhas de Jericó",
+    scripture: "Gritou, pois, o povo, tocando os sacerdotes as trombetas... e o muro caiu abaixo.",
+    reference: "Josué 6:20",
+    body: "Jericó parecia impenetrável aos olhos dos espias. Os muros eram tão largos que carruagens corriam sobre eles. Mas não há fortaleza humana ou burocrática que resista ao clamor da fé do povo consagrado.",
+    mission: "Dê 7 passos dentro do seu quarto proclamando a cada passo: 'Caiu a barreira que travava a minha vida financeira!'.",
+    prayer: "Em nome do Senhor dos Exércitos, derrubo as muralhas de dívidas, processos judiciais travados e entraves burocráticos. A vitória é do meu Deus!",
+    action: "Celebre com um cântico ou louvor a queda das barreiras."
+  },
+  {
+    day: 17,
+    title: "O Maná Fresco de Cada Manhã",
+    scripture: "Eis que vos farei chover pão do céu; e o povo sairá e colherá diariamente a porção para cada dia.",
+    reference: "Êxodo 16:4",
+    body: "Deus não dava maná para o ano inteiro de uma só vez; dava a porção exata para cada dia, para ensinar o povo a depender da comunhão matinal diária com Ele. A sua provisão para hoje já foi liberada pelo Céu.",
+    mission: "Ao acordar, antes de olhar mensagens ou notificações, agradeça pela respiração e receba a porção do seu maná diário.",
+    prayer: "Senhor, não me preocupo com o dia de amanhã, pois a Tua misericórdia se renova todas as manhãs. Recebo hoje o meu maná celestial!",
+    action: "Mantenha a tranquilidade interior ao checar sua conta bancária."
+  },
+  {
+    day: 18,
+    title: "A Unção do Perfume e da Honra Pública",
+    scripture: "Em todo o tempo sejam alvas as tuas vestes, e nunca falte o óleo sobre a tua cabeça.",
+    reference: "Eclesiastes 9:8",
+    body: "Chegou o momento da sua honra pública. Quem o viu sofrer, quem murmurou e quem zombou da sua fé será testemunha da mesa de honra que o Senhor colocou à sua frente.",
+    mission: "Vista hoje a sua melhor roupa, arrume-se com carinho e olhe-se no espelho reconhecendo a dignidade de quem é filho do Rei dos Reis.",
+    prayer: "Pai, lava as minhas vestes de qualquer mancha de vergonha. Derrama sobre a minha fronte o óleo da alegria e da distinção divina!",
+    action: "Caminhe com a cabeça erguida e postura de autoridade durante todo o dia."
+  },
+  {
+    day: 19,
+    title: "O Cancelamento do Decretado no Inferno",
+    scripture: "Havendo riscado a cédula que era contra nós nas suas ordenanças, a qual nos era contrária, tirou-a do meio de nós, cravando-a na cruz.",
+    reference: "Colossenses 2:14",
+    body: "Toda a acusação espiritual, todo o sentimento de culpa por erros financeiros do passado ou negócios frustrados foram cravados no madeiro da cruz. Você não deve mais nada ao passado!",
+    mission: "Rasgue simbolicamente um pedaço de papel representando a culpa de erros financeiros antigos.",
+    prayer: "O meu passado de perdas está pago! Cristo levou sobre Si as minhas dores e a minha condenação. Entro livre no meu novo tempo!",
+    action: "Não fale mais sobre perdas do passado com tom de lamentação."
+  },
+  {
+    day: 20,
+    title: "A Pesca Maravilhosa no Mar da Galileia",
+    scripture: "Lança a rede para o lado direito do barco e achareis. Lançaram-na, pois, e já não a podiam puxar pela multidão dos peixes.",
+    reference: "João 21:6",
+    body: "Os discípulos pescaram a noite inteira e não pegaram nada. Estavam exaustos e desanimados. Bastou uma palavra de Jesus para que as redes quase arrebentassem de tantos peixes grandes. Uma única palavra de Deus muda 10 anos de esforço inútil!",
+    mission: "Ore pedindo uma ideia inspirada pelo Espírito Santo para criar uma nova fonte de rendimento ou oportunidade de negócio.",
+    prayer: "Mestre, sob a Tua palavra lançarei a minha rede! Eu creio que as redes da minha vida se encherão de peixes e oportunidades gloriosas!",
+    action: "Anote imediatamente qualquer ideia produtiva que surgir na sua mente nas próximas horas."
+  },
+  {
+    day: 21,
+    title: "O Selamento Eterno do Manuscrito Sagrado",
+    scripture: "Consumado está. E, inclinando a cabeça, entregou o espírito.",
+    reference: "João 19:30",
+    body: "Glória a Deus nas alturas! Você concluiu os 21 dias da sua travessia! As cadeias caíram, a sua mente foi reprogramada pela verdade eterna e a bênção de Isaque está ativa sobre a sua vida. A partir de hoje, você caminha sob o Céu aberto.",
+    mission: "Abra a aba 'Meu Altar' no aplicativo, assine o Certificado de Consagração e baixe o seu arquivo em PDF oficial.",
+    prayer: "Consumado está, meu Deus e meu Rei! A aliança da prosperidade está selada no meu sangue e no meu lar. Eu sou livre, sou próspero(a) e darei frutos por toda a eternidade. Amém e Amém!",
+    action: "Escreva uma mensagem de agradecimento no Muro de Oração para inspirar outros irmãos!"
+  }
+];
+
+/* ==================== 2. OS 10 PORTAIS DE PROSPERIDADE ==================== */
+const PORTALS_DATA = [
+  {
+    id: "p1", title: "Portal 100x de Isaque", sub: "Gênesis 26:12 • Multiplicação Sobrenatural",
+    img: "100X-god.jpg",
+    desc: "Este portal ativa a lei de Isaque: colher 100 vezes mais no mesmo ano em terra de fome e seca. O seu dinheiro deixa de responder à matemática humana e passa a operar pela graça divina.",
+    prayer: "Senhor, ativo sobre a minha conta bancária a bênção a cento por um de Isaque. Toda a seca financeira da minha vida é dissipada pelo Teu favor!"
+  },
+  {
+    id: "p2", title: "Portal do Futuro Soberano", sub: "Jeremias 29:11 • Visão & Coragem",
+    img: "I-choose-my-future.jpg",
+    desc: "A quebra do conformismo com a escassez. Deus remove a névoa dos seus olhos e restaura a audácia santa de sonhar e construir um património sólido.",
+    prayer: "Eu escolho o futuro que Deus preparou para mim! Renuncio ao medo do amanhã e tomo posse do destino de paz e honra que me foi reservado!"
+  },
+  {
+    id: "p3", title: "Portal da Decisão Inabalável", sub: "Hebreus 11:1 • Fé que Move Montanhas",
+    img: "Faith.jpg",
+    desc: "A fé bíblica não vacila perante circunstâncias desfavoráveis. Este portal cimenta a sua convicção espiritual para que nenhuma dúvida roube a sua colheita.",
+    prayer: "A minha fé move montanhas de dívidas e incertezas! Eu permaneço firme na promessa daquele que nunca mente nem quebra a Sua aliança!"
+  },
+  {
+    id: "p4", title: "Portal da Casa dos Sonhos", sub: "Isaías 32:18 • Morada de Paz & Imóvel",
+    img: "dream-house.jpg",
+    desc: "A bênção da habitação segura. O fim das ameaças de despejo, aluguéis sufocantes e desassossego. A chave da sua casa própria é liberada nos céus.",
+    prayer: "Declaro as portas da minha casa própria escancaradas! O meu lar será um santuário de paz, conforto e segurança perpétua!"
+  },
+  {
+    id: "p5", title: "Portal da Dignidade e Conquista", sub: "Deuteronómio 28:8 • Meios Materiais",
+    img: "Dream-car.jpg",
+    desc: "O acesso a instrumentos materiais que confiram segurança, mobilidade e honra para proteger a sua família nas viagens e no dia a dia.",
+    prayer: "Senhor da provisão, abençoa os meus bens e os meus veículos. Que a segurança dos Teus anjos guarde cada quilómetro dos meus caminhos!"
+  },
+  {
+    id: "p6", title: "Portal da Família Abençoada", sub: "Josué 24:15 • União & Reconciliação",
+    img: "family.jpg",
+    desc: "Cura dos relacionamentos destruídos por brigas financeiras. Reconciliação entre casais, filhos abençoados e proteção contra traições.",
+    prayer: "Eu e a minha casa serviremos ao Senhor! Todo o espírito de intriga e divisão na minha família é expulso pelo poder do Sangue de Cristo!"
+  },
+  {
+    id: "p7", title: "Portal da Saúde e Vitalidade", sub: "3 João 1:2 • Corpo Forte & Vigoroso",
+    img: "health.jpg",
+    desc: "De que adianta colher riquezas se o corpo estiver doente? Este portal liberta cura sobre dores crónicas, imunidade inabalável e renovação da juventude.",
+    prayer: "O mesmo Espírito que ressuscitou a Cristo dentre os mortos vivifica o meu corpo mortal! Eu recebo saúde plena e vigor celestial para prosperar!"
+  },
+  {
+    id: "p8", title: "Portal da Abundância Inesperada", sub: "Efésios 3:20 • Além do que Pedimos",
+    img: "abundance.jpg",
+    desc: "O favor que atrai recursos inesperados: processos travados na justiça são liberados, heranças perdidas são encontradas e dívidas são perdoadas.",
+    prayer: "Senhor, surpreende-me com a abundância do Teu trono! Abro os meus braços para receber a provisão inesperada que o Teu amor já enviou!"
+  },
+  {
+    id: "p9", title: "Portal do Aceleramento Divino", sub: "Amós 9:13 • O que Ara Alcança o que Sega",
+    img: "100x-boost.jpg",
+    desc: "O tempo de compressão profética. O que levaria dez anos de esforço humano desgastante, o favor de Deus concretiza em poucos meses.",
+    prayer: "Eu entro no tempo do aceleramento sagrado! Os anos de atraso são cancelados e a minha vitória chega com rapidez e poder de Deus!"
+  },
+  {
+    id: "p10", title: "Portal das Portas Abertas", sub: "Isaías 45:2 • Portas de Bronze Rompidas",
+    img: "blocks-broken.jpg",
+    desc: "Quebra definitiva de qualquer laço, inveja ou impedimento espiritual. As correntes que travavam a sua prosperidade são estilhaçadas para sempre.",
+    prayer: "As portas de bronze caem e os ferrolhos de ferro são despedaçados! Eu caminho em terra limpa e livre sob o Céu aberto da providência!"
+  }
+];
+
+/* ==================== 3. CONFIGURAÇÃO DOS NÍVEIS & BLOQUEIOS ==================== */
+const TIER_ORDER = { '27': 1, '47': 2, '77': 3, '87': 4 };
+
+// Links para checkout de upgrade (configurar quando os checkouts estiverem prontos)
+const UPGRADE_CHECKOUT_LINKS = {
+  '47': '#',
+  '77': '#',
+  '87': '#'
+};
+
+let currentUpgradeTarget = '47';
+
+const UPGRADE_PERKS = {
+  '47': {
+    title: 'Aliança Raízes da Fé (47€)',
+    badge: '🥈 Raízes Prata',
+    price: '47€',
+    desc: 'Eleve a sua aliança para fincar raízes profundas na provisão divina e libertar harmonia no seu descanso:',
+    perks: [
+      'Multiplicador aumentado para 50x;',
+      'Desbloqueio do Reprodutor de Harmonia Sagrada 432Hz VIP;',
+      'Meditações Noturnas de Sono Tranquilo contra ansiedade;',
+      'Insígnia Prata no Altar Vivo e prioridade pastoral.'
+    ]
+  },
+  '77': {
+    title: 'Aliança Colheita da Fé (77€)',
+    badge: '🥇 Colheita Ouro',
+    price: '77€',
+    desc: 'Ative a unção centuplicada de Isaque e revogue sentenças de escassez que perseguiram a sua família:',
+    perks: [
+      'Multiplicador Centuplicado de 100x de Isaque;',
+      'Acesso ao Protocolo de Quebra de Maldições Geracionais (30 Dias);',
+      'Desbloqueio de todas as orações e frequências anteriores;',
+      'Insígnia Dourada de Intercessor no Muro de Oração.'
+    ]
+  },
+  '87': {
+    title: 'Aliança Legado da Fé (87€ VIP)',
+    badge: '👑 Legado Diamante VIP',
+    price: '87€',
+    desc: 'O nível soberano de consagração perpétua com a chave da prosperidade contínua:',
+    perks: [
+      'Multiplicador Soberano 100x+ com Unção Patriarcal;',
+      'Acesso Exclusivo a O Segredo da Arca da Aliança;',
+      'Certificado de Consagração Perpétua com Selo Real;',
+      'Destaque VIP Diamante com brilho dourado nos comentários;',
+      'Acesso Total Irrestrito a todos os decretos futuros.'
+    ]
+  }
+};
+
+const FULL_ACCESS_TIER = {
+  name: 'Aliança Sagrada Soberana',
+  badge: '👑 Aliança Soberana VIP',
+  multiplier: '100x Soberano',
+  headerBadge: '👑 Acesso Total 100x',
+  color: '#f3c34e',
+  has432Audio: true,
+  hasCurseBreak: true,
+  hasArca: true
+};
+
+const TIER_CONFIG = {
+  '27': FULL_ACCESS_TIER,
+  '47': FULL_ACCESS_TIER,
+  '77': FULL_ACCESS_TIER,
+  '87': FULL_ACCESS_TIER
+};
+
+/* ==================== 4. TESTEMUNHOS REAIS COM TIMESTAMPS DINÂMICOS ==================== */
+const SEED_POSTS = [
+  {
+    id: "f1", name: "Maria do Carmo Santos", loc: "Braga, Portugal", tier: "77", tierName: "Colheita Ouro",
+    avatarImg: "avatar-maria.jpg",
+    offsetMinutes: 4,
+    content: "Irmãos, terminei hoje o Dia 4 da provação de José. Estava há 6 meses sem receber um reembolso do estado que me pertencia por direito e hoje às 11h recebi a transferência integral na conta! Glória a Deus nas alturas!",
+    prayers: 78
+  },
+  {
+    id: "f2", name: "Manuel Ferreira", loc: "Genebra, Suíça", tier: "87", tierName: "Legado VIP",
+    avatarImg: "avatar-manuel.jpg",
+    offsetMinutes: 21,
+    content: "Peço oração pela minha família. Estamos emigrados e a pressão do dia a dia aqui é dura. Mas desde que ativei a bênção de Isaque no Manuscrito, sinto uma unção de paz no meu peito como há anos não experimentava.",
+    prayers: 142
+  },
+  {
+    id: "f3", name: "Beatriz Ribeiro", loc: "Lisboa, Portugal", tier: "47", tierName: "Raízes Prata",
+    avatarImg: "avatar-beatriz.jpg",
+    offsetMinutes: 52,
+    content: "O Portal da Casa dos Sonhos tocou fundo no meu coração esta manhã. Vivemos anos de renda sufocante. Sei no meu espírito que o Senhor já tem as chaves da nossa casa própria preparadas!",
+    prayers: 96
+  },
+  {
+    id: "f4", name: "António Duarte", loc: "Porto, Portugal", tier: "27", tierName: "Semente Bronze",
+    avatarImg: "avatar-antonio.jpg",
+    offsetMinutes: 115,
+    content: "A oração da quebra de palavras de maldição (Dia 11) libertou a minha alma. Lembrei-me do meu falecido tio que dizia que nenhum de nós teria futuro. Renunciei isso diante do altar e sinto-me 50kg mais leve.",
+    prayers: 168
+  },
+  {
+    id: "f5", name: "Cláudia Vieira", loc: "Paris, França", tier: "87", tierName: "Legado VIP",
+    avatarImg: "avatar-claudia.jpg",
+    offsetMinutes: 230,
+    content: "Gratidão infinita a todos os que oram nesta congregação. Fiz a semente no altar e o meu pequeno atelier aqui em França fechou dois contratos que vão sustentar a equipa por 6 meses! Deus é fiel!",
+    prayers: 224
+  },
+  {
+    id: "f6", name: "Dr. Rui Albuquerque", loc: "Coimbra, Portugal", tier: "77", tierName: "Colheita Ouro",
+    avatarImg: "avatar-rui.jpg",
+    offsetMinutes: 380,
+    content: "Como homem de ciência, aprendi que a matemática celestial de Gênesis 26:12 ultrapassa qualquer estatística humana. Quando a fé entra no altar, a escassez bate em retirada.",
+    prayers: 191
+  },
+  {
+    id: "f7", name: "Isabel Mendes", loc: "Faro, Portugal", tier: "47", tierName: "Raízes Prata",
+    avatarImg: "avatar-isabel.jpg",
+    offsetMinutes: 720,
+    content: "Fiz o áudio de 432Hz ontem antes de dormir. Havia semanas que sofria com insónias provocadas pelo medo das contas. Dormi 8 horas ininterruptas e acordei com vigor renovado!",
+    prayers: 153
+  },
+  {
+    id: "f8", name: "Tiago Gonçalves", loc: "Zurique, Suíça", tier: "87", tierName: "Legado VIP",
+    avatarImg: "avatar-tiago.jpg",
+    offsetMinutes: 1400,
+    content: "O Segredo da Arca e a bênção de Isaque mudaram a atmosfera da minha casa. Os meus filhos agora oram juntos à mesa todas as noites. Isso não tem preço no mundo.",
+    prayers: 310
+  }
+];
+
+// Initialize dynamic timestamps based on Date.now()
+let communityFeed = SEED_POSTS.map(p => ({
+  ...p,
+  timestamp: Date.now() - (p.offsetMinutes * 60 * 1000)
+}));
+
+/* ==================== 5. FORMATAÇÃO DINÂMICA DE TEMPO RELATIVO ==================== */
+function formatRelativeTime(timestamp) {
+  const now = Date.now();
+  const diffSec = Math.floor((now - timestamp) / 1000);
+  if (diffSec < 45) return "Agora mesmo";
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return "Há " + diffMin + (diffMin === 1 ? " minuto" : " minutos");
+  const diffHours = Math.floor(diffMin / 60);
+  if (diffHours < 24) return "Há " + diffHours + (diffHours === 1 ? " hora" : " horas");
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays === 1) return "Ontem";
+  return "Há " + diffDays + " dias";
+}
+
+/* ==================== 6. ESTADO DO USUÁRIO & PERSISTÊNCIA ==================== */
+let currentUser = {
+  name: "Fiel Consagrado",
+  plan: "87",
+  avatarUrl: null,
+  completedDays: [1, 2],
+  journalEntries: {},
+  prayedFeedIds: ["f2", "f5", "f8"],
+  hasConsecrated: false
+};
+let currentDay = 1;
+let sacredAudioPlaying = false;
+let audioContext = null;
+let timerInterval = null;
+let timerSeconds = 60;
+let selectedConsecPlan = '87';
+
+function initUser() {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    const n = q.get('name') || q.get('nome');
+
+    const saved = JSON.parse(localStorage.getItem('manuscrito_fiel_data') || 'null');
+    if (saved) {
+      currentUser = { ...currentUser, ...saved };
+    }
+    // Acesso Total Soberano sempre ativo
+    currentUser.plan = '87';
+
+    if (n && n.trim()) {
+      currentUser.name = n.trim();
+      currentUser.hasConsecrated = true;
+    }
+
+    if (!currentUser.hasConsecrated) {
+      document.getElementById('modalConsecration').classList.add('active');
+    }
+
+    saveUserState();
+  } catch(e){}
+
+  updateDOMUser();
+}
+
+function saveUserState() {
+  try {
+    localStorage.setItem('manuscrito_fiel_data', JSON.stringify(currentUser));
+  } catch(e){}
+}
+
+function updateDOMUser() {
+  const cfg = TIER_CONFIG['87'];
+  const firstName = currentUser.name.split(' ')[0] || "Fiel";
+
+  // Header
+  document.getElementById('headerPlanBadgeText').textContent = cfg.headerBadge;
+  document.getElementById('profileNameDisplay').textContent = currentUser.name;
+  document.getElementById('profileAliancaDisplay').textContent = cfg.name + " (" + cfg.multiplier + ")";
+  
+  // Hero
+  document.getElementById('heroName').textContent = "Paz e Graça, " + currentUser.name;
+  document.getElementById('heroBadgePlan').textContent = cfg.badge;
+  document.getElementById('statMultiplier').textContent = cfg.multiplier;
+
+  // Avatars (Header & Profile & Prayer box)
+  updateAvatarElements(firstName);
+
+  // Audio bar visual state: 100% liberado para todos
+  const audioTitle = document.getElementById('audioTitle');
+  const audioSub = document.getElementById('audioStatusText');
+  const audioBtn = document.getElementById('audioAmbientBtn');
+  if (audioTitle) audioTitle.textContent = "Harmonia Sagrada 432Hz";
+  if (audioSub && !sacredAudioPlaying) audioSub.textContent = "Toque para ouvir a melodia de paz e comunhão";
+  if (audioBtn && !sacredAudioPlaying) audioBtn.textContent = "Ouvir Áudio";
+
+  // VIP Modules in Tratado: 100% liberados
+  updateVipModules(cfg);
+
+  // Progress UI
+  updateProgressUI();
+}
+
+function updateAvatarElements(firstName) {
+  const firstLetter = firstName.charAt(0).toUpperCase();
+
+  // Header Avatar
+  const hAv = document.getElementById('headerAvatarBtn');
+  if (currentUser.avatarUrl) {
+    hAv.innerHTML = '<img src="' + currentUser.avatarUrl + '" alt="Avatar">';
+  } else {
+    hAv.innerHTML = '<span id="headerAvatarLetter">' + firstLetter + '</span>';
+  }
+
+  // Profile Avatar
+  const pAv = document.getElementById('profileAvatarDisplay');
+  if (currentUser.avatarUrl) {
+    pAv.innerHTML = '<img src="' + currentUser.avatarUrl + '" alt="Avatar">';
+  } else {
+    pAv.innerHTML = '<span id="profileAvatarLetter">' + firstLetter + '</span>';
+  }
+
+  // Community Prayer input avatar
+  const cAv = document.getElementById('prayerUserAvatar');
+  if (currentUser.avatarUrl) {
+    cAv.innerHTML = '<img src="' + currentUser.avatarUrl + '" alt="Avatar">';
+  } else {
+    cAv.innerHTML = firstLetter;
+  }
+  document.getElementById('prayerUserName').textContent = currentUser.name;
+  const cfg = TIER_CONFIG['87'];
+  document.getElementById('prayerUserTier').textContent = cfg.badge;
+}
+
+function updateVipModules(cfg) {
+  const curseBox = document.getElementById('moduleCurseBreak');
+  const curseBtn = document.getElementById('btnCurseBreak');
+  const arcaBox = document.getElementById('moduleArca');
+  const arcaBtn = document.getElementById('btnArca');
+
+  if (curseBox) curseBox.style.opacity = "1";
+  if (curseBtn) curseBtn.textContent = "⚔️ Ver Decreto de Libertação 30D";
+
+  if (arcaBox) arcaBox.style.opacity = "1";
+  if (arcaBtn) arcaBtn.textContent = "👑 Aceder à Revelação da Arca";
+}
+
+function updateProgressUI() {
+  const completed = currentUser.completedDays.length;
+  document.getElementById('statDaysCount').textContent = completed + " / 21";
+  const pct = Math.round((completed / 21) * 100);
+  document.getElementById('progPercentText').textContent = pct + "%";
+  document.getElementById('progBarFill').style.width = pct + "%";
+}
+
+function setUserTier(tierId) {
+  currentUser.plan = '87';
+  saveUserState();
+  updateDOMUser();
+}
+
+/* ==================== 7. UPLOAD DE FOTO DE PERFIL ==================== */
+function triggerPhotoUpload() {
+  document.getElementById('avatarFileInput').click();
+}
+
+function handlePhotoUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) {
+    alert("A imagem selecionada é muito pesada. Escolha uma foto com menos de 5MB.");
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(evt) {
+    currentUser.avatarUrl = evt.target.result;
+    saveUserState();
+    updateDOMUser();
+    renderCommunityFeed();
+    showToast("📸 Foto de perfil atualizada no Altar!");
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ==================== 8. ONBOARDING & CONSAGRAÇÃO MODAL ==================== */
+function submitConsecration() {
+  const nameInput = document.getElementById('consecNameInput');
+  const val = nameInput ? nameInput.value.trim() : "";
+  if (val.length < 2) {
+    alert("Por favor, digite o seu nome para a consagração no Altar.");
+    return;
+  }
+  currentUser.name = val;
+  currentUser.plan = '87';
+  currentUser.hasConsecrated = true;
+  saveUserState();
+  updateDOMUser();
+  renderCommunityFeed();
+  document.getElementById('modalConsecration').classList.remove('active');
+  showToast("✨ Bem-vindo(a) ao seu Altar Sagrado, " + val.split(' ')[0] + "!");
+}
+
+function reopenConsecrationModal() {
+  document.getElementById('consecNameInput').value = currentUser.name;
+  document.getElementById('modalConsecration').classList.add('active');
+}
+
+/* ==================== 9. NAVEGAÇÃO DE ABAS ==================== */
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  
+  const targetView = document.getElementById('tab-' + tabId);
+  if (targetView) targetView.classList.add('active');
+  
+  const btns = document.querySelectorAll('.nav-bar .nav-btn');
+  const indexMap = { 'jornada': 0, 'portais': 1, 'comunidade': 2, 'manuscrito': 3, 'perfil': 4 };
+  if (btns[indexMap[tabId]]) btns[indexMap[tabId]].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (tabId === 'comunidade') {
+    updateFeedTimestamps();
+  }
+}
+
+/* ==================== 10. JORNADA DE 21 DIAS ==================== */
+function renderDayPills() {
+  const container = document.getElementById('dayPillsContainer');
+  container.innerHTML = RITUALS_21.map(r => {
+    const isCompleted = currentUser.completedDays.includes(r.day);
+    const isActive = r.day === currentDay;
+    return `
+      <div class="day-pill ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}" onclick="selectDay(${r.day})">
+        <span class="num">${r.day}</span>
+        <span class="txt">${isCompleted ? '✓ Feito' : 'Dia'}</span>
+      </div>`;
+  }).join('');
+}
+
+function selectDay(dayNum) {
+  currentDay = dayNum;
+  renderDayPills();
+  renderCurrentRitual();
+}
+
+function renderCurrentRitual() {
+  const r = RITUALS_21.find(x => x.day === currentDay);
+  if (!r) return;
+  const isDone = currentUser.completedDays.includes(r.day);
+  const savedJournal = currentUser.journalEntries[r.day] || "";
+
+  document.getElementById('ritualCard').innerHTML = `
+    <div class="ritual-header">
+      <div class="ritual-day-tag">Passo Sagrado ${r.day} de 21</div>
+      <div style="font-size: 13px; color: var(--gold-light); font-weight: bold;">
+        ${isDone ? '✨ Consagrado &amp; Selado' : '⏳ Por Concluir Hoje'}
+      </div>
+    </div>
+
+    <h2 class="ritual-title">${r.title}</h2>
+
+    <div class="ritual-scripture">
+      "${r.scripture}"
+      <cite>${r.reference}</cite>
+    </div>
+
+    <div class="ritual-body">${r.body}</div>
+
+    <!-- MISSAO PRATICA -->
+    <div class="mission-box">
+      <div class="mission-title"><span>⚔️</span> Missão Prática de Fé do Dia:</div>
+      <div class="mission-desc">${r.mission}</div>
+    </div>
+
+    <!-- 60s MEDITATION TIMER -->
+    <div class="timer-box">
+      <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase;">Pausa Sagrada de 60 Segundos: Silêncio e Conexão com Deus</div>
+      <div class="timer-clock" id="timerDisplay">01:00</div>
+      <button class="timer-btn" id="startTimerBtn" onclick="toggleTimer()">Iniciar Pausa Sagrada</button>
+    </div>
+
+    <!-- ORAÇÃO DE AUTORIDADE -->
+    <div style="background: rgba(243,195,78,0.08); border-left: 3.5px solid var(--gold-primary); padding: 18px; border-radius: 0 10px 10px 0; margin: 22px 0;">
+      <div style="font-size: 12px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase; margin-bottom: 6px;">Oração Profética do Fiel (Reze em Voz Alta):</div>
+      <div style="font-style: italic; color: #fff8e6; font-size: 14.5px; line-height: 1.7;">"${r.prayer}"</div>
+    </div>
+
+    <!-- DIÁRIO ESPIRITUAL INTERATIVO -->
+    <div class="journal-box">
+      <label class="journal-label">✍️ O Meu Altar Pessoal (Escreva o que Deus falou ao seu coração hoje):</label>
+      <textarea class="journal-input" id="journalInputText" placeholder="Escreva aqui a sua reflexão ou gratidão de hoje..." oninput="autoSaveJournal()">${savedJournal}</textarea>
+    </div>
+
+    <button class="complete-day-btn" onclick="completeCurrentDay()">
+      ${isDone ? '✦ Dia Já Consagrado (Clique para Revalidar) ✦' : '✦ Concluir &amp; Selar o Dia ' + r.day + ' ✦'}
+    </button>
+  `;
+}
+
+function autoSaveJournal() {
+  const txt = document.getElementById('journalInputText').value;
+  currentUser.journalEntries[currentDay] = txt;
+  saveUserState();
+}
+
+function completeCurrentDay() {
+  if (!currentUser.completedDays.includes(currentDay)) {
+    currentUser.completedDays.push(currentDay);
+  }
+  autoSaveJournal();
+  saveUserState();
+  updateProgressUI();
+  renderDayPills();
+  renderCurrentRitual();
+  showToast("✨ Glória a Deus! O Dia " + currentDay + " foi selado no seu Altar!");
+}
+
+/* ==================== 11. TEMPORIZADOR SAGRADO COM CHIME ==================== */
+function toggleTimer() {
+  const btn = document.getElementById('startTimerBtn');
+  const display = document.getElementById('timerDisplay');
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    btn.textContent = "Continuar Pausa";
+    return;
+  }
+  btn.textContent = "Pausar";
+  timerInterval = setInterval(() => {
+    timerSeconds--;
+    if (timerSeconds <= 0) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timerSeconds = 60;
+      display.textContent = "00:00";
+      btn.textContent = "✦ Pausa Concluída ✦";
+      playSacredChime();
+      showToast("🕊️ Tempo sagrado de silêncio e comunhão concluído em paz!");
+    } else {
+      const s = timerSeconds < 10 ? "0" + timerSeconds : timerSeconds;
+      display.textContent = "00:" + s;
+    }
+  }, 1000);
+}
+
+function playSacredChime() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(528, ctx.currentTime);
+    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.0);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 3.0);
+  } catch(e){}
+}
+
+/* ==================== 12. ÁUDIO SINTETIZADOR 432Hz HARMONIA SACRA ==================== */
+function toggleSacredAudio() {
+  const icon = document.getElementById('audioToggleBtn');
+  const btn = document.getElementById('audioAmbientBtn');
+  const text = document.getElementById('audioStatusText');
+
+  if (sacredAudioPlaying) {
+    if (audioContext) { audioContext.close(); audioContext = null; }
+    sacredAudioPlaying = false;
+    icon.textContent = "▶";
+    btn.classList.remove('playing');
+    btn.textContent = "Ouvir Áudio";
+    text.textContent = "Toque para ouvir a melodia de paz e comunhão";
+  } else {
+    try {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      playSacredChords(audioContext);
+      sacredAudioPlaying = true;
+      icon.textContent = "❚❚";
+      btn.classList.add('playing');
+      btn.textContent = "Pausar Áudio";
+      text.textContent = "Harmonia sagrada ativa em 432Hz...";
+      showToast("🕊️ Melodia de paz iniciada em 432Hz.");
+    } catch(e) {
+      alert("Áudio sintetizado não suportado no seu navegador.");
+    }
+  }
+}
+
+function playSacredChords(ctx) {
+  const freqs = [216, 288, 324, 432];
+  freqs.forEach((f, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+    osc.frequency.setValueAtTime(f, ctx.currentTime);
+    gain.gain.setValueAtTime(0.018, ctx.currentTime);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+  });
+}
+
+/* ==================== 13. PORTAIS DE PROSPERIDADE ==================== */
+function renderPortals() {
+  const container = document.getElementById('portalsGridContainer');
+  container.innerHTML = PORTALS_DATA.map(p => `
+    <div class="portal-card" onclick="openPortalModal('${p.id}')">
+      <div class="portal-img-wrap">
+        <img src="${p.img}" alt="${p.title}" onerror="this.src='100X-god.jpg'">
+        <span class="portal-badge">Ativado</span>
+      </div>
+      <div class="portal-content">
+        <div>
+          <h4 class="portal-title">${p.title}</h4>
+          <p class="portal-sub">${p.sub}</p>
+        </div>
+        <button class="portal-btn">Ver Decreto &amp; Oração</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openPortalModal(id) {
+  const p = PORTALS_DATA.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modalPortalImg').src = p.img;
+  document.getElementById('modalPortalTitle').textContent = p.title;
+  document.getElementById('modalPortalDesc').textContent = p.desc;
+  document.getElementById('modalPortalPrayer').textContent = '"' + p.prayer + '"';
+  document.getElementById('portalModal').classList.add('active');
+}
+
+function closePortalModal(e) {
+  if (e && e.target !== e.currentTarget && !e.target.classList.contains('consec-submit-btn')) return;
+  document.getElementById('portalModal').classList.remove('active');
+}
+
+/* ==================== 14. MODAIS ESPECIAIS (QUEBRA DE MALDIÇÕES & ARCA) ==================== */
+function openCurseModal() {
+  document.getElementById('modalCurseProtocol').classList.add('active');
+}
+function closeCurseModal(e) {
+  if (e && e.target !== e.currentTarget && !e.target.classList.contains('consec-submit-btn')) return;
+  document.getElementById('modalCurseProtocol').classList.remove('active');
+}
+
+function openArcaModal() {
+  document.getElementById('modalArcaProtocol').classList.add('active');
+}
+function closeArcaModal(e) {
+  if (e && e.target !== e.currentTarget && !e.target.classList.contains('consec-submit-btn')) return;
+  document.getElementById('modalArcaProtocol').classList.remove('active');
+}
+
+/* ==================== 15. COMUNIDADE (ALTAR VIVO COM TEMPO DINÂMICO) ==================== */
+function renderCommunityFeed() {
+  const container = document.getElementById('feedListContainer');
+  container.innerHTML = communityFeed.map(item => {
+    const hasPrayed = currentUser.prayedFeedIds.includes(item.id);
+    const relTime = formatRelativeTime(item.timestamp);
+    
+    let avatarMarkup = '';
+    if (item.avatarImg) {
+      avatarMarkup = `<img src="${item.avatarImg}" alt="${item.name}" onerror="this.style.display='none'; this.parentNode.textContent='${item.name.charAt(0)}'">`;
+    } else {
+      avatarMarkup = item.name.charAt(0);
+    }
+
+    return `
+      <div class="feed-card" id="card-${item.id}">
+        <div class="feed-top">
+          <div class="feed-author">
+            <div class="feed-avatar">${avatarMarkup}</div>
+            <div>
+              <div class="feed-name">
+                <span>${item.name}</span>
+                <span class="feed-tier-pill">${item.tierName || 'Fiel'}</span>
+              </div>
+              <div class="feed-loc">${item.loc}</div>
+            </div>
+          </div>
+          <div class="feed-time" data-ts="${item.timestamp}">${relTime}</div>
+        </div>
+        <div class="feed-content">"${item.content}"</div>
+        <div class="feed-footer">
+          <button class="pray-action-btn ${hasPrayed ? 'prayed' : ''}" onclick="togglePrayFor('${item.id}')">
+            <span>${hasPrayed ? '✓ Em Oração' : '🙏 Orar por este irmão'}</span>
+          </button>
+          <span class="pray-count" id="prayCount-${item.id}">${item.prayers} irmãos oraram</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function updateFeedTimestamps() {
+  document.querySelectorAll('.feed-time[data-ts]').forEach(el => {
+    const ts = parseInt(el.getAttribute('data-ts'), 10);
+    if (ts) el.textContent = formatRelativeTime(ts);
+  });
+}
+
+// Auto update timestamps every 30 seconds
+setInterval(updateFeedTimestamps, 30000);
+
+function togglePrayFor(feedId) {
+  const item = communityFeed.find(x => x.id === feedId);
+  if (!item) return;
+  const idx = currentUser.prayedFeedIds.indexOf(feedId);
+  if (idx !== -1) {
+    currentUser.prayedFeedIds.splice(idx, 1);
+    item.prayers--;
+  } else {
+    currentUser.prayedFeedIds.push(feedId);
+    item.prayers++;
+    showToast("🕊️ A sua oração foi unida a favor de " + item.name + "!");
+  }
+  saveUserState();
+  renderCommunityFeed();
+}
+
+function postMyPrayer() {
+  const input = document.getElementById('myPrayerInput');
+  const txt = input.value.trim();
+  if (txt.length < 5) {
+    alert("Por favor, escreva o seu pedido de oração ou testemunho de fé antes de publicar.");
+    return;
+  }
+  
+  const cfg = TIER_CONFIG[currentUser.plan] || TIER_CONFIG['87'];
+  const newPost = {
+    id: "user-" + Date.now(),
+    name: currentUser.name,
+    loc: "Portugal &middot; Altar da Fé",
+    tier: currentUser.plan,
+    tierName: cfg.badge,
+    avatarImg: currentUser.avatarUrl || null,
+    offsetMinutes: 0,
+    timestamp: Date.now(),
+    content: txt,
+    prayers: 1
+  };
+  currentUser.prayedFeedIds.push(newPost.id);
+  communityFeed.unshift(newPost);
+  input.value = "";
+  saveUserState();
+  renderCommunityFeed();
+  showToast("✦ O seu testemunho foi colocado no topo do Altar Vivo!");
+}
+
+/* ==================== 16. TOAST DE NOTIFICAÇÃO VIVA ==================== */
+let toastTimeout = null;
+function showToast(msg) {
+  const toast = document.getElementById('liveToast');
+  const text = document.getElementById('liveToastText');
+  text.textContent = msg;
+  toast.classList.add('show');
+  if (toastTimeout) clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 4000);
+}
+
+const LIVE_TOASTS = [
+  "🕊️ Irmã Fátima de Guimarães uniu-se em oração no Altar.",
+  "✨ Novo testemunho em Lisboa: 'Contrato assinado após 7 meses!'",
+  "🙏 Irmão Pedro de Coimbra acendeu uma vela de gratidão no Altar.",
+  "👑 Fiel de Zurique ativou a bênção patriarcal de Isaque."
+];
+let liveToastIndex = 0;
+setInterval(() => {
+  if (document.getElementById('modalConsecration').classList.contains('active')) return;
+  showToast(LIVE_TOASTS[liveToastIndex % LIVE_TOASTS.length]);
+  liveToastIndex++;
+}, 45000);
+
+/* ==================== 17. INICIALIZAÇÃO GERAL ==================== */
+window.addEventListener('DOMContentLoaded', () => {
+  initUser();
+  renderDayPills();
+  renderCurrentRitual();
+  renderPortals();
+  renderCommunityFeed();
+});
+</script>
+</body>
+</html>

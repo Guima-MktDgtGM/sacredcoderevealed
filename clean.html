@@ -1,219 +1,630 @@
 <!DOCTYPE html>
-<html lang="es-ES">
+<html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Guion Divino de las 12 Palabras — estudio devocional cristiano</title>
-<meta name="description" content="Estudio devocional sobre doce palabras bíblicas en hebreo — significado, pasajes de origen y oraciones guiadas en audio para doce días de lectura.">
-<link rel="icon" href="/favicon.ico">
-<style>
-  :root{ --tinta:#2e2a3f; --suave:#5f5876; --dourado:#a5741a; --linha:#e8dcc4; --fundo:#faf7f0; }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--fundo);color:var(--tinta);font-family:Georgia,'Times New Roman',serif;line-height:1.75;}
-  .wrap{max-width:660px;margin:0 auto;padding:44px 24px 64px;}
-  header{text-align:center;border-bottom:1px solid var(--linha);padding-bottom:26px;margin-bottom:28px;}
-  .marca{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:10px;}
-  h1{font-size:clamp(25px,5vw,33px);line-height:1.3;margin-bottom:12px;}
-  .sub{font-size:16.5px;color:var(--suave);}
-  h2{font-size:19px;margin:36px 0 10px;color:var(--dourado);}
-  h3{font-size:16.5px;margin:22px 0 6px;}
-  p{margin-bottom:14px;font-size:16.5px;}
-  ul,ol{margin:0 0 14px 20px;} li{margin-bottom:7px;font-size:16.5px;}
-  .versiculo{font-style:italic;color:var(--suave);border-left:3px solid var(--dourado);padding-left:16px;margin:24px 0;}
-  .cta{background:#fffdf6;border:1px solid var(--linha);border-radius:12px;padding:26px 24px;margin:30px 0;text-align:center;}
-  .cta a.botao{display:inline-block;background:var(--dourado);color:#fff;text-decoration:none;
-    padding:14px 34px;border-radius:8px;font-size:16.5px;font-family:Georgia,serif;margin-top:6px;}
-  .preco{font-size:26px;margin:4px 0 2px;}
-  .preco small{font-size:14px;color:var(--suave);}
-  .nota{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:20px 22px;margin:26px 0;font-size:15.5px;color:var(--suave);}
-  .palavra{border-bottom:1px solid var(--linha);padding:16px 0;}
-  .palavra:last-child{border-bottom:none;}
-  .palavra .nome{font-size:17.5px;color:var(--tinta);}
-  .palavra .heb{font-family:'Times New Roman',serif;color:var(--dourado);font-size:19px;margin-left:6px;}
-  .palavra .sig{font-size:15.5px;color:var(--suave);margin:2px 0 0;}
-  .palavra .ref{font-size:14px;color:var(--dourado);}
-  .faq h3{color:var(--tinta);}
-  .faq p{color:var(--suave);font-size:16px;}
-  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--linha);font-size:13.5px;color:var(--suave);line-height:1.7;}
-  a{color:var(--dourado);}
-</style>
+  <meta charset="UTF-8">
+  <title>Arqueologia Bíblica &amp; Tradição: Os Antigos Manuscritos e a Lição de Isaque no Vale de Gerar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estudo histórico e arqueológico sobre os manuscritos do Antigo Testamento, a resiliência das famílias agrícolas no Vale de Gerar e as lições milenares de prosperidade familiar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #faf9f6;
+      color: #2b2823;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+    a { color: #8e6516; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #5a3f0c; text-decoration: underline; }
+
+    /* TOP BAR EDITORIAL */
+    .top-bar {
+      background: #1a1610;
+      color: #bfa980;
+      font-size: 12px;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #332b1e;
+    }
+    .top-bar-links span { margin-right: 18px; }
+
+    /* HEADER */
+    .header {
+      background: #ffffff;
+      border-bottom: 2px solid #e8e2d5;
+      padding: 20px 24px;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-logo {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1610;
+      letter-spacing: -0.5px;
+    }
+    .header-logo span { color: #9a721d; }
+    .header-nav { display: flex; gap: 24px; font-size: 14px; font-weight: 600; color: #554f43; }
+    .header-nav a { color: inherit; }
+    .header-nav a:hover { color: #9a721d; text-decoration: none; }
+
+    /* HERO ARTICLE */
+    .article-wrap {
+      max-width: 820px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+    .breadcrumbs {
+      font-size: 13px;
+      color: #7d7565;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    h1 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 34px;
+      line-height: 1.35;
+      color: #16130e;
+      margin-bottom: 18px;
+    }
+    .article-subtitle {
+      font-size: 19px;
+      line-height: 1.55;
+      color: #554e42;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    /* AUTHOR META */
+    .author-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-top: 1px solid #e8e2d5;
+      border-bottom: 1px solid #e8e2d5;
+      margin-bottom: 32px;
+      font-size: 13.5px;
+      color: #6f6757;
+    }
+    .author-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #e8dfcf;
+      color: #6c521c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      border: 1px solid #c9b99e;
+    }
+    .author-info strong { color: #1f1b14; font-size: 14.5px; display: block; }
+
+    /* CONTENT BODY */
+    .content p {
+      margin-bottom: 24px;
+      color: #2b2721;
+      text-align: justify;
+    }
+    .content h2 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 24px;
+      color: #1a1610;
+      margin: 36px 0 16px;
+      line-height: 1.35;
+    }
+    .content h3 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 19px;
+      color: #3b3324;
+      margin: 28px 0 12px;
+    }
+    .highlight-quote {
+      background: #f4eee2;
+      border-left: 4px solid #9a721d;
+      padding: 18px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 30px 0;
+      font-family: 'Merriweather', Georgia, serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #3d3424;
+      line-height: 1.65;
+    }
+    .highlight-quote cite {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 600;
+      color: #83641e;
+      margin-top: 8px;
+      text-align: right;
+    }
+
+    /* EDITORIAL CALLOUT */
+    .editorial-callout {
+      background: #ffffff;
+      border: 1.5px solid #dcd4c3;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 36px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .editorial-callout h4 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 18px;
+      color: #1a1610;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .editorial-callout p {
+      margin-bottom: 0;
+      font-size: 15.5px;
+      color: #554d3f;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #17130e;
+      color: #a89c89;
+      padding: 44px 20px;
+      font-size: 13px;
+      border-top: 3px solid #8e6516;
+      line-height: 1.7;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { color: #d0c3ab; }
+    .footer-company { font-size: 12px; color: #8d8271; margin-bottom: 14px; line-height: 1.7; }
+    .footer-disc {
+      font-size: 11.5px;
+      color: #726859;
+      max-width: 760px;
+      margin: 18px auto 0;
+    }
+
+    /* ================= SECÇÃO DO PRODUTO ================= */
+    .product-section {
+      background: #ffffff;
+      border-top: 3px solid #8e6516;
+      padding: 56px 20px;
+    }
+    .product-inner { max-width: 820px; margin: 0 auto; }
+    .product-kicker {
+      font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase;
+      color: #9a721d; font-weight: 700; margin-bottom: 10px; text-align: center;
+    }
+    .product-inner h2 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 28px; line-height: 1.3; color: #16130e;
+      text-align: center; margin-bottom: 12px;
+    }
+    .product-lead {
+      font-size: 17px; color: #554e42; text-align: center;
+      max-width: 660px; margin: 0 auto 34px;
+    }
+
+    .includes {
+      background: #faf9f6; border: 1.5px solid #e2dbcc; border-radius: 12px;
+      padding: 24px 26px; margin-bottom: 30px;
+    }
+    .includes h3 {
+      font-family: 'Merriweather', Georgia, serif; font-size: 18px;
+      color: #1a1610; margin-bottom: 14px;
+    }
+    .includes ul { list-style: none; }
+    .includes li {
+      padding: 7px 0 7px 26px; position: relative; font-size: 15.5px; color: #3f382d;
+    }
+    .includes li::before {
+      content: "✦"; position: absolute; left: 0; color: #9a721d;
+    }
+
+    /* tabela de preços */
+    .editions { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 15.5px; }
+    .editions th, .editions td {
+      padding: 13px 14px; text-align: left; border-bottom: 1px solid #e8e2d5;
+    }
+    .editions th {
+      background: #f4eee2; font-size: 12.5px; text-transform: uppercase;
+      letter-spacing: .7px; color: #6c5a2c; font-weight: 700;
+    }
+    .editions td.price { font-weight: 700; color: #16130e; white-space: nowrap; }
+    .currency-note { font-size: 13px; color: #7d7565; margin-bottom: 30px; }
+
+    /* CTA */
+    .buy-box {
+      background: #f4eee2; border: 2px solid #d8c9a4; border-radius: 14px;
+      padding: 30px 24px; text-align: center; margin-bottom: 14px;
+    }
+    .buy-price { font-family: 'Merriweather', Georgia, serif; font-size: 30px; color: #16130e; }
+    .buy-price small { font-size: 15px; color: #6f6757; font-weight: 400; }
+    .buy-sub { font-size: 14.5px; color: #5d5647; margin: 8px 0 20px; }
+    .buy-btn {
+      display: inline-block; background: #8e6516; color: #fff !important;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700;
+      padding: 17px 42px; border-radius: 8px; text-decoration: none !important;
+      border: none; cursor: pointer; transition: background .2s;
+    }
+    .buy-btn:hover { background: #6d4d0f; }
+    .buy-guarantee { font-size: 13.5px; color: #6f6757; margin-top: 16px; }
+
+    /* botões que abrem os modais */
+    .info-buttons {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px;
+    }
+    .info-btn {
+      background: #ffffff; border: 1.5px solid #d8cfbc; border-radius: 8px;
+      padding: 11px 18px; font-family: inherit; font-size: 13.5px; font-weight: 600;
+      color: #4a4235; cursor: pointer; transition: all .15s;
+    }
+    .info-btn:hover { border-color: #9a721d; color: #8e6516; }
+
+    /* ================= MODAIS ================= */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 900;
+      background: rgba(20,17,12,.72); padding: 20px; overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .modal-box {
+      background: #fff; max-width: 620px; width: 100%; margin: auto;
+      border-radius: 14px; padding: 32px 30px; position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .modal-box h3 {
+      font-family: 'Merriweather', Georgia, serif; font-size: 21px;
+      color: #16130e; margin-bottom: 16px; padding-right: 30px;
+    }
+    .modal-box h4 { font-size: 15px; color: #8e6516; margin: 18px 0 6px; }
+    .modal-box p, .modal-box li { font-size: 15px; color: #3f382d; margin-bottom: 11px; }
+    .modal-box ul { padding-left: 20px; }
+    .modal-close {
+      position: absolute; top: 14px; right: 16px; background: none; border: none;
+      font-size: 26px; line-height: 1; color: #9a9184; cursor: pointer;
+    }
+    .modal-close:hover { color: #16130e; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 26px; }
+      .article-subtitle { font-size: 17px; }
+      .header-nav { display: none; }
+      .top-bar { display: none; }
+      .product-inner h2 { font-size: 23px; }
+      .editions th, .editions td { padding: 10px 8px; font-size: 14px; }
+      .buy-btn { width: 100%; padding: 16px 20px; }
+      .modal-box { padding: 26px 20px; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <p class="marca">Guion Divino</p>
-    <h1>Las 12 Palabras Sagradas</h1>
-    <p class="sub">Un estudio devocional sobre doce palabras que aparecen en la Biblia en hebreo.</p>
-  </header>
-
-  <p>Existen palabras que han atravesado milenios sin ser traducidas. Aparecen en los salmos, en los profetas y en las cartas — y siguen diciéndose, todavía hoy, en la lengua en que fueron escritas. Cantamos <em>aleluya</em> sin saber que aquello es una frase entera. Deseamos <em>shalom</em> sin saber que la palabra no significa solo ausencia de guerra.</p>
-
-  <p>Toda traducción elige. Cuando un término hebreo carga tres o cuatro sentidos al mismo tiempo, el traductor tiene que optar por uno — y los demás se quedan por el camino. No es un error: es el límite de cualquier traducción. Pero quien vuelve a la palabra original suele encontrar ahí una capa que la lectura en castellano no le entregó.</p>
-
-  <div class="versiculo">
-    “Lámpara es a mis pies tu palabra, y lumbrera a mi camino.”<br>— Salmo 119:105
+<!-- TOP EDITORIAL BAR -->
+<div class="top-bar">
+  <div>Revista de Estudos Bíblicos &middot; Edição Histórica Europeia</div>
+  <div class="top-bar-links">
+    <span>ISSN 2841-9210</span>
+    <span>Arqueologia do Médio Oriente</span>
   </div>
-
-  <p>Este material nació de esa curiosidad. No es un curso de hebreo, ni pretende serlo: es un estudio devocional, escrito para laicos, que toma doce palabras bíblicas y las devuelve al lector con el sentido que tienen en el texto de origen — acompañadas de una oración para rezar con cada una.</p>
-
-  <h2>Las doce palabras</h2>
-  <p>Cada una se presenta con la grafía hebrea, el significado, el pasaje en que aparece por primera vez o de forma más destacada, y una oración guiada en audio.</p>
-
-  <div class="palavra">
-    <p class="nome">Shalom<span class="heb">שָׁלוֹם</span></p>
-    <p class="sig">Paz — pero en el sentido de plenitud, de algo a lo que no le falta ningún pedazo. Se desea <em>shalom</em> a alguien para decirle que nada le falte.</p>
-    <p class="ref">Números 6:26</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Emunah<span class="heb">אֱמוּנָה</span></p>
-    <p class="sig">Fe — en el sentido de firmeza y fidelidad, no de opinión. La misma raíz de "amén".</p>
-    <p class="ref">Habacuc 2:4</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Chesed<span class="heb">חֶסֶד</span></p>
-    <p class="sig">Misericordia leal. Es el amor que permanece por compromiso, incluso cuando no es merecido. Aparece 26 veces en el Salmo 136, una en cada versículo.</p>
-    <p class="ref">Salmo 136</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Rapha<span class="heb">רָפָא</span></p>
-    <p class="sig">Curar, coser, restaurar lo que se rompió. Está en la expresión <em>Adonai Rophecha</em>, "el Señor que te sana".</p>
-    <p class="ref">Éxodo 15:26</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Ruach<span class="heb">רוּחַ</span></p>
-    <p class="sig">Espíritu, soplo y viento — la misma palabra para los tres. Por eso el texto del Génesis puede leerse como un soplo sobre las aguas.</p>
-    <p class="ref">Génesis 1:2</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Or<span class="heb">אוֹר</span></p>
-    <p class="sig">Luz. Lo primero que recibe nombre en la creación, incluso antes que el sol.</p>
-    <p class="ref">Génesis 1:3</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Kadosh<span class="heb">קָדוֹשׁ</span></p>
-    <p class="sig">Santo — literalmente "separado", apartado para un fin. Dicho tres veces seguidas en la visión de Isaías.</p>
-    <p class="ref">Isaías 6:3</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Adonai<span class="heb">אֲדֹנָי</span></p>
-    <p class="sig">Señor. Palabra pronunciada en lugar del Nombre, por reverencia, en la lectura de las Escrituras.</p>
-    <p class="ref">Salmo 8:1</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Beracha<span class="heb">בְּרָכָה</span></p>
-    <p class="sig">Bendición. En la promesa a Abraham, no es solo algo que se recibe: es algo en lo que la persona se convierte.</p>
-    <p class="ref">Génesis 12:2</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Teshuvá<span class="heb">תְּשׁוּבָה</span></p>
-    <p class="sig">Arrepentimiento, en el sentido literal de <em>retorno</em> — dar media vuelta y caminar de nuevo en dirección a casa.</p>
-    <p class="ref">Joel 2:12-13</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Tefilá<span class="heb">תְּפִלָּה</span></p>
-    <p class="sig">Oración. La raíz sugiere juzgarse a uno mismo: rezar es también el examen de quien reza.</p>
-    <p class="ref">Salmo 102</p>
-  </div>
-
-  <div class="palavra">
-    <p class="nome">Hallelu-Yah<span class="heb">הַלְלוּ־יָהּ</span></p>
-    <p class="sig">No es una palabra, son dos: un verbo en imperativo plural y el Nombre abreviado. "Alabad al Señor" — dicho a otras personas, no a uno mismo.</p>
-    <p class="ref">Salmo 150:6</p>
-  </div>
-
-  <h2>Cómo está organizado el estudio</h2>
-  <p>Son doce días, una palabra por día. La lectura de cada día lleva de diez a quince minutos y sigue siempre la misma estructura, para que la persona pueda crear el hábito sin tener que decidir nada:</p>
-
-  <ol>
-    <li><strong>La palabra</strong> — grafía, pronunciación aproximada y lo que significa en el hebreo bíblico.</li>
-    <li><strong>El pasaje</strong> — el fragmento en que aparece, con el contexto necesario para entender por qué se usó ahí.</li>
-    <li><strong>Lo que cambia en la lectura</strong> — cómo suena aquel versículo cuando se conoce el término original.</li>
-    <li><strong>La oración</strong> — un audio corto, de tres a cinco minutos, para rezar con la palabra del día.</li>
-    <li><strong>Una pregunta</strong> — para llevar el tema más allá, a solas o en grupo.</li>
-  </ol>
-
-  <p>No hace falta leer doce días seguidos. Mucha gente prefiere una palabra por semana, lo que extiende el material a lo largo de tres meses. El acceso no caduca.</p>
-
-  <h2>Qué incluye</h2>
-  <ul>
-    <li>Estudio escrito de las doce palabras, con los pasajes bíblicos de origen</li>
-    <li>Doce oraciones guiadas en audio, una para cada palabra</li>
-    <li>Guion de lectura diaria, con las preguntas de reflexión</li>
-    <li>Acceso mediante la aplicación, en el móvil o en el ordenador</li>
-    <li>Acceso sin fecha de caducidad, incluidas las revisiones futuras del material</li>
-  </ul>
-
-  <h2>Para quién es</h2>
-  <p>Para quien ya tiene una vida de oración y quiere profundizarla. Para quien disfruta estudiando la Biblia y siente curiosidad por el idioma original. Y para quien busca un guion sencillo de meditación en los días en que rezar cuesta.</p>
-
-  <h3>Para quién no es</h3>
-  <p>No es un curso de hebreo — quien busque aprender la lengua encontrará el material superficial. No es un estudio académico con aparato crítico. Y no está indicado para quien espera un resultado material, económico o de salud: no es eso lo que se ofrece aquí.</p>
-
-  <div class="cta">
-    <p style="margin-bottom:6px;">Guion Divino de las 12 Palabras</p>
-    <p class="preco">17,00 € <small>· pago único</small></p>
-    <a class="botao" href="https://checkout.kashpay.com.br/checkout/checkout-1789778177296">Ver el Guion Divino</a>
-    <p style="font-size:13.5px;color:var(--suave);margin:14px 0 0;">Acceso inmediato tras la confirmación · Garantía de 7 días</p>
-  </div>
-
-  <h2>Preguntas frecuentes</h2>
-  <div class="faq">
-
-    <h3>¿Necesito saber hebreo?</h3>
-    <p>No. El material está escrito para quien nunca ha estudiado la lengua. La grafía hebrea aparece junto a cada palabra, pero sirve para reconocerla, no para leerla.</p>
-
-    <h3>¿Cómo recibo el acceso?</h3>
-    <p>Justo después de la confirmación del pago, recibes por correo electrónico el enlace y los datos de acceso a la aplicación. Si el correo no llega en unos minutos, conviene revisar la carpeta de spam antes de escribir al soporte.</p>
-
-    <h3>¿Es un libro físico?</h3>
-    <p>No. Todo el contenido es digital: texto y audio, accesibles desde la aplicación en el móvil o desde el navegador en el ordenador. No se envía material impreso.</p>
-
-    <h3>¿En qué moneda se realiza el cobro?</h3>
-    <p>El cobro se realiza en euros (17,00 €). Quien paga con una tarjeta emitida en otro país recibe el importe convertido automáticamente por el banco emisor, según el cambio del día.</p>
-
-    <h3>¿Sirve para cualquier confesión cristiana?</h3>
-    <p>Sí. El estudio trata del vocabulario bíblico y de los pasajes en que esas palabras aparecen, sin tomar partido en cuestiones de doctrina.</p>
-
-    <h3>¿Puedo escuchar las oraciones sin leer el estudio?</h3>
-    <p>Sí. Muchos lectores usan los audios por sí solos, en el trayecto o antes de dormir. El texto añade contexto, pero las oraciones funcionan de forma independiente.</p>
-
-    <h3>¿Y si no me gusta?</h3>
-    <p>Tienes siete días para pedir la devolución íntegra, sin necesidad de explicar el motivo. Basta con escribir al correo de contacto.</p>
-
-  </div>
-
-  <h2>Garantía y reembolso</h2>
-  <p>Quien adquiere el material dispone de <strong>7 días</strong>, contados desde la fecha de compra, para solicitar la devolución íntegra del importe pagado, sin necesidad de justificación. La solicitud se hace por correo electrónico y el reembolso se procesa por el mismo medio de pago utilizado en la compra. El plazo para que el importe aparezca en el extracto depende del banco emisor.</p>
-
-  <h2>Contacto y soporte</h2>
-  <p>Dudas antes o después de la compra, problemas de acceso o solicitudes de reembolso: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>. Respondemos en un plazo máximo de un día laborable.</p>
-
-  <h2>Privacidad</h2>
-  <p>Recogemos únicamente los datos necesarios para procesar la compra y entregar el acceso: nombre, correo electrónico y los datos de pago, estos últimos tratados directamente por el procesador de pagos, sin pasar por nosotros. No vendemos, alquilamos ni compartimos esa información con terceros con fines publicitarios. Quien desee que sus datos sean eliminados de nuestra base puede solicitarlo por el correo de contacto.</p>
-
-  <h2>Términos de uso</h2>
-  <p>El acceso al material es personal e intransferible. El contenido está protegido por derechos de autor: se permite usarlo libremente para el estudio y la oración, incluso en grupo, pero no redistribuirlo, revenderlo ni publicarlo, en todo o en parte, sin autorización por escrito.</p>
-
-  <div class="nota">
-    <strong style="color:var(--tinta);">Sobre lo que este material no es.</strong> Se trata de contenido devocional y educativo, de carácter religioso. No sustituye el acompañamiento médico, psicológico, jurídico ni financiero, y no promete curación, enriquecimiento ni ningún resultado material. La experiencia de fe es personal y varía de una persona a otra.
-  </div>
-
-  <footer>
-    <p>Guion Divino de las 12 Palabras — contenido religioso, devocional y educativo.</p>
-    <p style="margin-top:10px;">Copyright © 2026. Todos los derechos reservados.</p>
-  </footer>
-
 </div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-logo">Cadernos de <span>Arqueologia Bíblica</span></div>
+    <nav class="header-nav">
+      <a href="#produto">O Produto</a>
+      <a href="terms.html">Termos</a>
+      <a href="privacy.html">Privacidade</a>
+      <a href="refund.html">Reembolso</a>
+      <a href="support.html">Suporte</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN ARTICLE WRAPPER -->
+<main class="article-wrap">
+  <div class="breadcrumbs">Estudos Textuais &middot; Gênesis &middot; Economia Bíblica Antiga</div>
+  
+  <h1>A Arqueologia Sagrada e a Lição de Isaque: O Que os Antigos Manuscritos Revelam Sobre a Colheita no Vale de Gerar</h1>
+  
+  <p class="article-subtitle">
+    Historiadores e teólogos examinam as evidências textuais de Gênesis 26 e como a perseverança espiritual e o princípio da semente transformaram a subsistência de famílias inteiras em tempos de seca prolongada.
+  </p>
+
+  <div class="author-meta">
+    <div class="author-avatar">EB</div>
+    <div class="author-info">
+      <strong>Por Redação de Estudos Bíblicos &amp; História Antiga</strong>
+      <span>Publicado em 24 de setembro de 2026 &middot; Leitura estimada: 5 minutos &middot; Revisão Académica</span>
+    </div>
+  </div>
+
+  <article class="content">
+    <p>
+      Ao longo dos séculos, arqueólogos, epigrafistas e estudiosos das tradições do Médio Oriente antigo têm-se debruçado sobre os relatos fundacionais das Escrituras hebraicas. Entre os textos que mais despertam fascínio pelo seu paralelo entre resiliência agrária e confiança espiritual, destaca-se o capítulo 26 do livro de Gênesis.
+    </p>
+
+    <p>
+      O relato descreve a permanência do patriarca Isaque na região de Gerar durante um período crítico de estiagem severa. Enquanto as populações circunvizinhas recuavam perante a aridez da terra e a incerteza económica, os manuscritos preservam um registo ímpar de determinação e fidelidade aos preceitos da aliança.
+    </p>
+
+    <div class="highlight-quote">
+      "Semeou Isaque naquela terra e, no mesmo ano, recolheu cento por um, porque o Senhor o abençoava."
+      <cite>— Gênesis 26:12 (Texto Massorético)</cite>
+    </div>
+
+    <h2>1. O Contexto Geográfico e Arqueológico do Vale de Gerar</h2>
+    <p>
+      A região de Gerar, situada a noroeste do deserto do Negueve, caracterizava-se historicamente por um clima semiárido, onde o sucesso de qualquer cultivo dependia não apenas do conhecimento técnico de irrigação, mas da sincronia exata entre as primeiras e as últimas chuvas sazonais.
+    </p>
+    <p>
+      Descobertas arqueológicas contemporâneas em sítios da Idade do Bronze Médio confirmam que as comunidades que ali floresceram desenvolveram sistemas complexos de armazenamento de grãos e captação de lençóis freáticos — os conhecidos "poços de água viva" frequentemente citados na narrativa bíblica.
+    </p>
+
+    <h2>2. A Matemática do "Cento por Um" no Pensamento Hebraico</h2>
+    <p>
+      Na literatura agrária da Antiguidade, um retorno médio de 10 a 15 medidas por cada medida semeada era considerado um resultado excelente. A expressão hebraica traduzida como <em>"cento por um"</em> (<em>me'ah she'arim</em>) possui uma dimensão que transcende a aritmética comum: simboliza a plenitude máxima permitida pela providência divina.
+    </p>
+    <p>
+      Não se tratava meramente de acumulação de cereais, mas da consolidação de uma garantia alimentar comunitária, que permitia à família patriarcal acolher servos, proteger rebanhos e estender auxílio a povoados vizinhos vitimados pela fome.
+    </p>
+
+    <div class="editorial-callout">
+      <h4>📜 Nota dos Manuscritos Antigos</h4>
+      <p>
+        Fragmentos textuais preservados em pergaminhos antigos reforçam que a atitude do semeador era pautada por três virtudes essenciais: o silêncio perante as circunstâncias adversas, a obediência firme à direção espiritual e a recusa da murmuração.
+      </p>
+    </div>
+
+    <h2>3. A Relevância dos Princípios Milenares para a Sociedade Atual</h2>
+    <p>
+      Embora a economia moderna seja fundamentada em instrumentos digitais e mercados globais, as dinâmicas de incerteza, pressão orçamental e desafios familiares mantêm impressionante paralelismo com os tempos ancestrais.
+    </p>
+    <p>
+      A tradição bíblica ensina que a verdadeira estabilidade de um lar não repousa exclusivamente nas flutuações das circunstâncias externas, mas nos alicerces morais, na generosidade ativa e na perseverança constante. Manter a serenidade interior e renovar os votos de esperança continuam a ser as mais poderosas âncoras para qualquer família.
+    </p>
+
+    <div class="highlight-quote">
+      "O homem de bem deixa herança aos filhos de seus filhos..."
+      <cite>— Provérbios 13:22</cite>
+    </div>
+
+    <h2>Conclusão: O Legado dos Manuscritos</h2>
+    <p>
+      O estudo cuidadoso dos relatos patriarcais convida a uma reflexão equilibrada sobre fé, responsabilidade e o futuro dos nossos lares. Quando a prudência humana se alia à reverência espiritual, o trabalho diário transforma-se em legado duradouro de paz, integridade e dignidade.
+    </p>
+  </article>
+</main>
+
+<!-- ============ SECÇÃO DO PRODUTO (requisitos Mundpay) ============ -->
+<section class="product-section" id="produto">
+  <div class="product-inner">
+
+    <div class="product-kicker">Produto digital</div>
+    <h2>O Manuscrito Sagrado — Biblioteca Devocional Digital</h2>
+    <p class="product-lead">
+      Programa de estudo e oração de 21 dias, em formato digital, acompanhado de materiais
+      complementares de leitura bíblica. Cada dia reúne uma reflexão, uma passagem comentada
+      e uma orientação prática de oração.
+    </p>
+
+    <div class="includes">
+      <h3>O que está incluído</h3>
+      <ul>
+        <li>Programa devocional de 21 dias, com reflexão, escritura comentada e oração diária</li>
+        <li>Guia devocional personalizado em formato digital</li>
+        <li>Coletânea de Fé e Esperança — mais de 200 páginas de orações e escrituras</li>
+        <li>10 módulos temáticos de reflexão</li>
+        <li>Estudo bíblico aprofundado, com contexto histórico e comentário</li>
+        <li>Orações em áudio narrado e certificado de conclusão (edições superiores)</li>
+      </ul>
+    </div>
+
+    <h3 style="font-family:'Merriweather',Georgia,serif;font-size:18px;color:#1a1610;margin-bottom:12px;">Edições e preços</h3>
+    <table class="editions">
+      <thead>
+        <tr><th>Edição</th><th>O que acrescenta</th><th>Preço</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Essencial</td><td>Programa de 21 dias + guia devocional</td><td class="price">€ 27,00</td></tr>
+        <tr><td>Completa</td><td>+ Coletânea de Fé e Esperança e 10 módulos temáticos</td><td class="price">€ 47,00</td></tr>
+        <tr><td>de Estudo</td><td>+ Estudo bíblico aprofundado e orações em áudio</td><td class="price">€ 67,00</td></tr>
+        <tr><td>Integral</td><td>+ Certificado, acesso vitalício e atualizações futuras</td><td class="price">€ 87,00</td></tr>
+      </tbody>
+    </table>
+    <p class="currency-note">
+      Valores em <strong>euros (EUR)</strong>, em pagamento único, sem mensalidades e sem renovação automática.
+    </p>
+
+    <div class="editorial-callout" style="margin:0 0 30px;">
+      <h4>📦 Forma de entrega</h4>
+      <p>
+        Produto <strong>100% digital</strong>. Após a confirmação do pagamento, o acesso é enviado
+        automaticamente para o e-mail indicado na compra, com as credenciais da área de membros,
+        onde todo o material fica disponível. <strong>Não há envio de material físico.</strong>
+        Em caso de não receção, basta contactar o apoio ao cliente.
+      </p>
+    </div>
+
+    <!-- ============ CTA PRINCIPAL ============ -->
+    <div class="buy-box">
+      <div class="buy-price">€ 27,00 <small>— Edição Essencial</small></div>
+      <div class="buy-sub">Pagamento único · Acesso imediato por e-mail</div>
+
+      <!-- ►►► COLAR AQUI O LINK DO CHECKOUT MUNDPAY ◄◄◄ -->
+      <a class="buy-btn" href="#" id="ctaCheckout">Adquirir agora</a>
+
+      <div class="buy-guarantee">
+        🛡️ Garantia incondicional de 7 dias — consulte a Política de Reembolso abaixo.
+      </div>
+    </div>
+
+    <!-- ============ BOTÕES DE INFORMAÇÃO (MODAIS) ============ -->
+    <div class="info-buttons">
+      <button class="info-btn" onclick="abrirModal('m-garantia')">Garantia e Reembolso</button>
+      <button class="info-btn" onclick="abrirModal('m-entrega')">Entrega e Acesso</button>
+      <button class="info-btn" onclick="abrirModal('m-suporte')">Apoio ao Cliente</button>
+      <button class="info-btn" onclick="abrirModal('m-privacidade')">Privacidade</button>
+      <button class="info-btn" onclick="abrirModal('m-termos')">Termos de Uso</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MODAIS ============ -->
+<div class="modal-overlay" id="m-garantia" onclick="fecharModal(event,'m-garantia')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal(null,'m-garantia')">&times;</button>
+    <h3>Política de Garantia e Reembolso</h3>
+    <h4>Prazo</h4>
+    <p>O prazo para solicitar reembolso é de <strong>até 7 dias</strong> a contar da confirmação do pagamento, conforme o direito de arrependimento. Não é necessário apresentar qualquer justificação.</p>
+    <h4>Como solicitar</h4>
+    <ul>
+      <li>Envie um e-mail para <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a> com o assunto <strong>"Reembolso — Pedido #XXXX"</strong>.</li>
+      <li>Indique o nome, o e-mail utilizado na compra e o número do pedido.</li>
+    </ul>
+    <h4>Forma e prazo do estorno</h4>
+    <p>O estorno é processado no <strong>mesmo método de pagamento</strong> utilizado na compra, no prazo de <strong>até 7 dias úteis</strong> após a aprovação do pedido.</p>
+    <h4>Exceções</h4>
+    <p>Pedidos apresentados fora do prazo de 7 dias não poderão ser aceites. Compras efetuadas por engano seguem o mesmo procedimento e prazo.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-entrega" onclick="fecharModal(event,'m-entrega')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal(null,'m-entrega')">&times;</button>
+    <h3>Entrega e Acesso ao Produto</h3>
+    <p>Todo o conteúdo é <strong>digital</strong>. Não existe envio de material físico e não há custos de portes.</p>
+    <h4>Quando recebe</h4>
+    <p>Imediatamente após a confirmação do pagamento. O acesso é enviado para o e-mail indicado no momento da compra.</p>
+    <h4>Onde acede</h4>
+    <p>Na área de membros, disponível em qualquer telemóvel, tablet ou computador com ligação à internet. Não é necessário instalar qualquer aplicação.</p>
+    <h4>Não recebeu?</h4>
+    <p>Verifique a pasta de correio não solicitado (spam) ou o separador de promoções. Caso não encontre, contacte-nos indicando o nome e o e-mail usados na compra e reenviamos de imediato.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-suporte" onclick="fecharModal(event,'m-suporte')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal(null,'m-suporte')">&times;</button>
+    <h3>Apoio ao Cliente</h3>
+    <h4>Canais de atendimento</h4>
+    <ul>
+      <li><strong>E-mail:</strong> <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a></li>
+      <li><strong>Tempo de resposta:</strong> até 1 dia útil (segunda a sexta, 9h–18h)</li>
+    </ul>
+    <h4>Questões frequentes</h4>
+    <p><strong>Não recebi o produto por e-mail:</strong> verifique a pasta de spam ou promoções e, se necessário, contacte-nos para reenvio imediato.</p>
+    <p><strong>Pretendo pedir reembolso:</strong> consulte a Política de Garantia e Reembolso e envie-nos um e-mail dentro do prazo de 7 dias.</p>
+    <p><strong>Tenho uma dúvida sobre a cobrança:</strong> escreva-nos com os dados do pedido para analisarmos de imediato.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-privacidade" onclick="fecharModal(event,'m-privacidade')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal(null,'m-privacidade')">&times;</button>
+    <h3>Política de Privacidade</h3>
+    <h4>Dados recolhidos</h4>
+    <p>Nome, endereço de e-mail, telefone (quando fornecido) e dados relativos à compra e ao acesso ao produto.</p>
+    <h4>Finalidades</h4>
+    <p>Entrega do produto, apoio ao cliente, faturação e comunicações relativas à transação.</p>
+    <h4>Base legal</h4>
+    <p>Execução do contrato e, quando aplicável, consentimento do titular, nos termos do RGPD e da legislação aplicável.</p>
+    <h4>Partilha de dados</h4>
+    <p>Apenas com processadores de pagamento e fornecedores de infraestrutura (alojamento e envio de e-mail), no estrito necessário à prestação do serviço. Não vendemos nem cedemos dados a terceiros para fins publicitários.</p>
+    <h4>Os seus direitos</h4>
+    <p>Pode aceder, corrigir ou solicitar a eliminação dos seus dados a qualquer momento através de <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-termos" onclick="fecharModal(event,'m-termos')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="fecharModal(null,'m-termos')">&times;</button>
+    <h3>Termos de Uso</h3>
+    <h4>Objeto</h4>
+    <p>Estes termos regulam o acesso e a utilização deste sítio e dos produtos digitais aqui disponibilizados. Ao adquirir, o comprador declara concordar integralmente com os mesmos.</p>
+    <h4>Licença de uso</h4>
+    <p>O acesso é <strong>pessoal e intransmissível</strong>. É proibida a cópia, partilha, revenda ou distribuição do material sem autorização prévia por escrito.</p>
+    <h4>Natureza do conteúdo</h4>
+    <p>Os materiais têm carácter <strong>educativo e inspiracional</strong>. Não constituem aconselhamento financeiro, médico, jurídico ou profissional de qualquer natureza. Os resultados variam de pessoa para pessoa e não são garantidos.</p>
+    <h4>Pagamentos</h4>
+    <p>Os pagamentos são processados por plataforma parceira certificada. Os preços são apresentados em euros (EUR) no momento da compra.</p>
+    <h4>Contacto</h4>
+    <p>Para qualquer questão: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="#produto">O Produto</a>
+      <a href="terms.html">Termos de Uso</a>
+      <a href="privacy.html">Política de Privacidade</a>
+      <a href="refund.html">Política de Reembolso</a>
+      <a href="support.html">Apoio ao Cliente</a>
+    </div>
+
+    <div class="footer-company">
+      GUIMA DR &middot; CNPJ 00.000.000/0001-00<br>
+      Av. Paulista, 1471, conjunto 1110 &middot; Jardim Paulista &middot; São Paulo/SP &middot; CEP 01311-927 &middot; Brasil<br>
+      Apoio ao cliente: <a href="mailto:gabriel.luz@noticiasdafe.com.br">gabriel.luz@noticiasdafe.com.br</a>
+    </div>
+
+    <div class="footer-disc">
+      Conteúdo educacional. Resultados variam por pessoa.<br>
+      Este material destina-se a fins educativos, culturais e de reflexão pessoal. As passagens bíblicas citadas baseiam-se em textos de domínio público.
+      Não constitui aconselhamento financeiro, médico, jurídico ou profissional, e não garante qualquer resultado específico.
+      Produto digital entregue por e-mail após a confirmação do pagamento. Garantia incondicional de 7 dias.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function abrirModal(id){
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function fecharModal(ev, id){
+    if (ev && ev.target !== ev.currentTarget) return;
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(function(m){
+        m.classList.remove('open');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
 </body>
 </html>

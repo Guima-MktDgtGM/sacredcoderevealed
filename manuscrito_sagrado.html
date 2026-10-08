@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Manuscrito Sagrado — O Código Divino de Fé e Prosperidade</title>
+<style>
+  /* ================= RESET & BASE ================= */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; background: #0c0a06; }
+  body {
+    font-family: 'Cinzel', 'Georgia', 'Times New Roman', serif;
+    color: #f5eedb;
+    background: #0c0a06;
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ================= PERSONALIZATION BAR (NO PRINT) ================= */
+  .toolbar {
+    position: sticky; top: 0; z-index: 1000;
+    background: linear-gradient(180deg, rgba(20,16,10,0.98), rgba(12,10,6,0.96));
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    padding: 14px 20px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px;
+  }
+  .toolbar-label { font-size: 14px; font-weight: bold; color: #f3c34e; text-transform: uppercase; letter-spacing: 1.5px; }
+  .toolbar-input {
+    background: #1d170e; border: 1.5px solid #d4af37; border-radius: 8px;
+    color: #fff; padding: 10px 16px; font-family: inherit; font-size: 15px; outline: none;
+    min-width: 240px;
+  }
+  .toolbar-input::placeholder { color: #8f7f5a; }
+  .toolbar-btn {
+    background: linear-gradient(180deg, #f7d873, #d4af37); color: #1a1206;
+    font-family: inherit; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+    border: none; border-radius: 8px; padding: 11px 22px; cursor: pointer;
+    box-shadow: 0 3px 12px rgba(212,175,55,0.35); transition: all .15s ease;
+  }
+  .toolbar-btn:hover { transform: translateY(-1px); filter: brightness(1.1); }
+  .toolbar-btn.pdf {
+    background: linear-gradient(180deg, #2b2317, #19140c); color: #f3c34e;
+    border: 1.5px solid #d4af37;
+  }
+
+  /* ================= CONTAINER & PAGES ================= */
+  .book-container {
+    max-width: 900px; margin: 30px auto; padding: 0 20px;
+  }
+
+  .sheet {
+    background: radial-gradient(circle at 50% 30%, #17130c, #0d0a06 85%);
+    border: 1px solid #4a3c1c;
+    border-radius: 12px;
+    padding: 70px 65px;
+    margin-bottom: 45px;
+    box-shadow: 0 10px 45px rgba(0,0,0,0.7), inset 0 0 60px rgba(212,175,55,0.04);
+    position: relative;
+  }
+  .sheet::before {
+    content: ""; position: absolute; inset: 12px;
+    border: 1px solid rgba(212,175,55,0.22);
+    border-radius: 8px; pointer-events: none;
+  }
+
+  /* ================= TYPOGRAPHY & ELEMENTS ================= */
+  h1, h2, h3, h4 { color: #f3c34e; text-align: center; letter-spacing: 1.5px; font-weight: normal; }
+  h1 { font-size: 38px; line-height: 1.25; margin-bottom: 12px; text-transform: uppercase; }
+  h2 { font-size: 26px; line-height: 1.35; margin: 35px 0 18px; border-bottom: 1px solid rgba(212,175,55,0.25); padding-bottom: 10px; }
+  h3 { font-size: 21px; margin: 24px 0 10px; color: #ffe699; text-align: left; }
+  p { margin-bottom: 18px; text-align: justify; color: #e9e0cb; }
+
+  .lead { font-size: 19px; line-height: 1.8; color: #fff1c7; font-style: italic; text-align: center; margin: 25px 0 35px; }
+
+  .ornament { text-align: center; color: #d4af37; font-size: 22px; margin: 30px 0; letter-spacing: 6px; }
+
+  /* Decorative initial drop cap */
+  .drop-cap::first-letter {
+    font-size: 62px; line-height: 50px; float: left;
+    margin: 4px 12px 0 0; color: #f3c34e; font-weight: bold;
+    text-shadow: 0 0 15px rgba(243,195,78,0.4);
+  }
+
+  /* Gold Highlight Callouts */
+  .decree-box {
+    background: rgba(26,20,11,0.85);
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    padding: 26px 30px;
+    margin: 28px 0;
+    box-shadow: 0 0 30px rgba(212,175,55,0.15);
+    position: relative;
+  }
+  .decree-box .d-title {
+    font-size: 15px; text-transform: uppercase; letter-spacing: 2px;
+    color: #f3c34e; font-weight: bold; margin-bottom: 12px; display: block; text-align: center;
+  }
+  .decree-box .d-body {
+    font-size: 18px; line-height: 1.7; font-style: italic; color: #fff8e3; text-align: center;
+  }
+
+  .scripture-card {
+    background: rgba(10,8,4,0.7);
+    border-left: 4px solid #d4af37;
+    padding: 18px 24px;
+    margin: 22px 0;
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: #e5d8b8;
+  }
+  .scripture-card cite { display: block; text-align: right; margin-top: 8px; font-weight: bold; color: #f3c34e; font-style: normal; font-size: 14px; }
+
+  /* Portal Showcase */
+  .portal-item {
+    display: flex; gap: 24px; align-items: center;
+    background: rgba(18,14,8,0.65);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+  }
+  .portal-thumb {
+    width: 110px; height: 110px; flex-shrink: 0;
+    border-radius: 12px; border: 2px solid #d4af37;
+    overflow: hidden; box-shadow: 0 0 20px rgba(212,175,55,0.25);
+  }
+  .portal-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .portal-desc { flex: 1; }
+  .portal-desc h4 { text-align: left; font-size: 19px; color: #f3c34e; margin-bottom: 6px; }
+  .portal-desc p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
+  /* 21 Days Routine Grid */
+  .day-card {
+    border: 1px solid #3d3116; border-radius: 10px;
+    background: rgba(15,12,7,0.85); padding: 22px 24px; margin-bottom: 22px;
+  }
+  .day-badge {
+    display: inline-block; background: #d4af37; color: #110d06;
+    font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+  }
+  .day-theme { font-size: 18px; color: #f3c34e; font-weight: bold; margin-bottom: 8px; }
+  .day-prayer { font-style: italic; color: #fdfaf0; line-height: 1.7; margin-bottom: 10px; }
+  .day-action { font-size: 14px; color: #c4b58e; border-top: 1px dashed rgba(212,175,55,0.2); padding-top: 8px; }
+
+  /* Personalization Slot */
+  .fiel-name {
+    color: #f7d873; font-weight: bold; text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  /* Cover Design */
+  .cover {
+    text-align: center; padding: 90px 40px;
+    border: 3px solid #d4af37;
+    box-shadow: 0 0 70px rgba(212,175,55,0.2), inset 0 0 70px rgba(212,175,55,0.08);
+  }
+  .cover-logo { width: 220px; max-width: 70%; margin: 0 auto 30px; display: block; filter: drop-shadow(0 0 25px rgba(243,195,78,0.5)); }
+  .cover-pre { font-size: 15px; letter-spacing: 4px; text-transform: uppercase; color: #c2ab72; margin-bottom: 16px; }
+  .cover-title { font-size: 46px; line-height: 1.15; color: #f3c34e; margin-bottom: 18px; text-shadow: 0 0 35px rgba(243,195,78,0.35); }
+  .cover-sub { font-size: 20px; line-height: 1.5; color: #e8dbb7; max-width: 600px; margin: 0 auto 40px; font-style: italic; }
+  .cover-seal {
+    width: 110px; height: 110px; margin: 0 auto 35px; border-radius: 50%;
+    border: 2px dashed #d4af37; display: flex; align-items: center; justify-content: center;
+    color: #f3c34e; font-size: 44px; box-shadow: 0 0 30px rgba(212,175,55,0.3);
+  }
+  .cover-meta {
+    background: rgba(22,17,10,0.9); border: 1.5px solid #665223; border-radius: 10px;
+    padding: 20px; max-width: 460px; margin: 0 auto;
+  }
+  .cover-meta-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+  .cover-meta-row:last-child { margin-bottom: 0; }
+  .cover-meta-label { color: #a39572; text-transform: uppercase; letter-spacing: 1px; }
+  .cover-meta-val { color: #f7d873; font-weight: bold; }
+
+  /* Certificate Page */
+  .cert-box {
+    border: 3px double #d4af37; border-radius: 16px; padding: 45px 35px;
+    text-align: center; background: rgba(18,14,8,0.9); margin-top: 30px;
+  }
+  .cert-stamp {
+    font-size: 50px; color: #f3c34e; margin-bottom: 14px;
+  }
+  .cert-sign {
+    margin-top: 40px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;
+  }
+  .sign-line {
+    border-top: 1px solid #d4af37; width: 220px; padding-top: 8px; font-size: 13px; color: #b7a984;
+  }
+
+  /* ================= PRINT STYLESHEET (CLEAN PDF LUXURY) ================= */
+  @media print {
+    .toolbar { display: none !important; }
+    html, body {
+      background: #ffffff !important;
+      color: #1a1a1a !important;
+      font-size: 12pt !important;
+      line-height: 1.65 !important;
+    }
+    .book-container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    .sheet {
+      background: #ffffff !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      page-break-after: always !important;
+    }
+    .sheet::before { display: none !important; }
+    h1, h2, h3, h4 { color: #7a5c10 !important; text-shadow: none !important; }
+    h1 { font-size: 26pt !important; }
+    h2 { font-size: 18pt !important; border-bottom: 1px solid #c2a860 !important; }
+    h3 { font-size: 14pt !important; color: #222 !important; }
+    p { color: #222 !important; }
+    .lead { color: #444 !important; }
+    .decree-box {
+      background: #faf7ee !important;
+      border: 1.5pt solid #9c7d24 !important;
+      color: #111 !important;
+      box-shadow: none !important;
+      page-break-inside: avoid !important;
+    }
+    .decree-box .d-title { color: #7a5c10 !important; }
+    .decree-box .d-body { color: #111 !important; }
+    .scripture-card {
+      background: #fbf9f2 !important;
+      border-left: 3pt solid #9c7d24 !important;
+      color: #222 !important;
+      page-break-inside: avoid !important;
+    }
+    .portal-item {
+      background: #fbf9f2 !important;
+      border: 1pt solid #ddd !important;
+      page-break-inside: avoid !important;
+    }
+    .portal-thumb { border: 1pt solid #9c7d24 !important; box-shadow: none !important; }
+    .day-card {
+      background: #fdfcf8 !important;
+      border: 1pt solid #ccc !important;
+      page-break-inside: avoid !important;
+      color: #111 !important;
+    }
+    .day-badge { background: #7a5c10 !important; color: #fff !important; }
+    .day-theme { color: #7a5c10 !important; }
+    .day-prayer { color: #111 !important; }
+    .day-action { color: #555 !important; border-top: 1pt dashed #aaa !important; }
+    .cover {
+      border: 2pt solid #9c7d24 !important;
+      box-shadow: none !important;
+      page-break-after: always !important;
+      height: 96vh !important;
+      display: flex !important; flex-direction: column !important; justify-content: center !important;
+    }
+    .cover-title { color: #7a5c10 !important; text-shadow: none !important; }
+    .cover-meta { background: #fdfbf5 !important; border: 1pt solid #c2a860 !important; }
+    .cover-meta-label { color: #666 !important; }
+    .cover-meta-val { color: #7a5c10 !important; }
+    .cert-box {
+      border: 2pt solid #9c7d24 !important; background: #fff !important; page-break-inside: avoid !important;
+    }
+    .fiel-name { color: #7a5c10 !important; }
+  }
+
+  @media (max-width: 768px) {
+    .sheet { padding: 40px 22px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; }
+    .cover-title { font-size: 32px; }
+    .portal-item { flex-direction: column; text-align: center; }
+    .portal-desc h4 { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PERSONALIZATION CONTROL BAR -->
+<div class="toolbar">
+  <span class="toolbar-label">Consagração do Fiel:</span>
+  <input type="text" id="userNameInput" class="toolbar-input" placeholder="Escreva o seu nome completo...">
+  <button class="toolbar-btn" onclick="applyPersonalization()">✦ Consagrar Manuscrito ✦</button>
+  <button class="toolbar-btn pdf" onclick="window.print()">🖨️ Descarregar em PDF (Ctrl+P)</button>
+</div>
+
+<div class="book-container">
+
+  <!-- ==================== CAPA ==================== -->
+  <section class="sheet cover">
+    <div class="cover-pre">Compêndio Sagrado de Fé, Autoridade e Restituição</div>
+    <div class="cover-seal">✦</div>
+    <h1 class="cover-title">O MANUSCRITO<br>SAGRADO</h1>
+    <div class="cover-sub">O Código Divino da Multiplicação 100x &amp; A Quebra Definitiva dos Ciclos de Escassez</div>
+    
+    <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-row">
+        <span class="cover-meta-label">Consagrado em nome de:</span>
+        <span class="cover-meta-val fiel-name" id="coverName">Irmão(ã) em Cristo</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cover-meta-label">Grau de Aliança:</span>
+        <span class="cover-meta-val">Semente de Fé Ativada</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cover-meta-label">Decreto Espiritual:</span>
+        <span class="cover-meta-val">Restituição &amp; Prosperidade em Dobro</span>
+      </div>
+      <div class="cover-meta-row">
+        <span class="cover-meta-label">Data de Consagração:</span>
+        <span class="cover-meta-val" id="coverDate">Hoje</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PREFÁCIO: CARTA DOS INTERCESSORES ==================== -->
+  <section class="sheet">
+    <div class="ornament">✦</div>
+    <h2>Carta de Acolhimento da Equipa de Intercessão</h2>
+    <p class="lead">"Não fostes vós que Me escolhestes a Mim; pelo contrário, Eu vos escolhi a vós outros e vos designei para que vades e deis fruto, e o vosso fruto permaneça." (João 15:16)</p>
+
+    <p class="drop-cap">A paz esteja consigo e sobre a sua casa, amado(a) <span class="fiel-name">irmão(ã)</span>. Quando esteve diante da sua decisão e escolheu plantar a sua semente de fé, uma notificação solene chegou diante da nossa equipa de oração e intercessão.</p>
+
+    <p>Queremos que saiba algo de profunda importância: <strong>o seu nome não foi esquecido no éter da internet</strong>. Por detrás de cada página, de cada oração e de cada linha deste Manuscrito, existe uma equipa pastoral consagrada que apresenta diariamente os nomes de todos os fiéis diante do Altar do Altíssimo.</p>
+
+    <p>Sabemos exatamente as dores que carregou até ao dia de hoje: as noites em claro a olhar para o teto a pensar como pagaria as contas do mês seguinte, o cansaço inexplicável no peito, as portas profissionais que pareciam fechar-se sem explicação e aquela sensação terrível de que a sua vida estava presa num ciclo sem fim.</p>
+
+    <div class="scripture-card">
+      "Porque Eu bem sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais."
+      <cite>Jeremias 29:11</cite>
+    </div>
+
+    <p>Este Manuscrito não é um simples e-book ou manual técnico de autoajuda. Ele é um <strong>Tratado Espiritual de Autoridade</strong>. O que tem nas suas mãos agora é a chave para alinhar a sua fala, os seus pensamentos e as suas ações diárias com as promessas inquebráveis de Deus.</p>
+
+    <div class="decree-box">
+      <span class="d-title">Decreto de Acolhimento &amp; Selamento</span>
+      <div class="d-body">
+        "Em nome do Pai, do Filho e do Espírito Santo, eu recebo este Manuscrito Sagrado como um sinal vivo de que o meu deserto chegou ao fim. O Senhor é o meu pastor, e nada me faltará. Amém!"
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CAPÍTULO 1 ==================== -->
+  <section class="sheet">
+    <div class="ornament">✦</div>
+    <h2>Capítulo I: A Lei Espiritual da Multiplicação 100x</h2>
+    
+    <p class="drop-cap">Durante a sua jornada inicial, quando respondeu com honestidade ao valor que tinha disponível na sua conta bancária, uma operação sobrenatural foi ativada diante dos seus olhos: <strong>a multiplicação por 100x</strong>.</p>
+
+    <p>A maioria das pessoas vive limitada pela matemática dos homens: <em>trabalhar 30 dias para receber um salário subtraído pelas dívidas</em>. Na matemática do mundo, se você tem 1.000€, a sua mente só consegue conceber poupar 50€ ou 100€ ao final de um mês extenuante. Isso é a lógica da <strong>adição e escassez</strong>.</p>
+
+    <p>Porém, a economia do Reino de Deus nunca funcionou por adição. O Deus de Abraão, Isaque e Jacó opera exclusivamente através da lei da <strong>multiplicação sobrenatural</strong>:</p>
+
+    <div class="scripture-card">
+      "Semeou Isaque naquela terra e, no mesmo ano, recolheu cento por um, porque o Senhor o abençoava. Enriqueceu-se o homem, foi-se enriquecendo mais e mais, até que se tornou mui poderoso."
+      <cite>Gênesis 26:12-13</cite>
+    </div>
+
+    <p>Repare num detalhe bíblico que a maioria ignora: <strong>Isaque colheu cento por um num ano de grande fome e seca extrema</strong>! Quando a terra estava estéril e todos os vizinhos faliam ao seu redor, a semente de Isaque multiplicou cem vezes mais porque a sua aliança não era com o clima da terra, mas sim com a Promessa do Céu.</p>
+
+    <h3>O Segredo da Semente de Fé</h3>
+    <p>Uma semente de maçã é minúscula e insignificante aos olhos humanos. Mas dentro daquela pequena semente não existe apenas uma maçã; existem milhares de árvores, milhares de pomares e um ciclo infinito de colheitas. Quando você planta com fé e com propósito, você não está a gastar o seu recurso: <strong>está a transferir a sua causa para a jurisdição de Deus</strong>.</p>
+
+    <div class="decree-box">
+      <span class="d-title">Ativação do Código de Isaque (100x)</span>
+      <div class="d-body">
+        "Declaro hoje sobre a minha vida, <span class="fiel-name">irmão(ã)</span>: a terra onde piso será fértil! Toda a escassez que assolou a minha família é anulada pelo Sangue da Aliança. Eu recebo a unção da multiplicação a cento por um em todos os meus caminhos!"
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CAPÍTULO 2 ==================== -->
+  <section class="sheet">
+    <div class="ornament">✦</div>
+    <h2>Capítulo II: As 3 Grandes Provações Bíblicas (José, Abraão e Jó)</h2>
+    
+    <p class="drop-cap">Se hoje se sente cansado(a), se já chorou em segredo ou se perguntou por que razão a sua vida parecia tão difícil enquanto pessoas sem caráter prosperavam, precisa de compreender os <strong>Três Ciclos de Provação Sagrada</strong>.</p>
+
+    <p>Nenhum grande homem ou mulher na Bíblia chegou à plenitude da bênção sem antes ser provado no fogo. O seu deserto atual não é uma punição de Deus; é a escola onde Ele está a forjar o seu caráter para que a prosperidade futura não o destrua.</p>
+
+    <h3>1. A Provação de José (O Ciclo da Espera e da Injustiça)</h3>
+    <p>José foi traído pelos seus próprios irmãos, vendido como escravo e injustamente encarcerado no calabouço egípcio por treze anos. Ele não cometeu qualquer pecado para estar ali. No entanto, a Bíblia relata três palavras repetidas vezes: <em>"O Senhor era com José"</em>.</p>
+    <p><strong>A Lição para Si:</strong> Mesmo quando o seu trabalho parece desvalorizado e a sua fidelidade não reconhecida, Deus está a posicioná-lo(a). Em menos de 24 horas, José saiu da prisão diretamente para o governo de todo o Egito. A sua virada também acontecerá com rapidez divina!</p>
+
+    <h3>2. A Provação de Abraão (O Salto de Fé no Escuro)</h3>
+    <p>Deus pediu a Abraão aquilo que ele mais amava: o seu único filho Isaque no alto do monte Moriá. Abraão não questionou, não murmurou e não hesitou. Ele subiu o monte crendo que Deus era poderoso até para ressuscitar os mortos.</p>
+    <p><strong>A Lição para Si:</strong> Deus não queria o filho de Abraão; Deus queria a confiança irrestrita do coração de Abraão. Quando Abraão levantou o cutelo, um anjo clamou: <em>"Não estendas a mão sobre o rapaz!"</em> e no mesmo instante um carneiro apareceu preso nos arbustos. <strong>A provisão só aparece depois de você dar o passo de fé!</strong></p>
+
+    <h3>3. A Provação de Jó (A Restituição em Dobro)</h3>
+    <p>Jó perdeu os seus bens, os seus filhos e a sua saúde num único dia trágico. Os seus amigos disseram que ele estava amaldiçoado. A sua própria esposa mandou-o amaldiçoar a Deus e morrer. Mas Jó respondeu com a mais poderosa declaração de fé da história:</p>
+
+    <div class="scripture-card">
+      "Porque eu sei que o meu Redentor vive, e que por fim se levantará sobre a terra."
+      <cite>Jó 19:25</cite>
+    </div>
+
+    <p>E qual foi o desfecho de Jó? <em>"O Senhor deu a Jó o dobro de tudo o que antes possuíra... e abençoou o último estado de Jó mais do que o primeiro."</em> (Jó 42:10-12).</p>
+
+    <div class="decree-box">
+      <span class="d-title">Decreto das 3 Vitórias</span>
+      <div class="d-body">
+        "Como José, saio da prisão da escassez para o palácio da providência!<br>
+        Como Abraão, confio plenamente e vejo a provisão no monte!<br>
+        Como Jó, recebo do Senhor a minha bênção e restituição em dobro!"
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CAPÍTULO 3 ==================== -->
+  <section class="sheet">
+    <div class="ornament">✦</div>
+    <h2>Capítulo III: Quebra Definitiva dos 4 Bloqueios Espirituais</h2>
+
+    <p class="drop-cap">No seu diagnóstico espiritual, identificou-se que a maioria das pessoas não prospera porque carrega amarras invisíveis na alma. A Bíblia adverte: <em>"O meu povo perece por falta de conhecimento"</em> (Oseias 4:6). Vamos quebrar agora cada um dos quatro bloqueios que travaram o seu destino até aqui:</p>
+
+    <h3>Bloqueio 1: O Sentimento de Maldição Hereditária</h3>
+    <p>Se os seus pais ou avós viveram afundados em dívidas, brigas e escassez, existe uma tendência espiritual de repetição de padrões. Mas Gálatas 3:13 afirma: <em>"Cristo nos resgatou da maldição da lei, fazendo-Se maldição por nós"</em>. A partir do momento em que consagra este Manuscrito, essa linha genética de pobreza é cortada pela raiz.</p>
+
+    <h3>Bloqueio 2: A Síndrome do Não-Merecimento</h3>
+    <p>Muitas pessoas oram pedindo prosperidade, mas no fundo sentem-se indignas ou têm medo de que o dinheiro seja pecado. Saiba disto: <strong>a pobreza nunca foi virtude cristã</strong>. O dinheiro nas mãos de um servo de Deus transforma-se em pão para quem tem fome, paz para a família e sustento para as boas obras. Você é filho(a) do Rei do Universo!</p>
+
+    <h3>Bloqueio 3: A Ansiedade e o Aperto no Peito</h3>
+    <p>A ansiedade é o sinal de que você está a tentar carregar nos seus próprios ombros o peso que pertence a Deus. Filipenses 4:6 instrui: <em>"Não andeis ansiosos por coisa alguma; antes, as vossas petições sejam conhecidas diante de Deus pela oração e súplica, com ação de graças"</em>.</p>
+
+    <h3>Bloqueio 4: As Palavras de Auto-Boicote</h3>
+    <p>Quantas vezes disse: <em>"As coisas estão tão difíceis"</em>, <em>"Nada dá certo para mim"</em> ou <em>"Não sei como vou sobreviver este mês"</em>? Provérbios 18:21 alerta: <strong>A morte e a vida estão no poder da língua</strong>. A partir de hoje, a sua boca só falará palavras de graça, vitória e abundância.</p>
+  </section>
+
+  <!-- ==================== CAPÍTULO 4 ==================== -->
+  <section class="sheet">
+    <div class="ornament">✦</div>
+    <h2>Capítulo IV: A Ativação dos 10 Portais de Prosperidade</h2>
+    <p class="lead">Eis os 10 Portais sagrados que foram desbloqueados durante o seu percurso no Altar da Fé:</p>
+
+    <!-- PORTAL 1 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="100X-god.jpg" alt="Multiplicação 100x"></div>
+      <div class="portal-desc">
+        <h4>1. Portal da Multiplicação 100x</h4>
+        <p>Ativação da unção de Isaque. Todo o recurso honesto que entra nas suas mãos deixa de minguar e passa a render com bênção multiplicadora.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 2 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="I-choose-my-future.jpg" alt="Eu Escolho o Meu Futuro"></div>
+      <div class="portal-desc">
+        <h4>2. Portal do Futuro Soberano</h4>
+        <p>A quebra do conformismo com a mediocridade. Deus devolve-lhe a visão e a coragem santa de sonhar grande e planear o seu amanhã com esperança.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 3 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="Faith.jpg" alt="Decisão de Fé"></div>
+      <div class="portal-desc">
+        <h4>3. Portal da Decisão de Fé</h4>
+        <p>A fé inabalável que move montanhas. O fim das dúvidas corrosivas e a convicção absoluta de que Deus já preparou a vitória antes mesmo da batalha.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 4 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="dream-house.jpg" alt="Casa dos Sonhos"></div>
+      <div class="portal-desc">
+        <h4>4. Portal do Lar em Paz e da Casa Própria</h4>
+        <p>Decreto de proteção sobre as quatro paredes da sua habitação. O fim das ameaças de despejo, dívidas de habitação e desassossego doméstico.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 5 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="Dream-car.jpg" alt="Carro dos Sonhos"></div>
+      <div class="portal-desc">
+        <h4>5. Portal da Dignidade e Mobilidade</h4>
+        <p>O acesso a meios materiais que tragam segurança, conforto e dignidade para si e para a sua família nos seus deslocamentos diários.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 6 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="family.jpg" alt="Família Feliz"></div>
+      <div class="portal-desc">
+        <h4>6. Portal da Família Abençoada</h4>
+        <p>Restauração de laços desfeitos, reconciliação entre pais e filhos e afastamento de espíritos de contenda e divisão no seio do lar.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 7 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="health.jpg" alt="Saúde Plena"></div>
+      <div class="portal-desc">
+        <h4>7. Portal da Saúde e Vitalidade</h4>
+        <p>Renovação física e alívio das dores crónicas. Vitalidade redobrada para acordar com ânimo e energia para construir o seu legado.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 8 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="abundance.jpg" alt="Abundância"></div>
+      <div class="portal-desc">
+        <h4>8. Portal da Abundância Inesperada</h4>
+        <p>Depósitos sobrenaturais de graça. Processos que estavam travados na justiça são liberados; heranças, dívidas perdoadas e oportunidades surgem do nada.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 9 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="100x-boost.jpg" alt="Impulso 100x"></div>
+      <div class="portal-desc">
+        <h4>9. Portal do Aceleramento Divino</h4>
+        <p>Tempo de compressão divina. O que levaria dez anos para alcançar pelo esforço comum, o favor de Deus realiza em semanas ou meses.</p>
+      </div>
+    </div>
+
+    <!-- PORTAL 10 -->
+    <div class="portal-item">
+      <div class="portal-thumb"><img src="blocks-broken.jpg" alt="Bloqueios Quebrados"></div>
+      <div class="portal-desc">
+        <h4>10. Portal das Cadeias Partidas</h4>
+        <p>Destruição total de qualquer olho gordo, inveja ou laço que tentava sabotar o seu sucesso. As portas do Céu ficam abertas permanentemente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CAPÍTULO 5: ROTEIRO DOS 21 DIAS ==================== -->
+  <section class="sheet">
+    <div class="ornament">✦</div>
+    <h2>Capítulo V: O Devocional dos 21 Dias de Ativação Diária</h2>
+    <p class="lead">Consagre 5 minutos todas as manhãs para ler o decreto em voz alta. A palavra profética emitida cria a realidade do seu dia.</p>
+
+    <!-- DIA 1 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 1</div>
+      <div class="day-theme">O Rompimento do Silêncio e da Escassez</div>
+      <div class="day-prayer">"Senhor meu Deus, quebrei hoje o silêncio da minha alma. Declaro que o passado de perdas não define o meu futuro. Eu sou abençoado(a) no campo e na cidade!"</div>
+      <div class="day-action">Ação de Fé: Diga três vezes em voz alta antes de sair de casa: 'A minha providência vem do Senhor'.</div>
+    </div>
+
+    <!-- DIA 2 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 2</div>
+      <div class="day-theme">Purificação das Palavras e da Mente</div>
+      <div class="day-prayer">"Pai celestial, coloco um anjo de guarda à porta dos meus lábios. Renuncio a toda a queixa, murmuração e derrotismo. A minha boca produzirá vida e lucro!"</div>
+      <div class="day-action">Ação de Fé: Não profira nenhuma reclamação sobre contas ou trabalho durante todo o dia de hoje.</div>
+    </div>
+
+    <!-- DIA 3 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 3</div>
+      <div class="day-theme">Reivindicação da Aliança de Abraão</div>
+      <div class="day-prayer">"Pela fé pertenço à linhagem de Abraão. Todas as bênçãos celestes de abundância e sabedoria correm em minha direção neste exato momento!"</div>
+      <div class="day-action">Ação de Fé: Escreva numa folha o seu maior objetivo financeiro do mês e coloque este Manuscrito por cima.</div>
+    </div>
+
+    <!-- DIA 4 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 4</div>
+      <div class="day-theme">A Unção da Multiplicação no Trabalho</div>
+      <div class="day-prayer">"Consagro as obras das minhas mãos. O meu ganho é abençoado, o meu cliente é atraído, o meu patrão e superiores reconhecem o meu valor com generosidade."</div>
+      <div class="day-action">Ação de Fé: Realize uma tarefa com 100% mais excelência do que o habitual, como oferta a Deus.</div>
+    </div>
+
+    <!-- DIA 5 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 5</div>
+      <div class="day-theme">Quebra da Inveja e dos Olhares Negativos</div>
+      <div class="day-prayer">"Nenhuma arma forjada contra mim prosperará; e toda a língua que se levantar contra mim em juízo, eu a condeno. O sangue de Cristo me reveste de invisibilidade contra o mal."</div>
+      <div class="day-action">Ação de Fé: Tome um copo de água agradecendo a Deus por blindar o seu corpo e o seu espírito.</div>
+    </div>
+
+    <!-- DIA 6 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 6</div>
+      <div class="day-theme">Restituição do Tempo Perdido</div>
+      <div class="day-prayer">"Deus restitui os anos que o gafanhoto devorador consumiu! Em 2026 recupero a paz, o dinheiro e o prestígio que foram injustamente arrancados da minha história."</div>
+      <div class="day-action">Ação de Fé: Liberte o perdão no seu íntimo a qualquer pessoa que no passado lhe deu um prejuízo.</div>
+    </div>
+
+    <!-- DIA 7 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 7</div>
+      <div class="day-theme">O Repouso na Graça e na Confiança</div>
+      <div class="day-prayer">"Eu descanso no Teu favor, Senhor. Sei que estás a trabalhar em segredo nos bastidores das minhas finanças enquanto durmo em paz."</div>
+      <div class="day-action">Ação de Fé: Dedique uma hora do dia para estar em silêncio e agradecer pelas coisas boas que já tem.</div>
+    </div>
+
+    <!-- DIA 8 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 8</div>
+      <div class="day-theme">Oração Pelas Portas Fechadas que Vão Abrir</div>
+      <div class="day-prayer">"Aquele que tem a Chave de David abre e ninguém fecha. Declaro que uma oportunidade nova de ganho e crescimento financeiro é desbloqueada para mim!"</div>
+      <div class="day-action">Ação de Fé: Envie uma mensagem de bênção ou agradecimento a um contacto profissional antigo.</div>
+    </div>
+
+    <!-- DIA 9 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 9</div>
+      <div class="day-theme">Abundância Sobre a Mesa e a Família</div>
+      <div class="day-prayer">"A mesa da minha família nunca mais sofrerá com escassez. Haverá fartura, doçura e alegria entre todos os meus familiares!"</div>
+      <div class="day-action">Ação de Fé: Faça uma refeição em família ou ore abençoando o alimento que está no seu prato.</div>
+    </div>
+
+    <!-- DIA 10 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 10</div>
+      <div class="day-theme">A Graça dos Contratos e Vendas</div>
+      <div class="day-prayer">"Onde quer que eu coloque a planta dos meus pés, haverá prosperidade. Os meus serviços e o meu esforço encontram portas de ouro abertas!"</div>
+      <div class="day-action">Ação de Fé: Arrume e limpe a sua carteira ou o seu ambiente de trabalho retirando papéis velhos e recibos inúteis.</div>
+    </div>
+
+    <!-- DIA 11 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 11</div>
+      <div class="day-theme">Destruição da Angústia e do Desespero</div>
+      <div class="day-prayer">"Sai agora todo o peso do meu peito! Em nome de Jesus, a paz que excede todo o entendimento guarda a minha mente e o meu coração."</div>
+      <div class="day-action">Ação de Fé: Respire fundo por 3 vezes afirmando: 'A paz de Deus reina sobre as minhas contas'.</div>
+    </div>
+
+    <!-- DIA 12 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 12</div>
+      <div class="day-theme">O Decreto da Casa Própria e do Imóvel Próspero</div>
+      <div class="day-prayer">"O Senhor é quem estabelece as fronteiras do meu lar com paz e segurança. Eu profetizo que habitarei num lugar seguro, espaçoso e cheio da glória de Deus!"</div>
+      <div class="day-action">Ação de Fé: Olhe para a foto da sua casa dos sonhos ou imagine a chave nas suas mãos com gratidão.</div>
+    </div>
+
+    <!-- DIA 13 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 13</div>
+      <div class="day-theme">Sabedoria de Salomão para Gerir Riquezas</div>
+      <div class="day-prayer">"Peço-Te sabedoria, Senhor, para multiplicar cada euro que chega às minhas mãos. Ensina-me a investir com visão e a gastar com discernimento santo."</div>
+      <div class="day-action">Ação de Fé: Anote detalhadamente os seus ganhos futuros e defina uma meta generosa de ajuda ao próximo.</div>
+    </div>
+
+    <!-- DIA 14 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 14</div>
+      <div class="day-theme">A Unção da Saúde e da Longevidade</div>
+      <div class="day-prayer">"Pelas Suas pisaduras fui sarado(a). A minha imunidade é forte, o meu vigor é restaurado como o da águia e a velhice me encontrará próspero(a) e são(ã)!"</div>
+      <div class="day-action">Ação de Fé: Faça uma caminhada ao ar livre louvando a Deus pelo ar que respira.</div>
+    </div>
+
+    <!-- DIA 15 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 15</div>
+      <div class="day-theme">O Fim das Dívidas e o Início da Poupança</div>
+      <div class="day-prayer">"Emprestarás a muitos e a ninguém tomarás emprestado; e dominarás sobre muitas nações. A minha condição de devedor(a) é transformada em credor(a) abençoado(a)!"</div>
+      <div class="day-action">Ação de Fé: Liste as dívidas existentes e declare sobre o papel: 'Pagas e liquidadas com o favor do Céu'.</div>
+    </div>
+
+    <!-- DIA 16 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 16</div>
+      <div class="day-theme">O Encontro com Pessoas de Destino</div>
+      <div class="day-prayer">"Deus atrai para a minha vida os contatos certos, mentores idôneos e parceiros sinceros. Todo o oportunista e falso amigo é afastado da minha jornada."</div>
+      <div class="day-action">Ação de Fé: Ore pela vida das pessoas que trabalham consigo ou que o(a) apoiam.</div>
+    </div>
+
+    <!-- DIA 17 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 17</div>
+      <div class="day-theme">Oração do Milagre Financeiro Urgente</div>
+      <div class="day-prayer">"Senhor da Providência, Tu que alimentaste milhares com apenas cinco pães e dois peixes, envia o milagre financeiro antes do fim desta semana. Eu creio!"</div>
+      <div class="day-action">Ação de Fé: Doe uma moeda ou pequena ajuda a alguém necessitado como selo da sua fé.</div>
+    </div>
+
+    <!-- DIA 18 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 18</div>
+      <div class="day-theme">Bênção Sobre a Descendência e Herdeiros</div>
+      <div class="day-prayer">"Os meus filhos e netos herdarão um nome limpo, património honrado e um testemunho inabalável de fé. A miséria nunca mais visitará a nossa família!"</div>
+      <div class="day-action">Ação de Fé: Abençoe os seus filhos ou familiares mais próximos com palavras de carinho e afirmação.</div>
+    </div>
+
+    <!-- DIA 19 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 19</div>
+      <div class="day-theme">A Revelação da Porção Dobrada de Jó</div>
+      <div class="day-prayer">"O que o inimigo tentou tirar em anos de angústia, o Senhor me devolve com juros do Céu. A minha taça transborda diante dos meus adversários!"</div>
+      <div class="day-action">Ação de Fé: Sorria no espelho e proclame: 'O meu Redentor vive e se levantará em meu favor'.</div>
+    </div>
+
+    <!-- DIA 20 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 20</div>
+      <div class="day-theme">A Consolidação da Vitória e da Autoridade</div>
+      <div class="day-prayer">"Estou firmado(a) sobre a Rocha. Nenhuma tempestade financeira ou crise do país me derrubará, porque a minha arca foi construída pela Palavra de Deus."</div>
+      <div class="day-action">Ação de Fé: Reveja tudo o que mudou na sua confiança interna desde o primeiro dia deste devocional.</div>
+    </div>
+
+    <!-- DIA 21 -->
+    <div class="day-card">
+      <div class="day-badge">Dia 21</div>
+      <div class="day-theme">O Selamento Eterno do Manuscrito Sagrado</div>
+      <div class="day-prayer">"Consumado está! Entrego o meu destino nas mãos do Altíssimo. Declaro que o meu ciclo de escassez morreu e a minha era de manifestação e abundância começou para sempre. Amém!"</div>
+      <div class="day-action">Ação de Fé: Assine o Certificado de Consagração logo abaixo e celebre a sua nova vida!</div>
+    </div>
+  </section>
+
+  <!-- ==================== CERTIFICADO DE CONSAGRAÇÃO ==================== -->
+  <section class="sheet">
+    <div class="cert-box">
+      <div class="cert-stamp">✦ ✦ ✦</div>
+      <h2>Certificado de Consagração Espiritual</h2>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto 20px;">Certifica-se por meio deste documento que o Manuscrito Sagrado foi oficialmente entregue e ativado na vida e linhagem de:</p>
+      
+      <div style="font-size: 28px; font-weight: bold; color: #f3c34e; margin: 15px 0;" class="fiel-name" id="certName">Irmão(ã) Consagrado(a)</div>
+
+      <p style="font-size: 15px; color: #c4b693; max-width: 580px; margin: 0 auto;">"O Senhor te abençoe e te guarde; o Senhor faça resplandecer o Seu rosto sobre ti e tenha misericórdia de ti; o Senhor sobre ti levante o Seu rosto e te dê a paz." (Números 6:24-26)</p>
+
+      <div class="cert-sign">
+        <div class="sign-line">
+          <b>Equipa de Intercessão &amp; Aliança</b><br>
+          Ministério Plan Faith &middot; Hora de Prosperar
+        </div>
+        <div class="sign-line">
+          <b>Assinatura do(a) Fiel</b><br>
+          <span class="fiel-name" id="signName">Assinatura Espiritual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function applyPersonalization() {
+    const input = document.getElementById('userNameInput').value.trim();
+    if (!input) {
+      alert("Por favor, insira o seu nome para personalizar o documento.");
+      return;
+    }
+    const name = input;
+    document.querySelectorAll('.fiel-name').forEach(el => el.textContent = name);
+    document.getElementById('coverName').textContent = name;
+    document.getElementById('certName').textContent = name;
+    document.getElementById('signName').textContent = name;
+    document.getElementById('coverDate').textContent = new Date().toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' });
+    try {
+      localStorage.setItem('manuscrito_fiel_name', name);
+    } catch(e){}
+    alert("✦ Manuscrito Sagrado consagrado em nome de " + name + "! Agora pode ler ou clicar em 'Descarregar em PDF'.");
+  }
+
+  // Auto-fill from localStorage if available
+  window.addEventListener('DOMContentLoaded', () => {
+    try {
+      const saved = localStorage.getItem('manuscrito_fiel_name');
+      if (saved) {
+        document.getElementById('userNameInput').value = saved;
+        applyPersonalization();
+      } else {
+        document.getElementById('coverDate').textContent = new Date().toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+    } catch(e){}
+  });
+</script>
+
+</body>
+</html>
